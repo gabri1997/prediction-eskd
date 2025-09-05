@@ -62,9 +62,6 @@ greek['dateAssess'] = (pd.to_datetime(greek['Lastvisit'], format="%d/%m/%Y") - p
 
 #print(greek['dateAssess'].head())
 
-# Devo uniformare le colonne
-#final_cols = ['Interval', 'Gender', 'Age', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Hypertension', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
-
 # Ci vogiono delle funzioni per processare le colonne
 def process_gender(df, gender_col):
     df['gender'] = df[gender_col].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
@@ -98,19 +95,6 @@ def process_therapy_valiga(df):
 def process_eskd(df, eskd_col):
     df['Eskd'] = (df[eskd_col] == 1).astype(int)
     return df   
-
-# # Processamento Greek
-# greek = process_gender(greek, 'Gender1M2F')
-# greek = process_hypertension(greek, 'SystolicbloodpressuremmHg', 'DiastolicbloodpressuremmHg', 'AceiYN')
-# greek = process_proteinuria(greek, 'uprot_gday')
-# greek = process_therapy_greek(greek)
-# greek['Eskd'] = greek['ESKDcorretto'] if 'ESKDcorretto' in greek.columns else 'Absent'
-# # Processamento Valiga
-# valiga = process_gender(valiga, 'SEX')
-# valiga = process_hypertension(valiga, 'systolic', 'Diastolic')
-# valiga = process_proteinuria(valiga, 'Uprot')
-# valiga = process_therapy_valiga(valiga)
-# valiga = process_eskd(valiga, 'outcome')
 
 # Colonne di tipo data in Greek
 date_cols_greek = ['dateofbirth', 'RBdate', 'Lastvisit']
@@ -150,7 +134,7 @@ greek = process_gender(greek, 'Gender')
 greek = process_hypertension(greek, 'Systolic', 'Diastolic', 'Antihypertensive')
 greek = process_proteinuria(greek, 'Proteinuria')
 greek = process_therapy_greek(greek)
-greek['Eskd'] = greek['ESKDcorretto'] if 'ESKDcorretto' in greek.columns else 'Absent'
+greek = process_eskd(greek, 'Eskd')
 # Processamento Valiga
 valiga = process_gender(valiga, 'Gender')
 valiga = process_hypertension(valiga, 'Systolic', 'Diastolic')
@@ -176,8 +160,10 @@ else:
     valiga.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx', index=False)
     print("File salvato come cleaned_valiga.xlsx")
 
-
-
-
 print('Colonne greek: ',greek.columns)
 print('Colonne valiga: ',valiga.columns)
+
+# Ora voglio unire i due dataframe e salvarli in un unico file excel
+combined = pd.concat([greek, valiga], ignore_index=True)
+combined.to_excel('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx', index=False)
+print("File salvato come combined_cleaned.xlsx")
