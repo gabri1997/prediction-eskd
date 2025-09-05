@@ -17,7 +17,9 @@ Then I would like to have something like:
 
 Code|Gender|Age|AssesDate|Hypertesnion|M|E|S|T|C|Proteinuria|Antihypertensive|Immunosuppressants|FishOil
 
-where Antihypertensive|Immunosuppressants|FishOil are the Therapy 
+where Antihypertensive|Immunosuppressants|FishOil are the Therapy.
+
+In Greek file have been added the column dateAssess that is the difference in days between Lastvisit and RBdate.
 
 """
 
@@ -78,4 +80,9 @@ else:
     valiga.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx', index=False)
     print("File salvato come cleaned_valiga.xlsx")
 
+print('Colonne greek: ',greek.columns)
+print('Colonne valiga: ',valiga.columns)
+ 
+# Devo uniformare le colonne
+final_cols = ['Interval', 'Gender', 'Age', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Hypertension', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
 
