@@ -73,7 +73,6 @@ else:
     greek.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx', index=False)
     print(f"File salvato come {out_greek_path}")
 
-
 if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'):
     print("Il file cleaned_valiga.xlsx esiste già. Non verrà sovrascritto.")
 else:
