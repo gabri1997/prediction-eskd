@@ -86,31 +86,31 @@ def process_proteinuria(df, prot_col):
     df['Proteinuria'] = pd.to_numeric(df[prot_col], errors='coerce')
     return df
 def process_therapy_greek(df):
-    df['Antihypertensive'] = (df['AceiYN'] == 'Y').astype(int)
+    df['Antihypertensive'] = (df['Antihypertensive'] == 'Y').astype(int)
     df['Immunosuppressants'] = ((df['CsIm'] == 'Y') | (df['AZA'] == 'Y') | (df['CELLCEPT'] == 'Y')).astype(int)
-    df['FishOil'] = (df['Fishoil'] == 'Y').astype(int)
+    df['FishOil'] = (df['FishOil'] == 'Y').astype(int)
     return df
 def process_therapy_valiga(df):
-    df['Antihypertensive'] = (df['Nb of Bpmeds'] > 0).astype(int)
+    df['Antihypertensive'] = (df['Nb_of_Bpmeds'] > 0).astype(int)
     df['Immunosuppressants'] = (df['Immunotherapies'] == 'Y').astype(int)
-    df['FishOil'] = (df['fish oil'] == 'Y').astype(int)
+    df['FishOil'] = (df['FishOil'] == 'Y').astype(int)
     return df
 def process_eskd(df, eskd_col):
     df['Eskd'] = (df[eskd_col] == 1).astype(int)
     return df   
 
-# Processamento Greek
-greek = process_gender(greek, 'Gender1M2F')
-greek = process_hypertension(greek, 'SystolicbloodpressuremmHg', 'DiastolicbloodpressuremmHg', 'AceiYN')
-greek = process_proteinuria(greek, 'uprot_gday')
-greek = process_therapy_greek(greek)
-greek['Eskd'] = greek['ESKDcorretto'] if 'ESKDcorretto' in greek.columns else 'Absent'
-# Processamento Valiga
-valiga = process_gender(valiga, 'SEX')
-valiga = process_hypertension(valiga, 'systolic', 'Diastolic')
-valiga = process_proteinuria(valiga, 'Uprot')
-valiga = process_therapy_valiga(valiga)
-valiga = process_eskd(valiga, 'outcome')
+# # Processamento Greek
+# greek = process_gender(greek, 'Gender1M2F')
+# greek = process_hypertension(greek, 'SystolicbloodpressuremmHg', 'DiastolicbloodpressuremmHg', 'AceiYN')
+# greek = process_proteinuria(greek, 'uprot_gday')
+# greek = process_therapy_greek(greek)
+# greek['Eskd'] = greek['ESKDcorretto'] if 'ESKDcorretto' in greek.columns else 'Absent'
+# # Processamento Valiga
+# valiga = process_gender(valiga, 'SEX')
+# valiga = process_hypertension(valiga, 'systolic', 'Diastolic')
+# valiga = process_proteinuria(valiga, 'Uprot')
+# valiga = process_therapy_valiga(valiga)
+# valiga = process_eskd(valiga, 'outcome')
 
 # Colonne di tipo data in Greek
 date_cols_greek = ['dateofbirth', 'RBdate', 'Lastvisit']
@@ -141,8 +141,23 @@ valiga.rename(columns={
     'RAS blockers': 'RAS_blockers',
     'fish oil': 'FishOil',
     'Immunotherapies': 'Immunotherapies',
-    'age': 'Age'
+    'age': 'Age',
+    'outcome': 'Eskd'
 }, inplace=True)
+
+# Processamento Greek
+greek = process_gender(greek, 'Gender')
+greek = process_hypertension(greek, 'Systolic', 'Diastolic', 'Antihypertensive')
+greek = process_proteinuria(greek, 'Proteinuria')
+greek = process_therapy_greek(greek)
+greek['Eskd'] = greek['ESKDcorretto'] if 'ESKDcorretto' in greek.columns else 'Absent'
+# Processamento Valiga
+valiga = process_gender(valiga, 'Gender')
+valiga = process_hypertension(valiga, 'Systolic', 'Diastolic')
+valiga = process_proteinuria(valiga, 'Proteinuria')
+valiga = process_therapy_valiga(valiga)
+valiga = process_eskd(valiga, 'Eskd')
+
 
 last_cols_to_keep = ['VALIGA_CODE','Gender', 'Age', 'dateAssess', 'Hypertension', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
 
@@ -160,6 +175,9 @@ if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'):
 else:
     valiga.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx', index=False)
     print("File salvato come cleaned_valiga.xlsx")
+
+
+
 
 print('Colonne greek: ',greek.columns)
 print('Colonne valiga: ',valiga.columns)
