@@ -27,13 +27,19 @@ import os
 
 greek_path = '/work/grana_far2023_fomo/ESKD/Data/greek.xls'
 valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx'
+out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx'
+out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
+
+def func(x):
+    dl = x.split()[0].split('-')
+    return f"{dl[1]}/{dl[2]}/{dl[0]}"
 
 def read_excel_auto(path):
     ext = os.path.splitext(path)[-1].lower()
     if ext == ".xls":
-        return pd.read_excel(path, engine="xlrd")
+        return pd.read_excel(path, engine="xlrd", parse_dates=True)
     elif ext == ".xlsx":
-        return pd.read_excel(path, engine="openpyxl")
+        return pd.read_excel(path, engine="openpyxl", parse_dates=True)
     else:
         raise ValueError(f"Formato non supportato: {ext}")
 
@@ -46,4 +52,30 @@ print("Colonne Valiga:", valiga.columns.tolist())
 # Selezione delle colonne rilevanti
 greek_relevant_cols = ['dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm']
 greek = greek[greek_relevant_cols]
-greek.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx', index=False)
+valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
+valiga = valiga[valiga_relevant_cols]
+
+# Voglio creare una nuova colonna in greek chiamata dateAsses che corrisponde alla differenza in giorni tra Lastvisit e RBdate
+greek['dateAssess'] = (pd.to_datetime(greek['Lastvisit'], format="%d/%m/%Y") - pd.to_datetime(greek['RBdate'], format="%d/%m/%Y")).dt.days
+
+print(greek['dateAssess'].head())
+
+# Colonne di tipo data in Greek
+date_cols_greek = ['dateofbirth', 'RBdate', 'Lastvisit']
+for col in date_cols_greek:
+    greek[col] = pd.to_datetime(greek[col], errors='coerce').dt.strftime('%d/%m/%Y')
+
+if os.path.exists(out_greek_path):
+    print(f"Il file {out_greek_path} esiste già. Non verrà sovrascritto.")
+else:
+    greek.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx', index=False)
+    print(f"File salvato come {out_greek_path}")
+
+
+if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'):
+    print("Il file cleaned_valiga.xlsx esiste già. Non verrà sovrascritto.")
+else:
+    valiga.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx', index=False)
+    print("File salvato come cleaned_valiga.xlsx")
+
+
