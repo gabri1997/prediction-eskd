@@ -58,6 +58,10 @@ greek = greek[greek_relevant_cols]
 valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
 valiga = valiga[valiga_relevant_cols]
 
+# Voglio contare i valori unici della colonna VALIGA_CODE in greek e valiga
+print(f"Valori unici in greek VALIGA_CODE: {greek['VALIGA_CODE'].nunique()}")
+print(f"Valori unici in valiga VALIGA CODE: {valiga['VALIGA CODE'].nunique()}")     
+
 # Voglio creare una nuova colonna in greek chiamata dateAsses che corrisponde alla differenza in giorni tra Lastvisit e RBdate
 greek['dateAssess'] = (pd.to_datetime(greek['Lastvisit'], format="%d/%m/%Y") - pd.to_datetime(greek['RBdate'], format="%d/%m/%Y")).dt.days
 
@@ -207,3 +211,13 @@ if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx'):
 else:   
     combined.to_excel('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx', index=False)
     print("File salvato come combined_cleaned.xlsx")
+
+# Ora devo generare il file finale dove per ogni codice mantengo solo le righe con dataAssess più alto
+final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
+final.to_excel('/work/grana_far2023_fomo/ESKD/Data/final_cleaned.xlsx', index=False)
+# Controllo se il file esiste già
+if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'):
+    print("Il file final_cleaned.xlsx esiste già. Non verrà sovrascritto.")
+else:   
+    final.to_excel('/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx', index=False)
+    print("File salvato come final_cleaned.xlsx")
