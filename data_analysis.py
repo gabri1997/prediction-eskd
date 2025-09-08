@@ -51,6 +51,7 @@ valiga = read_excel_auto(valiga_path)
 print("Colonne Greek:", greek.columns.tolist())
 print("Colonne Valiga:", valiga.columns.tolist())
 
+
 # Selezione delle colonne rilevanti
 greek_relevant_cols = ['VALIGA_CODE','dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm', 'ESKDcorretto']
 greek = greek[greek_relevant_cols]
@@ -78,23 +79,35 @@ def process_hypertension(df, sys_col, dia_col, acei_col=None):
     
     df['Hypertension'] = hypert.astype(int)
     return df
-
 def process_proteinuria(df, prot_col):
     df['Proteinuria'] = pd.to_numeric(df[prot_col], errors='coerce')
     return df
+
 def process_therapy_greek(df):
-    df['Antihypertensive'] = (df['Antihypertensive'] == 'Y').astype(int)
-    df['Immunosuppressants'] = ((df['CsIm'] == 'Y') | (df['AZA'] == 'Y') | (df['CELLCEPT'] == 'Y')).astype(int)
-    df['FishOil'] = (df['FishOil'] == 'Y').astype(int)
+    df['Antihypertensive'] = df['Antihypertensive'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
+
+    df['Immunosuppressants'] = (
+        df['CsIm'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
+        df['AZA'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
+        df['CELLCEPT'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64')
+    )
+
+    df['FishOil'] = df['FishOil'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
     return df
+
 def process_therapy_valiga(df):
-    df['Antihypertensive'] = (df['Nb_of_Bpmeds'] > 0).astype(int)
-    df['Immunosuppressants'] = (df['Immunotherapies'] == 'Y').astype(int)
-    df['FishOil'] = (df['FishOil'] == 'Y').astype(int)
+    df['Antihypertensive'] = (pd.to_numeric(df['Nb_of_Bpmeds'], errors='coerce') > 0).astype('Int64')
+
+    df['Immunosuppressants'] = df['Immunotherapies'].map({'Y': 1, 'Yes': 1, 1: 1, 
+                                                          'N': 0, 'No': 0, 0: 0}).astype('Int64')
+
+    df['FishOil'] = df['FishOil'].map({'Y': 1, 'Yes': 1, 1: 1, 
+                                       'N': 0, 'No': 0, 0: 0}).astype('Int64')
     return df
+
 def process_eskd(df, eskd_col):
-    df['Eskd'] = (df[eskd_col] == 1).astype(int)
-    return df   
+    df['Eskd'] = df[eskd_col].map({1: 1, '1': 1, 0: 0, '0': 0}).astype('Int64')
+    return df
 
 # Colonne di tipo data in Greek
 date_cols_greek = ['dateofbirth', 'RBdate', 'Lastvisit']
@@ -165,5 +178,32 @@ print('Colonne valiga: ',valiga.columns)
 
 # Ora voglio unire i due dataframe e salvarli in un unico file excel
 combined = pd.concat([greek, valiga], ignore_index=True)
-combined.to_excel('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx', index=False)
-print("File salvato come combined_cleaned.xlsx")
+
+# Prima di salavre, faccio due modifiche, faccio il round del valore dell'età, rinomino la colonna VALIGA_CODE in Code, e trasformo gender quando è 1 in M e 2 in F
+combined['Age'] = combined['Age'].round().astype('Int64')
+combined.rename(columns={'VALIGA_CODE': 'Code'}, inplace=True)
+combined['Gender'] = combined['Gender'].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
+
+# Voglio contare quanti sono i valori pari a 1 nella solonna FishOil
+fish_oil_count = combined['FishOil'].sum()
+print(f"Numero di pazienti che assumono FishOil: {fish_oil_count}")
+
+# Volgio contare quanti sono i valori pari a 1 nella colonna Immunosuppressants
+immunosuppressants_count = combined['Immunosuppressants'].sum()
+print(f"Numero di pazienti che assumono Immunosuppressants: {immunosuppressants_count}")
+
+# Volgio contare quante sono le righe totali
+total_rows = combined.shape[0]
+print(f"Numero totale di pazienti nel dataset combinato: {total_rows}")
+
+# Voglio contare quanti pazienti hanno valore eskd pari a 1
+eskd_count = combined['Eskd'].sum() 
+print(f"Numero di pazienti con ESKD: {eskd_count}")
+
+# Prima di salvare, controllo se il file esiste già
+
+if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx'):
+    print("Il file combined_cleaned.xlsx esiste già. Non verrà sovrascritto.")
+else:   
+    combined.to_excel('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx', index=False)
+    print("File salvato come combined_cleaned.xlsx")
