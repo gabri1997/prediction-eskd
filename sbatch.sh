@@ -4,10 +4,10 @@
 #SBATCH --output=res_ESKD_NN.out
 #SBATCH --error=res_ESKD_NN.err
 #SBATCH --job-name=ESKD_NN
-#SBATCH --time=1:00:00
+#SBATCH --time=2:00:00
 #SBATCH --mem=20G
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=2
 
 # Info sul job
 echo "Job iniziato su $(hostname)"
