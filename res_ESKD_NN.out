@@ -1,42 +1,42 @@
-Job iniziato su patagarro
-Data e ora: Tue Sep  9 23:06:35 CEST 2025
-GPU disponibile: NVIDIA L40S
+Job iniziato su rezzonico
+Data e ora: Wed Sep 10 12:37:32 CEST 2025
+GPU disponibile: Quadro RTX 5000
 
 === Fold 1 ===
-Accuracy: 0.7579, Precision: 0.4848, Recall: 0.7273, F1: 0.5818
-
-=== Fold 2 ===
 Accuracy: 0.7263, Precision: 0.4444, Recall: 0.7273, F1: 0.5517
 
+=== Fold 2 ===
+Accuracy: 0.7368, Precision: 0.4571, Recall: 0.7273, F1: 0.5614
+
 === Fold 3 ===
-Accuracy: 0.8316, Precision: 0.6000, Recall: 0.8182, F1: 0.6923
+Accuracy: 0.7684, Precision: 0.5000, Recall: 0.8636, F1: 0.6333
 
 === Fold 4 ===
-Accuracy: 0.6421, Precision: 0.3617, Recall: 0.8095, F1: 0.5000
+Accuracy: 0.6842, Precision: 0.4000, Recall: 0.8571, F1: 0.5455
 
 === Fold 5 ===
-Accuracy: 0.7579, Precision: 0.4667, Recall: 0.6667, F1: 0.5490
+Accuracy: 0.7053, Precision: 0.4054, Recall: 0.7143, F1: 0.5172
 
 === Fold 6 ===
-Accuracy: 0.7128, Precision: 0.4118, Recall: 0.6667, F1: 0.5091
+Accuracy: 0.7021, Precision: 0.4054, Recall: 0.7143, F1: 0.5172
 
 === Fold 7 ===
-Accuracy: 0.7128, Precision: 0.4000, Recall: 0.5714, F1: 0.4706
+Accuracy: 0.6596, Precision: 0.3226, Recall: 0.4762, F1: 0.3846
 
 === Fold 8 ===
-Accuracy: 0.8085, Precision: 0.5484, Recall: 0.8095, F1: 0.6538
+Accuracy: 0.8191, Precision: 0.5667, Recall: 0.8095, F1: 0.6667
 
 === Fold 9 ===
-Accuracy: 0.7340, Precision: 0.4375, Recall: 0.6667, F1: 0.5283
+Accuracy: 0.7766, Precision: 0.5000, Recall: 0.6190, F1: 0.5532
 
 === Fold 10 ===
-Accuracy: 0.6915, Precision: 0.3824, Recall: 0.6190, F1: 0.4727
+Accuracy: 0.6915, Precision: 0.3667, Recall: 0.5238, F1: 0.4314
 
 === Media 10-fold ===
-Accuracy: 0.7375
-Precision: 0.4538
-Recall: 0.7082
-F1-score: 0.5509
+Accuracy: 0.7270
+Precision: 0.4368
+Recall: 0.7032
+F1-score: 0.5362
 Job finito.
-Data e ora di fine: Tue Sep  9 23:08:01 CEST 2025
-GPU utilizzata: NVIDIA L40S
+Data e ora di fine: Wed Sep 10 12:39:39 CEST 2025
+GPU utilizzata: Quadro RTX 5000

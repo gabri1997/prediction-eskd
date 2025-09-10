@@ -80,13 +80,23 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y), 1):
     
     # Modello, loss, optimizer, scheduler
     model = SimpleBinaryNN(X_train.shape[1])
+
+    # Questa roba serve per l'ExponentialLR, il LR inizia a diminuire dopo 400 step e finisce di diminuire a 3200 step
+    initial_lr = 0.2
+    final_lr = 0.000001
+    step_start = 400
+    step_end = 3200
+    N = step_end - step_start
+    # Qua c'è la formula per calcolare il gamma
+    gamma = (final_lr / initial_lr) ** (1 / N)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
     criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 
-
+    
     # Training
+    global_step = 0
     num_epochs = 150
     for epoch in range(num_epochs):
         model.train()
@@ -96,9 +106,13 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y), 1):
             outputs = model(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
+            if global_step >= step_start and global_step <= step_end:
+                # Metto qui dentro lo step dello scheduler così si aggiorna ogni batch
+                scheduler.step()
+            global_step += 1
             optimizer.step()
             running_loss += loss.item() * inputs.size(0)
-        scheduler.step()
+            
         
     # Validazione
     model.eval()
