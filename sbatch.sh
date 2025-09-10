@@ -10,16 +10,15 @@
 #SBATCH --cpus-per-task=8
 
 # Info sul job
-echo "🔹 Job iniziato su $(hostname)"
-echo "🔹 Data e ora: $(date)"
-echo "🔹 GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
+echo "Job iniziato su $(hostname)"
+echo "Data e ora: $(date)"
+echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
 
 . /usr/local/anaconda3/etc/profile.d/conda.sh
 
 
 # Lancio il training script
 python /work/grana_far2023_fomo/ESKD/net.py
-
-echo "✅ Job completato con successo!"
-echo "🔹 Data e ora di fine: $(date)"
-echo "🔹 GPU utilizzata: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
+echo "Job finito."
+echo "Data e ora di fine: $(date)"
+echo "GPU utilizzata: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"

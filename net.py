@@ -80,12 +80,14 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y), 1):
     
     # Modello, loss, optimizer, scheduler
     model = SimpleBinaryNN(X_train.shape[1])
-    criterion = nn.BCEWithLogitsLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
-    
+    pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
+    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+
+
     # Training
-    num_epochs = 50
+    num_epochs = 150
     for epoch in range(num_epochs):
         model.train()
         running_loss = 0.0
