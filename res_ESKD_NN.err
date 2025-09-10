@@ -1,312 +1,21 @@
-/var/lib/slurm/slurmd/job2622600/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152514-l9fz27sm
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_1
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/l9fz27sm
-wandb: - 0.006 MB of 0.026 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▂▁▄▃▄▅▆▇▇▆▆▆▇▆▇▇█▇██▇▇▇▇▆▇▇█▇▇█▇██▇██▆▆▆
-wandb:     train/f1-score ▃▁▄▃▄▅▆▆▇▆▅▆▆▆▇▆▇▇▇█▅▆▇▇▅▆▇▇▆▇▇▆▇▇▆▇▇▆▅▅
-wandb:         train/loss ██▅▅▄▅▄▃▂▃▃▂▂▂▁▁▂▂▂▂▃▂▂▃▄▂▂▂▃▂▂▁▂▁▁▁▂▃▃▃
-wandb:    train/precision ▂▁▄▃▄▅▆▆▇▆▅▆▇▆▇▇█▇██▇▇▇▇▅▆▇█▆▇█▇██▇██▆▆▆
-wandb: train/recall-score ▄▁▄▂▂▄▅▄▆▆▄▆▆▅▅▅▅▇▆█▂▄▅▆▃▆▆▆▄▇▆▆▆▇▄▇▆▄▅▄
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.74824
-wandb:     train/f1-score 0.5754
-wandb:         train/loss 0.78205
-wandb:    train/precision 0.46326
-wandb: train/recall-score 0.75916
-wandb: 
-wandb: 🚀 View run ESKD_fold_1 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/l9fz27sm
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152514-l9fz27sm/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152532-lesne3fc
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_2
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/lesne3fc
-wandb: - 0.006 MB of 0.026 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▁▂▄▃▄▅▆▄▅▅▆▆▆▇▇▅▅█▆▆▆▆▇▅▆▆▆▆▆▆▆▆▄▇▆▆▆▅▅
-wandb:     train/f1-score ▂▁▂▄▃▄▅▆▄▅▄▅▆▇▇▆▅▄█▆▆▆▅▇▅▆▆▇▆▆▆▅▅▄▇▆▆▆▅▅
-wandb:         train/loss ██▇▄▅▃▂▂▃▂▂▂▂▂▃▂▂▃▁▂▂▃▂▁▃▁▂▁▂▂▂▂▂▂▁▂▂▂▂▃
-wandb:    train/precision ▁▁▁▄▃▄▅▆▄▄▄▅▆▆▇▆▅▅█▆▅▆▅▆▅▆▆▆▆▅▆▆▆▄▇▆▆▅▅▄
-wandb: train/recall-score ▆▁▄▆▃▄▆▅▃▇▃▃▇▇▆▆▆▃▇▆▆▆▃█▅▆▅▆▆▆▅▃▃▃█▆▅▆▆▅
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.74824
-wandb:     train/f1-score 0.58527
-wandb:         train/loss 0.75947
-wandb:    train/precision 0.46462
-wandb: train/recall-score 0.79058
-wandb: 
-wandb: 🚀 View run ESKD_fold_2 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/lesne3fc
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152532-lesne3fc/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152554-3onjogsz
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_3
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/3onjogsz
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.006 MB of 0.026 MB uploadedwandb: / 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▄▅▄▅▆▆▆▆▆▇▇█▇▇▆▆▆▇██▇▇▇▇▇▇▇▆▇█▇▇▇▇▆▆▇▆▇
-wandb:     train/f1-score ▁▂▄▃▅▆▆▆▆▆█▇▇▇▇▆▅▆▇██▇▆▇▇▇▇▇▆▇█▇▆▇▇▆▅█▆█
-wandb:         train/loss █▆▆▅▄▃▃▂▂▂▁▂▂▂▂▂▃▃▂▂▁▁▂▂▃▁▂▂▃▂▁▂▂▂▂▂▂▂▃▁
-wandb:    train/precision ▁▃▄▄▅▆▆▆▆▆▇▇▇▇▇▆▅▆▇█▇▇▇▇▇▇▇▇▆▇█▇▆▇▆▆▅▇▆▇
-wandb: train/recall-score ▃▁▃▂▄▇▅▅▅▆█▆▄▇▆▅▄▅▅▅▇▇▅▄▅▇▇▅▄▆▇▇▄▅▇▆▄█▅▇
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.76824
-wandb:     train/f1-score 0.60521
-wandb:         train/loss 0.72948
-wandb:    train/precision 0.49026
-wandb: train/recall-score 0.79058
-wandb: 
-wandb: 🚀 View run ESKD_fold_3 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/3onjogsz
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152554-3onjogsz/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152614-0shnwhr2
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_4
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/0shnwhr2
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.006 MB uploadedwandb: | 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▃▃▅▅▅▆▇▆▅▆▅▆▆▇██▅█▆▆█▇▆▇▇▇▆▆▇▇▆▆▆▆▆▆▇▆▆
-wandb:     train/f1-score ▁▂▃▅▄▃▅▇▅▅▅▄▅▆▇▇█▅█▅▆▇▆▆▇▇█▆▆▇▇▆▆▅▆▅▆▇▆▆
-wandb:         train/loss █▆▅▅▃▄▄▁▂▂▂▂▂▂▁▁▂▂▁▂▂▂▂▂▁▂▂▂▁▂▂▃▁▂▂▂▃▁▂▁
-wandb:    train/precision ▁▃▃▅▅▄▆▇▆▅▆▅▅▆▆██▅█▆▆▇▇▆▆▆▇▅▆▇▇▆▆▆▆▆▆▇▆▆
-wandb: train/recall-score ▃▁▃▆▁▂▅█▅▄▆▄▅▄█▆█▆▇▆▆█▄▆▇██▇▆▆▆▆▅▄▆▄▆█▇▅
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.76
-wandb:     train/f1-score 0.58871
-wandb:         train/loss 0.74542
-wandb:    train/precision 0.48026
-wandb: train/recall-score 0.76042
-wandb: 
-wandb: 🚀 View run ESKD_fold_4 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/0shnwhr2
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152614-0shnwhr2/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152637-mmo4vmaz
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_5
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/mmo4vmaz
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.006 MB of 0.026 MB uploadedwandb: / 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▃▅▆▆▆▇▇▇▇▆▇█▆▇▆▇▇▇▆▇▇▇█▇▇▇▇▇▅▇▆▇▇▆▇▇▇▆▇
-wandb:     train/f1-score ▁▂▅▅▇▅▇▇▆▆▆▇█▆▇▆▇█▇▆▇▇▆█▇▆▇▇▇▅▇▆▆▆▆▇▇▇▆▆
-wandb:         train/loss █▇▅▅▄▃▃▃▃▂▃▂▁▂▃▂▂▂▃▃▂▂▂▁▂▂▂▁▂▄▂▂▃▃▃▂▁▂▂▂
-wandb:    train/precision ▁▃▅▅▆▆▇▇▆▇▆▇▇▆▇▆▆▇▇▆▇▇▆█▇▇▇▇▇▅▇▆▇▆▆▇▇▇▆▇
-wandb: train/recall-score ▁▁▄▂▇▃▆▅▄▄▅▆█▅▅▅▆█▅▆▅█▅▇▅▃▄▆▅▃▆▅▄▂▃▇▆▅▅▄
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.74941
-wandb:     train/f1-score 0.57822
-wandb:         train/loss 0.7529
-wandb:    train/precision 0.46645
-wandb: train/recall-score 0.76042
-wandb: 
-wandb: 🚀 View run ESKD_fold_5 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/mmo4vmaz
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152637-mmo4vmaz/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152659-orcq2htf
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_6
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/orcq2htf
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.006 MB uploadedwandb: | 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▃▅▅▅▇▆▇▇▆▇▆▇▆▇▇▆▆▇██▇█▇▇▇███▆▇▇█▇▆█▇▇█▇
-wandb:     train/f1-score ▁▁▃▅▄▆▅▆▇▆▇▆▇▅▆▆▅▅▇▇▇▇▇▇▇▇▇▇▇▆▆▆█▇▆█▆▆█▇
-wandb:         train/loss █▇▅▆▄▃▄▃▂▃▃▃▃▄▃▂▃▂▂▂▂▂▂▂▂▂▃▃▂▃▃▂▂▂▃▃▃▃▁▂
-wandb:    train/precision ▁▂▅▅▄▆▆▆▇▆▇▆▇▆▆▆▆▆▇█▇▇█▇▇▇▇██▆▇▆█▇▆█▇▆█▇
-wandb: train/recall-score ▄▁▁▅▅▅▅▆▇▆▆▆▇▄▅▆▅▅█▆▇▇▇▇▇▇▇▇▆▇▆▅▇▆▅▇▆▅█▆
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.76616
-wandb:     train/f1-score 0.5996
-wandb:         train/loss 0.75072
-wandb:    train/precision 0.48852
-wandb: train/recall-score 0.77604
-wandb: 
-wandb: 🚀 View run ESKD_fold_6 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/orcq2htf
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152659-orcq2htf/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152721-bw0ecrs0
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_7
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/bw0ecrs0
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.006 MB of 0.026 MB uploadedwandb: / 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▃▄▅▄▅▆▆▇▇▅▆▆█▇▆▇▇▇▅▆▇▇▇▆▆▇▇▇▆▇▆▇▇▇▇█▇▇▇
-wandb:     train/f1-score ▁▃▄▄▄▄▆▆▆▇▄▆▆█▆▆▇▇▆▅▅▆▆▆▅▅▇▆▆▆▆▆▇▆▆▆█▇▇▇
-wandb:         train/loss █▇▆▅▅▄▄▂▂▁▃▂▃▁▂▂▂▂▁▃▃▂▂▂▂▂▂▂▂▃▂▂▃▂▂▃▁▁▂▂
-wandb:    train/precision ▁▃▄▅▄▄▆▆▆▇▅▆▆█▇▆▇▇▇▅▆▆▆▆▆▅▇▆▆▆▆▆▇▆▇▆█▇▇▇
-wandb: train/recall-score ▁▃▂▂▃▂▅▅▄▇▁▆▃▅▄▃▆▆▄▄▂▄▅▂▂▄▆▃▂▄▅▆▅▄▃▃█▆▄▆
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.77086
-wandb:     train/f1-score 0.6169
-wandb:         train/loss 0.72452
-wandb:    train/precision 0.49527
-wandb: train/recall-score 0.81771
-wandb: 
-wandb: 🚀 View run ESKD_fold_7 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/bw0ecrs0
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152721-bw0ecrs0/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152743-2340m6jt
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_8
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/2340m6jt
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.006 MB of 0.026 MB uploadedwandb: / 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▁▂▄▆▆▆▆▆▆▇▇▆▆█▇█▆▇▇▆▆█▇▇▇█▆▇▇▆▇▇█▅▆▇▇▇▆
-wandb:     train/f1-score ▁▂▂▃▆▅▅▅▅▆▆▇▅▅▇▇█▆▆▇▆▅▇▇▆▆█▅▆▇▆▆▇█▄▅▆▇▇▆
-wandb:         train/loss ██▇▅▄▄▃▃▃▃▂▁▂▃▂▂▂▂▃▁▂▃▃▁▂▂▂▂▂▁▂▂▃▂▃▂▂▃▃▂
-wandb:    train/precision ▁▁▂▄▆▆▆▅▆▆▇▇▆▆█▇█▆▇▇▆▆▇▇▇▆█▆▆▇▆▇▇█▅▆▆▇▇▆
-wandb: train/recall-score ▁▄▁▁▅▄▂▃▄▅▄▆▄▄▅▆▇▆▅▆▆▂▅▇▄▆▇▄▅▇▆▅▅█▂▄▅▅▆▅
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.74971
-wandb:     train/f1-score 0.58153
-wandb:         train/loss 0.74556
-wandb:    train/precision 0.46688
-wandb: train/recall-score 0.77083
-wandb: 
-wandb: 🚀 View run ESKD_fold_8 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/2340m6jt
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152743-2340m6jt/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152805-gg1swvrp
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_9
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/gg1swvrp
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.026 MB uploadedwandb: | 0.006 MB of 0.026 MB uploadedwandb: / 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▁▄▂▃▅▅▆▅▆▅▅▇▆▇▇▆▆▆▆▆▅▅▆▆█▆▇▆▆▅▆▆▆▇▆▇▆▆▆
-wandb:     train/f1-score ▁▁▄▂▃▅▅▆▅▇▅▅▆▆▇▆▆▆▆▆▆▆▄▆▅█▆▇▆▅▆▆▆▆▇▅▇▆▆▆
-wandb:         train/loss █▇▅▅▅▃▃▂▃▂▃▂▂▂▃▃▂▂▂▃▂▂▃▃▃▁▂▃▂▂▃▂▃▂▁▂▂▃▂▂
-wandb:    train/precision ▁▁▄▂▃▅▅▆▅▆▅▅▇▆▇▇▆▆▆▆▆▅▄▆▅█▆▇▆▆▅▆▆▆▆▅▆▆▆▆
-wandb: train/recall-score ▁▂▂▁▂▅▅█▅▇▄▄▃▅█▅▅▆▆▄▆▇▄▅▃▇▇▅▇▄█▆▇▇▆▅█▆▆▇
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.76616
-wandb:     train/f1-score 0.6012
-wandb:         train/loss 0.74214
-wandb:    train/precision 0.4886
-wandb: train/recall-score 0.78125
-wandb: 
-wandb: 🚀 View run ESKD_fold_9 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/gg1swvrp
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152805-gg1swvrp/logs
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.21.3 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250910_152826-jajzp4sw
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ESKD_fold_10
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/jajzp4sw
-wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.006 MB uploadedwandb: | 0.026 MB of 0.026 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:              epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:      learning_rate ████▇▅▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:     train/accuracy ▁▂▄▅▅▅▇▆▆▆▆▇▆▆▇█▇▇▆▇▇▆▇▆▇▆▇█▇▇▆▇▇▇▇█▇▆▆▇
-wandb:     train/f1-score ▁▁▄▄▅▄▅▅▅▅▆▇▅▅▆█▆▆▅▆▆▆▆▅▇▅▆▇▇▆▆▇▇▆▆▇▆▆▆▇
-wandb:         train/loss █▇▅▅▄▄▄▃▃▃▃▂▃▃▂▁▃▃▂▂▂▂▂▃▂▂▃▁▂▃▃▂▂▂▂▁▂▂▂▂
-wandb:    train/precision ▁▂▄▅▅▅▆▅▆▅▆▇▅▆▆█▆▆▆▇▇▆▇▆▇▆▇█▇▇▆▇▇▆▆█▆▆▆▇
-wandb: train/recall-score ▃▁▃▁▃▁▂▃▄▅▅▇▄▅▅█▅▅▄▆▅▇▄▄▆▄▃▆▅▃▅▆▄▄▄▆▅▆▆▇
-wandb: 
-wandb: Run summary:
-wandb:              epoch 149
-wandb:      learning_rate 0.0
-wandb:     train/accuracy 0.78378
-wandb:     train/f1-score 0.62903
-wandb:         train/loss 0.69873
-wandb:    train/precision 0.51316
-wandb: train/recall-score 0.8125
-wandb: 
-wandb: 🚀 View run ESKD_fold_10 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_nn/runs/jajzp4sw
-wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250910_152826-jajzp4sw/logs
+/var/lib/slurm/slurmd/job2622688/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: No such option: --fold
+Error: No such option: --fold
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: No such option: --fold
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: No such option: --fold
+Usage: wandb agent [OPTIONS] SWEEP_ID
+Try 'wandb agent --help' for help.
+
+Error: No such option: --fold

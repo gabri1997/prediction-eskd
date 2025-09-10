@@ -1,0 +1,22 @@
+program: net_sweep.py
+method: bayes
+metric:
+  name: train/f1-score
+  goal: maximize
+
+parameters:
+  fold:
+    values: [1,2,3,4,5]  # qui definisci i fold
+  learning_rate:
+    min: 0.0001
+    max: 0.1
+  dropout:
+    values: [0.1, 0.2, 0.3, 0.5]
+  batch_size:
+    values: [32, 64]
+  optimizer:
+    values: ["adam", "sgd"]
+
+# Numero di run da fare nello sweep
+# Perchè il concetto è provare piu run per ciascun fold
+count: 5

@@ -18,7 +18,9 @@ echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || ec
 
 
 # Lancio il training script
-python /work/grana_far2023_fomo/ESKD/net.py
+wandb agent gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD/xbymwqr1
+
+
 echo "Job finito."
 echo "Data e ora di fine: $(date)"
 echo "GPU utilizzata: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
