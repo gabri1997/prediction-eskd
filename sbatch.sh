@@ -4,8 +4,8 @@
 #SBATCH --output=res_ESKD_NN.out
 #SBATCH --error=res_ESKD_NN.err
 #SBATCH --job-name=ESKD_NN
-#SBATCH --time=10:00:00
-#SBATCH --mem=60G
+#SBATCH --time=1:00:00
+#SBATCH --mem=20G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 

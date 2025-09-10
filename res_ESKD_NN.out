@@ -1,42 +1,3044 @@
-Job iniziato su rezzonico
-Data e ora: Wed Sep 10 12:37:32 CEST 2025
-GPU disponibile: Quadro RTX 5000
+Job iniziato su labetty
+Data e ora: Wed Sep 10 15:25:02 CEST 2025
+GPU disponibile: NVIDIA L40S
+Feature shape: (945, 13), Labels shape: (945,)
 
 === Fold 1 ===
-Accuracy: 0.7263, Precision: 0.4444, Recall: 0.7273, F1: 0.5517
-
-=== Fold 2 ===
+Epoch 1/150
+Training Loss: 0.9739
+Epoch 2/150
+Training Loss: 0.8956
+Epoch 3/150
+Training Loss: 0.9023
+Epoch 4/150
+Training Loss: 0.8849
+Epoch 5/150
+Training Loss: 0.8765
+Epoch 6/150
+Training Loss: 0.8668
+Epoch 7/150
+Training Loss: 0.8521
+Epoch 8/150
+Training Loss: 0.8310
+Epoch 9/150
+Training Loss: 0.8719
+Epoch 10/150
+Training Loss: 0.8472
+Epoch 11/150
+Training Loss: 0.8482
+Epoch 12/150
+Training Loss: 0.8292
+Epoch 13/150
+Training Loss: 0.8095
+Epoch 14/150
+Training Loss: 0.8576
+Epoch 15/150
+Training Loss: 0.8315
+Epoch 16/150
+Training Loss: 0.7921
+Epoch 17/150
+Training Loss: 0.8315
+Epoch 18/150
+Training Loss: 0.8007
+Epoch 19/150
+Training Loss: 0.7873
+Epoch 20/150
+Training Loss: 0.8178
+Epoch 21/150
+Training Loss: 0.7561
+Epoch 22/150
+Training Loss: 0.8020
+Epoch 23/150
+Training Loss: 0.7824
+Epoch 24/150
+Training Loss: 0.7920
+Epoch 25/150
+Training Loss: 0.7729
+Epoch 26/150
+Training Loss: 0.7891
+Epoch 27/150
+Training Loss: 0.7905
+Epoch 28/150
+Training Loss: 0.7724
+Epoch 29/150
+Training Loss: 0.7649
+Epoch 30/150
+Training Loss: 0.7727
+Epoch 31/150
+Training Loss: 0.7671
+Epoch 32/150
+Training Loss: 0.7550
+Epoch 33/150
+Training Loss: 0.7889
+Epoch 34/150
+Training Loss: 0.7478
+Epoch 35/150
+Training Loss: 0.7444
+Epoch 36/150
+Training Loss: 0.7647
+Epoch 37/150
+Training Loss: 0.7592
+Epoch 38/150
+Training Loss: 0.7821
+Epoch 39/150
+Training Loss: 0.7700
+Epoch 40/150
+Training Loss: 0.7669
+Epoch 41/150
+Training Loss: 0.7790
+Epoch 42/150
+Training Loss: 0.7575
+Epoch 43/150
+Training Loss: 0.7821
+Epoch 44/150
+Training Loss: 0.7681
+Epoch 45/150
+Training Loss: 0.7722
+Epoch 46/150
+Training Loss: 0.7540
+Epoch 47/150
+Training Loss: 0.7335
+Epoch 48/150
+Training Loss: 0.7781
+Epoch 49/150
+Training Loss: 0.7521
+Epoch 50/150
+Training Loss: 0.7552
+Epoch 51/150
+Training Loss: 0.7383
+Epoch 52/150
+Training Loss: 0.7649
+Epoch 53/150
+Training Loss: 0.7764
+Epoch 54/150
+Training Loss: 0.7367
+Epoch 55/150
+Training Loss: 0.7621
+Epoch 56/150
+Training Loss: 0.7476
+Epoch 57/150
+Training Loss: 0.7721
+Epoch 58/150
+Training Loss: 0.7344
+Epoch 59/150
+Training Loss: 0.7609
+Epoch 60/150
+Training Loss: 0.7614
+Epoch 61/150
+Training Loss: 0.7922
+Epoch 62/150
+Training Loss: 0.7639
+Epoch 63/150
+Training Loss: 0.7412
+Epoch 64/150
+Training Loss: 0.7467
+Epoch 65/150
+Training Loss: 0.7682
+Epoch 66/150
+Training Loss: 0.7472
+Epoch 67/150
+Training Loss: 0.7618
+Epoch 68/150
+Training Loss: 0.7584
+Epoch 69/150
+Training Loss: 0.7132
+Epoch 70/150
+Training Loss: 0.7507
+Epoch 71/150
+Training Loss: 0.7536
+Epoch 72/150
+Training Loss: 0.7743
+Epoch 73/150
+Training Loss: 0.7833
+Epoch 74/150
+Training Loss: 0.7476
+Epoch 75/150
+Training Loss: 0.7506
+Epoch 76/150
+Training Loss: 0.7755
+Epoch 77/150
+Training Loss: 0.7390
+Epoch 78/150
+Training Loss: 0.7472
+Epoch 79/150
+Training Loss: 0.7445
+Epoch 80/150
+Training Loss: 0.7558
+Epoch 81/150
+Training Loss: 0.7528
+Epoch 82/150
+Training Loss: 0.7707
+Epoch 83/150
+Training Loss: 0.7488
+Epoch 84/150
+Training Loss: 0.7487
+Epoch 85/150
+Training Loss: 0.7662
+Epoch 86/150
+Training Loss: 0.7542
+Epoch 87/150
+Training Loss: 0.7550
+Epoch 88/150
+Training Loss: 0.7667
+Epoch 89/150
+Training Loss: 0.7489
+Epoch 90/150
+Training Loss: 0.7471
+Epoch 91/150
+Training Loss: 0.7641
+Epoch 92/150
+Training Loss: 0.7949
+Epoch 93/150
+Training Loss: 0.7645
+Epoch 94/150
+Training Loss: 0.7529
+Epoch 95/150
+Training Loss: 0.7509
+Epoch 96/150
+Training Loss: 0.7542
+Epoch 97/150
+Training Loss: 0.7716
+Epoch 98/150
+Training Loss: 0.7729
+Epoch 99/150
+Training Loss: 0.7501
+Epoch 100/150
+Training Loss: 0.7624
+Epoch 101/150
+Training Loss: 0.7426
+Epoch 102/150
+Training Loss: 0.7788
+Epoch 103/150
+Training Loss: 0.7471
+Epoch 104/150
+Training Loss: 0.7526
+Epoch 105/150
+Training Loss: 0.7567
+Epoch 106/150
+Training Loss: 0.7310
+Epoch 107/150
+Training Loss: 0.7479
+Epoch 108/150
+Training Loss: 0.7652
+Epoch 109/150
+Training Loss: 0.7709
+Epoch 110/150
+Training Loss: 0.7708
+Epoch 111/150
+Training Loss: 0.7436
+Epoch 112/150
+Training Loss: 0.7440
+Epoch 113/150
+Training Loss: 0.7518
+Epoch 114/150
+Training Loss: 0.7426
+Epoch 115/150
+Training Loss: 0.7353
+Epoch 116/150
+Training Loss: 0.7812
+Epoch 117/150
+Training Loss: 0.7437
+Epoch 118/150
+Training Loss: 0.7392
+Epoch 119/150
+Training Loss: 0.7511
+Epoch 120/150
+Training Loss: 0.7406
+Epoch 121/150
+Training Loss: 0.7757
+Epoch 122/150
+Training Loss: 0.7454
+Epoch 123/150
+Training Loss: 0.8029
+Epoch 124/150
+Training Loss: 0.7575
+Epoch 125/150
+Training Loss: 0.7517
+Epoch 126/150
+Training Loss: 0.7309
+Epoch 127/150
+Training Loss: 0.7650
+Epoch 128/150
+Training Loss: 0.7719
+Epoch 129/150
+Training Loss: 0.7722
+Epoch 130/150
+Training Loss: 0.7367
+Epoch 131/150
+Training Loss: 0.7224
+Epoch 132/150
+Training Loss: 0.7869
+Epoch 133/150
+Training Loss: 0.7739
+Epoch 134/150
+Training Loss: 0.7284
+Epoch 135/150
+Training Loss: 0.7568
+Epoch 136/150
+Training Loss: 0.7328
+Epoch 137/150
+Training Loss: 0.7379
+Epoch 138/150
+Training Loss: 0.7575
+Epoch 139/150
+Training Loss: 0.7561
+Epoch 140/150
+Training Loss: 0.7820
+Epoch 141/150
+Training Loss: 0.7895
+Epoch 142/150
+Training Loss: 0.7763
+Epoch 143/150
+Training Loss: 0.7674
+Epoch 144/150
+Training Loss: 0.7726
+Epoch 145/150
+Training Loss: 0.7736
+Epoch 146/150
+Training Loss: 0.7725
+Epoch 147/150
+Training Loss: 0.7515
+Epoch 148/150
+Training Loss: 0.7909
+Epoch 149/150
+Training Loss: 0.7566
+Epoch 150/150
+Training Loss: 0.7820
 Accuracy: 0.7368, Precision: 0.4571, Recall: 0.7273, F1: 0.5614
 
+=== Fold 2 ===
+Epoch 1/150
+Training Loss: 0.9083
+Epoch 2/150
+Training Loss: 0.8797
+Epoch 3/150
+Training Loss: 0.8756
+Epoch 4/150
+Training Loss: 0.8763
+Epoch 5/150
+Training Loss: 0.8548
+Epoch 6/150
+Training Loss: 0.8354
+Epoch 7/150
+Training Loss: 0.8445
+Epoch 8/150
+Training Loss: 0.8510
+Epoch 9/150
+Training Loss: 0.8354
+Epoch 10/150
+Training Loss: 0.8352
+Epoch 11/150
+Training Loss: 0.8497
+Epoch 12/150
+Training Loss: 0.7917
+Epoch 13/150
+Training Loss: 0.8177
+Epoch 14/150
+Training Loss: 0.8090
+Epoch 15/150
+Training Loss: 0.8114
+Epoch 16/150
+Training Loss: 0.8036
+Epoch 17/150
+Training Loss: 0.7842
+Epoch 18/150
+Training Loss: 0.7875
+Epoch 19/150
+Training Loss: 0.7859
+Epoch 20/150
+Training Loss: 0.7636
+Epoch 21/150
+Training Loss: 0.7878
+Epoch 22/150
+Training Loss: 0.7763
+Epoch 23/150
+Training Loss: 0.7560
+Epoch 24/150
+Training Loss: 0.7504
+Epoch 25/150
+Training Loss: 0.7455
+Epoch 26/150
+Training Loss: 0.7793
+Epoch 27/150
+Training Loss: 0.7588
+Epoch 28/150
+Training Loss: 0.7421
+Epoch 29/150
+Training Loss: 0.7956
+Epoch 30/150
+Training Loss: 0.7570
+Epoch 31/150
+Training Loss: 0.7522
+Epoch 32/150
+Training Loss: 0.7737
+Epoch 33/150
+Training Loss: 0.7350
+Epoch 34/150
+Training Loss: 0.7490
+Epoch 35/150
+Training Loss: 0.7207
+Epoch 36/150
+Training Loss: 0.7504
+Epoch 37/150
+Training Loss: 0.7364
+Epoch 38/150
+Training Loss: 0.7476
+Epoch 39/150
+Training Loss: 0.7288
+Epoch 40/150
+Training Loss: 0.7226
+Epoch 41/150
+Training Loss: 0.7195
+Epoch 42/150
+Training Loss: 0.7448
+Epoch 43/150
+Training Loss: 0.7450
+Epoch 44/150
+Training Loss: 0.7290
+Epoch 45/150
+Training Loss: 0.7295
+Epoch 46/150
+Training Loss: 0.7346
+Epoch 47/150
+Training Loss: 0.7140
+Epoch 48/150
+Training Loss: 0.7461
+Epoch 49/150
+Training Loss: 0.7477
+Epoch 50/150
+Training Loss: 0.7317
+Epoch 51/150
+Training Loss: 0.7214
+Epoch 52/150
+Training Loss: 0.7516
+Epoch 53/150
+Training Loss: 0.7322
+Epoch 54/150
+Training Loss: 0.7566
+Epoch 55/150
+Training Loss: 0.7499
+Epoch 56/150
+Training Loss: 0.7638
+Epoch 57/150
+Training Loss: 0.7243
+Epoch 58/150
+Training Loss: 0.7404
+Epoch 59/150
+Training Loss: 0.7404
+Epoch 60/150
+Training Loss: 0.7332
+Epoch 61/150
+Training Loss: 0.7423
+Epoch 62/150
+Training Loss: 0.7306
+Epoch 63/150
+Training Loss: 0.7661
+Epoch 64/150
+Training Loss: 0.7357
+Epoch 65/150
+Training Loss: 0.7097
+Epoch 66/150
+Training Loss: 0.7587
+Epoch 67/150
+Training Loss: 0.7600
+Epoch 68/150
+Training Loss: 0.7201
+Epoch 69/150
+Training Loss: 0.7449
+Epoch 70/150
+Training Loss: 0.7247
+Epoch 71/150
+Training Loss: 0.7681
+Epoch 72/150
+Training Loss: 0.7587
+Epoch 73/150
+Training Loss: 0.7571
+Epoch 74/150
+Training Loss: 0.7439
+Epoch 75/150
+Training Loss: 0.7205
+Epoch 76/150
+Training Loss: 0.7303
+Epoch 77/150
+Training Loss: 0.7296
+Epoch 78/150
+Training Loss: 0.7543
+Epoch 79/150
+Training Loss: 0.7704
+Epoch 80/150
+Training Loss: 0.7532
+Epoch 81/150
+Training Loss: 0.7430
+Epoch 82/150
+Training Loss: 0.7351
+Epoch 83/150
+Training Loss: 0.7556
+Epoch 84/150
+Training Loss: 0.7408
+Epoch 85/150
+Training Loss: 0.7263
+Epoch 86/150
+Training Loss: 0.7478
+Epoch 87/150
+Training Loss: 0.7304
+Epoch 88/150
+Training Loss: 0.7250
+Epoch 89/150
+Training Loss: 0.7565
+Epoch 90/150
+Training Loss: 0.7232
+Epoch 91/150
+Training Loss: 0.7258
+Epoch 92/150
+Training Loss: 0.7577
+Epoch 93/150
+Training Loss: 0.7356
+Epoch 94/150
+Training Loss: 0.7309
+Epoch 95/150
+Training Loss: 0.7238
+Epoch 96/150
+Training Loss: 0.7244
+Epoch 97/150
+Training Loss: 0.7291
+Epoch 98/150
+Training Loss: 0.7474
+Epoch 99/150
+Training Loss: 0.7311
+Epoch 100/150
+Training Loss: 0.7392
+Epoch 101/150
+Training Loss: 0.7193
+Epoch 102/150
+Training Loss: 0.7330
+Epoch 103/150
+Training Loss: 0.7602
+Epoch 104/150
+Training Loss: 0.7185
+Epoch 105/150
+Training Loss: 0.7485
+Epoch 106/150
+Training Loss: 0.7318
+Epoch 107/150
+Training Loss: 0.7309
+Epoch 108/150
+Training Loss: 0.7307
+Epoch 109/150
+Training Loss: 0.7319
+Epoch 110/150
+Training Loss: 0.7513
+Epoch 111/150
+Training Loss: 0.7216
+Epoch 112/150
+Training Loss: 0.7450
+Epoch 113/150
+Training Loss: 0.7519
+Epoch 114/150
+Training Loss: 0.7398
+Epoch 115/150
+Training Loss: 0.7182
+Epoch 116/150
+Training Loss: 0.7462
+Epoch 117/150
+Training Loss: 0.7481
+Epoch 118/150
+Training Loss: 0.7344
+Epoch 119/150
+Training Loss: 0.7570
+Epoch 120/150
+Training Loss: 0.7230
+Epoch 121/150
+Training Loss: 0.7273
+Epoch 122/150
+Training Loss: 0.7420
+Epoch 123/150
+Training Loss: 0.7404
+Epoch 124/150
+Training Loss: 0.7335
+Epoch 125/150
+Training Loss: 0.7752
+Epoch 126/150
+Training Loss: 0.7486
+Epoch 127/150
+Training Loss: 0.7260
+Epoch 128/150
+Training Loss: 0.7442
+Epoch 129/150
+Training Loss: 0.7111
+Epoch 130/150
+Training Loss: 0.7259
+Epoch 131/150
+Training Loss: 0.7134
+Epoch 132/150
+Training Loss: 0.7717
+Epoch 133/150
+Training Loss: 0.7283
+Epoch 134/150
+Training Loss: 0.7484
+Epoch 135/150
+Training Loss: 0.7209
+Epoch 136/150
+Training Loss: 0.7501
+Epoch 137/150
+Training Loss: 0.7384
+Epoch 138/150
+Training Loss: 0.7488
+Epoch 139/150
+Training Loss: 0.7199
+Epoch 140/150
+Training Loss: 0.7479
+Epoch 141/150
+Training Loss: 0.7442
+Epoch 142/150
+Training Loss: 0.7317
+Epoch 143/150
+Training Loss: 0.7501
+Epoch 144/150
+Training Loss: 0.7476
+Epoch 145/150
+Training Loss: 0.7424
+Epoch 146/150
+Training Loss: 0.7454
+Epoch 147/150
+Training Loss: 0.7373
+Epoch 148/150
+Training Loss: 0.7219
+Epoch 149/150
+Training Loss: 0.7315
+Epoch 150/150
+Training Loss: 0.7595
+Accuracy: 0.7579, Precision: 0.4848, Recall: 0.7273, F1: 0.5818
+
 === Fold 3 ===
-Accuracy: 0.7684, Precision: 0.5000, Recall: 0.8636, F1: 0.6333
+Epoch 1/150
+Training Loss: 0.9923
+Epoch 2/150
+Training Loss: 0.9374
+Epoch 3/150
+Training Loss: 0.8883
+Epoch 4/150
+Training Loss: 0.8809
+Epoch 5/150
+Training Loss: 0.8804
+Epoch 6/150
+Training Loss: 0.8790
+Epoch 7/150
+Training Loss: 0.8653
+Epoch 8/150
+Training Loss: 0.8693
+Epoch 9/150
+Training Loss: 0.8435
+Epoch 10/150
+Training Loss: 0.8678
+Epoch 11/150
+Training Loss: 0.8279
+Epoch 12/150
+Training Loss: 0.8560
+Epoch 13/150
+Training Loss: 0.8169
+Epoch 14/150
+Training Loss: 0.8338
+Epoch 15/150
+Training Loss: 0.8497
+Epoch 16/150
+Training Loss: 0.8081
+Epoch 17/150
+Training Loss: 0.7751
+Epoch 18/150
+Training Loss: 0.8043
+Epoch 19/150
+Training Loss: 0.7851
+Epoch 20/150
+Training Loss: 0.7704
+Epoch 21/150
+Training Loss: 0.7547
+Epoch 22/150
+Training Loss: 0.8031
+Epoch 23/150
+Training Loss: 0.7858
+Epoch 24/150
+Training Loss: 0.7800
+Epoch 25/150
+Training Loss: 0.7929
+Epoch 26/150
+Training Loss: 0.7540
+Epoch 27/150
+Training Loss: 0.7943
+Epoch 28/150
+Training Loss: 0.7427
+Epoch 29/150
+Training Loss: 0.7490
+Epoch 30/150
+Training Loss: 0.7484
+Epoch 31/150
+Training Loss: 0.7638
+Epoch 32/150
+Training Loss: 0.7451
+Epoch 33/150
+Training Loss: 0.7710
+Epoch 34/150
+Training Loss: 0.7675
+Epoch 35/150
+Training Loss: 0.7661
+Epoch 36/150
+Training Loss: 0.7589
+Epoch 37/150
+Training Loss: 0.7583
+Epoch 38/150
+Training Loss: 0.7260
+Epoch 39/150
+Training Loss: 0.7525
+Epoch 40/150
+Training Loss: 0.7602
+Epoch 41/150
+Training Loss: 0.7676
+Epoch 42/150
+Training Loss: 0.7356
+Epoch 43/150
+Training Loss: 0.7459
+Epoch 44/150
+Training Loss: 0.7407
+Epoch 45/150
+Training Loss: 0.7249
+Epoch 46/150
+Training Loss: 0.7356
+Epoch 47/150
+Training Loss: 0.7414
+Epoch 48/150
+Training Loss: 0.7504
+Epoch 49/150
+Training Loss: 0.7453
+Epoch 50/150
+Training Loss: 0.7423
+Epoch 51/150
+Training Loss: 0.7587
+Epoch 52/150
+Training Loss: 0.7614
+Epoch 53/150
+Training Loss: 0.7348
+Epoch 54/150
+Training Loss: 0.7552
+Epoch 55/150
+Training Loss: 0.7586
+Epoch 56/150
+Training Loss: 0.7388
+Epoch 57/150
+Training Loss: 0.7335
+Epoch 58/150
+Training Loss: 0.7567
+Epoch 59/150
+Training Loss: 0.7371
+Epoch 60/150
+Training Loss: 0.7205
+Epoch 61/150
+Training Loss: 0.7404
+Epoch 62/150
+Training Loss: 0.7813
+Epoch 63/150
+Training Loss: 0.7185
+Epoch 64/150
+Training Loss: 0.7998
+Epoch 65/150
+Training Loss: 0.7411
+Epoch 66/150
+Training Loss: 0.7778
+Epoch 67/150
+Training Loss: 0.7635
+Epoch 68/150
+Training Loss: 0.7650
+Epoch 69/150
+Training Loss: 0.7506
+Epoch 70/150
+Training Loss: 0.7531
+Epoch 71/150
+Training Loss: 0.7574
+Epoch 72/150
+Training Loss: 0.7397
+Epoch 73/150
+Training Loss: 0.7563
+Epoch 74/150
+Training Loss: 0.7331
+Epoch 75/150
+Training Loss: 0.7562
+Epoch 76/150
+Training Loss: 0.7165
+Epoch 77/150
+Training Loss: 0.7448
+Epoch 78/150
+Training Loss: 0.7733
+Epoch 79/150
+Training Loss: 0.7683
+Epoch 80/150
+Training Loss: 0.7307
+Epoch 81/150
+Training Loss: 0.7417
+Epoch 82/150
+Training Loss: 0.7297
+Epoch 83/150
+Training Loss: 0.7406
+Epoch 84/150
+Training Loss: 0.7550
+Epoch 85/150
+Training Loss: 0.7464
+Epoch 86/150
+Training Loss: 0.7573
+Epoch 87/150
+Training Loss: 0.7495
+Epoch 88/150
+Training Loss: 0.7516
+Epoch 89/150
+Training Loss: 0.7287
+Epoch 90/150
+Training Loss: 0.7785
+Epoch 91/150
+Training Loss: 0.7494
+Epoch 92/150
+Training Loss: 0.7717
+Epoch 93/150
+Training Loss: 0.7120
+Epoch 94/150
+Training Loss: 0.7470
+Epoch 95/150
+Training Loss: 0.7450
+Epoch 96/150
+Training Loss: 0.7230
+Epoch 97/150
+Training Loss: 0.7702
+Epoch 98/150
+Training Loss: 0.7167
+Epoch 99/150
+Training Loss: 0.7289
+Epoch 100/150
+Training Loss: 0.7343
+Epoch 101/150
+Training Loss: 0.7434
+Epoch 102/150
+Training Loss: 0.7280
+Epoch 103/150
+Training Loss: 0.7320
+Epoch 104/150
+Training Loss: 0.7472
+Epoch 105/150
+Training Loss: 0.7629
+Epoch 106/150
+Training Loss: 0.7519
+Epoch 107/150
+Training Loss: 0.7259
+Epoch 108/150
+Training Loss: 0.7758
+Epoch 109/150
+Training Loss: 0.7434
+Epoch 110/150
+Training Loss: 0.7220
+Epoch 111/150
+Training Loss: 0.7619
+Epoch 112/150
+Training Loss: 0.7365
+Epoch 113/150
+Training Loss: 0.7540
+Epoch 114/150
+Training Loss: 0.7193
+Epoch 115/150
+Training Loss: 0.6974
+Epoch 116/150
+Training Loss: 0.7432
+Epoch 117/150
+Training Loss: 0.7630
+Epoch 118/150
+Training Loss: 0.7389
+Epoch 119/150
+Training Loss: 0.7509
+Epoch 120/150
+Training Loss: 0.7684
+Epoch 121/150
+Training Loss: 0.7849
+Epoch 122/150
+Training Loss: 0.7635
+Epoch 123/150
+Training Loss: 0.7890
+Epoch 124/150
+Training Loss: 0.7690
+Epoch 125/150
+Training Loss: 0.7258
+Epoch 126/150
+Training Loss: 0.7483
+Epoch 127/150
+Training Loss: 0.7735
+Epoch 128/150
+Training Loss: 0.7357
+Epoch 129/150
+Training Loss: 0.7549
+Epoch 130/150
+Training Loss: 0.7603
+Epoch 131/150
+Training Loss: 0.7658
+Epoch 132/150
+Training Loss: 0.7739
+Epoch 133/150
+Training Loss: 0.7579
+Epoch 134/150
+Training Loss: 0.7520
+Epoch 135/150
+Training Loss: 0.7690
+Epoch 136/150
+Training Loss: 0.7312
+Epoch 137/150
+Training Loss: 0.7151
+Epoch 138/150
+Training Loss: 0.7434
+Epoch 139/150
+Training Loss: 0.7402
+Epoch 140/150
+Training Loss: 0.7347
+Epoch 141/150
+Training Loss: 0.7284
+Epoch 142/150
+Training Loss: 0.7344
+Epoch 143/150
+Training Loss: 0.7380
+Epoch 144/150
+Training Loss: 0.7640
+Epoch 145/150
+Training Loss: 0.7404
+Epoch 146/150
+Training Loss: 0.7710
+Epoch 147/150
+Training Loss: 0.7387
+Epoch 148/150
+Training Loss: 0.7577
+Epoch 149/150
+Training Loss: 0.7327
+Epoch 150/150
+Training Loss: 0.7295
+Accuracy: 0.8000, Precision: 0.5455, Recall: 0.8182, F1: 0.6545
 
 === Fold 4 ===
-Accuracy: 0.6842, Precision: 0.4000, Recall: 0.8571, F1: 0.5455
+Epoch 1/150
+Training Loss: 0.9935
+Epoch 2/150
+Training Loss: 0.9149
+Epoch 3/150
+Training Loss: 0.8725
+Epoch 4/150
+Training Loss: 0.8731
+Epoch 5/150
+Training Loss: 0.8769
+Epoch 6/150
+Training Loss: 0.8873
+Epoch 7/150
+Training Loss: 0.8589
+Epoch 8/150
+Training Loss: 0.8440
+Epoch 9/150
+Training Loss: 0.8367
+Epoch 10/150
+Training Loss: 0.8308
+Epoch 11/150
+Training Loss: 0.8260
+Epoch 12/150
+Training Loss: 0.8365
+Epoch 13/150
+Training Loss: 0.8222
+Epoch 14/150
+Training Loss: 0.8097
+Epoch 15/150
+Training Loss: 0.8221
+Epoch 16/150
+Training Loss: 0.7954
+Epoch 17/150
+Training Loss: 0.8168
+Epoch 18/150
+Training Loss: 0.7940
+Epoch 19/150
+Training Loss: 0.7922
+Epoch 20/150
+Training Loss: 0.8034
+Epoch 21/150
+Training Loss: 0.7954
+Epoch 22/150
+Training Loss: 0.7681
+Epoch 23/150
+Training Loss: 0.8136
+Epoch 24/150
+Training Loss: 0.8052
+Epoch 25/150
+Training Loss: 0.7691
+Epoch 26/150
+Training Loss: 0.7516
+Epoch 27/150
+Training Loss: 0.7634
+Epoch 28/150
+Training Loss: 0.7393
+Epoch 29/150
+Training Loss: 0.7754
+Epoch 30/150
+Training Loss: 0.7486
+Epoch 31/150
+Training Loss: 0.7439
+Epoch 32/150
+Training Loss: 0.7655
+Epoch 33/150
+Training Loss: 0.7438
+Epoch 34/150
+Training Loss: 0.7551
+Epoch 35/150
+Training Loss: 0.7770
+Epoch 36/150
+Training Loss: 0.7674
+Epoch 37/150
+Training Loss: 0.7616
+Epoch 38/150
+Training Loss: 0.7574
+Epoch 39/150
+Training Loss: 0.7427
+Epoch 40/150
+Training Loss: 0.7684
+Epoch 41/150
+Training Loss: 0.7476
+Epoch 42/150
+Training Loss: 0.7714
+Epoch 43/150
+Training Loss: 0.7300
+Epoch 44/150
+Training Loss: 0.7434
+Epoch 45/150
+Training Loss: 0.7433
+Epoch 46/150
+Training Loss: 0.7574
+Epoch 47/150
+Training Loss: 0.7356
+Epoch 48/150
+Training Loss: 0.7858
+Epoch 49/150
+Training Loss: 0.7323
+Epoch 50/150
+Training Loss: 0.7509
+Epoch 51/150
+Training Loss: 0.6977
+Epoch 52/150
+Training Loss: 0.7533
+Epoch 53/150
+Training Loss: 0.7755
+Epoch 54/150
+Training Loss: 0.7436
+Epoch 55/150
+Training Loss: 0.7372
+Epoch 56/150
+Training Loss: 0.7730
+Epoch 57/150
+Training Loss: 0.7573
+Epoch 58/150
+Training Loss: 0.7374
+Epoch 59/150
+Training Loss: 0.7730
+Epoch 60/150
+Training Loss: 0.7377
+Epoch 61/150
+Training Loss: 0.8077
+Epoch 62/150
+Training Loss: 0.7503
+Epoch 63/150
+Training Loss: 0.7956
+Epoch 64/150
+Training Loss: 0.7655
+Epoch 65/150
+Training Loss: 0.7406
+Epoch 66/150
+Training Loss: 0.7660
+Epoch 67/150
+Training Loss: 0.7609
+Epoch 68/150
+Training Loss: 0.7585
+Epoch 69/150
+Training Loss: 0.7366
+Epoch 70/150
+Training Loss: 0.7363
+Epoch 71/150
+Training Loss: 0.7531
+Epoch 72/150
+Training Loss: 0.7349
+Epoch 73/150
+Training Loss: 0.7684
+Epoch 74/150
+Training Loss: 0.7670
+Epoch 75/150
+Training Loss: 0.7314
+Epoch 76/150
+Training Loss: 0.7704
+Epoch 77/150
+Training Loss: 0.7664
+Epoch 78/150
+Training Loss: 0.7609
+Epoch 79/150
+Training Loss: 0.7183
+Epoch 80/150
+Training Loss: 0.7508
+Epoch 81/150
+Training Loss: 0.7725
+Epoch 82/150
+Training Loss: 0.7182
+Epoch 83/150
+Training Loss: 0.7558
+Epoch 84/150
+Training Loss: 0.7526
+Epoch 85/150
+Training Loss: 0.7482
+Epoch 86/150
+Training Loss: 0.7447
+Epoch 87/150
+Training Loss: 0.7826
+Epoch 88/150
+Training Loss: 0.7698
+Epoch 89/150
+Training Loss: 0.7663
+Epoch 90/150
+Training Loss: 0.7434
+Epoch 91/150
+Training Loss: 0.7553
+Epoch 92/150
+Training Loss: 0.7344
+Epoch 93/150
+Training Loss: 0.7467
+Epoch 94/150
+Training Loss: 0.7471
+Epoch 95/150
+Training Loss: 0.7515
+Epoch 96/150
+Training Loss: 0.7721
+Epoch 97/150
+Training Loss: 0.7446
+Epoch 98/150
+Training Loss: 0.7759
+Epoch 99/150
+Training Loss: 0.7447
+Epoch 100/150
+Training Loss: 0.7653
+Epoch 101/150
+Training Loss: 0.7626
+Epoch 102/150
+Training Loss: 0.7289
+Epoch 103/150
+Training Loss: 0.7326
+Epoch 104/150
+Training Loss: 0.7681
+Epoch 105/150
+Training Loss: 0.7992
+Epoch 106/150
+Training Loss: 0.7372
+Epoch 107/150
+Training Loss: 0.7795
+Epoch 108/150
+Training Loss: 0.7457
+Epoch 109/150
+Training Loss: 0.7560
+Epoch 110/150
+Training Loss: 0.7592
+Epoch 111/150
+Training Loss: 0.7384
+Epoch 112/150
+Training Loss: 0.7492
+Epoch 113/150
+Training Loss: 0.7519
+Epoch 114/150
+Training Loss: 0.7540
+Epoch 115/150
+Training Loss: 0.7310
+Epoch 116/150
+Training Loss: 0.7766
+Epoch 117/150
+Training Loss: 0.7754
+Epoch 118/150
+Training Loss: 0.7788
+Epoch 119/150
+Training Loss: 0.7524
+Epoch 120/150
+Training Loss: 0.7268
+Epoch 121/150
+Training Loss: 0.7402
+Epoch 122/150
+Training Loss: 0.7460
+Epoch 123/150
+Training Loss: 0.7665
+Epoch 124/150
+Training Loss: 0.7664
+Epoch 125/150
+Training Loss: 0.7938
+Epoch 126/150
+Training Loss: 0.7723
+Epoch 127/150
+Training Loss: 0.7435
+Epoch 128/150
+Training Loss: 0.7737
+Epoch 129/150
+Training Loss: 0.7583
+Epoch 130/150
+Training Loss: 0.7683
+Epoch 131/150
+Training Loss: 0.7502
+Epoch 132/150
+Training Loss: 0.7465
+Epoch 133/150
+Training Loss: 0.7669
+Epoch 134/150
+Training Loss: 0.7724
+Epoch 135/150
+Training Loss: 0.7451
+Epoch 136/150
+Training Loss: 0.7223
+Epoch 137/150
+Training Loss: 0.7640
+Epoch 138/150
+Training Loss: 0.7754
+Epoch 139/150
+Training Loss: 0.7575
+Epoch 140/150
+Training Loss: 0.7773
+Epoch 141/150
+Training Loss: 0.7394
+Epoch 142/150
+Training Loss: 0.7341
+Epoch 143/150
+Training Loss: 0.7567
+Epoch 144/150
+Training Loss: 0.7575
+Epoch 145/150
+Training Loss: 0.7695
+Epoch 146/150
+Training Loss: 0.7523
+Epoch 147/150
+Training Loss: 0.7198
+Epoch 148/150
+Training Loss: 0.7266
+Epoch 149/150
+Training Loss: 0.7312
+Epoch 150/150
+Training Loss: 0.7454
+Accuracy: 0.6947, Precision: 0.4130, Recall: 0.9048, F1: 0.5672
 
 === Fold 5 ===
-Accuracy: 0.7053, Precision: 0.4054, Recall: 0.7143, F1: 0.5172
+Epoch 1/150
+Training Loss: 0.9935
+Epoch 2/150
+Training Loss: 0.9106
+Epoch 3/150
+Training Loss: 0.9012
+Epoch 4/150
+Training Loss: 0.8783
+Epoch 5/150
+Training Loss: 0.8624
+Epoch 6/150
+Training Loss: 0.8487
+Epoch 7/150
+Training Loss: 0.8497
+Epoch 8/150
+Training Loss: 0.8173
+Epoch 9/150
+Training Loss: 0.8570
+Epoch 10/150
+Training Loss: 0.8116
+Epoch 11/150
+Training Loss: 0.8011
+Epoch 12/150
+Training Loss: 0.8237
+Epoch 13/150
+Training Loss: 0.8155
+Epoch 14/150
+Training Loss: 0.8245
+Epoch 15/150
+Training Loss: 0.7784
+Epoch 16/150
+Training Loss: 0.8111
+Epoch 17/150
+Training Loss: 0.8001
+Epoch 18/150
+Training Loss: 0.8013
+Epoch 19/150
+Training Loss: 0.7906
+Epoch 20/150
+Training Loss: 0.7697
+Epoch 21/150
+Training Loss: 0.7802
+Epoch 22/150
+Training Loss: 0.7715
+Epoch 23/150
+Training Loss: 0.7558
+Epoch 24/150
+Training Loss: 0.7799
+Epoch 25/150
+Training Loss: 0.7697
+Epoch 26/150
+Training Loss: 0.7773
+Epoch 27/150
+Training Loss: 0.7682
+Epoch 28/150
+Training Loss: 0.7782
+Epoch 29/150
+Training Loss: 0.7509
+Epoch 30/150
+Training Loss: 0.7862
+Epoch 31/150
+Training Loss: 0.7176
+Epoch 32/150
+Training Loss: 0.7770
+Epoch 33/150
+Training Loss: 0.7558
+Epoch 34/150
+Training Loss: 0.7335
+Epoch 35/150
+Training Loss: 0.7567
+Epoch 36/150
+Training Loss: 0.7402
+Epoch 37/150
+Training Loss: 0.7482
+Epoch 38/150
+Training Loss: 0.7761
+Epoch 39/150
+Training Loss: 0.7573
+Epoch 40/150
+Training Loss: 0.7611
+Epoch 41/150
+Training Loss: 0.7468
+Epoch 42/150
+Training Loss: 0.7433
+Epoch 43/150
+Training Loss: 0.7960
+Epoch 44/150
+Training Loss: 0.7421
+Epoch 45/150
+Training Loss: 0.7272
+Epoch 46/150
+Training Loss: 0.7224
+Epoch 47/150
+Training Loss: 0.7200
+Epoch 48/150
+Training Loss: 0.7606
+Epoch 49/150
+Training Loss: 0.7607
+Epoch 50/150
+Training Loss: 0.7468
+Epoch 51/150
+Training Loss: 0.7458
+Epoch 52/150
+Training Loss: 0.7482
+Epoch 53/150
+Training Loss: 0.7359
+Epoch 54/150
+Training Loss: 0.7804
+Epoch 55/150
+Training Loss: 0.7534
+Epoch 56/150
+Training Loss: 0.7387
+Epoch 57/150
+Training Loss: 0.7396
+Epoch 58/150
+Training Loss: 0.7404
+Epoch 59/150
+Training Loss: 0.7235
+Epoch 60/150
+Training Loss: 0.7218
+Epoch 61/150
+Training Loss: 0.7510
+Epoch 62/150
+Training Loss: 0.7499
+Epoch 63/150
+Training Loss: 0.7744
+Epoch 64/150
+Training Loss: 0.7395
+Epoch 65/150
+Training Loss: 0.7293
+Epoch 66/150
+Training Loss: 0.7566
+Epoch 67/150
+Training Loss: 0.7314
+Epoch 68/150
+Training Loss: 0.7563
+Epoch 69/150
+Training Loss: 0.7377
+Epoch 70/150
+Training Loss: 0.7653
+Epoch 71/150
+Training Loss: 0.7397
+Epoch 72/150
+Training Loss: 0.7114
+Epoch 73/150
+Training Loss: 0.7663
+Epoch 74/150
+Training Loss: 0.7632
+Epoch 75/150
+Training Loss: 0.7485
+Epoch 76/150
+Training Loss: 0.7383
+Epoch 77/150
+Training Loss: 0.7907
+Epoch 78/150
+Training Loss: 0.8031
+Epoch 79/150
+Training Loss: 0.7703
+Epoch 80/150
+Training Loss: 0.7458
+Epoch 81/150
+Training Loss: 0.7319
+Epoch 82/150
+Training Loss: 0.7303
+Epoch 83/150
+Training Loss: 0.7477
+Epoch 84/150
+Training Loss: 0.7570
+Epoch 85/150
+Training Loss: 0.7289
+Epoch 86/150
+Training Loss: 0.7288
+Epoch 87/150
+Training Loss: 0.7369
+Epoch 88/150
+Training Loss: 0.7315
+Epoch 89/150
+Training Loss: 0.7314
+Epoch 90/150
+Training Loss: 0.7296
+Epoch 91/150
+Training Loss: 0.7492
+Epoch 92/150
+Training Loss: 0.7395
+Epoch 93/150
+Training Loss: 0.7545
+Epoch 94/150
+Training Loss: 0.7663
+Epoch 95/150
+Training Loss: 0.7258
+Epoch 96/150
+Training Loss: 0.7615
+Epoch 97/150
+Training Loss: 0.7407
+Epoch 98/150
+Training Loss: 0.7476
+Epoch 99/150
+Training Loss: 0.7195
+Epoch 100/150
+Training Loss: 0.7583
+Epoch 101/150
+Training Loss: 0.7741
+Epoch 102/150
+Training Loss: 0.7527
+Epoch 103/150
+Training Loss: 0.7331
+Epoch 104/150
+Training Loss: 0.7321
+Epoch 105/150
+Training Loss: 0.7247
+Epoch 106/150
+Training Loss: 0.7477
+Epoch 107/150
+Training Loss: 0.7359
+Epoch 108/150
+Training Loss: 0.7412
+Epoch 109/150
+Training Loss: 0.7695
+Epoch 110/150
+Training Loss: 0.7556
+Epoch 111/150
+Training Loss: 0.7538
+Epoch 112/150
+Training Loss: 0.7938
+Epoch 113/150
+Training Loss: 0.7375
+Epoch 114/150
+Training Loss: 0.7568
+Epoch 115/150
+Training Loss: 0.7211
+Epoch 116/150
+Training Loss: 0.7693
+Epoch 117/150
+Training Loss: 0.7350
+Epoch 118/150
+Training Loss: 0.7412
+Epoch 119/150
+Training Loss: 0.7695
+Epoch 120/150
+Training Loss: 0.7202
+Epoch 121/150
+Training Loss: 0.7498
+Epoch 122/150
+Training Loss: 0.7676
+Epoch 123/150
+Training Loss: 0.7569
+Epoch 124/150
+Training Loss: 0.7716
+Epoch 125/150
+Training Loss: 0.7400
+Epoch 126/150
+Training Loss: 0.7696
+Epoch 127/150
+Training Loss: 0.7068
+Epoch 128/150
+Training Loss: 0.7507
+Epoch 129/150
+Training Loss: 0.7457
+Epoch 130/150
+Training Loss: 0.7699
+Epoch 131/150
+Training Loss: 0.7226
+Epoch 132/150
+Training Loss: 0.7223
+Epoch 133/150
+Training Loss: 0.7563
+Epoch 134/150
+Training Loss: 0.7370
+Epoch 135/150
+Training Loss: 0.7612
+Epoch 136/150
+Training Loss: 0.7422
+Epoch 137/150
+Training Loss: 0.7496
+Epoch 138/150
+Training Loss: 0.7311
+Epoch 139/150
+Training Loss: 0.7762
+Epoch 140/150
+Training Loss: 0.7264
+Epoch 141/150
+Training Loss: 0.7320
+Epoch 142/150
+Training Loss: 0.7403
+Epoch 143/150
+Training Loss: 0.7260
+Epoch 144/150
+Training Loss: 0.7387
+Epoch 145/150
+Training Loss: 0.7382
+Epoch 146/150
+Training Loss: 0.7474
+Epoch 147/150
+Training Loss: 0.7523
+Epoch 148/150
+Training Loss: 0.7584
+Epoch 149/150
+Training Loss: 0.7664
+Epoch 150/150
+Training Loss: 0.7529
+Accuracy: 0.7474, Precision: 0.4545, Recall: 0.7143, F1: 0.5556
 
 === Fold 6 ===
-Accuracy: 0.7021, Precision: 0.4054, Recall: 0.7143, F1: 0.5172
+Epoch 1/150
+Training Loss: 0.9600
+Epoch 2/150
+Training Loss: 0.9208
+Epoch 3/150
+Training Loss: 0.8975
+Epoch 4/150
+Training Loss: 0.8978
+Epoch 5/150
+Training Loss: 0.8839
+Epoch 6/150
+Training Loss: 0.8759
+Epoch 7/150
+Training Loss: 0.8682
+Epoch 8/150
+Training Loss: 0.8483
+Epoch 9/150
+Training Loss: 0.8571
+Epoch 10/150
+Training Loss: 0.8262
+Epoch 11/150
+Training Loss: 0.8426
+Epoch 12/150
+Training Loss: 0.8507
+Epoch 13/150
+Training Loss: 0.8538
+Epoch 14/150
+Training Loss: 0.8236
+Epoch 15/150
+Training Loss: 0.8093
+Epoch 16/150
+Training Loss: 0.8147
+Epoch 17/150
+Training Loss: 0.8053
+Epoch 18/150
+Training Loss: 0.7823
+Epoch 19/150
+Training Loss: 0.8293
+Epoch 20/150
+Training Loss: 0.7829
+Epoch 21/150
+Training Loss: 0.7884
+Epoch 22/150
+Training Loss: 0.7607
+Epoch 23/150
+Training Loss: 0.8040
+Epoch 24/150
+Training Loss: 0.8183
+Epoch 25/150
+Training Loss: 0.7864
+Epoch 26/150
+Training Loss: 0.7723
+Epoch 27/150
+Training Loss: 0.7508
+Epoch 28/150
+Training Loss: 0.7774
+Epoch 29/150
+Training Loss: 0.7817
+Epoch 30/150
+Training Loss: 0.7757
+Epoch 31/150
+Training Loss: 0.7623
+Epoch 32/150
+Training Loss: 0.7552
+Epoch 33/150
+Training Loss: 0.7722
+Epoch 34/150
+Training Loss: 0.7697
+Epoch 35/150
+Training Loss: 0.7531
+Epoch 36/150
+Training Loss: 0.7649
+Epoch 37/150
+Training Loss: 0.7281
+Epoch 38/150
+Training Loss: 0.7758
+Epoch 39/150
+Training Loss: 0.7632
+Epoch 40/150
+Training Loss: 0.7581
+Epoch 41/150
+Training Loss: 0.7752
+Epoch 42/150
+Training Loss: 0.7818
+Epoch 43/150
+Training Loss: 0.7677
+Epoch 44/150
+Training Loss: 0.7534
+Epoch 45/150
+Training Loss: 0.7649
+Epoch 46/150
+Training Loss: 0.7726
+Epoch 47/150
+Training Loss: 0.7702
+Epoch 48/150
+Training Loss: 0.7385
+Epoch 49/150
+Training Loss: 0.7568
+Epoch 50/150
+Training Loss: 0.7989
+Epoch 51/150
+Training Loss: 0.7515
+Epoch 52/150
+Training Loss: 0.7663
+Epoch 53/150
+Training Loss: 0.7702
+Epoch 54/150
+Training Loss: 0.7826
+Epoch 55/150
+Training Loss: 0.7471
+Epoch 56/150
+Training Loss: 0.7570
+Epoch 57/150
+Training Loss: 0.7623
+Epoch 58/150
+Training Loss: 0.7621
+Epoch 59/150
+Training Loss: 0.7635
+Epoch 60/150
+Training Loss: 0.7535
+Epoch 61/150
+Training Loss: 0.7543
+Epoch 62/150
+Training Loss: 0.7863
+Epoch 63/150
+Training Loss: 0.7479
+Epoch 64/150
+Training Loss: 0.7713
+Epoch 65/150
+Training Loss: 0.7502
+Epoch 66/150
+Training Loss: 0.7589
+Epoch 67/150
+Training Loss: 0.7562
+Epoch 68/150
+Training Loss: 0.7453
+Epoch 69/150
+Training Loss: 0.7738
+Epoch 70/150
+Training Loss: 0.7360
+Epoch 71/150
+Training Loss: 0.7561
+Epoch 72/150
+Training Loss: 0.7482
+Epoch 73/150
+Training Loss: 0.7662
+Epoch 74/150
+Training Loss: 0.7400
+Epoch 75/150
+Training Loss: 0.7379
+Epoch 76/150
+Training Loss: 0.7496
+Epoch 77/150
+Training Loss: 0.7467
+Epoch 78/150
+Training Loss: 0.7683
+Epoch 79/150
+Training Loss: 0.7564
+Epoch 80/150
+Training Loss: 0.7552
+Epoch 81/150
+Training Loss: 0.7663
+Epoch 82/150
+Training Loss: 0.7682
+Epoch 83/150
+Training Loss: 0.7635
+Epoch 84/150
+Training Loss: 0.7526
+Epoch 85/150
+Training Loss: 0.7999
+Epoch 86/150
+Training Loss: 0.7341
+Epoch 87/150
+Training Loss: 0.7529
+Epoch 88/150
+Training Loss: 0.7386
+Epoch 89/150
+Training Loss: 0.7355
+Epoch 90/150
+Training Loss: 0.7404
+Epoch 91/150
+Training Loss: 0.7518
+Epoch 92/150
+Training Loss: 0.7522
+Epoch 93/150
+Training Loss: 0.7446
+Epoch 94/150
+Training Loss: 0.7604
+Epoch 95/150
+Training Loss: 0.7824
+Epoch 96/150
+Training Loss: 0.7508
+Epoch 97/150
+Training Loss: 0.7629
+Epoch 98/150
+Training Loss: 0.7581
+Epoch 99/150
+Training Loss: 0.7532
+Epoch 100/150
+Training Loss: 0.7691
+Epoch 101/150
+Training Loss: 0.7553
+Epoch 102/150
+Training Loss: 0.7444
+Epoch 103/150
+Training Loss: 0.7575
+Epoch 104/150
+Training Loss: 0.7642
+Epoch 105/150
+Training Loss: 0.7306
+Epoch 106/150
+Training Loss: 0.7816
+Epoch 107/150
+Training Loss: 0.7649
+Epoch 108/150
+Training Loss: 0.7557
+Epoch 109/150
+Training Loss: 0.7491
+Epoch 110/150
+Training Loss: 0.7501
+Epoch 111/150
+Training Loss: 0.8109
+Epoch 112/150
+Training Loss: 0.7717
+Epoch 113/150
+Training Loss: 0.7680
+Epoch 114/150
+Training Loss: 0.7887
+Epoch 115/150
+Training Loss: 0.7333
+Epoch 116/150
+Training Loss: 0.7352
+Epoch 117/150
+Training Loss: 0.7487
+Epoch 118/150
+Training Loss: 0.7622
+Epoch 119/150
+Training Loss: 0.7406
+Epoch 120/150
+Training Loss: 0.7678
+Epoch 121/150
+Training Loss: 0.7468
+Epoch 122/150
+Training Loss: 0.7410
+Epoch 123/150
+Training Loss: 0.7462
+Epoch 124/150
+Training Loss: 0.7613
+Epoch 125/150
+Training Loss: 0.7620
+Epoch 126/150
+Training Loss: 0.7572
+Epoch 127/150
+Training Loss: 0.7378
+Epoch 128/150
+Training Loss: 0.7742
+Epoch 129/150
+Training Loss: 0.7716
+Epoch 130/150
+Training Loss: 0.7857
+Epoch 131/150
+Training Loss: 0.7672
+Epoch 132/150
+Training Loss: 0.7577
+Epoch 133/150
+Training Loss: 0.7425
+Epoch 134/150
+Training Loss: 0.7795
+Epoch 135/150
+Training Loss: 0.7514
+Epoch 136/150
+Training Loss: 0.7559
+Epoch 137/150
+Training Loss: 0.7442
+Epoch 138/150
+Training Loss: 0.7719
+Epoch 139/150
+Training Loss: 0.7212
+Epoch 140/150
+Training Loss: 0.7679
+Epoch 141/150
+Training Loss: 0.7429
+Epoch 142/150
+Training Loss: 0.7668
+Epoch 143/150
+Training Loss: 0.7590
+Epoch 144/150
+Training Loss: 0.7630
+Epoch 145/150
+Training Loss: 0.7416
+Epoch 146/150
+Training Loss: 0.7212
+Epoch 147/150
+Training Loss: 0.7484
+Epoch 148/150
+Training Loss: 0.7324
+Epoch 149/150
+Training Loss: 0.7873
+Epoch 150/150
+Training Loss: 0.7507
+Accuracy: 0.6915, Precision: 0.3824, Recall: 0.6190, F1: 0.4727
 
 === Fold 7 ===
-Accuracy: 0.6596, Precision: 0.3226, Recall: 0.4762, F1: 0.3846
+Epoch 1/150
+Training Loss: 0.9703
+Epoch 2/150
+Training Loss: 0.8908
+Epoch 3/150
+Training Loss: 0.8550
+Epoch 4/150
+Training Loss: 0.8692
+Epoch 5/150
+Training Loss: 0.8642
+Epoch 6/150
+Training Loss: 0.8357
+Epoch 7/150
+Training Loss: 0.8615
+Epoch 8/150
+Training Loss: 0.8342
+Epoch 9/150
+Training Loss: 0.8106
+Epoch 10/150
+Training Loss: 0.8058
+Epoch 11/150
+Training Loss: 0.8231
+Epoch 12/150
+Training Loss: 0.8037
+Epoch 13/150
+Training Loss: 0.8000
+Epoch 14/150
+Training Loss: 0.8047
+Epoch 15/150
+Training Loss: 0.7948
+Epoch 16/150
+Training Loss: 0.8161
+Epoch 17/150
+Training Loss: 0.7619
+Epoch 18/150
+Training Loss: 0.7828
+Epoch 19/150
+Training Loss: 0.7707
+Epoch 20/150
+Training Loss: 0.7830
+Epoch 21/150
+Training Loss: 0.7776
+Epoch 22/150
+Training Loss: 0.7540
+Epoch 23/150
+Training Loss: 0.7428
+Epoch 24/150
+Training Loss: 0.7739
+Epoch 25/150
+Training Loss: 0.7540
+Epoch 26/150
+Training Loss: 0.7738
+Epoch 27/150
+Training Loss: 0.7561
+Epoch 28/150
+Training Loss: 0.7389
+Epoch 29/150
+Training Loss: 0.7415
+Epoch 30/150
+Training Loss: 0.7871
+Epoch 31/150
+Training Loss: 0.7582
+Epoch 32/150
+Training Loss: 0.7381
+Epoch 33/150
+Training Loss: 0.7703
+Epoch 34/150
+Training Loss: 0.7457
+Epoch 35/150
+Training Loss: 0.7295
+Epoch 36/150
+Training Loss: 0.7133
+Epoch 37/150
+Training Loss: 0.7164
+Epoch 38/150
+Training Loss: 0.7554
+Epoch 39/150
+Training Loss: 0.7130
+Epoch 40/150
+Training Loss: 0.7267
+Epoch 41/150
+Training Loss: 0.7386
+Epoch 42/150
+Training Loss: 0.7306
+Epoch 43/150
+Training Loss: 0.7658
+Epoch 44/150
+Training Loss: 0.7102
+Epoch 45/150
+Training Loss: 0.7415
+Epoch 46/150
+Training Loss: 0.7552
+Epoch 47/150
+Training Loss: 0.7324
+Epoch 48/150
+Training Loss: 0.7270
+Epoch 49/150
+Training Loss: 0.7705
+Epoch 50/150
+Training Loss: 0.7077
+Epoch 51/150
+Training Loss: 0.7406
+Epoch 52/150
+Training Loss: 0.7321
+Epoch 53/150
+Training Loss: 0.7584
+Epoch 54/150
+Training Loss: 0.7256
+Epoch 55/150
+Training Loss: 0.7259
+Epoch 56/150
+Training Loss: 0.7292
+Epoch 57/150
+Training Loss: 0.7314
+Epoch 58/150
+Training Loss: 0.7352
+Epoch 59/150
+Training Loss: 0.7400
+Epoch 60/150
+Training Loss: 0.7286
+Epoch 61/150
+Training Loss: 0.7329
+Epoch 62/150
+Training Loss: 0.7342
+Epoch 63/150
+Training Loss: 0.7409
+Epoch 64/150
+Training Loss: 0.7520
+Epoch 65/150
+Training Loss: 0.7296
+Epoch 66/150
+Training Loss: 0.7287
+Epoch 67/150
+Training Loss: 0.7337
+Epoch 68/150
+Training Loss: 0.7150
+Epoch 69/150
+Training Loss: 0.7769
+Epoch 70/150
+Training Loss: 0.7157
+Epoch 71/150
+Training Loss: 0.7397
+Epoch 72/150
+Training Loss: 0.7392
+Epoch 73/150
+Training Loss: 0.7023
+Epoch 74/150
+Training Loss: 0.7448
+Epoch 75/150
+Training Loss: 0.7691
+Epoch 76/150
+Training Loss: 0.7638
+Epoch 77/150
+Training Loss: 0.7440
+Epoch 78/150
+Training Loss: 0.7451
+Epoch 79/150
+Training Loss: 0.7186
+Epoch 80/150
+Training Loss: 0.7310
+Epoch 81/150
+Training Loss: 0.7236
+Epoch 82/150
+Training Loss: 0.7125
+Epoch 83/150
+Training Loss: 0.7380
+Epoch 84/150
+Training Loss: 0.7382
+Epoch 85/150
+Training Loss: 0.7304
+Epoch 86/150
+Training Loss: 0.7252
+Epoch 87/150
+Training Loss: 0.7455
+Epoch 88/150
+Training Loss: 0.7233
+Epoch 89/150
+Training Loss: 0.7590
+Epoch 90/150
+Training Loss: 0.7494
+Epoch 91/150
+Training Loss: 0.7383
+Epoch 92/150
+Training Loss: 0.7283
+Epoch 93/150
+Training Loss: 0.7252
+Epoch 94/150
+Training Loss: 0.7387
+Epoch 95/150
+Training Loss: 0.7470
+Epoch 96/150
+Training Loss: 0.7297
+Epoch 97/150
+Training Loss: 0.7434
+Epoch 98/150
+Training Loss: 0.7219
+Epoch 99/150
+Training Loss: 0.7326
+Epoch 100/150
+Training Loss: 0.7308
+Epoch 101/150
+Training Loss: 0.7288
+Epoch 102/150
+Training Loss: 0.7313
+Epoch 103/150
+Training Loss: 0.7310
+Epoch 104/150
+Training Loss: 0.7312
+Epoch 105/150
+Training Loss: 0.7091
+Epoch 106/150
+Training Loss: 0.7334
+Epoch 107/150
+Training Loss: 0.7166
+Epoch 108/150
+Training Loss: 0.7386
+Epoch 109/150
+Training Loss: 0.7222
+Epoch 110/150
+Training Loss: 0.7452
+Epoch 111/150
+Training Loss: 0.7585
+Epoch 112/150
+Training Loss: 0.7502
+Epoch 113/150
+Training Loss: 0.7360
+Epoch 114/150
+Training Loss: 0.7240
+Epoch 115/150
+Training Loss: 0.7443
+Epoch 116/150
+Training Loss: 0.7292
+Epoch 117/150
+Training Loss: 0.7478
+Epoch 118/150
+Training Loss: 0.7244
+Epoch 119/150
+Training Loss: 0.7308
+Epoch 120/150
+Training Loss: 0.7339
+Epoch 121/150
+Training Loss: 0.7744
+Epoch 122/150
+Training Loss: 0.7574
+Epoch 123/150
+Training Loss: 0.7297
+Epoch 124/150
+Training Loss: 0.7318
+Epoch 125/150
+Training Loss: 0.7171
+Epoch 126/150
+Training Loss: 0.7213
+Epoch 127/150
+Training Loss: 0.7143
+Epoch 128/150
+Training Loss: 0.7332
+Epoch 129/150
+Training Loss: 0.7407
+Epoch 130/150
+Training Loss: 0.7221
+Epoch 131/150
+Training Loss: 0.7495
+Epoch 132/150
+Training Loss: 0.7111
+Epoch 133/150
+Training Loss: 0.7443
+Epoch 134/150
+Training Loss: 0.7484
+Epoch 135/150
+Training Loss: 0.7540
+Epoch 136/150
+Training Loss: 0.7470
+Epoch 137/150
+Training Loss: 0.7314
+Epoch 138/150
+Training Loss: 0.7045
+Epoch 139/150
+Training Loss: 0.7275
+Epoch 140/150
+Training Loss: 0.7488
+Epoch 141/150
+Training Loss: 0.7417
+Epoch 142/150
+Training Loss: 0.7165
+Epoch 143/150
+Training Loss: 0.7230
+Epoch 144/150
+Training Loss: 0.7309
+Epoch 145/150
+Training Loss: 0.7386
+Epoch 146/150
+Training Loss: 0.7214
+Epoch 147/150
+Training Loss: 0.7355
+Epoch 148/150
+Training Loss: 0.7219
+Epoch 149/150
+Training Loss: 0.7134
+Epoch 150/150
+Training Loss: 0.7245
+Accuracy: 0.6809, Precision: 0.3548, Recall: 0.5238, F1: 0.4231
 
 === Fold 8 ===
-Accuracy: 0.8191, Precision: 0.5667, Recall: 0.8095, F1: 0.6667
+Epoch 1/150
+Training Loss: 1.0343
+Epoch 2/150
+Training Loss: 0.8964
+Epoch 3/150
+Training Loss: 0.9047
+Epoch 4/150
+Training Loss: 0.8880
+Epoch 5/150
+Training Loss: 0.8819
+Epoch 6/150
+Training Loss: 0.8822
+Epoch 7/150
+Training Loss: 0.8673
+Epoch 8/150
+Training Loss: 0.8681
+Epoch 9/150
+Training Loss: 0.8655
+Epoch 10/150
+Training Loss: 0.8532
+Epoch 11/150
+Training Loss: 0.8147
+Epoch 12/150
+Training Loss: 0.8340
+Epoch 13/150
+Training Loss: 0.8412
+Epoch 14/150
+Training Loss: 0.8075
+Epoch 15/150
+Training Loss: 0.8356
+Epoch 16/150
+Training Loss: 0.7947
+Epoch 17/150
+Training Loss: 0.8157
+Epoch 18/150
+Training Loss: 0.8183
+Epoch 19/150
+Training Loss: 0.7937
+Epoch 20/150
+Training Loss: 0.7908
+Epoch 21/150
+Training Loss: 0.8127
+Epoch 22/150
+Training Loss: 0.7802
+Epoch 23/150
+Training Loss: 0.7902
+Epoch 24/150
+Training Loss: 0.7781
+Epoch 25/150
+Training Loss: 0.7663
+Epoch 26/150
+Training Loss: 0.7844
+Epoch 27/150
+Training Loss: 0.7893
+Epoch 28/150
+Training Loss: 0.7825
+Epoch 29/150
+Training Loss: 0.7532
+Epoch 30/150
+Training Loss: 0.7822
+Epoch 31/150
+Training Loss: 0.7845
+Epoch 32/150
+Training Loss: 0.7668
+Epoch 33/150
+Training Loss: 0.7621
+Epoch 34/150
+Training Loss: 0.7673
+Epoch 35/150
+Training Loss: 0.7411
+Epoch 36/150
+Training Loss: 0.7646
+Epoch 37/150
+Training Loss: 0.7638
+Epoch 38/150
+Training Loss: 0.7442
+Epoch 39/150
+Training Loss: 0.7569
+Epoch 40/150
+Training Loss: 0.7397
+Epoch 41/150
+Training Loss: 0.7483
+Epoch 42/150
+Training Loss: 0.7346
+Epoch 43/150
+Training Loss: 0.7597
+Epoch 44/150
+Training Loss: 0.7631
+Epoch 45/150
+Training Loss: 0.7634
+Epoch 46/150
+Training Loss: 0.7609
+Epoch 47/150
+Training Loss: 0.7439
+Epoch 48/150
+Training Loss: 0.7258
+Epoch 49/150
+Training Loss: 0.7555
+Epoch 50/150
+Training Loss: 0.7743
+Epoch 51/150
+Training Loss: 0.7448
+Epoch 52/150
+Training Loss: 0.7385
+Epoch 53/150
+Training Loss: 0.7716
+Epoch 54/150
+Training Loss: 0.7418
+Epoch 55/150
+Training Loss: 0.7730
+Epoch 56/150
+Training Loss: 0.7471
+Epoch 57/150
+Training Loss: 0.7289
+Epoch 58/150
+Training Loss: 0.7440
+Epoch 59/150
+Training Loss: 0.7354
+Epoch 60/150
+Training Loss: 0.7227
+Epoch 61/150
+Training Loss: 0.7606
+Epoch 62/150
+Training Loss: 0.7402
+Epoch 63/150
+Training Loss: 0.7615
+Epoch 64/150
+Training Loss: 0.7727
+Epoch 65/150
+Training Loss: 0.7775
+Epoch 66/150
+Training Loss: 0.7542
+Epoch 67/150
+Training Loss: 0.7410
+Epoch 68/150
+Training Loss: 0.7641
+Epoch 69/150
+Training Loss: 0.7340
+Epoch 70/150
+Training Loss: 0.7708
+Epoch 71/150
+Training Loss: 0.7462
+Epoch 72/150
+Training Loss: 0.7305
+Epoch 73/150
+Training Loss: 0.7698
+Epoch 74/150
+Training Loss: 0.7357
+Epoch 75/150
+Training Loss: 0.7241
+Epoch 76/150
+Training Loss: 0.7435
+Epoch 77/150
+Training Loss: 0.7558
+Epoch 78/150
+Training Loss: 0.7629
+Epoch 79/150
+Training Loss: 0.7543
+Epoch 80/150
+Training Loss: 0.7750
+Epoch 81/150
+Training Loss: 0.7271
+Epoch 82/150
+Training Loss: 0.7526
+Epoch 83/150
+Training Loss: 0.7765
+Epoch 84/150
+Training Loss: 0.7682
+Epoch 85/150
+Training Loss: 0.7687
+Epoch 86/150
+Training Loss: 0.7671
+Epoch 87/150
+Training Loss: 0.7332
+Epoch 88/150
+Training Loss: 0.7304
+Epoch 89/150
+Training Loss: 0.7824
+Epoch 90/150
+Training Loss: 0.7787
+Epoch 91/150
+Training Loss: 0.7477
+Epoch 92/150
+Training Loss: 0.7546
+Epoch 93/150
+Training Loss: 0.7464
+Epoch 94/150
+Training Loss: 0.7544
+Epoch 95/150
+Training Loss: 0.7588
+Epoch 96/150
+Training Loss: 0.7559
+Epoch 97/150
+Training Loss: 0.7828
+Epoch 98/150
+Training Loss: 0.7417
+Epoch 99/150
+Training Loss: 0.7733
+Epoch 100/150
+Training Loss: 0.7549
+Epoch 101/150
+Training Loss: 0.7776
+Epoch 102/150
+Training Loss: 0.7456
+Epoch 103/150
+Training Loss: 0.7730
+Epoch 104/150
+Training Loss: 0.7559
+Epoch 105/150
+Training Loss: 0.7544
+Epoch 106/150
+Training Loss: 0.7356
+Epoch 107/150
+Training Loss: 0.7899
+Epoch 108/150
+Training Loss: 0.7490
+Epoch 109/150
+Training Loss: 0.7451
+Epoch 110/150
+Training Loss: 0.7533
+Epoch 111/150
+Training Loss: 0.7203
+Epoch 112/150
+Training Loss: 0.7277
+Epoch 113/150
+Training Loss: 0.7533
+Epoch 114/150
+Training Loss: 0.7457
+Epoch 115/150
+Training Loss: 0.7586
+Epoch 116/150
+Training Loss: 0.7660
+Epoch 117/150
+Training Loss: 0.7601
+Epoch 118/150
+Training Loss: 0.7425
+Epoch 119/150
+Training Loss: 0.7584
+Epoch 120/150
+Training Loss: 0.7814
+Epoch 121/150
+Training Loss: 0.7426
+Epoch 122/150
+Training Loss: 0.7753
+Epoch 123/150
+Training Loss: 0.7514
+Epoch 124/150
+Training Loss: 0.7595
+Epoch 125/150
+Training Loss: 0.7335
+Epoch 126/150
+Training Loss: 0.7562
+Epoch 127/150
+Training Loss: 0.7580
+Epoch 128/150
+Training Loss: 0.7781
+Epoch 129/150
+Training Loss: 0.7216
+Epoch 130/150
+Training Loss: 0.7760
+Epoch 131/150
+Training Loss: 0.7531
+Epoch 132/150
+Training Loss: 0.7574
+Epoch 133/150
+Training Loss: 0.7760
+Epoch 134/150
+Training Loss: 0.7543
+Epoch 135/150
+Training Loss: 0.7481
+Epoch 136/150
+Training Loss: 0.7429
+Epoch 137/150
+Training Loss: 0.7734
+Epoch 138/150
+Training Loss: 0.7573
+Epoch 139/150
+Training Loss: 0.7459
+Epoch 140/150
+Training Loss: 0.7602
+Epoch 141/150
+Training Loss: 0.7882
+Epoch 142/150
+Training Loss: 0.7823
+Epoch 143/150
+Training Loss: 0.7495
+Epoch 144/150
+Training Loss: 0.7640
+Epoch 145/150
+Training Loss: 0.7899
+Epoch 146/150
+Training Loss: 0.7665
+Epoch 147/150
+Training Loss: 0.7858
+Epoch 148/150
+Training Loss: 0.7574
+Epoch 149/150
+Training Loss: 0.7602
+Epoch 150/150
+Training Loss: 0.7456
+Accuracy: 0.8085, Precision: 0.5600, Recall: 0.6667, F1: 0.6087
 
 === Fold 9 ===
-Accuracy: 0.7766, Precision: 0.5000, Recall: 0.6190, F1: 0.5532
+Epoch 1/150
+Training Loss: 0.9821
+Epoch 2/150
+Training Loss: 0.8953
+Epoch 3/150
+Training Loss: 0.8872
+Epoch 4/150
+Training Loss: 0.8660
+Epoch 5/150
+Training Loss: 0.8597
+Epoch 6/150
+Training Loss: 0.8476
+Epoch 7/150
+Training Loss: 0.8348
+Epoch 8/150
+Training Loss: 0.8309
+Epoch 9/150
+Training Loss: 0.8413
+Epoch 10/150
+Training Loss: 0.8460
+Epoch 11/150
+Training Loss: 0.8286
+Epoch 12/150
+Training Loss: 0.8222
+Epoch 13/150
+Training Loss: 0.7985
+Epoch 14/150
+Training Loss: 0.8041
+Epoch 15/150
+Training Loss: 0.8084
+Epoch 16/150
+Training Loss: 0.8195
+Epoch 17/150
+Training Loss: 0.8030
+Epoch 18/150
+Training Loss: 0.8118
+Epoch 19/150
+Training Loss: 0.8141
+Epoch 20/150
+Training Loss: 0.7730
+Epoch 21/150
+Training Loss: 0.7748
+Epoch 22/150
+Training Loss: 0.7740
+Epoch 23/150
+Training Loss: 0.7790
+Epoch 24/150
+Training Loss: 0.7702
+Epoch 25/150
+Training Loss: 0.7559
+Epoch 26/150
+Training Loss: 0.7653
+Epoch 27/150
+Training Loss: 0.8100
+Epoch 28/150
+Training Loss: 0.7572
+Epoch 29/150
+Training Loss: 0.7573
+Epoch 30/150
+Training Loss: 0.7993
+Epoch 31/150
+Training Loss: 0.7538
+Epoch 32/150
+Training Loss: 0.7638
+Epoch 33/150
+Training Loss: 0.7563
+Epoch 34/150
+Training Loss: 0.7649
+Epoch 35/150
+Training Loss: 0.7551
+Epoch 36/150
+Training Loss: 0.7593
+Epoch 37/150
+Training Loss: 0.7346
+Epoch 38/150
+Training Loss: 0.7776
+Epoch 39/150
+Training Loss: 0.7679
+Epoch 40/150
+Training Loss: 0.7859
+Epoch 41/150
+Training Loss: 0.7604
+Epoch 42/150
+Training Loss: 0.7373
+Epoch 43/150
+Training Loss: 0.7402
+Epoch 44/150
+Training Loss: 0.7595
+Epoch 45/150
+Training Loss: 0.7808
+Epoch 46/150
+Training Loss: 0.7541
+Epoch 47/150
+Training Loss: 0.7667
+Epoch 48/150
+Training Loss: 0.7462
+Epoch 49/150
+Training Loss: 0.7460
+Epoch 50/150
+Training Loss: 0.7434
+Epoch 51/150
+Training Loss: 0.7822
+Epoch 52/150
+Training Loss: 0.7513
+Epoch 53/150
+Training Loss: 0.7672
+Epoch 54/150
+Training Loss: 0.7599
+Epoch 55/150
+Training Loss: 0.7478
+Epoch 56/150
+Training Loss: 0.7728
+Epoch 57/150
+Training Loss: 0.7750
+Epoch 58/150
+Training Loss: 0.7737
+Epoch 59/150
+Training Loss: 0.7304
+Epoch 60/150
+Training Loss: 0.7355
+Epoch 61/150
+Training Loss: 0.7620
+Epoch 62/150
+Training Loss: 0.7521
+Epoch 63/150
+Training Loss: 0.7423
+Epoch 64/150
+Training Loss: 0.7517
+Epoch 65/150
+Training Loss: 0.7589
+Epoch 66/150
+Training Loss: 0.7547
+Epoch 67/150
+Training Loss: 0.7643
+Epoch 68/150
+Training Loss: 0.7563
+Epoch 69/150
+Training Loss: 0.7307
+Epoch 70/150
+Training Loss: 0.7422
+Epoch 71/150
+Training Loss: 0.7354
+Epoch 72/150
+Training Loss: 0.7515
+Epoch 73/150
+Training Loss: 0.7609
+Epoch 74/150
+Training Loss: 0.7718
+Epoch 75/150
+Training Loss: 0.7631
+Epoch 76/150
+Training Loss: 0.7499
+Epoch 77/150
+Training Loss: 0.7257
+Epoch 78/150
+Training Loss: 0.7273
+Epoch 79/150
+Training Loss: 0.7448
+Epoch 80/150
+Training Loss: 0.7490
+Epoch 81/150
+Training Loss: 0.7531
+Epoch 82/150
+Training Loss: 0.7630
+Epoch 83/150
+Training Loss: 0.7593
+Epoch 84/150
+Training Loss: 0.7647
+Epoch 85/150
+Training Loss: 0.7516
+Epoch 86/150
+Training Loss: 0.7544
+Epoch 87/150
+Training Loss: 0.7650
+Epoch 88/150
+Training Loss: 0.7674
+Epoch 89/150
+Training Loss: 0.7312
+Epoch 90/150
+Training Loss: 0.7830
+Epoch 91/150
+Training Loss: 0.7419
+Epoch 92/150
+Training Loss: 0.7678
+Epoch 93/150
+Training Loss: 0.7675
+Epoch 94/150
+Training Loss: 0.7540
+Epoch 95/150
+Training Loss: 0.7457
+Epoch 96/150
+Training Loss: 0.7339
+Epoch 97/150
+Training Loss: 0.7331
+Epoch 98/150
+Training Loss: 0.7699
+Epoch 99/150
+Training Loss: 0.7616
+Epoch 100/150
+Training Loss: 0.7466
+Epoch 101/150
+Training Loss: 0.7547
+Epoch 102/150
+Training Loss: 0.7694
+Epoch 103/150
+Training Loss: 0.7740
+Epoch 104/150
+Training Loss: 0.7686
+Epoch 105/150
+Training Loss: 0.7475
+Epoch 106/150
+Training Loss: 0.7596
+Epoch 107/150
+Training Loss: 0.7577
+Epoch 108/150
+Training Loss: 0.7557
+Epoch 109/150
+Training Loss: 0.7357
+Epoch 110/150
+Training Loss: 0.7428
+Epoch 111/150
+Training Loss: 0.7264
+Epoch 112/150
+Training Loss: 0.7581
+Epoch 113/150
+Training Loss: 0.7350
+Epoch 114/150
+Training Loss: 0.7609
+Epoch 115/150
+Training Loss: 0.7630
+Epoch 116/150
+Training Loss: 0.7722
+Epoch 117/150
+Training Loss: 0.7558
+Epoch 118/150
+Training Loss: 0.7522
+Epoch 119/150
+Training Loss: 0.7806
+Epoch 120/150
+Training Loss: 0.7495
+Epoch 121/150
+Training Loss: 0.7404
+Epoch 122/150
+Training Loss: 0.7603
+Epoch 123/150
+Training Loss: 0.7652
+Epoch 124/150
+Training Loss: 0.7412
+Epoch 125/150
+Training Loss: 0.7567
+Epoch 126/150
+Training Loss: 0.7447
+Epoch 127/150
+Training Loss: 0.7544
+Epoch 128/150
+Training Loss: 0.7915
+Epoch 129/150
+Training Loss: 0.7479
+Epoch 130/150
+Training Loss: 0.7229
+Epoch 131/150
+Training Loss: 0.7727
+Epoch 132/150
+Training Loss: 0.7165
+Epoch 133/150
+Training Loss: 0.7726
+Epoch 134/150
+Training Loss: 0.7546
+Epoch 135/150
+Training Loss: 0.7381
+Epoch 136/150
+Training Loss: 0.8161
+Epoch 137/150
+Training Loss: 0.7405
+Epoch 138/150
+Training Loss: 0.7447
+Epoch 139/150
+Training Loss: 0.7434
+Epoch 140/150
+Training Loss: 0.7457
+Epoch 141/150
+Training Loss: 0.7468
+Epoch 142/150
+Training Loss: 0.7741
+Epoch 143/150
+Training Loss: 0.7476
+Epoch 144/150
+Training Loss: 0.7611
+Epoch 145/150
+Training Loss: 0.7570
+Epoch 146/150
+Training Loss: 0.7468
+Epoch 147/150
+Training Loss: 0.7407
+Epoch 148/150
+Training Loss: 0.7694
+Epoch 149/150
+Training Loss: 0.7518
+Epoch 150/150
+Training Loss: 0.7421
+Accuracy: 0.7447, Precision: 0.4516, Recall: 0.6667, F1: 0.5385
 
 === Fold 10 ===
-Accuracy: 0.6915, Precision: 0.3667, Recall: 0.5238, F1: 0.4314
+Epoch 1/150
+Training Loss: 0.9517
+Epoch 2/150
+Training Loss: 0.9173
+Epoch 3/150
+Training Loss: 0.8926
+Epoch 4/150
+Training Loss: 0.8728
+Epoch 5/150
+Training Loss: 0.8615
+Epoch 6/150
+Training Loss: 0.8466
+Epoch 7/150
+Training Loss: 0.8213
+Epoch 8/150
+Training Loss: 0.8277
+Epoch 9/150
+Training Loss: 0.8317
+Epoch 10/150
+Training Loss: 0.7965
+Epoch 11/150
+Training Loss: 0.7993
+Epoch 12/150
+Training Loss: 0.8225
+Epoch 13/150
+Training Loss: 0.7789
+Epoch 14/150
+Training Loss: 0.7940
+Epoch 15/150
+Training Loss: 0.7613
+Epoch 16/150
+Training Loss: 0.7764
+Epoch 17/150
+Training Loss: 0.7649
+Epoch 18/150
+Training Loss: 0.7446
+Epoch 19/150
+Training Loss: 0.7838
+Epoch 20/150
+Training Loss: 0.7816
+Epoch 21/150
+Training Loss: 0.7359
+Epoch 22/150
+Training Loss: 0.7589
+Epoch 23/150
+Training Loss: 0.7433
+Epoch 24/150
+Training Loss: 0.7646
+Epoch 25/150
+Training Loss: 0.7353
+Epoch 26/150
+Training Loss: 0.7548
+Epoch 27/150
+Training Loss: 0.7481
+Epoch 28/150
+Training Loss: 0.7312
+Epoch 29/150
+Training Loss: 0.7184
+Epoch 30/150
+Training Loss: 0.7100
+Epoch 31/150
+Training Loss: 0.7117
+Epoch 32/150
+Training Loss: 0.7341
+Epoch 33/150
+Training Loss: 0.7195
+Epoch 34/150
+Training Loss: 0.7089
+Epoch 35/150
+Training Loss: 0.7343
+Epoch 36/150
+Training Loss: 0.7385
+Epoch 37/150
+Training Loss: 0.7293
+Epoch 38/150
+Training Loss: 0.7293
+Epoch 39/150
+Training Loss: 0.7219
+Epoch 40/150
+Training Loss: 0.7122
+Epoch 41/150
+Training Loss: 0.7398
+Epoch 42/150
+Training Loss: 0.7070
+Epoch 43/150
+Training Loss: 0.6962
+Epoch 44/150
+Training Loss: 0.7082
+Epoch 45/150
+Training Loss: 0.6998
+Epoch 46/150
+Training Loss: 0.7396
+Epoch 47/150
+Training Loss: 0.7185
+Epoch 48/150
+Training Loss: 0.7145
+Epoch 49/150
+Training Loss: 0.7180
+Epoch 50/150
+Training Loss: 0.7425
+Epoch 51/150
+Training Loss: 0.7009
+Epoch 52/150
+Training Loss: 0.7117
+Epoch 53/150
+Training Loss: 0.7220
+Epoch 54/150
+Training Loss: 0.7055
+Epoch 55/150
+Training Loss: 0.7052
+Epoch 56/150
+Training Loss: 0.6997
+Epoch 57/150
+Training Loss: 0.7169
+Epoch 58/150
+Training Loss: 0.6906
+Epoch 59/150
+Training Loss: 0.7210
+Epoch 60/150
+Training Loss: 0.7004
+Epoch 61/150
+Training Loss: 0.7288
+Epoch 62/150
+Training Loss: 0.7350
+Epoch 63/150
+Training Loss: 0.6936
+Epoch 64/150
+Training Loss: 0.7305
+Epoch 65/150
+Training Loss: 0.7232
+Epoch 66/150
+Training Loss: 0.7321
+Epoch 67/150
+Training Loss: 0.7176
+Epoch 68/150
+Training Loss: 0.7225
+Epoch 69/150
+Training Loss: 0.7011
+Epoch 70/150
+Training Loss: 0.7267
+Epoch 71/150
+Training Loss: 0.6992
+Epoch 72/150
+Training Loss: 0.6779
+Epoch 73/150
+Training Loss: 0.7489
+Epoch 74/150
+Training Loss: 0.7225
+Epoch 75/150
+Training Loss: 0.7183
+Epoch 76/150
+Training Loss: 0.7162
+Epoch 77/150
+Training Loss: 0.7259
+Epoch 78/150
+Training Loss: 0.7047
+Epoch 79/150
+Training Loss: 0.7430
+Epoch 80/150
+Training Loss: 0.6976
+Epoch 81/150
+Training Loss: 0.6993
+Epoch 82/150
+Training Loss: 0.7311
+Epoch 83/150
+Training Loss: 0.7170
+Epoch 84/150
+Training Loss: 0.6990
+Epoch 85/150
+Training Loss: 0.6876
+Epoch 86/150
+Training Loss: 0.7148
+Epoch 87/150
+Training Loss: 0.7150
+Epoch 88/150
+Training Loss: 0.7441
+Epoch 89/150
+Training Loss: 0.6906
+Epoch 90/150
+Training Loss: 0.7201
+Epoch 91/150
+Training Loss: 0.7106
+Epoch 92/150
+Training Loss: 0.7207
+Epoch 93/150
+Training Loss: 0.6823
+Epoch 94/150
+Training Loss: 0.7490
+Epoch 95/150
+Training Loss: 0.7261
+Epoch 96/150
+Training Loss: 0.7273
+Epoch 97/150
+Training Loss: 0.7010
+Epoch 98/150
+Training Loss: 0.7373
+Epoch 99/150
+Training Loss: 0.6871
+Epoch 100/150
+Training Loss: 0.7317
+Epoch 101/150
+Training Loss: 0.6864
+Epoch 102/150
+Training Loss: 0.7129
+Epoch 103/150
+Training Loss: 0.7234
+Epoch 104/150
+Training Loss: 0.6886
+Epoch 105/150
+Training Loss: 0.7175
+Epoch 106/150
+Training Loss: 0.7182
+Epoch 107/150
+Training Loss: 0.7376
+Epoch 108/150
+Training Loss: 0.6979
+Epoch 109/150
+Training Loss: 0.7022
+Epoch 110/150
+Training Loss: 0.7176
+Epoch 111/150
+Training Loss: 0.6893
+Epoch 112/150
+Training Loss: 0.7396
+Epoch 113/150
+Training Loss: 0.7296
+Epoch 114/150
+Training Loss: 0.7307
+Epoch 115/150
+Training Loss: 0.7113
+Epoch 116/150
+Training Loss: 0.7244
+Epoch 117/150
+Training Loss: 0.7135
+Epoch 118/150
+Training Loss: 0.7115
+Epoch 119/150
+Training Loss: 0.7225
+Epoch 120/150
+Training Loss: 0.7124
+Epoch 121/150
+Training Loss: 0.7042
+Epoch 122/150
+Training Loss: 0.6995
+Epoch 123/150
+Training Loss: 0.7211
+Epoch 124/150
+Training Loss: 0.7100
+Epoch 125/150
+Training Loss: 0.7078
+Epoch 126/150
+Training Loss: 0.6953
+Epoch 127/150
+Training Loss: 0.7283
+Epoch 128/150
+Training Loss: 0.7115
+Epoch 129/150
+Training Loss: 0.7411
+Epoch 130/150
+Training Loss: 0.7232
+Epoch 131/150
+Training Loss: 0.7117
+Epoch 132/150
+Training Loss: 0.7264
+Epoch 133/150
+Training Loss: 0.6947
+Epoch 134/150
+Training Loss: 0.6766
+Epoch 135/150
+Training Loss: 0.7396
+Epoch 136/150
+Training Loss: 0.7142
+Epoch 137/150
+Training Loss: 0.7180
+Epoch 138/150
+Training Loss: 0.7168
+Epoch 139/150
+Training Loss: 0.7337
+Epoch 140/150
+Training Loss: 0.7205
+Epoch 141/150
+Training Loss: 0.7111
+Epoch 142/150
+Training Loss: 0.7142
+Epoch 143/150
+Training Loss: 0.7120
+Epoch 144/150
+Training Loss: 0.7038
+Epoch 145/150
+Training Loss: 0.7427
+Epoch 146/150
+Training Loss: 0.7107
+Epoch 147/150
+Training Loss: 0.7282
+Epoch 148/150
+Training Loss: 0.7430
+Epoch 149/150
+Training Loss: 0.7255
+Epoch 150/150
+Training Loss: 0.6987
+Accuracy: 0.6915, Precision: 0.3750, Recall: 0.5714, F1: 0.4528
+Training completato.
 
 === Media 10-fold ===
-Accuracy: 0.7270
-Precision: 0.4368
-Recall: 0.7032
-F1-score: 0.5362
+Accuracy: 0.7354
+Precision: 0.4479
+Recall: 0.6939
+F1-score: 0.5416
 Job finito.
-Data e ora di fine: Wed Sep 10 12:39:39 CEST 2025
-GPU utilizzata: Quadro RTX 5000
+Data e ora di fine: Wed Sep 10 15:28:57 CEST 2025
+GPU utilizzata: NVIDIA L40S
