@@ -4,7 +4,7 @@
 #SBATCH --output=res_ESKD_NN.out
 #SBATCH --error=res_ESKD_NN.err
 #SBATCH --job-name=ESKD_NN
-#SBATCH --time=8:00:00
+#SBATCH --time=2:00:00
 #SBATCH --mem=20G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=2
@@ -18,7 +18,7 @@ echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || ec
 
 
 # Lancio il training script
-wandb agent gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD/ishpr0d5
+python net.py
 
 
 echo "Job finito."

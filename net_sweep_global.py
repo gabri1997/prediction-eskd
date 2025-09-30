@@ -11,6 +11,7 @@ import os
 import json
 import tqdm
 
+
 # --- Modello come lo indica nel paper anche se fa schifo ---
 class SimpleBinaryNN(nn.Module):
     def __init__(self, input_size, dropout=0.1):
@@ -96,6 +97,21 @@ def model_initialization(X_train, y_train):
 
     return model, optimizer, scheduler, criterion, step_start, step_end
 
+def read_json (save_file):
+    if os.path.exists(save_file):
+        try:
+            with open(save_file, 'r') as f:
+                data = json.load(f)
+            best_f1 = data.get("Best Model Metrics", {}).get("Best F1", 0.0)
+        except:
+            best_f1 = 0.0
+    else:
+        best_f1 = 0.0
+        with open(save_file, 'w') as f:
+            json.dump({}, f)
+    return best_f1
+
+
 def train_and_evaluate(df, num_epochs, save_pth):
 
     X, y = preprocess_data(df)
@@ -140,8 +156,10 @@ def train_and_evaluate(df, num_epochs, save_pth):
     
     # Training loop
     global_step = 0
-    best_f1 = 0.0
     
+    save_file = os.path.join(save_pth, f"best_model_fold_{fold_to_run}_config.json")
+    model_file = os.path.join(save_pth, f"best_model_fold_{fold_to_run}.pth")
+
     for epoch in range(num_epochs):
         
         all_labels = []
@@ -172,24 +190,28 @@ def train_and_evaluate(df, num_epochs, save_pth):
         all_preds_bin = (all_preds > 0.5).float()
         train_acc = (all_preds_bin == all_labels).float().mean()
         train_f1_score = f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)
+       
+        best_f1 = read_json(save_file)
+        print(f"Current best F1 from file: {best_f1}, Current epoch F1: {train_f1_score}")
         if train_f1_score > best_f1:
             best_f1 =  train_f1_score
             # Salvo il modello
             print(f"New best model with F1: {best_f1}, saving model...")
-            torch.save(model.state_dict(), os.path.join(save_pth, f"best_model_fold_{fold_to_run}.pth"))
+            torch.save(model.state_dict(), model_file)
             # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
             config_and_metrics = {
                 "Config Parameters": dict(wandb.config),
                 "Best Model Metrics": {
+                    "Epoch": epoch + 1,
                     "Best F1": float(best_f1),
                     "Train Accuracy": float(train_acc),
                     "Train Precision": float(precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)),
                     "Train Recall": float(recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0))
                 }
             }
-            save_file = os.path.join(save_pth, f"best_model_fold_{fold_to_run}_config.json")
             with open(save_file, 'w') as f:
                 json.dump(config_and_metrics, f, indent=4)
+
         epoch_loss = running_loss / len(train_loader.dataset)
         #print(f"Training Loss: {epoch_loss:.4f}")
 
@@ -238,6 +260,7 @@ def train_and_evaluate(df, num_epochs, save_pth):
 
 if __name__ == "__main__":
   
+    print("Starting training script...")
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
     save_pth = '/work/grana_far2023_fomo/ESKD/Models/'
     df = pd.read_excel(data_path)

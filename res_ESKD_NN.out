@@ -1,3 +1,114 @@
-Job iniziato su labetty
-Data e ora: Wed Sep 10 17:24:04 CEST 2025
-GPU disponibile: NVIDIA L40S
+Job iniziato su carabbaggio
+Data e ora: Tue Sep 30 15:26:19 CEST 2025
+GPU disponibile: NVIDIA GeForce GTX 1080 Ti
+Feature shape: (945, 13), Labels shape: (945,)
+Numero di split: 5
+ === Running fold 1 with 756 training samples and 189 validation samples ===
+Epoch 1/100
+New best model with F1: 0.358974358974359, saving model...
+Epoch 2/100
+New best model with F1: 0.45908183632734534, saving model...
+Epoch 3/100
+Epoch 4/100
+New best model with F1: 0.4632516703786192, saving model...
+Epoch 5/100
+New best model with F1: 0.4742268041237113, saving model...
+Epoch 6/100
+Epoch 7/100
+New best model with F1: 0.4763948497854078, saving model...
+Epoch 8/100
+Epoch 9/100
+New best model with F1: 0.48333333333333334, saving model...
+Epoch 10/100
+Epoch 11/100
+New best model with F1: 0.5256124721603563, saving model...
+Epoch 12/100
+Epoch 13/100
+New best model with F1: 0.531317494600432, saving model...
+Epoch 14/100
+New best model with F1: 0.5793991416309012, saving model...
+Epoch 15/100
+Epoch 16/100
+Epoch 17/100
+Epoch 18/100
+New best model with F1: 0.583710407239819, saving model...
+Epoch 19/100
+Epoch 20/100
+Epoch 21/100
+Epoch 22/100
+Epoch 23/100
+Epoch 24/100
+Epoch 25/100
+Epoch 26/100
+Epoch 27/100
+Epoch 28/100
+Epoch 29/100
+Epoch 30/100
+Epoch 31/100
+Epoch 32/100
+Epoch 33/100
+Epoch 34/100
+Epoch 35/100
+Epoch 36/100
+Epoch 37/100
+New best model with F1: 0.5879732739420935, saving model...
+Epoch 38/100
+Epoch 39/100
+Epoch 40/100
+Epoch 41/100
+Epoch 42/100
+Epoch 43/100
+Epoch 44/100
+Epoch 45/100
+New best model with F1: 0.5908096280087528, saving model...
+Epoch 46/100
+Epoch 47/100
+Epoch 48/100
+Epoch 49/100
+Epoch 50/100
+Epoch 51/100
+Epoch 52/100
+Epoch 53/100
+Epoch 54/100
+Epoch 55/100
+Epoch 56/100
+Epoch 57/100
+Epoch 58/100
+Epoch 59/100
+Epoch 60/100
+Epoch 61/100
+Epoch 62/100
+Epoch 63/100
+Epoch 64/100
+Epoch 65/100
+Epoch 66/100
+Epoch 67/100
+Epoch 68/100
+Epoch 69/100
+Epoch 70/100
+Epoch 71/100
+Epoch 72/100
+Epoch 73/100
+Epoch 74/100
+Epoch 75/100
+Epoch 76/100
+Epoch 77/100
+Epoch 78/100
+Epoch 79/100
+Epoch 80/100
+Epoch 81/100
+Epoch 82/100
+Epoch 83/100
+Epoch 84/100
+Epoch 85/100
+Epoch 86/100
+Epoch 87/100
+Epoch 88/100
+Epoch 89/100
+Epoch 90/100
+Epoch 91/100
+Epoch 92/100
+Epoch 93/100
+Epoch 94/100
+Epoch 95/100
+Epoch 96/100

@@ -1,5 +1,6 @@
-program: net_sweep.py
-method: bayes
+program: net_sweep_global.py
+# Qua devo mettere grid come method se no se metto bayes non fa una vera cross fold ma include il fold come se fosse una metrica da ottimizzare
+method: grid
 metric:
   name: train/f1-score
   goal: maximize
@@ -7,16 +8,15 @@ metric:
 parameters:
   fold:
     values: [1,2,3,4,5]  # qui definisci i fold
-  learning_rate:
-    min: 0.0001
-    max: 0.1
+  learning_rate: 
+    values: [0.000001, 0.0001, 0.001, 0.01, 0.1, 0.2]
   dropout:
     values: [0.1, 0.2, 0.3, 0.5]
   batch_size:
-    values: [32, 64]
+    values: [16, 32, 64]
   optimizer:
     values: ["adam", "sgd"]
 
 # Numero di run da fare nello sweep
 # Perchè il concetto è provare piu run per ciascun fold
-count: 5
+# count: 5
