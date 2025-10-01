@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import StratifiedShuffleSplit
 import wandb
 import os
 import json
@@ -108,16 +109,62 @@ def read_json (save_file):
 
 
 def train(df, num_epochs, save_pth, save_on_evaluation=False):
-    print("Starting training script...")
-    X, y = preprocess_data(df)
-    print(f"Feature shape: {X.shape}, Labels shape: {y.shape}")
 
-    # --- 5-fold stratified CV ---
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    print("Starting training script...")
+    
+    # -------------------------------------------------
+    # X, y = preprocess_data(df)
+    # print(f"Feature shape: {X.shape}, Labels shape: {y.shape}")
+
+    # # devo fare la strified k-fold cross validation solo su una porzione di 80% dei dati randomizzati
+    # # Perchè il 20% lo tengo fermo per il test finale
+    # # Quindi prima randomizzo i dati
+    # np.random.seed(42)
+    # indices = np.random.permutation(len(X))
+    # X = X[indices]
+    # y = y[indices]
+
+    # split_idx = int(0.8 * len(X))
+    # X_train_full = X[:split_idx]
+    # y_train_full = y[:split_idx]
+
+    # X_test = X[split_idx:]
+    # y_test = y[split_idx:]
+
+    # # Controllo distribuzione
+    # unique_train, counts_train = np.unique(y_train_full, return_counts=True)
+    # class_distribution_train = dict(zip(unique_train, counts_train))
+    # print(f"Class distribution in training data: {class_distribution_train}")
+
+    # unique_test, counts_test = np.unique(y_test, return_counts=True)
+    # class_distribution_test = dict(zip(unique_test, counts_test))
+    # print(f"Class distribution in test data: {class_distribution_test}")
+
+    #kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+    # ------------------------------------------------   
+
+    X, y = preprocess_data(df)
+
+    # Stratified 80/20 split
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+
+    for train_idx, test_idx in sss.split(X, y):
+        X_train_val, X_test = X[train_idx], X[test_idx]
+        y_train_val, y_test = y[train_idx], y[test_idx]
+
+    print(f"Training + validation shape: {X_train_val.shape}, Labels shape: {y_train_val.shape}")
+    print(f"Test shape: {X_test.shape}, Labels shape: {y_test.shape}")
+
+    # Controllo distribuzione classi
+    unique_train, counts_train = np.unique(y_train_val, return_counts=True)
+    unique_test, counts_test = np.unique(y_test, return_counts=True)
+    print(f"Training class distribution: {dict(zip(unique_train, counts_train))}")
+    print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
+    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 
     fold_metrics = []
 
-    splits = list(kf.split(X, y))
+    splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo
     wandb.init()
@@ -128,9 +175,9 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     
     wandb_function(fold_to_run)
     
-    X_train, X_val = X[train_idx], X[val_idx]
-    y_train, y_val = y[train_idx], y[val_idx]
-    
+    X_train, X_val = X_train_val[train_idx], X_train_val[val_idx]
+    y_train, y_val = y_train_val[train_idx], y_train_val[val_idx]
+
     model, optimizer, scheduler, criterion, step_start, step_end = model_initialization(X_train, y_train)
 
     # Z-score normalization

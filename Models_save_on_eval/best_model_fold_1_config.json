@@ -1,0 +1,17 @@
+{
+    "Run ID": "fpadniyv",
+    "Config Parameters": {
+        "batch_size": 16,
+        "dropout": 0.1,
+        "fold": 1,
+        "learning_rate": 0.001,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 47,
+        "Best F1": 0.7027027027027027,
+        "Validation Accuracy": 0.8552631735801697,
+        "Validation Precision": 0.65,
+        "Validation Recall": 0.7647058823529411
+    }
+}

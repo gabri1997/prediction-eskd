@@ -1,4 +1,5 @@
 program: net_sweep_global.py
+project: ESKD_save_on_eval
 # Qua devo mettere grid come method se no se metto bayes non fa una vera cross fold ma include il fold come se fosse una metrica da ottimizzare
 method: grid
 metric:
@@ -17,6 +18,3 @@ parameters:
   optimizer:
     values: ["adam", "sgd"]
 
-# Numero di run da fare nello sweep
-# Perchè il concetto è provare piu run per ciascun fold
-# count: 5
