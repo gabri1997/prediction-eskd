@@ -1,0 +1,17 @@
+{
+    "Run ID": "ptg6eka0",
+    "Config Parameters": {
+        "batch_size": 64,
+        "dropout": 0.1,
+        "fold": 2,
+        "learning_rate": 0.1,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 96,
+        "Best F1": 0.804177545691906,
+        "Train Accuracy": 0.9007936716079712,
+        "Train Precision": 0.7230046948356808,
+        "Train Recall": 0.9058823529411765
+    }
+}

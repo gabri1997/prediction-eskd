@@ -1,23 +1,5 @@
-/var/lib/slurm/slurmd/job2634335/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-wandb: Starting wandb agent 🕵️
-2025-09-30 15:26:28,210 - wandb.wandb_agent - INFO - Running runs: []
-2025-09-30 15:26:28,546 - wandb.wandb_agent - INFO - Agent received command: run
-2025-09-30 15:26:28,547 - wandb.wandb_agent - INFO - Agent starting run with config:
-	batch_size: 16
-	dropout: 0.1
-	fold: 1
-	learning_rate: 0.2
-	optimizer: sgd
-2025-09-30 15:26:28,553 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep.py --batch_size=16 --dropout=0.1 --fold=1 --learning_rate=0.2 --optimizer=sgd
-2025-09-30 15:26:33,561 - wandb.wandb_agent - INFO - Running runs: ['tutisd3d']
-wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.22.1 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20250930_152635-tutisd3d
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run azure-sweep-19
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/Eskd
-wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/Eskd/sweeps/ishpr0d5
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/Eskd/runs/tutisd3d
-[2025-09-30T15:27:09.727] error: *** JOB 2634335 ON carabbaggio CANCELLED AT 2025-09-30T15:27:09 DUE to SIGNAL Terminated ***
+/var/lib/slurm/slurmd/job2635091/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+usage: conda [-h] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'deactivate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'skeleton', 'repo', 'verify', 'server', 'pack', 'env', 'token')
+usage: conda [-h] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'skeleton', 'repo', 'env', 'pack', 'verify', 'server', 'token')

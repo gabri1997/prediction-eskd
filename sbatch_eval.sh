@@ -4,7 +4,7 @@
 #SBATCH --output=res_ESKD_NN.out
 #SBATCH --error=res_ESKD_NN.err
 #SBATCH --job-name=ESKD_NN
-#SBATCH --time=16:00:00
+#SBATCH --time=2:00:00
 #SBATCH --mem=20G
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=2
@@ -15,10 +15,10 @@ echo "Data e ora: $(date)"
 echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
 
 . /usr/local/anaconda3/etc/profile.d/conda.sh
-
-
+conda deactivate
+conda activate dmsil
 # Lancio il training script
-wandb agent gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD/mhbprpqr
+python net_sweep_eval.py
 
 
 echo "Job finito."

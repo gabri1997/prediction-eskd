@@ -1,0 +1,17 @@
+{
+    "Run ID": "wdfsw711",
+    "Config Parameters": {
+        "batch_size": 64,
+        "dropout": 0.1,
+        "fold": 5,
+        "learning_rate": 0.1,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 88,
+        "Best F1": 0.7960199004975124,
+        "Train Accuracy": 0.8915343880653381,
+        "Train Precision": 0.6926406926406926,
+        "Train Recall": 0.935672514619883
+    }
+}

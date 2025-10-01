@@ -44,7 +44,7 @@ class SimpleBinaryNN(nn.Module):
 
 def preprocess_data(df):
     # Trasformazioni
-    df['Gender'] = df['Gender'].replace({'M': 1, 'F': 2})
+    df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
     X = df.drop(columns=['Eskd', 'Code']).values
     y = df['Eskd'].values
 

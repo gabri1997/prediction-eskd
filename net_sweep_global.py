@@ -12,7 +12,7 @@ import json
 import tqdm
 
 
-# --- Modello come lo indica nel paper anche se fa schifo ---
+# --- Modello come lo indica nel paper anche se non si affronta ---
 class SimpleBinaryNN(nn.Module):
     def __init__(self, input_size, dropout=0.1):
         super(SimpleBinaryNN, self).__init__()
@@ -45,7 +45,7 @@ class SimpleBinaryNN(nn.Module):
 
 def preprocess_data(df):
     # Trasformazioni
-    df['Gender'] = df['Gender'].replace({'M': 1, 'F': 2})
+    df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
     X = df.drop(columns=['Eskd', 'Code']).values
     y = df['Eskd'].values
 
@@ -56,10 +56,6 @@ def preprocess_data(df):
     return X, y
 
 def wandb_function(fold_to_run):
-    # import time
-    # fold = wandb.config.fold
-    # run_name = f"ESKD_fold_{fold}_{int(time.time())}"
-    # wandb.init(project="ESKD_NN", name=run_name, reinit=True)
     
     wandb.define_metric("epoch")
     wandb.define_metric("train_loss", step_metric="epoch")
@@ -68,7 +64,6 @@ def wandb_function(fold_to_run):
     wandb.define_metric("train_recall", step_metric="epoch")
     wandb.define_metric("train_f1_score", step_metric="epoch")
     wandb.define_metric("learning_rate", step_metric="epoch")
-
 
 def model_initialization(X_train, y_train):
 
@@ -112,12 +107,12 @@ def read_json (save_file):
     return best_f1
 
 
-def train_and_evaluate(df, num_epochs, save_pth):
-
+def train(df, num_epochs, save_pth, save_on_evaluation=False):
+    print("Starting training script...")
     X, y = preprocess_data(df)
     print(f"Feature shape: {X.shape}, Labels shape: {y.shape}")
 
-    # --- 10-fold stratified CV ---
+    # --- 5-fold stratified CV ---
     kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
     fold_metrics = []
@@ -141,6 +136,7 @@ def train_and_evaluate(df, num_epochs, save_pth):
     # Z-score normalization
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
+    # Non uso fit_transform ma solo transform per evitare data leakage, non ricalcolo la deviazione standard sui dati di validazione
     X_val = scaler.transform(X_val)
     
     # Tensori PyTorch
@@ -191,26 +187,29 @@ def train_and_evaluate(df, num_epochs, save_pth):
         train_acc = (all_preds_bin == all_labels).float().mean()
         train_f1_score = f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)
        
-        best_f1 = read_json(save_file)
-        print(f"Current best F1 from file: {best_f1}, Current epoch F1: {train_f1_score}")
-        if train_f1_score > best_f1:
-            best_f1 =  train_f1_score
-            # Salvo il modello
-            print(f"New best model with F1: {best_f1}, saving model...")
-            torch.save(model.state_dict(), model_file)
-            # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
-            config_and_metrics = {
-                "Config Parameters": dict(wandb.config),
-                "Best Model Metrics": {
-                    "Epoch": epoch + 1,
-                    "Best F1": float(best_f1),
-                    "Train Accuracy": float(train_acc),
-                    "Train Precision": float(precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)),
-                    "Train Recall": float(recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0))
+        if save_on_evaluation == False:
+            print("Saving best model based on Training F1 score...")
+            best_f1 = read_json(save_file)
+            print(f"Current best F1 from file: {best_f1}, Current epoch F1: {train_f1_score}")
+            if train_f1_score > best_f1:
+                best_f1 =  train_f1_score
+                # Salvo il modello
+                print(f"New best model with F1: {best_f1}, saving model...")
+                torch.save(model.state_dict(), model_file)
+                # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
+                config_and_metrics = {
+                    "Run ID": wandb.run.id,
+                    "Config Parameters": dict(wandb.config),
+                    "Best Model Metrics": {
+                        "Epoch": epoch + 1,
+                        "Best F1": float(best_f1),
+                        "Train Accuracy": float(train_acc),
+                        "Train Precision": float(precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)),
+                        "Train Recall": float(recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0))
+                    }
                 }
-            }
-            with open(save_file, 'w') as f:
-                json.dump(config_and_metrics, f, indent=4)
+                with open(save_file, 'w') as f:
+                    json.dump(config_and_metrics, f, indent=4)
 
         epoch_loss = running_loss / len(train_loader.dataset)
         #print(f"Training Loss: {epoch_loss:.4f}")
@@ -223,46 +222,55 @@ def train_and_evaluate(df, num_epochs, save_pth):
             wandb.log({"train/f1-score" : f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch}),
             wandb.log({"learning_rate" : optimizer.param_groups[0]['lr'], 'epoch' : epoch})  
         except Exception as e:
-            print(f'Errore nel log di wandb nel train: {e}')
-        
-    # Validazione
-    # model.eval()
-    # y_pred = []
-    # with torch.no_grad():
-    #     # Ricarico i pesi del miglior modello salvato per ogni fold specifico
-    #     print("Loading best model for validation... for the fold ", fold_to_run)
-    #     model.load_state_dict(torch.load(os.path.join(save_pth, f"best_model_fold_{fold_to_run}.pth")))
-    #     for inputs, _ in val_loader:
-    #         outputs = model(inputs)
-    #         y_pred.extend(torch.sigmoid(outputs).cpu().numpy())
-    # y_pred = (np.array(y_pred).flatten() > 0.5).astype(int)
-    
-    # # Metriche fold
-    # acc = accuracy_score(y_val, y_pred)
-    # prec = precision_score(y_val, y_pred)
-    # rec = recall_score(y_val, y_pred)
-    # f1 = f1_score(y_val, y_pred)
-    # print(f"Accuracy: {acc:.4f}, Precision: {prec:.4f}, Recall: {rec:.4f}, F1: {f1:.4f}")
-    
-    # fold_metrics.append([acc, prec, rec, f1])
+            print(f'Error in wandb: {e}')
+
+        # Qui faccio la validazione ad ogni epoca se richiesto e salvo il modello se migliora la F1 di validazione come suggerito da Nik
+        if save_on_evaluation == True:
+            print("Starting validation...")
+            model.eval()
+            val_labels = []
+            val_preds = []
+
+            with torch.no_grad():
+                for inputs, labels in val_loader:
+                    outputs = model(inputs)
+                    val_labels.append(labels)
+                    val_preds.append(torch.sigmoid(outputs).detach())
+
+            val_labels = torch.cat(val_labels)
+            val_preds = torch.cat(val_preds)
+            val_preds_bin = (val_preds > 0.5).float()
+            val_acc = (val_preds_bin == val_labels).float().mean()
+            val_f1_score = f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)
+
+            if val_f1_score > read_json(save_file):
+                # Salvo il modello
+                print(f"New best model with Validation F1: {val_f1_score}, saving model...")
+                torch.save(model.state_dict(), model_file)
+                # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
+                config_and_metrics = {
+                    "Run ID": wandb.run.id,
+                    "Config Parameters": dict(wandb.config),
+                    "Best Model Metrics": {
+                        "Epoch": epoch + 1,
+                        "Best F1": float(val_f1_score),
+                        "Validation Accuracy": float(val_acc),
+                        "Validation Precision": float(precision_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)),
+                        "Validation Recall": float(recall_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0))
+                    }
+                }
+                with open(save_file, 'w') as f:
+                    json.dump(config_and_metrics, f, indent=4)
 
     wandb.finish()
-    print("Training completato.")
-
-    # Media dei 10 fold
-    # fold_metrics = np.array(fold_metrics)
-    # print("\n=== Media 10-fold ===")
-    # print(f"Accuracy: {fold_metrics[:,0].mean():.4f}")
-    # print(f"Precision: {fold_metrics[:,1].mean():.4f}")
-    # print(f"Recall: {fold_metrics[:,2].mean():.4f}")
-    # print(f"F1-score: {fold_metrics[:,3].mean():.4f}")
 
 
 if __name__ == "__main__":
   
     print("Starting training script...")
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_save_on_eval/'
     df = pd.read_excel(data_path)
-    num_epochs = 100
-    train_and_evaluate(df, num_epochs, save_pth)
+    num_epochs = 120
+    save_on_evaluation = True
+    train(df, num_epochs, save_pth, save_on_evaluation)
