@@ -260,11 +260,11 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
         #print(f"Training Loss: {epoch_loss:.4f}")
 
         try :
-            wandb.log({"train/loss" : epoch_loss, 'epoch': epoch}),
-            wandb.log({"train/accuracy" : train_acc, 'epoch': epoch}),
-            wandb.log({"train/precision": precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch}),
-            wandb.log({"train/recall-score" : recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch}),
-            wandb.log({"train/f1-score" : f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch}),
+            wandb.log({"train/loss" : epoch_loss, 'epoch': epoch})
+            wandb.log({"train/accuracy" : train_acc, 'epoch': epoch})
+            wandb.log({"train/precision": precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+            wandb.log({"train/recall-score" : recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+            wandb.log({"train/f1-score" : f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
             wandb.log({"learning_rate" : optimizer.param_groups[0]['lr'], 'epoch' : epoch})  
         except Exception as e:
             print(f'Error in wandb: {e}')

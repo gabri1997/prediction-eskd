@@ -104,7 +104,8 @@ def eval(df, save_pth, save_res_file, n_folds):
                     data = json.load(f)
                 dropout = data['Config Parameters']['dropout']
                 # So che posso usare un batch size diverso perchè qui non alleno ma vabè
-                batch_size = data['Config Parameters']['batch_size']
+                batch_size = data['Config Parameters'].get('batch_size', 32)
+                # Carico il modello corrispondente
                 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)   
                 model = SimpleBinaryNN(input_size=X.shape[1], dropout=dropout)
                 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
