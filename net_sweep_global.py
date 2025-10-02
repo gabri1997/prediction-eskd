@@ -162,8 +162,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
     kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 
-    fold_metrics = []
-
     splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo

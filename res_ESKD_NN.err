@@ -1,22 +1,10 @@
-/var/lib/slurm/slurmd/job2635365/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-wandb: Starting wandb agent 🕵️
-2025-10-01 16:59:19,949 - wandb.wandb_agent - INFO - Running runs: []
-2025-10-01 16:59:20,424 - wandb.wandb_agent - INFO - Agent received command: run
-2025-10-01 16:59:20,424 - wandb.wandb_agent - INFO - Agent starting run with config:
-	batch_size: 16
-	dropout: 0.1
-	fold: 1
-	learning_rate: 0.001
-	optimizer: adam
-2025-10-01 16:59:20,431 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_global.py --batch_size=16 --dropout=0.1 --fold=1 --learning_rate=0.001 --optimizer=adam
-2025-10-01 16:59:25,441 - wandb.wandb_agent - INFO - Running runs: ['fpadniyv']
-wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.22.1 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.2
-wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251001_165925-fpadniyv
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run snowy-sweep-45
-wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_save_on_eval
-wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_save_on_eval/sweeps/sk4v9hce
-wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_save_on_eval/runs/fpadniyv
+/var/lib/slurm/slurmd/job2635957/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+usage: conda [-h] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'deactivate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'skeleton', 'env', 'server', 'pack', 'verify', 'token', 'repo')
+usage: conda [-h] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'skeleton', 'token', 'env', 'repo', 'verify', 'server', 'pack')
+Testing:   0%|          | 0/6 [00:00<?, ?it/s]Testing:  17%|█▋        | 1/6 [00:00<00:03,  1.58it/s]Testing: 100%|██████████| 6/6 [00:00<00:00,  9.14it/s]
+Testing:   0%|          | 0/12 [00:00<?, ?it/s]Testing:   8%|▊         | 1/12 [00:00<00:06,  1.73it/s]Testing: 100%|██████████| 12/12 [00:00<00:00, 18.51it/s]
+Testing:   0%|          | 0/3 [00:00<?, ?it/s]Testing:  33%|███▎      | 1/3 [00:00<00:01,  1.69it/s]Testing: 100%|██████████| 3/3 [00:00<00:00,  4.80it/s]
+Testing:   0%|          | 0/3 [00:00<?, ?it/s]Testing:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s]Testing: 100%|██████████| 3/3 [00:00<00:00,  4.41it/s]
+Testing:   0%|          | 0/6 [00:00<?, ?it/s]Testing:  17%|█▋        | 1/6 [00:00<00:03,  1.60it/s]Testing: 100%|██████████| 6/6 [00:00<00:00,  9.25it/s]

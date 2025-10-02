@@ -1,0 +1,17 @@
+{
+    "Run ID": "2hp3gz9v",
+    "Config Parameters": {
+        "batch_size": 64,
+        "dropout": 0.2,
+        "fold": 4,
+        "learning_rate": 0.1,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 1,
+        "Best F1": 0.7142857142857143,
+        "Validation Accuracy": 0.8421052694320679,
+        "Validation Precision": 0.6,
+        "Validation Recall": 0.8823529411764706
+    }
+}

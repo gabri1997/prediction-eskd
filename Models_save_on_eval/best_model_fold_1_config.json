@@ -1,17 +1,17 @@
 {
-    "Run ID": "fpadniyv",
+    "Run ID": "v6czpyuv",
     "Config Parameters": {
-        "batch_size": 16,
+        "batch_size": 32,
         "dropout": 0.1,
         "fold": 1,
-        "learning_rate": 0.001,
-        "optimizer": "adam"
+        "learning_rate": 0.2,
+        "optimizer": "sgd"
     },
     "Best Model Metrics": {
-        "Epoch": 47,
-        "Best F1": 0.7027027027027027,
-        "Validation Accuracy": 0.8552631735801697,
-        "Validation Precision": 0.65,
-        "Validation Recall": 0.7647058823529411
+        "Epoch": 33,
+        "Best F1": 0.7999999999999999,
+        "Validation Accuracy": 0.8947368264198303,
+        "Validation Precision": 0.6956521739130435,
+        "Validation Recall": 0.9411764705882353
     }
 }

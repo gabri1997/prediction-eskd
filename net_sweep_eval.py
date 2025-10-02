@@ -6,7 +6,6 @@ from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-import wandb
 import os
 import json
 import tqdm

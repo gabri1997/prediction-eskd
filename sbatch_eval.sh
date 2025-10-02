@@ -18,7 +18,7 @@ echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || ec
 conda deactivate
 conda activate dmsil
 # Lancio il training script
-python net_sweep_eval.py
+python net_sweep_eval_20%.py
 
 
 echo "Job finito."

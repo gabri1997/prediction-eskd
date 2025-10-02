@@ -1,0 +1,17 @@
+{
+    "Run ID": "xyby30kp",
+    "Config Parameters": {
+        "batch_size": 16,
+        "dropout": 0.1,
+        "fold": 2,
+        "learning_rate": 0.2,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 12,
+        "Best F1": 0.6857142857142857,
+        "Validation Accuracy": 0.8552631735801697,
+        "Validation Precision": 0.6666666666666666,
+        "Validation Recall": 0.7058823529411765
+    }
+}
