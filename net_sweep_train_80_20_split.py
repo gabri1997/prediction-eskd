@@ -86,7 +86,7 @@ def model_initialization(X_train, y_train):
     elif config.optimizer == "sgd":
         optimizer = torch.optim.SGD(model.parameters(), lr=config.learning_rate, momentum=0.9)
 
-    # optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
+
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=gamma)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
     criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)

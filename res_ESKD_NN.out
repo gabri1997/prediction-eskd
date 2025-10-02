@@ -1,20 +1,311 @@
 Job iniziato su gervasoni
-Data e ora: Thu Oct  2 15:18:38 CEST 2025
+Data e ora: Thu Oct  2 16:09:51 CEST 2025
 GPU disponibile: Quadro RTX 5000
-Starting testing script...
-Training + validation shape: (756, 13), Labels shape: (756,)
-Test shape: (189, 13), Labels shape: (189,)
-Training class distribution: {0: 586, 1: 170}
-Test class distribution: {0: 146, 1: 43}
-Test Accuracy: 0.6984, Precision: 0.3971, Recall: 0.6279, F1 Score: 0.4865
-Test Accuracy: 0.7672, Precision: 0.4884, Recall: 0.4884, F1 Score: 0.4884
-Test Accuracy: 0.7196, Precision: 0.4107, Recall: 0.5349, F1 Score: 0.4646
-Test Accuracy: 0.6825, Precision: 0.3836, Recall: 0.6512, F1 Score: 0.4828
-Test Accuracy: 0.7672, Precision: 0.4894, Recall: 0.5349, F1 Score: 0.5111
-Average Test Accuracy: 0.7270 ± 0.0349
-Average Test Precision: 0.4338 ± 0.0458
-Average Test Recall: 0.5674 ± 0.0617
-Average Test F1 Score: 0.4867 ± 0.0148
+[2 1]
+Epoch 1/150, Loss: 0.5792, Accuracy: 0.6944
+Learning Rate: 0.009500
+Epoch 2/150, Loss: 0.4631, Accuracy: 0.7831
+Learning Rate: 0.009025
+Epoch 3/150, Loss: 0.4579, Accuracy: 0.7844
+Learning Rate: 0.008574
+Epoch 4/150, Loss: 0.4454, Accuracy: 0.7976
+Learning Rate: 0.008145
+Epoch 5/150, Loss: 0.4392, Accuracy: 0.7950
+Learning Rate: 0.007738
+Epoch 6/150, Loss: 0.4198, Accuracy: 0.8095
+Learning Rate: 0.007351
+Epoch 7/150, Loss: 0.4048, Accuracy: 0.8175
+Learning Rate: 0.006983
+Epoch 8/150, Loss: 0.4104, Accuracy: 0.8108
+Learning Rate: 0.006634
+Epoch 9/150, Loss: 0.4088, Accuracy: 0.8135
+Learning Rate: 0.006302
+Epoch 10/150, Loss: 0.4021, Accuracy: 0.8228
+Learning Rate: 0.005987
+Epoch 11/150, Loss: 0.3894, Accuracy: 0.8294
+Learning Rate: 0.005688
+Epoch 12/150, Loss: 0.3827, Accuracy: 0.8320
+Learning Rate: 0.005404
+Epoch 13/150, Loss: 0.3890, Accuracy: 0.8201
+Learning Rate: 0.005133
+Epoch 14/150, Loss: 0.3610, Accuracy: 0.8452
+Learning Rate: 0.004877
+Epoch 15/150, Loss: 0.3754, Accuracy: 0.8347
+Learning Rate: 0.004633
+Epoch 16/150, Loss: 0.3710, Accuracy: 0.8386
+Learning Rate: 0.004401
+Epoch 17/150, Loss: 0.3816, Accuracy: 0.8254
+Learning Rate: 0.004181
+Epoch 18/150, Loss: 0.3792, Accuracy: 0.8386
+Learning Rate: 0.003972
+Epoch 19/150, Loss: 0.3736, Accuracy: 0.8413
+Learning Rate: 0.003774
+Epoch 20/150, Loss: 0.3650, Accuracy: 0.8466
+Learning Rate: 0.003585
+Epoch 21/150, Loss: 0.3771, Accuracy: 0.8294
+Learning Rate: 0.003406
+Epoch 22/150, Loss: 0.3454, Accuracy: 0.8638
+Learning Rate: 0.003235
+Epoch 23/150, Loss: 0.3598, Accuracy: 0.8492
+Learning Rate: 0.003074
+Epoch 24/150, Loss: 0.3547, Accuracy: 0.8479
+Learning Rate: 0.002920
+Epoch 25/150, Loss: 0.3629, Accuracy: 0.8439
+Learning Rate: 0.002774
+Epoch 26/150, Loss: 0.3501, Accuracy: 0.8532
+Learning Rate: 0.002635
+Epoch 27/150, Loss: 0.3512, Accuracy: 0.8479
+Learning Rate: 0.002503
+Epoch 28/150, Loss: 0.3306, Accuracy: 0.8651
+Learning Rate: 0.002378
+Epoch 29/150, Loss: 0.3335, Accuracy: 0.8638
+Learning Rate: 0.002259
+Epoch 30/150, Loss: 0.3496, Accuracy: 0.8532
+Learning Rate: 0.002146
+Epoch 31/150, Loss: 0.3346, Accuracy: 0.8690
+Learning Rate: 0.002039
+Epoch 32/150, Loss: 0.3263, Accuracy: 0.8651
+Learning Rate: 0.001937
+Epoch 33/150, Loss: 0.3393, Accuracy: 0.8598
+Learning Rate: 0.001840
+Epoch 34/150, Loss: 0.3271, Accuracy: 0.8532
+Learning Rate: 0.001748
+Epoch 35/150, Loss: 0.3279, Accuracy: 0.8638
+Learning Rate: 0.001661
+Epoch 36/150, Loss: 0.3326, Accuracy: 0.8690
+Learning Rate: 0.001578
+Epoch 37/150, Loss: 0.3315, Accuracy: 0.8783
+Learning Rate: 0.001499
+Epoch 38/150, Loss: 0.3256, Accuracy: 0.8505
+Learning Rate: 0.001424
+Epoch 39/150, Loss: 0.3174, Accuracy: 0.8558
+Learning Rate: 0.001353
+Epoch 40/150, Loss: 0.3092, Accuracy: 0.8783
+Learning Rate: 0.001285
+Epoch 41/150, Loss: 0.3131, Accuracy: 0.8704
+Learning Rate: 0.001221
+Epoch 42/150, Loss: 0.3257, Accuracy: 0.8558
+Learning Rate: 0.001160
+Epoch 43/150, Loss: 0.2884, Accuracy: 0.8730
+Learning Rate: 0.001102
+Epoch 44/150, Loss: 0.3268, Accuracy: 0.8638
+Learning Rate: 0.001047
+Epoch 45/150, Loss: 0.3182, Accuracy: 0.8651
+Learning Rate: 0.000994
+Epoch 46/150, Loss: 0.3181, Accuracy: 0.8651
+Learning Rate: 0.000945
+Epoch 47/150, Loss: 0.3239, Accuracy: 0.8545
+Learning Rate: 0.000897
+Epoch 48/150, Loss: 0.3289, Accuracy: 0.8664
+Learning Rate: 0.000853
+Epoch 49/150, Loss: 0.3038, Accuracy: 0.8796
+Learning Rate: 0.000810
+Epoch 50/150, Loss: 0.3054, Accuracy: 0.8796
+Learning Rate: 0.000769
+Epoch 51/150, Loss: 0.2943, Accuracy: 0.8717
+Learning Rate: 0.000731
+Epoch 52/150, Loss: 0.3144, Accuracy: 0.8664
+Learning Rate: 0.000694
+Epoch 53/150, Loss: 0.3065, Accuracy: 0.8757
+Learning Rate: 0.000660
+Epoch 54/150, Loss: 0.2870, Accuracy: 0.8849
+Learning Rate: 0.000627
+Epoch 55/150, Loss: 0.2836, Accuracy: 0.8836
+Learning Rate: 0.000595
+Epoch 56/150, Loss: 0.2939, Accuracy: 0.8690
+Learning Rate: 0.000566
+Epoch 57/150, Loss: 0.2842, Accuracy: 0.8757
+Learning Rate: 0.000537
+Epoch 58/150, Loss: 0.2895, Accuracy: 0.8889
+Learning Rate: 0.000510
+Epoch 59/150, Loss: 0.2932, Accuracy: 0.8757
+Learning Rate: 0.000485
+Epoch 60/150, Loss: 0.2882, Accuracy: 0.8823
+Learning Rate: 0.000461
+Epoch 61/150, Loss: 0.2936, Accuracy: 0.8730
+Learning Rate: 0.000438
+Epoch 62/150, Loss: 0.3164, Accuracy: 0.8638
+Learning Rate: 0.000416
+Epoch 63/150, Loss: 0.2998, Accuracy: 0.8651
+Learning Rate: 0.000395
+Epoch 64/150, Loss: 0.2989, Accuracy: 0.8757
+Learning Rate: 0.000375
+Epoch 65/150, Loss: 0.2941, Accuracy: 0.8810
+Learning Rate: 0.000356
+Epoch 66/150, Loss: 0.2934, Accuracy: 0.8717
+Learning Rate: 0.000339
+Epoch 67/150, Loss: 0.2859, Accuracy: 0.8783
+Learning Rate: 0.000322
+Epoch 68/150, Loss: 0.2797, Accuracy: 0.8876
+Learning Rate: 0.000306
+Epoch 69/150, Loss: 0.2855, Accuracy: 0.8889
+Learning Rate: 0.000290
+Epoch 70/150, Loss: 0.3042, Accuracy: 0.8624
+Learning Rate: 0.000276
+Epoch 71/150, Loss: 0.2897, Accuracy: 0.8783
+Learning Rate: 0.000262
+Epoch 72/150, Loss: 0.2997, Accuracy: 0.8743
+Learning Rate: 0.000249
+Epoch 73/150, Loss: 0.2977, Accuracy: 0.8664
+Learning Rate: 0.000236
+Epoch 74/150, Loss: 0.2851, Accuracy: 0.8796
+Learning Rate: 0.000225
+Epoch 75/150, Loss: 0.2809, Accuracy: 0.8889
+Learning Rate: 0.000213
+Epoch 76/150, Loss: 0.2892, Accuracy: 0.8783
+Learning Rate: 0.000203
+Epoch 77/150, Loss: 0.2999, Accuracy: 0.8611
+Learning Rate: 0.000193
+Epoch 78/150, Loss: 0.2851, Accuracy: 0.8770
+Learning Rate: 0.000183
+Epoch 79/150, Loss: 0.2878, Accuracy: 0.8836
+Learning Rate: 0.000174
+Epoch 80/150, Loss: 0.2967, Accuracy: 0.8704
+Learning Rate: 0.000165
+Epoch 81/150, Loss: 0.2993, Accuracy: 0.8810
+Learning Rate: 0.000157
+Epoch 82/150, Loss: 0.2949, Accuracy: 0.8757
+Learning Rate: 0.000149
+Epoch 83/150, Loss: 0.2894, Accuracy: 0.8770
+Learning Rate: 0.000142
+Epoch 84/150, Loss: 0.2660, Accuracy: 0.8889
+Learning Rate: 0.000135
+Epoch 85/150, Loss: 0.2730, Accuracy: 0.8876
+Learning Rate: 0.000128
+Epoch 86/150, Loss: 0.2757, Accuracy: 0.8889
+Learning Rate: 0.000121
+Epoch 87/150, Loss: 0.2836, Accuracy: 0.8823
+Learning Rate: 0.000115
+Epoch 88/150, Loss: 0.2973, Accuracy: 0.8836
+Learning Rate: 0.000110
+Epoch 89/150, Loss: 0.2795, Accuracy: 0.8849
+Learning Rate: 0.000104
+Epoch 90/150, Loss: 0.3106, Accuracy: 0.8624
+Learning Rate: 0.000099
+Epoch 91/150, Loss: 0.3005, Accuracy: 0.8783
+Learning Rate: 0.000094
+Epoch 92/150, Loss: 0.2850, Accuracy: 0.8862
+Learning Rate: 0.000089
+Epoch 93/150, Loss: 0.2778, Accuracy: 0.8836
+Learning Rate: 0.000085
+Epoch 94/150, Loss: 0.2998, Accuracy: 0.8730
+Learning Rate: 0.000081
+Epoch 95/150, Loss: 0.2876, Accuracy: 0.8796
+Learning Rate: 0.000077
+Epoch 96/150, Loss: 0.2889, Accuracy: 0.8638
+Learning Rate: 0.000073
+Epoch 97/150, Loss: 0.2783, Accuracy: 0.8862
+Learning Rate: 0.000069
+Epoch 98/150, Loss: 0.2826, Accuracy: 0.8770
+Learning Rate: 0.000066
+Epoch 99/150, Loss: 0.2779, Accuracy: 0.8849
+Learning Rate: 0.000062
+Epoch 100/150, Loss: 0.2893, Accuracy: 0.8757
+Learning Rate: 0.000059
+Epoch 101/150, Loss: 0.2865, Accuracy: 0.8810
+Learning Rate: 0.000056
+Epoch 102/150, Loss: 0.2930, Accuracy: 0.8849
+Learning Rate: 0.000053
+Epoch 103/150, Loss: 0.2884, Accuracy: 0.8770
+Learning Rate: 0.000051
+Epoch 104/150, Loss: 0.2821, Accuracy: 0.8889
+Learning Rate: 0.000048
+Epoch 105/150, Loss: 0.3012, Accuracy: 0.8743
+Learning Rate: 0.000046
+Epoch 106/150, Loss: 0.2876, Accuracy: 0.8810
+Learning Rate: 0.000044
+Epoch 107/150, Loss: 0.2923, Accuracy: 0.8849
+Learning Rate: 0.000041
+Epoch 108/150, Loss: 0.2738, Accuracy: 0.8902
+Learning Rate: 0.000039
+Epoch 109/150, Loss: 0.3000, Accuracy: 0.8730
+Learning Rate: 0.000037
+Epoch 110/150, Loss: 0.2694, Accuracy: 0.8929
+Learning Rate: 0.000035
+Epoch 111/150, Loss: 0.2864, Accuracy: 0.8836
+Learning Rate: 0.000034
+Epoch 112/150, Loss: 0.2806, Accuracy: 0.8876
+Learning Rate: 0.000032
+Epoch 113/150, Loss: 0.2926, Accuracy: 0.8810
+Learning Rate: 0.000030
+Epoch 114/150, Loss: 0.2898, Accuracy: 0.8717
+Learning Rate: 0.000029
+Epoch 115/150, Loss: 0.2982, Accuracy: 0.8704
+Learning Rate: 0.000027
+Epoch 116/150, Loss: 0.2840, Accuracy: 0.8743
+Learning Rate: 0.000026
+Epoch 117/150, Loss: 0.2906, Accuracy: 0.8823
+Learning Rate: 0.000025
+Epoch 118/150, Loss: 0.2850, Accuracy: 0.8770
+Learning Rate: 0.000024
+Epoch 119/150, Loss: 0.2717, Accuracy: 0.8981
+Learning Rate: 0.000022
+Epoch 120/150, Loss: 0.2793, Accuracy: 0.8810
+Learning Rate: 0.000021
+Epoch 121/150, Loss: 0.2931, Accuracy: 0.8757
+Learning Rate: 0.000020
+Epoch 122/150, Loss: 0.2942, Accuracy: 0.8704
+Learning Rate: 0.000019
+Epoch 123/150, Loss: 0.2900, Accuracy: 0.8743
+Learning Rate: 0.000018
+Epoch 124/150, Loss: 0.2901, Accuracy: 0.8836
+Learning Rate: 0.000017
+Epoch 125/150, Loss: 0.2751, Accuracy: 0.8796
+Learning Rate: 0.000016
+Epoch 126/150, Loss: 0.2714, Accuracy: 0.8796
+Learning Rate: 0.000016
+Epoch 127/150, Loss: 0.2797, Accuracy: 0.8876
+Learning Rate: 0.000015
+Epoch 128/150, Loss: 0.2741, Accuracy: 0.8770
+Learning Rate: 0.000014
+Epoch 129/150, Loss: 0.3103, Accuracy: 0.8730
+Learning Rate: 0.000013
+Epoch 130/150, Loss: 0.2872, Accuracy: 0.8770
+Learning Rate: 0.000013
+Epoch 131/150, Loss: 0.2845, Accuracy: 0.8836
+Learning Rate: 0.000012
+Epoch 132/150, Loss: 0.2930, Accuracy: 0.8783
+Learning Rate: 0.000011
+Epoch 133/150, Loss: 0.2702, Accuracy: 0.8757
+Learning Rate: 0.000011
+Epoch 134/150, Loss: 0.2871, Accuracy: 0.8770
+Learning Rate: 0.000010
+Epoch 135/150, Loss: 0.3007, Accuracy: 0.8558
+Learning Rate: 0.000010
+Epoch 136/150, Loss: 0.2821, Accuracy: 0.8717
+Learning Rate: 0.000009
+Epoch 137/150, Loss: 0.2671, Accuracy: 0.9008
+Learning Rate: 0.000009
+Epoch 138/150, Loss: 0.2901, Accuracy: 0.8757
+Learning Rate: 0.000008
+Epoch 139/150, Loss: 0.2734, Accuracy: 0.8823
+Learning Rate: 0.000008
+Epoch 140/150, Loss: 0.2848, Accuracy: 0.8823
+Learning Rate: 0.000008
+Epoch 141/150, Loss: 0.2901, Accuracy: 0.8743
+Learning Rate: 0.000007
+Epoch 142/150, Loss: 0.2917, Accuracy: 0.8730
+Learning Rate: 0.000007
+Epoch 143/150, Loss: 0.2939, Accuracy: 0.8783
+Learning Rate: 0.000007
+Epoch 144/150, Loss: 0.2974, Accuracy: 0.8876
+Learning Rate: 0.000006
+Epoch 145/150, Loss: 0.2976, Accuracy: 0.8651
+Learning Rate: 0.000006
+Epoch 146/150, Loss: 0.2795, Accuracy: 0.8902
+Learning Rate: 0.000006
+Epoch 147/150, Loss: 0.2683, Accuracy: 0.8955
+Learning Rate: 0.000005
+Epoch 148/150, Loss: 0.2864, Accuracy: 0.8704
+Learning Rate: 0.000005
+Epoch 149/150, Loss: 0.2682, Accuracy: 0.8849
+Learning Rate: 0.000005
+Epoch 150/150, Loss: 0.2899, Accuracy: 0.8783
+Learning Rate: 0.000005
+Accuracy:  0.7619
+Precision: 0.5882
+Recall:    0.3922
+F1-score:  0.4706
 Job finito.
-Data e ora di fine: Thu Oct  2 15:18:47 CEST 2025
+Data e ora di fine: Thu Oct  2 16:10:07 CEST 2025
 GPU utilizzata: Quadro RTX 5000

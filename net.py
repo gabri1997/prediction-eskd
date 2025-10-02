@@ -16,22 +16,22 @@ class SimpleBinaryNN(nn.Module):
             nn.Linear(input_size, 100),
             nn.BatchNorm1d(100),
             nn.ELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.1),
             
             nn.Linear(100, 100),
             nn.BatchNorm1d(100),
             nn.ELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.1),
             
             nn.Linear(100, 100),
             nn.BatchNorm1d(100),
             nn.ELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.1),
             
             nn.Linear(100, 100),
             nn.BatchNorm1d(100),
             nn.ELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.1),
             
             nn.Linear(100, 1)
         )
