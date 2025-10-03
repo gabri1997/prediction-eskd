@@ -12,11 +12,6 @@ import os
 import json
 import tqdm
 
-# TODO 
-# Aggiungere l'early stopping
-# Loss pesata per bilanciare le classi
-# Controllare la distribuzione delle classi nel training e test set
-
 # --- Modello come lo indica nel paper anche se non si affronta ---
 class SimpleBinaryNN(nn.Module):
     def __init__(self, input_size, dropout=0.1):
@@ -110,7 +105,31 @@ def read_json (save_file):
     return best_f1
 
 
-def train(df, num_epochs, save_pth, save_on_evaluation=False):
+class EarlyStopping:
+    def __init__(self, patience = 2, min_delta = 0.0, verbose = False):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.verbose = verbose
+        self.counter = 0
+        self.best_loss = float('inf')
+
+    def early_stop(self, val_loss):
+        if val_loss + self.min_delta < self.best_loss:
+            self.best_loss = val_loss
+            self.counter = 0
+            if self.verbose == True:
+                print(f"Validation loss improved to {val_loss:.6f}.")
+            return False
+        else:   
+            self.counter += 1
+            if self.verbose == True:
+                print(f"No improvement in validation loss. Counter: {self.counter}/{self.patience}")
+            if self.counter >= self.patience:
+                return True
+            return False
+
+
+def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
 
     print("Starting training script...")
     
@@ -173,7 +192,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     print(f"Training class distribution: {dict(zip(unique_train, counts_train))}")
     print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
 
-
     kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
     splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
@@ -208,7 +226,8 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
     val_loader = DataLoader(val_dataset, batch_size=wandb.config.batch_size, shuffle=False, num_workers=2)
     
-
+    # Early stopping 
+    early_stopping = EarlyStopping(patience=2, verbose=True)    
     # Training loop
     global_step = 0
     
@@ -302,6 +321,26 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
             val_acc = (val_preds_bin == val_labels).float().mean()
             val_f1_score = f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)
 
+            # Validation loss
+            # Siccome la loss function usata è BCEWithLogitsLoss, devo fare il logit delle predizioni
+            val_loss = criterion(torch.logit(val_preds), val_labels).item()
+            print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.4f}, Validation F1 Score: {val_f1_score:.4f}")
+            
+            try: 
+                wandb.log({"val/loss" : val_loss, 'epoch': epoch})
+                wandb.log({"val/accuracy" : val_acc, 'epoch': epoch})
+                wandb.log({"val/precision": precision_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+                wandb.log({"val/recall-score" : recall_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+                wandb.log({"val/f1-score" : f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+            except Exception as e:
+                print(f'Error in wandb: {e}')
+
+            # Early stopping check
+            if early_stop is not None and (epoch + 1) % 5 == 0:
+                if early_stopping.early_stop(val_loss):
+                    print("Early stopping triggered. Stopping training.")
+                    break
+
             if val_f1_score > read_json(save_file):
                 # Salvo il modello
                 print(f"New best model with Validation F1: {val_f1_score}, saving model...")
@@ -327,9 +366,10 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
 if __name__ == "__main__":
   
     print("Starting training script...")
+    early_stop = True
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
     save_pth = '/work/grana_far2023_fomo/ESKD/Models_save_on_eval/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True
-    train(df, num_epochs, save_pth, save_on_evaluation)
+    train(df, num_epochs, save_pth, save_on_evaluation, early_stop)
