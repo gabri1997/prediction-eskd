@@ -4,6 +4,22 @@ This repository contains a PyTorch implementation of a **binary classification n
 
 In the paper, the authors use **KFold** cross-validation, but in this work I use **StratifiedShuffleSplit (SSS)** instead. The main difference between **KFold** and **StratifiedKFold** lies in how class distributions are handled across folds. In **KFold**, the dataset is split into (k) folds of roughly equal size without considering class proportions, so some folds—especially in imbalanced datasets—may overrepresent certain classes. **StratifiedKFold**, on the other hand, ensures that each fold approximately preserves the original class distribution, making train and test sets more representative and providing more reliable evaluation, particularly for imbalanced datasets.
 
+### Data Distribution and Training Strategy
+
+The dataset was split into **80% training** and **20% testing** using a stratified shuffle split, ensuring that the class distribution is preserved across both sets.  
+With a fixed random seed (`random_state=42`), the resulting distribution is:
+
+- **Training set**  
+  - Class 0 → 586 samples (~77.5%)  
+  - Class 1 → 170 samples (~22.5%)  
+
+- **Test set**  
+  - Class 0 → 146 samples (~77.2%)  
+  - Class 1 → 43 samples (~22.8%)  
+
+To prevent overfitting, **early stopping** was applied during training. The decision to stop training is based on the **validation loss**, which serves as the monitoring metric for model generalization performance.
+
+
 ---
 
 ## Features
