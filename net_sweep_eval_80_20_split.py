@@ -77,6 +77,10 @@ def eval(df, save_pth, save_res_file, n_folds):
     print(f"Training + validation shape: {X_train_val.shape}, Labels shape: {y_train_val.shape}")
     print(f"Test shape: {X_test.shape}, Labels shape: {y_test.shape}")
 
+    test_df = pd.DataFrame(X_test, columns=df.drop(columns=['Eskd', 'Code']).columns)
+    test_df['Eskd'] = y_test
+    test_df.to_csv(os.path.join(save_pth, 'test_data_20.csv'), index=False)
+
     # Controllo distribuzione classi
     unique_train, counts_train = np.unique(y_train_val, return_counts=True)
     unique_test, counts_test = np.unique(y_test, return_counts=True)
@@ -91,7 +95,6 @@ def eval(df, save_pth, save_res_file, n_folds):
     X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
     y_test_tensor = torch.tensor(y_test, dtype=torch.float32).view(-1,1)
     test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
-             
 
     # Leggo il file json per vedere se c'è un best f1 salvato
     all_results = {}

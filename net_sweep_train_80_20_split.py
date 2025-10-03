@@ -12,6 +12,10 @@ import os
 import json
 import tqdm
 
+# TODO 
+# Aggiungere l'early stopping
+# Loss pesata per bilanciare le classi
+# Controllare la distribuzione delle classi nel training e test set
 
 # --- Modello come lo indica nel paper anche se non si affronta ---
 class SimpleBinaryNN(nn.Module):
@@ -71,7 +75,6 @@ def model_initialization(X_train, y_train):
     config = wandb.config
 
     model = SimpleBinaryNN(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
-
     # Questa roba serve per l'ExponentialLR, il LR inizia a diminuire dopo 400 step e finisce di diminuire a 3200 step
     initial_lr = 0.2
     final_lr = 0.000001
@@ -80,12 +83,11 @@ def model_initialization(X_train, y_train):
     N = step_end - step_start
     # Qua c'è la formula per calcolare il gamma
     gamma = (final_lr / initial_lr) ** (1 / N)
-
+    
     if config.optimizer == "adam":
         optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
     elif config.optimizer == "sgd":
         optimizer = torch.optim.SGD(model.parameters(), lr=config.learning_rate, momentum=0.9)
-
 
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=gamma)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
@@ -155,13 +157,24 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     print(f"Training + validation shape: {X_train_val.shape}, Labels shape: {y_train_val.shape}")
     print(f"Test shape: {X_test.shape}, Labels shape: {y_test.shape}")
 
+    # test_df = pd.DataFrame(X_test, columns=df.drop(columns=['Eskd', 'Code']).columns)
+    # test_df['Eskd'] = y_test
+    # test_df.to_csv(os.path.join(save_pth, 'test_train_data_20.csv'), index=False)
+
     # Controllo distribuzione classi
+    #        Train
+    # Classe 0 → 586 (~77.5%)
+    # Classe 1 → 170 (~22.5%)
+    #        Test
+    # Classe 0 → 146 (~77.2%)
+    # Classe 1 → 43  (~22.8%)
     unique_train, counts_train = np.unique(y_train_val, return_counts=True)
     unique_test, counts_test = np.unique(y_test, return_counts=True)
     print(f"Training class distribution: {dict(zip(unique_train, counts_train))}")
     print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
-    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 
+
+    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
     splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo
@@ -195,6 +208,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False):
     val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
     val_loader = DataLoader(val_dataset, batch_size=wandb.config.batch_size, shuffle=False, num_workers=2)
     
+
     # Training loop
     global_step = 0
     
