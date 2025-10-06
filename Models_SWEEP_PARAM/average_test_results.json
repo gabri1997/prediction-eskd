@@ -1,0 +1,10 @@
+{
+    "Average Test Accuracy": 0.728042328042328,
+    "Average Test Precision": 0.430101022407164,
+    "Average Test Recall": 0.5627906976744187,
+    "Average Test F1 Score": 0.48383923095217235,
+    "Std Test Accuracy": 0.021841023746614088,
+    "Std Test Precision": 0.02551717796847614,
+    "Std Test Recall": 0.06804064575966416,
+    "Std Test F1 Score": 0.01773528069929993
+}

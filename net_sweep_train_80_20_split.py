@@ -5,7 +5,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 from sklearn.model_selection import StratifiedShuffleSplit
 import wandb
 import os
@@ -58,11 +58,11 @@ def preprocess_data(df):
 def wandb_function(fold_to_run):
     
     wandb.define_metric("epoch")
-    wandb.define_metric("train_loss", step_metric="epoch")
-    wandb.define_metric("train_accuracy", step_metric="epoch")
-    wandb.define_metric("train_precision", step_metric="epoch")
-    wandb.define_metric("train_recall", step_metric="epoch")
-    wandb.define_metric("train_f1_score", step_metric="epoch")
+    wandb.define_metric("train/loss", step_metric="epoch")
+    wandb.define_metric("train/accuracy", step_metric="epoch")
+    wandb.define_metric("train/precision", step_metric="epoch")
+    wandb.define_metric("train/recall", step_metric="epoch")
+    wandb.define_metric("train/f1_score", step_metric="epoch")
     wandb.define_metric("learning_rate", step_metric="epoch")
 
 def model_initialization(X_train, y_train):
@@ -79,10 +79,14 @@ def model_initialization(X_train, y_train):
     # Qua c'è la formula per calcolare il gamma
     gamma = (final_lr / initial_lr) ** (1 / N)
     
-    if config.optimizer == "adam":
-        optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
-    elif config.optimizer == "sgd":
-        optimizer = torch.optim.SGD(model.parameters(), lr=config.learning_rate, momentum=0.9)
+    optimizer_name = getattr(config, 'optimizer', 'adam')           # default 'adam'
+    learning_rate = getattr(config, 'learning_rate', 0.001)         # default 0.001
+
+    if optimizer_name == "adam":
+        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    elif optimizer_name == "sgd":
+        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9)
+
 
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=gamma)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
@@ -103,7 +107,6 @@ def read_json (save_file):
         with open(save_file, 'w') as f:
             json.dump({}, f)
     return best_f1
-
 
 class EarlyStopping:
     def __init__(self, patience = 2, min_delta = 0.0, verbose = False):
@@ -132,7 +135,10 @@ class EarlyStopping:
 def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
 
     print("Starting training script...")
-    
+    torch.manual_seed(42)
+    torch.cuda.manual_seed_all(42)
+    np.random.seed(42)
+
     # -------------------------------------------------
     # X, y = preprocess_data(df)
     # print(f"Feature shape: {X.shape}, Labels shape: {y.shape}")
@@ -197,7 +203,8 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo
     wandb.init()
-    fold_to_run = wandb.config.fold
+
+    fold_to_run = getattr(wandb.config, 'fold', 1)  # default fold = 1
 
     train_idx, val_idx = splits[fold_to_run - 1]
     print(f" === Running fold {fold_to_run} with {len(train_idx)} training samples and {len(val_idx)} validation samples ===")
@@ -219,12 +226,13 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
     y_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1,1)
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
-    train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, shuffle=True, num_workers=2)
+    batch_size = wandb.config.batch_size if 'batch_size' in wandb.config else 32
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
     
     X_val_tensor = torch.tensor(X_val, dtype=torch.float32)
     y_val_tensor = torch.tensor(y_val, dtype=torch.float32).view(-1,1)
     val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
-    val_loader = DataLoader(val_dataset, batch_size=wandb.config.batch_size, shuffle=False, num_workers=2)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
     
     # Early stopping 
     early_stopping = EarlyStopping(patience=2, verbose=True)    
@@ -233,6 +241,20 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     
     save_file = os.path.join(save_pth, f"best_model_fold_{fold_to_run}_config.json")
     model_file = os.path.join(save_pth, f"best_model_fold_{fold_to_run}.pth")
+
+    wandb.define_metric("epoch")
+    wandb.define_metric("train/loss", step_metric="epoch")
+    wandb.define_metric("train/accuracy", step_metric="epoch")
+    wandb.define_metric("train/precision", step_metric="epoch")
+    wandb.define_metric("train/recall", step_metric="epoch")
+    wandb.define_metric("train/f1-score", step_metric="epoch")
+    wandb.define_metric("learning_rate", step_metric="epoch")
+    wandb.define_metric("val/loss", step_metric="epoch")
+    wandb.define_metric("val/accuracy", step_metric="epoch")
+    wandb.define_metric("val/precision", step_metric="epoch")
+    wandb.define_metric("val/recall-score", step_metric="epoch")
+    wandb.define_metric("val/f1-score", step_metric="epoch")
+    wandb.define_metric("val/auc_roc", step_metric="epoch")
 
     for epoch in range(num_epochs):
         
@@ -293,47 +315,64 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
         #print(f"Training Loss: {epoch_loss:.4f}")
 
         try :
+            
             wandb.log({"train/loss" : epoch_loss, 'epoch': epoch})
             wandb.log({"train/accuracy" : train_acc, 'epoch': epoch})
             wandb.log({"train/precision": precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
-            wandb.log({"train/recall-score" : recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+            wandb.log({"train/recall" : recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
             wandb.log({"train/f1-score" : f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
             wandb.log({"learning_rate" : optimizer.param_groups[0]['lr'], 'epoch' : epoch})  
         except Exception as e:
             print(f'Error in wandb: {e}')
 
+        
         # Qui faccio la validazione ad ogni epoca se richiesto e salvo il modello se migliora la F1 di validazione come suggerito da Nik
         if save_on_evaluation == True:
             print("Starting validation...")
             model.eval()
             val_labels = []
             val_preds = []
+            val_logits =[]
 
             with torch.no_grad():
                 for inputs, labels in val_loader:
                     outputs = model(inputs)
+                    val_logits.append(outputs)
                     val_labels.append(labels)
                     val_preds.append(torch.sigmoid(outputs).detach())
 
             val_labels = torch.cat(val_labels)
             val_preds = torch.cat(val_preds)
+            val_logits = torch.cat(val_logits)
             val_preds_bin = (val_preds > 0.5).float()
             val_acc = (val_preds_bin == val_labels).float().mean()
             val_f1_score = f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)
 
+
+            # Calcolo anche l'AUC-ROC
+            if len(torch.unique(val_labels)) > 1:  # Controllo che ci siano entrambe le classi
+                val_auc_roc = roc_auc_score(val_labels.cpu(), val_preds.cpu())
+                print(f"Validation AUC-ROC: {val_auc_roc:.4f}")
+                try:
+                    wandb.log({"val/auc_roc": val_auc_roc, 'epoch': epoch})
+                except Exception as e:
+                    print(f'Error in wandb while logging AUC-ROC: {e}')
+
             # Validation loss
-            # Siccome la loss function usata è BCEWithLogitsLoss, devo fare il logit delle predizioni
-            val_loss = criterion(torch.logit(val_preds), val_labels).item()
+            # Usiamo direttamente i logit del modello, senza sigmoid
+            val_loss = criterion(val_logits, val_labels).item()
             print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.4f}, Validation F1 Score: {val_f1_score:.4f}")
-            
-            try: 
-                wandb.log({"val/loss" : val_loss, 'epoch': epoch})
-                wandb.log({"val/accuracy" : val_acc, 'epoch': epoch})
-                wandb.log({"val/precision": precision_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
-                wandb.log({"val/recall-score" : recall_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
-                wandb.log({"val/f1-score" : f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+
+            # Log su wandb
+            try:
+                wandb.log({"val/loss": val_loss, 'epoch': epoch})
+                wandb.log({"val/accuracy": val_acc, 'epoch': epoch})
+                wandb.log({"val/precision": precision_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch': epoch})
+                wandb.log({"val/recall-score": recall_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0), 'epoch': epoch})
+                wandb.log({"val/f1-score": val_f1_score, 'epoch': epoch})
             except Exception as e:
-                print(f'Error in wandb: {e}')
+                print(f'Error in wandb while logging validation metrics: {e}')
+
 
             # Early stopping check
             if early_stop is not None and (epoch + 1) % 5 == 0:
@@ -368,7 +407,7 @@ if __name__ == "__main__":
     print("Starting training script...")
     early_stop = True
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_save_on_eval/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True

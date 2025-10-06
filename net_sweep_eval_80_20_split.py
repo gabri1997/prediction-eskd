@@ -1,5 +1,4 @@
 """
-
 Questo script esegue il test della rete allenata con la 10 fold cross validation sull'80% dei dati, quindi il test viene eseguito sul 20% dei dati.
 Il modello viene caricato da disco e i risultati vengono salvati in un file Json.
 
@@ -111,11 +110,14 @@ def eval(df, save_pth, save_res_file, n_folds):
                 # Carico il modello corrispondente
                 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)   
                 model = SimpleBinaryNN(input_size=X.shape[1], dropout=dropout)
+          
+                print("Peso iniziale:", model.layers[0].weight[0][:5])
                 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
                 model.to(device)
                 model_path = os.path.join(save_pth, f'best_model_fold_{fold}.pth')
                 model.load_state_dict(torch.load(model_path, map_location=device))
-
+                print("Peso caricato :", model.layers[0].weight[0][:5])
+                
                 # Ora faccio il test sul 20% dei dati
                 model.eval()
                 all_preds = []      
@@ -149,7 +151,7 @@ if __name__ == "__main__":
     # Path al file CSV
     print("Starting testing script...")
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_save_on_eval/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     df = pd.read_excel(data_path)
     n_folds = 5

@@ -1,0 +1,17 @@
+{
+    "Run ID": "ypz0sqea",
+    "Config Parameters": {
+        "batch_size": 16,
+        "dropout": 0.2,
+        "fold": 5,
+        "learning_rate": 0.2,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 12,
+        "Best F1": 0.6923076923076923,
+        "Validation Accuracy": 0.8410596251487732,
+        "Validation Precision": 0.6136363636363636,
+        "Validation Recall": 0.7941176470588235
+    }
+}

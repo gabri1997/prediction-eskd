@@ -23,201 +23,167 @@ In Greek file have been added the column dateAssess that is the difference in da
 
 """
 
-# Pulizia di Greek
 import pandas as pd
 import os
 
-greek_path = '/work/grana_far2023_fomo/ESKD/Data/greek.xls'
-valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx'
-out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx'
-out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
-
-def func(x):
-    dl = x.split()[0].split('-')
-    return f"{dl[1]}/{dl[2]}/{dl[0]}"
-
-def read_excel_auto(path):
-    ext = os.path.splitext(path)[-1].lower()
-    if ext == ".xls":
-        return pd.read_excel(path, engine="xlrd", parse_dates=True)
-    elif ext == ".xlsx":
-        return pd.read_excel(path, engine="openpyxl", parse_dates=True)
-    else:
-        raise ValueError(f"Formato non supportato: {ext}")
-
-greek = read_excel_auto(greek_path)
-valiga = read_excel_auto(valiga_path)
-
-print("Colonne Greek:", greek.columns.tolist())
-print("Colonne Valiga:", valiga.columns.tolist())
 
 
-# Selezione delle colonne rilevanti
-greek_relevant_cols = ['VALIGA_CODE','dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm', 'ESKDcorretto']
-greek = greek[greek_relevant_cols]
-valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
-valiga = valiga[valiga_relevant_cols]
+def clean_and_save_data(greek_path, valiga_path, out_dir):
+    """
+    Funzione per pulire i dataset Greek e Valiga e salvare i file intermedi e finali.
+    """
+    def read_excel_auto(path):
+        ext = os.path.splitext(path)[-1].lower()
+        if ext == ".xls":
+            return pd.read_excel(path, engine="xlrd", parse_dates=True)
+        elif ext == ".xlsx":
+            return pd.read_excel(path, engine="openpyxl", parse_dates=True)
+        else:
+            raise ValueError(f"Formato non supportato: {ext}")
 
-# Voglio contare i valori unici della colonna VALIGA_CODE in greek e valiga
-print(f"Valori unici in greek VALIGA_CODE: {greek['VALIGA_CODE'].nunique()}")
-print(f"Valori unici in valiga VALIGA CODE: {valiga['VALIGA CODE'].nunique()}")     
+    greek = read_excel_auto(greek_path)
+    valiga = read_excel_auto(valiga_path)
 
-# Voglio creare una nuova colonna in greek chiamata dateAsses che corrisponde alla differenza in giorni tra Lastvisit e RBdate
-greek['dateAssess'] = (pd.to_datetime(greek['Lastvisit'], format="%d/%m/%Y") - pd.to_datetime(greek['RBdate'], format="%d/%m/%Y")).dt.days
+    # Selezione delle colonne rilevanti
+    greek_relevant_cols = ['VALIGA_CODE','dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm', 'ESKDcorretto']
+    greek = greek[greek_relevant_cols]
+    valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
+    valiga = valiga[valiga_relevant_cols]
 
-#print(greek['dateAssess'].head())
+    # Creazione della colonna dateAssess per Greek
+    greek['dateAssess'] = (pd.to_datetime(greek['Lastvisit'], format="%d/%m/%Y") - 
+                           pd.to_datetime(greek['RBdate'], format="%d/%m/%Y")).dt.days
 
-# Ci vogiono delle funzioni per processare le colonne
-def process_gender(df, gender_col):
-    df['gender'] = df[gender_col].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
-    return df
-def process_hypertension(df, sys_col, dia_col, acei_col=None):
-  
-    df[sys_col] = pd.to_numeric(df[sys_col], errors='coerce')
-    df[dia_col] = pd.to_numeric(df[dia_col], errors='coerce')
-    
-    hypert = (df[sys_col] >= 140) | (df[dia_col] >= 90)
-    
-    if acei_col:
-        hypert = hypert | (df[acei_col] == 'Y')
-    
-    df['Hypertension'] = hypert.astype(int)
-    return df
-def process_proteinuria(df, prot_col):
-    df['Proteinuria'] = pd.to_numeric(df[prot_col], errors='coerce')
-    return df
+    # Funzioni di processing
+    def process_gender(df, gender_col):
+        df['Gender'] = df[gender_col].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
+        return df
 
-def process_therapy_greek(df):
-    df['Antihypertensive'] = df['Antihypertensive'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
+    def process_hypertension(df, sys_col, dia_col, acei_col=None):
+        df[sys_col] = pd.to_numeric(df[sys_col], errors='coerce')
+        df[dia_col] = pd.to_numeric(df[dia_col], errors='coerce')
+        hypert = (df[sys_col] >= 140) | (df[dia_col] >= 90)
+        if acei_col:
+            hypert = hypert | (df[acei_col] == 'Y')
+        df['Hypertension'] = hypert.astype(int)
+        return df
 
-    df['Immunosuppressants'] = (
-        df['CsIm'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
-        df['AZA'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
-        df['CELLCEPT'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64')
-    )
+    def process_proteinuria(df, prot_col):
+        df['Proteinuria'] = pd.to_numeric(df[prot_col], errors='coerce')
+        return df
 
-    df['FishOil'] = df['FishOil'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
-    return df
+    def process_therapy_greek(df):
+        df['Antihypertensive'] = df['Antihypertensive'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
+        df['Immunosuppressants'] = (
+            df['CsIm'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
+            df['AZA'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64') |
+            df['CELLCEPT'].map({'Y': 1, 1: 1, 'N': 0, 0: 0}).astype('Int64')
+        )
+        df['FishOil'] = df['FishOil'].map({'Y': 1, 'N': 0, 1: 1, 0: 0}).astype('Int64')
+        return df
 
-def process_therapy_valiga(df):
-    df['Antihypertensive'] = (pd.to_numeric(df['Nb_of_Bpmeds'], errors='coerce') > 0).astype('Int64')
+    def process_therapy_valiga(df):
+        df['Antihypertensive'] = (pd.to_numeric(df['Nb of Bpmeds'], errors='coerce') > 0).astype('Int64')
+        df['Immunosuppressants'] = df['Immunotherapies'].map({'Y': 1, 'Yes': 1, 1: 1, 'N': 0, 'No': 0, 0: 0}).astype('Int64')
+        df['FishOil'] = df['FishOil'].map({'Y': 1, 'Yes': 1, 1: 1, 'N': 0, 'No': 0, 0: 0}).astype('Int64')
+        return df
 
-    df['Immunosuppressants'] = df['Immunotherapies'].map({'Y': 1, 'Yes': 1, 1: 1, 
-                                                          'N': 0, 'No': 0, 0: 0}).astype('Int64')
+    def process_eskd(df, eskd_col):
+        df['Eskd'] = df[eskd_col].map({1: 1, '1': 1, 0: 0, '0': 0}).astype('Int64')
+        return df
 
-    df['FishOil'] = df['FishOil'].map({'Y': 1, 'Yes': 1, 1: 1, 
-                                       'N': 0, 'No': 0, 0: 0}).astype('Int64')
-    return df
+    # Rinomina colonne
+    greek.rename(columns={
+        'Gender1M2F': 'Gender',
+        'uprot_gday': 'Proteinuria',
+        'DiastolicbloodpressuremmHg': 'Diastolic',
+        'SystolicbloodpressuremmHg': 'Systolic',
+        'AceiYN': 'Antihypertensive',
+        'Fishoil': 'FishOil',
+        'CELLCEPT': 'CELLCEPT',
+        'AZA': 'AZA',
+        'CsIm': 'CsIm',
+        'ESKDcorretto': 'Eskd',
+        'age': 'Age'
+    }, inplace=True)
 
-def process_eskd(df, eskd_col):
-    df['Eskd'] = df[eskd_col].map({1: 1, '1': 1, 0: 0, '0': 0}).astype('Int64')
-    return df
+    valiga.rename(columns={
+        'VALIGA CODE': 'VALIGA_CODE',
+        'SEX': 'Gender',
+        'Uprot': 'Proteinuria',
+        'systolic': 'Systolic',
+        'Diastolic': 'Diastolic',
+        'Nb of Bpmeds': 'Nb of Bpmeds',
+        'RAS blockers': 'RAS_blockers',
+        'fish oil': 'FishOil',
+        'Immunotherapies': 'Immunotherapies',
+        'age': 'Age',
+        'outcome': 'Eskd'
+    }, inplace=True)
 
-# Colonne di tipo data in Greek
-date_cols_greek = ['dateofbirth', 'RBdate', 'Lastvisit']
-for col in date_cols_greek:
-    greek[col] = pd.to_datetime(greek[col], errors='coerce').dt.strftime('%d/%m/%Y')
+    # Processing
+    greek = process_gender(greek, 'Gender')
+    greek = process_hypertension(greek, 'Systolic', 'Diastolic', 'Antihypertensive')
+    greek = process_proteinuria(greek, 'Proteinuria')
+    greek = process_therapy_greek(greek)
+    greek = process_eskd(greek, 'Eskd')
 
-greek.rename(columns={
-    'Gender1M2F': 'Gender',
-    'uprot_gday': 'Proteinuria',
-    'DiastolicbloodpressuremmHg': 'Diastolic',
-    'SystolicbloodpressuremmHg': 'Systolic',
-    'AceiYN': 'Antihypertensive',
-    'Fishoil': 'FishOil',
-    'CELLCEPT': 'CELLCEPT',
-    'AZA': 'AZA',
-    'CsIm': 'CsIm',
-    'ESKDcorretto': 'Eskd',
-    'age': 'Age'
-}, inplace=True)
+    valiga = process_gender(valiga, 'Gender')
+    valiga = process_hypertension(valiga, 'Systolic', 'Diastolic')
+    valiga = process_proteinuria(valiga, 'Proteinuria')
+    valiga = process_therapy_valiga(valiga)
+    valiga = process_eskd(valiga, 'Eskd')
 
-valiga.rename(columns={
-    'VALIGA CODE': 'VALIGA_CODE',
-    'SEX': 'Gender',
-    'Uprot': 'Proteinuria',
-    'systolic': 'Systolic',
-    'Diastolic': 'Diastolic',
-    'Nb of Bpmeds': 'Nb_of_Bpmeds',
-    'RAS blockers': 'RAS_blockers',
-    'fish oil': 'FishOil',
-    'Immunotherapies': 'Immunotherapies',
-    'age': 'Age',
-    'outcome': 'Eskd'
-}, inplace=True)
+    # Selezione colonne finali
+    last_cols_to_keep = ['VALIGA_CODE','Gender', 'Age', 'dateAssess', 'Hypertension', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
+    greek = greek[last_cols_to_keep]
+    valiga = valiga[last_cols_to_keep]
 
-# Processamento Greek
-greek = process_gender(greek, 'Gender')
-greek = process_hypertension(greek, 'Systolic', 'Diastolic', 'Antihypertensive')
-greek = process_proteinuria(greek, 'Proteinuria')
-greek = process_therapy_greek(greek)
-greek = process_eskd(greek, 'Eskd')
-# Processamento Valiga
-valiga = process_gender(valiga, 'Gender')
-valiga = process_hypertension(valiga, 'Systolic', 'Diastolic')
-valiga = process_proteinuria(valiga, 'Proteinuria')
-valiga = process_therapy_valiga(valiga)
-valiga = process_eskd(valiga, 'Eskd')
+    # Salvataggio file puliti
+    greek.to_excel(os.path.join(out_dir, 'cleaned_greek.xlsx'), index=False)
+    valiga.to_excel(os.path.join(out_dir, 'cleaned_valiga.xlsx'), index=False)
+    print("File salvati come cleaned_greek.xlsx e cleaned_valiga.xlsx")
 
+    # Unione dei dataset
+    combined = pd.concat([greek, valiga], ignore_index=True)
+    combined['Age'] = combined['Age'].round().astype('Int64')
+    combined.rename(columns={'VALIGA_CODE': 'Code'}, inplace=True)
+    combined['Gender'] = combined['Gender'].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
 
-last_cols_to_keep = ['VALIGA_CODE','Gender', 'Age', 'dateAssess', 'Hypertension', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
-
-greek = greek[last_cols_to_keep]
-valiga = valiga[last_cols_to_keep]
-
-if os.path.exists(out_greek_path):
-    print(f"Il file {out_greek_path} esiste già. Non verrà sovrascritto.")
-else:
-    greek.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx', index=False)
-    print(f"File salvato come {out_greek_path}")
-
-if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'):
-    print("Il file cleaned_valiga.xlsx esiste già. Non verrà sovrascritto.")
-else:
-    valiga.to_excel('/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx', index=False)
-    print("File salvato come cleaned_valiga.xlsx")
-
-print('Colonne greek: ',greek.columns)
-print('Colonne valiga: ',valiga.columns)
-
-# Ora voglio unire i due dataframe e salvarli in un unico file excel
-combined = pd.concat([greek, valiga], ignore_index=True)
-
-# Prima di salavre, faccio due modifiche, faccio il round del valore dell'età, rinomino la colonna VALIGA_CODE in Code, e trasformo gender quando è 1 in M e 2 in F
-combined['Age'] = combined['Age'].round().astype('Int64')
-combined.rename(columns={'VALIGA_CODE': 'Code'}, inplace=True)
-combined['Gender'] = combined['Gender'].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
-
-# Voglio contare quanti sono i valori pari a 1 nella solonna FishOil
-fish_oil_count = combined['FishOil'].sum()
-print(f"Numero di pazienti che assumono FishOil: {fish_oil_count}")
-
-# Volgio contare quanti sono i valori pari a 1 nella colonna Immunosuppressants
-immunosuppressants_count = combined['Immunosuppressants'].sum()
-print(f"Numero di pazienti che assumono Immunosuppressants: {immunosuppressants_count}")
-
-# Volgio contare quante sono le righe totali
-total_rows = combined.shape[0]
-print(f"Numero totale di pazienti nel dataset combinato: {total_rows}")
-
-# Voglio contare quanti pazienti hanno valore eskd pari a 1
-eskd_count = combined['Eskd'].sum() 
-print(f"Numero di pazienti con ESKD: {eskd_count}")
-
-# Prima di salvare, controllo se il file esiste già
-
-if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx'):
-    print("Il file combined_cleaned.xlsx esiste già. Non verrà sovrascritto.")
-else:   
-    combined.to_excel('/work/grana_far2023_fomo/ESKD/Data/combined_cleaned.xlsx', index=False)
-    print("File salvato come combined_cleaned.xlsx")
-
-# Ora devo generare il file finale dove per ogni codice mantengo solo le righe con dataAssess più alto
-final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
-final.to_excel('/work/grana_far2023_fomo/ESKD/Data/final_cleaned.xlsx', index=False)
-# Controllo se il file esiste già
-if os.path.exists('/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'):
-    print("Il file final_cleaned.xlsx esiste già. Non verrà sovrascritto.")
-else:   
-    final.to_excel('/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx', index=False)
+    # Salvataggio finale
+    final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
+    final.to_excel(os.path.join(out_dir, 'final_cleaned.xlsx'), index=False)
     print("File salvato come final_cleaned.xlsx")
+
+    return os.path.join(out_dir, 'final_cleaned.xlsx')
+
+
+def analyze_final_file(final_file, years_threshold=5):
+    """
+    Funzione per contare pazienti con dateAssess > years_threshold anni e ESKD=1.
+    """
+    final = pd.read_excel(final_file, engine='openpyxl')
+    threshold_days = years_threshold * 365
+    subset = final[final['dateAssess'] > threshold_days]
+    eskd_count = subset['Eskd'].sum()
+    print(f"Numero di pazienti con ESKD e dateAssess > {years_threshold} anni: {eskd_count}")
+    return eskd_count
+
+if __name__ == "__main__":
+
+    greek_path = '/work/grana_far2023_fomo/ESKD/Data/greek.xls' 
+    valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx' 
+    out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx' 
+    out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
+    #final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
+    final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
+    #analyze_final_file(final_file, years_threshold=5)
+    #analyze_final_file(final_file, years_threshold=10)
+    # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess
+    df = pd.read_excel(final_file, engine='openpyxl')
+    print(df['dateAssess'].dtype)
+    # Voglio vedere le prime righe del file
+    print(df.head())
+    # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
+    # Numero di pazienti con ESKD e dateAssess > 10 anni: 43
+    

@@ -15,10 +15,10 @@ echo "Data e ora: $(date)"
 echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || echo 'Nessuna GPU disponibile!')"
 
 . /usr/local/anaconda3/etc/profile.d/conda.sh
-conda deactivate
-conda activate dmsil
+# conda deactivate
+# conda activate dmsil
 # Lancio il training script
-python net_sweep_eval_20%.py
+python net_sweep_eval_80_20_split.py
 
 
 echo "Job finito."
