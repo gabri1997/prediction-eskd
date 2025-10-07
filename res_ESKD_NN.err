@@ -1,6 +1,6 @@
-/var/lib/slurm/slurmd/job2638268/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-Testing fold 1:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 1:   8%|▊         | 1/12 [00:00<00:01,  8.98it/s]Testing fold 1: 100%|██████████| 12/12 [00:00<00:00, 80.87it/s]
-Testing fold 2:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 3/3 [00:00<00:00, 26.75it/s]
-Testing fold 3:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 3:  75%|███████▌  | 9/12 [00:00<00:00, 89.65it/s]Testing fold 3: 100%|██████████| 12/12 [00:00<00:00, 97.75it/s]
-Testing fold 4:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 6/6 [00:00<00:00, 54.86it/s]
-Testing fold 5:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 12/12 [00:00<00:00, 118.30it/s]Testing fold 5: 100%|██████████| 12/12 [00:00<00:00, 101.01it/s]
+/var/lib/slurm/slurmd/job2638407/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+Testing fold 1:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 1:   8%|▊         | 1/12 [00:00<00:01,  8.58it/s]Testing fold 1: 100%|██████████| 12/12 [00:00<00:00, 78.34it/s]
+Testing fold 2:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 3/3 [00:00<00:00, 29.05it/s]
+Testing fold 3:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 3: 100%|██████████| 12/12 [00:00<00:00, 119.48it/s]Testing fold 3: 100%|██████████| 12/12 [00:00<00:00, 103.08it/s]
+Testing fold 4:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 6/6 [00:00<00:00, 58.65it/s]
+Testing fold 5:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 12/12 [00:00<00:00, 118.43it/s]Testing fold 5: 100%|██████████| 12/12 [00:00<00:00, 102.01it/s]

@@ -26,8 +26,6 @@ In Greek file have been added the column dateAssess that is the difference in da
 import pandas as pd
 import os
 
-
-
 def clean_and_save_data(greek_path, valiga_path, out_dir):
     """
     Funzione per pulire i dataset Greek e Valiga e salvare i file intermedi e finali.
@@ -70,6 +68,8 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
 
     def process_proteinuria(df, prot_col):
         df['Proteinuria'] = pd.to_numeric(df[prot_col], errors='coerce')
+        # Se il valore di proteinuria è mancante, lo setto con il valore della visita precedente
+        df['Proteinuria'] = df['Proteinuria'].fillna(method='ffill')
         return df
 
     def process_therapy_greek(df):
@@ -152,10 +152,10 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
 
     # Salvataggio finale
     final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
-    final.to_excel(os.path.join(out_dir, 'final_cleaned.xlsx'), index=False)
-    print("File salvato come final_cleaned.xlsx")
+    final.to_excel(os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx'), index=False)
+    print("File salvato come final_cleaned_maxDateAccess.xlsx")
 
-    return os.path.join(out_dir, 'final_cleaned.xlsx')
+    return os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx')
 
 
 def analyze_final_file(final_file, years_threshold=5):
@@ -175,15 +175,15 @@ if __name__ == "__main__":
     valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx' 
     out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx' 
     out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
-    #final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
+    final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
     final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    #analyze_final_file(final_file, years_threshold=5)
-    #analyze_final_file(final_file, years_threshold=10)
+    # analyze_final_file(final_file, years_threshold=5)
+    # analyze_final_file(final_file, years_threshold=10)
     # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess
-    df = pd.read_excel(final_file, engine='openpyxl')
-    print(df['dateAssess'].dtype)
-    # Voglio vedere le prime righe del file
-    print(df.head())
-    # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
+    # df = pd.read_excel(final_file, engine='openpyxl')
+    # print(df['dateAssess'].dtype)
+    # # Voglio vedere le prime righe del file
+    # print(df.head())
+    # # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
     # Numero di pazienti con ESKD e dateAssess > 10 anni: 43
     

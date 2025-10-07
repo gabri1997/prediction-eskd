@@ -1,5 +1,5 @@
 Job iniziato su carabbaggio
-Data e ora: Tue Oct  7 10:55:59 CEST 2025
+Data e ora: Tue Oct  7 12:19:18 CEST 2025
 GPU disponibile: NVIDIA GeForce GTX 1080 Ti
 Starting testing script...
 
@@ -67,7 +67,7 @@ Accuracy:  0.7291 ± 0.0256
 Precision: 0.4342 ± 0.0395
 Recall:    0.5814 ± 0.0389
 F1 Score:  0.4947 ± 0.0179
-  Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/average_test_results.json
+Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/average_test_results.json
 Job finito.
-Data e ora di fine: Tue Oct  7 10:56:07 CEST 2025
+Data e ora di fine: Tue Oct  7 12:19:24 CEST 2025
 GPU utilizzata: NVIDIA GeForce GTX 1080 Ti
