@@ -1,64 +1,64 @@
 Job iniziato su carabbaggio
-Data e ora: Tue Oct  7 10:28:07 CEST 2025
+Data e ora: Tue Oct  7 10:55:59 CEST 2025
 GPU disponibile: NVIDIA GeForce GTX 1080 Ti
 Starting testing script...
 
 ============================================================
 Evaluating Fold 1/5
 ============================================================
- Loaded scaler for fold 1
+Loaded scaler for fold 1
 Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
- Loaded model for fold 1
-  First layer weights (sample): tensor([-0.5490,  0.6748, -2.1765,  0.2802, -0.4609], device='cuda:0',
+Loaded model for fold 1
+First layer weights (sample): tensor([-0.5490,  0.6748, -2.1765,  0.2802, -0.4609], device='cuda:0',
        grad_fn=<SliceBackward0>)
 Fold 1 - Accuracy: 0.7302, Precision: 0.4310, Recall: 0.5814, F1: 0.4950
 
 ============================================================
 Evaluating Fold 2/5
 ============================================================
- Loaded scaler for fold 2
+Loaded scaler for fold 2
 Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
- Loaded model for fold 2
-  First layer weights (sample): tensor([ 0.8629,  0.7022,  0.1875, -0.1358, -0.2934], device='cuda:0',
+Loaded model for fold 2
+First layer weights (sample): tensor([ 0.8629,  0.7022,  0.1875, -0.1358, -0.2934], device='cuda:0',
        grad_fn=<SliceBackward0>)
 Fold 2 - Accuracy: 0.7090, Precision: 0.4032, Recall: 0.5814, F1: 0.4762
 
 ============================================================
 Evaluating Fold 3/5
 ============================================================
- Loaded scaler for fold 3
+Loaded scaler for fold 3
 Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
- Loaded model for fold 3
-  First layer weights (sample): tensor([ 0.6822,  0.0793, -0.2813, -1.1781,  0.5136], device='cuda:0',
+Loaded model for fold 3
+First layer weights (sample): tensor([ 0.6822,  0.0793, -0.2813, -1.1781,  0.5136], device='cuda:0',
        grad_fn=<SliceBackward0>)
 Fold 3 - Accuracy: 0.7778, Precision: 0.5111, Recall: 0.5349, F1: 0.5227
 
 ============================================================
 Evaluating Fold 4/5
 ============================================================
- Loaded scaler for fold 4
+Loaded scaler for fold 4
 Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
- Loaded model for fold 4
-  First layer weights (sample): tensor([ 0.2298,  0.2287, -0.0756,  0.2500, -0.0657], device='cuda:0',
+Loaded model for fold 4
+First layer weights (sample): tensor([ 0.2298,  0.2287, -0.0756,  0.2500, -0.0657], device='cuda:0',
        grad_fn=<SliceBackward0>)
 Fold 4 - Accuracy: 0.7090, Precision: 0.4118, Recall: 0.6512, F1: 0.5045
 
 ============================================================
 Evaluating Fold 5/5
 ============================================================
- Loaded scaler for fold 5
+Loaded scaler for fold 5
 Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
- Loaded model for fold 5
-  First layer weights (sample): tensor([-0.2669,  3.0944,  1.8165, -0.1815, -2.5829], device='cuda:0',
+Loaded model for fold 5
+First layer weights (sample): tensor([-0.2669,  3.0944,  1.8165, -0.1815, -2.5829], device='cuda:0',
        grad_fn=<SliceBackward0>)
 Fold 5 - Accuracy: 0.7196, Precision: 0.4138, Recall: 0.5581, F1: 0.4752
 
- Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_VAL_CORRECTED/test_results.json
+ Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/test_results.json
 
 ============================================================
 AVERAGE RESULTS ACROSS FOLDS
@@ -67,7 +67,7 @@ Accuracy:  0.7291 ± 0.0256
 Precision: 0.4342 ± 0.0395
 Recall:    0.5814 ± 0.0389
 F1 Score:  0.4947 ± 0.0179
-  Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_VAL_CORRECTED/average_test_results.json
+  Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/average_test_results.json
 Job finito.
-Data e ora di fine: Tue Oct  7 10:28:13 CEST 2025
+Data e ora di fine: Tue Oct  7 10:56:07 CEST 2025
 GPU utilizzata: NVIDIA GeForce GTX 1080 Ti

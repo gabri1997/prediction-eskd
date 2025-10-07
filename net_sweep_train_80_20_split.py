@@ -12,6 +12,7 @@ import os
 import json
 import tqdm
 
+
 # --- Modello come lo indica nel paper anche se non si affronta ---
 class SimpleBinaryNN(nn.Module):
     def __init__(self, input_size, dropout=0.1):
@@ -71,22 +72,21 @@ def model_initialization(X_train, y_train):
 
     model = SimpleBinaryNN(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
     # Questa roba serve per l'ExponentialLR, il LR inizia a diminuire dopo 400 step e finisce di diminuire a 3200 step
-    initial_lr = 0.2
-    final_lr = 0.000001
+    initial_lr = getattr(config, 'learning_rate', 0.001)
+    final_lr = 1e-6
+    # Qui da indicazioni da paper, però non serve complicare troppo
     step_start = 400
     step_end = 3200 
     N = step_end - step_start
     # Qua c'è la formula per calcolare il gamma
     gamma = (final_lr / initial_lr) ** (1 / N)
     
-    optimizer_name = getattr(config, 'optimizer', 'adam')           # default 'adam'
-    learning_rate = getattr(config, 'learning_rate', 0.001)         # default 0.001
+    optimizer_name = getattr(config, 'optimizer', 'adam')  # il default è Adam      
 
     if optimizer_name == "adam":
-        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+        optimizer = torch.optim.Adam(model.parameters(), lr=initial_lr)
     elif optimizer_name == "sgd":
-        optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9)
-
+        optimizer = torch.optim.SGD(model.parameters(), lr=initial_lr, momentum=0.9)
 
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=gamma)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
@@ -137,38 +137,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     print("Starting training script...")
     torch.manual_seed(42)
     torch.cuda.manual_seed_all(42)
-    np.random.seed(42)
-
-    # -------------------------------------------------
-    # X, y = preprocess_data(df)
-    # print(f"Feature shape: {X.shape}, Labels shape: {y.shape}")
-
-    # # devo fare la strified k-fold cross validation solo su una porzione di 80% dei dati randomizzati
-    # # Perchè il 20% lo tengo fermo per il test finale
-    # # Quindi prima randomizzo i dati
-    # np.random.seed(42)
-    # indices = np.random.permutation(len(X))
-    # X = X[indices]
-    # y = y[indices]
-
-    # split_idx = int(0.8 * len(X))
-    # X_train_full = X[:split_idx]
-    # y_train_full = y[:split_idx]
-
-    # X_test = X[split_idx:]
-    # y_test = y[split_idx:]
-
-    # # Controllo distribuzione
-    # unique_train, counts_train = np.unique(y_train_full, return_counts=True)
-    # class_distribution_train = dict(zip(unique_train, counts_train))
-    # print(f"Class distribution in training data: {class_distribution_train}")
-
-    # unique_test, counts_test = np.unique(y_test, return_counts=True)
-    # class_distribution_test = dict(zip(unique_test, counts_test))
-    # print(f"Class distribution in test data: {class_distribution_test}")
-
-    #kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-    # ------------------------------------------------   
+    np.random.seed(42) 
 
     X, y = preprocess_data(df)
 
@@ -345,7 +314,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
             val_preds_bin = (val_preds > 0.5).float()
             val_acc = (val_preds_bin == val_labels).float().mean()
             val_f1_score = f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)
-
 
             # Calcolo anche l'AUC-ROC
             if len(torch.unique(val_labels)) > 1:  # Controllo che ci siano entrambe le classi

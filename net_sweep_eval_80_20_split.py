@@ -13,7 +13,6 @@ import joblib
 
 """Qua ricarico i valori di normalizzazione del training per fare eval sul test set"""
 
-
 class SimpleBinaryNN(nn.Module):
     def __init__(self, input_size, dropout=0.1):
         super(SimpleBinaryNN, self).__init__()
@@ -51,7 +50,6 @@ def preprocess_data(df):
 
 
 def eval_fold(df, save_pth, fold):
-    """Evalua un singolo fold sul test set."""
     
     # Carica lo scaler per questo fold
     scaler_file = os.path.join(save_pth, f"scaler_fold_{fold}.pkl")
@@ -64,7 +62,7 @@ def eval_fold(df, save_pth, fold):
     
     # Preprocessing
     X, y = preprocess_data(df)
-    # TODO: Exclude dateAccess column if present
+    # TODO: Exclude dateAccess column if present ? Bha
 
     # Stesso split 80/20 usato in training
     sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
@@ -109,7 +107,7 @@ def eval_fold(df, save_pth, fold):
     
     model.load_state_dict(torch.load(model_path, map_location=device))
     print(f"Loaded model for fold {fold}")
-    print(f"  First layer weights (sample): {model.layers[0].weight[0][:5]}")
+    print(f"First layer weights (sample): {model.layers[0].weight[0][:5]}")
     
     # Evaluation
     model.eval()
@@ -143,6 +141,14 @@ def eval_fold(df, save_pth, fold):
 
 if __name__ == "__main__":
     print("Starting testing script...")
+    # Nel train.py hai:
+    torch.manual_seed(42)
+    torch.cuda.manual_seed_all(42)
+    np.random.seed(42)
+
+    # Nel test.py mancano! Aggiungi all'inizio di eval_fold():
+    torch.manual_seed(42)
+    np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
     save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
