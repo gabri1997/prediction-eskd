@@ -1,17 +1,18 @@
 {
-    "Run ID": "i8vhtf9m",
+    "Run ID": "t9gm2jt5",
     "Config Parameters": {
         "batch_size": 16,
-        "dropout": 0.2,
+        "dropout": 0.1,
         "fold": 3,
         "learning_rate": 0.1,
-        "optimizer": "sgd"
+        "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 5,
-        "Best F1": 0.619718309859155,
-        "Validation Accuracy": 0.8211920261383057,
-        "Validation Precision": 0.5945945945945946,
-        "Validation Recall": 0.6470588235294118
+        "Epoch": 9,
+        "Validation Loss": 0.9873048532877536,
+        "Best F1": 0.625,
+        "Validation Accuracy": 0.8410596251487732,
+        "Validation Precision": 0.6666666666666666,
+        "Validation Recall": 0.5882352941176471
     }
 }

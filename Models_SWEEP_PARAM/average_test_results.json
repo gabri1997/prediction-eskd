@@ -1,10 +1,10 @@
 {
-    "Average Test Accuracy": 0.728042328042328,
-    "Average Test Precision": 0.430101022407164,
-    "Average Test Recall": 0.5627906976744187,
-    "Average Test F1 Score": 0.48383923095217235,
-    "Std Test Accuracy": 0.021841023746614088,
-    "Std Test Precision": 0.02551717796847614,
-    "Std Test Recall": 0.06804064575966416,
-    "Std Test F1 Score": 0.01773528069929993
+    "Average Test Accuracy": 0.729100529100529,
+    "Average Test Precision": 0.43418584193039467,
+    "Average Test Recall": 0.5813953488372092,
+    "Average Test F1 Score": 0.4947438566250447,
+    "Std Test Accuracy": 0.025572584071099642,
+    "Std Test Precision": 0.03950828526901039,
+    "Std Test Recall": 0.03891441983879424,
+    "Std Test F1 Score": 0.017904022602260518
 }

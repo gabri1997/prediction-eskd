@@ -1,5 +1,5 @@
 {
-    "Run ID": "hk79a121",
+    "Run ID": "bdp267rd",
     "Config Parameters": {
         "batch_size": 64,
         "dropout": 0.3,
@@ -9,6 +9,7 @@
     },
     "Best Model Metrics": {
         "Epoch": 14,
+        "Validation Loss": 1.020933552293588,
         "Best F1": 0.605263157894737,
         "Validation Accuracy": 0.8013244867324829,
         "Validation Precision": 0.5476190476190477,
