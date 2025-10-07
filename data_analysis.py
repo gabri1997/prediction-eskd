@@ -175,15 +175,15 @@ if __name__ == "__main__":
     valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx' 
     out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx' 
     out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
-    final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
+    #final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
     final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    # analyze_final_file(final_file, years_threshold=5)
-    # analyze_final_file(final_file, years_threshold=10)
+    analyze_final_file(final_file, years_threshold=5)
+    analyze_final_file(final_file, years_threshold=10)
     # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess
-    # df = pd.read_excel(final_file, engine='openpyxl')
-    # print(df['dateAssess'].dtype)
-    # # Voglio vedere le prime righe del file
-    # print(df.head())
-    # # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
+    df = pd.read_excel(final_file, engine='openpyxl')
+    print(df['dateAssess'].dtype)
+    # Voglio vedere le prime righe del file
+    print(df.head())
+    # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
     # Numero di pazienti con ESKD e dateAssess > 10 anni: 43
     

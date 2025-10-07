@@ -7,6 +7,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.metrics import confusion_matrix
+# Aggiunta della confusion matrix
+from sklearn.metrics import confusion_matrix
 import os
 import json
 import tqdm
@@ -50,7 +52,7 @@ def preprocess_data(df):
     return X, y
 
 
-def eval_fold(df, save_pth, fold):
+def eval_fold(df, save_pth, fold, years=5):
     
     # Carica lo scaler per questo fold
     scaler_file = os.path.join(save_pth, f"scaler_fold_{fold}.pkl")
@@ -59,25 +61,7 @@ def eval_fold(df, save_pth, fold):
         return None
     
     scaler = joblib.load(scaler_file)
-    print(f"Loaded scaler for fold {fold}")
-    
-    # Preprocessing
-    X, y = preprocess_data(df)
-    # TODO: Exclude dateAccess column if present ? - not needed here maybe in future
 
-    # Stesso split 80/20 usato in training
-    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
-    for train_idx, test_idx in sss.split(X, y):
-        _, X_test = X[train_idx], X[test_idx]
-        _, y_test = y[train_idx], y[test_idx]
-    
-    print(f"Test shape: {X_test.shape}, Labels: {y_test.shape}")
-    unique_test, counts_test = np.unique(y_test, return_counts=True)
-    print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
-    
-    # Normalizza il test set con lo scaler del training
-    X_test_scaled = scaler.transform(X_test)
-    
     # Carica configurazione del modello
     config_file = os.path.join(save_pth, f'best_model_fold_{fold}_config.json')
     if not os.path.exists(config_file):
@@ -87,14 +71,75 @@ def eval_fold(df, save_pth, fold):
     with open(config_file, 'r') as f:
         data = json.load(f)
     
+    
+    print(f"Loaded scaler for fold {fold}")
     dropout = data['Config Parameters'].get('dropout', 0.1)
     batch_size = data['Config Parameters'].get('batch_size', 32)
+
+    # Preprocessing
+    X, y = preprocess_data(df)
+    # TODO: Exclude dateAccess column if present ? - not needed here maybe in future
+
+    # Stesso split 80/20 usato in training
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    for train_idx, test_idx in sss.split(X, y):
+        _, X_test = X[train_idx], X[test_idx]
+        _, y_test = y[train_idx], y[test_idx]
+
+    df_test = df.iloc[test_idx]  # subset del test set dal DataFrame originale
+
+    mask_5Y = df_test['dateAssess'] >= 5*365
+    mask_10Y = df_test['dateAssess'] >= 10*365
+
+    X_test_5Y = X_test[mask_5Y.values]  # .values per convertire in numpy boolean array
+    y_test_5Y = y_test[mask_5Y.values]
+
+    X_test_10Y = X_test[mask_10Y.values]
+    y_test_10Y = y_test[mask_10Y.values]
+
+    print(f"Test shape with dateAssess > 5 years: {X_test_5Y.shape}, Labels: {y_test_5Y.shape}")
+    print(f"Test shape with dateAssess > 10 years: {X_test_10Y.shape}, Labels: {y_test_10Y.shape}")
     
+    print(f"Test shape: {X_test.shape}, Labels: {y_test.shape}")
+    unique_test, counts_test = np.unique(y_test, return_counts=True)
+    print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
+
+    # Normalizza il test set con lo scaler del training
+    X_test_scaled = scaler.transform(X_test)
+    X_test_scaled_5Y = scaler.transform(X_test_5Y)
+    X_test_scaled_10Y = scaler.transform(X_test_10Y)
+
     X_test_tensor = torch.tensor(X_test_scaled, dtype=torch.float32)
     y_test_tensor = torch.tensor(y_test, dtype=torch.float32).view(-1, 1)
     test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
+
+    X_test_tensor_5Y = torch.tensor(X_test_scaled_5Y, dtype=torch.float32)
+    y_test_tensor_5Y = torch.tensor(y_test_5Y, dtype=torch.float32).view(-1, 1)
+    test_dataset_5Y = TensorDataset(X_test_tensor_5Y, y_test_tensor_5Y)
+    test_loader_5Y = DataLoader(test_dataset_5Y, batch_size=batch_size, shuffle=False, num_workers=2)
+
+    X_test_tensor_10Y = torch.tensor(X_test_scaled_10Y, dtype=torch.float32)
+    y_test_tensor_10Y = torch.tensor(y_test_10Y, dtype=torch.float32).view(-1, 1)
+    test_dataset_10Y = TensorDataset(X_test_tensor_10Y, y_test_tensor_10Y)
+    test_loader_10Y = DataLoader(test_dataset_10Y, batch_size=batch_size, shuffle=False, num_workers=2)
+
+    # Voglio che il test_dataset riguardi solo quelli con il dateAccess > 5 anni
     
+    # --------------------------------------------------------------------
+    # In y_test voglio contare quanti sono gli 1 e quanti sono gli 0
+    # unique, counts = np.unique(y_test, return_counts=True)
+    # print(f"Test set class distribution before evaluation: {dict(zip(unique, counts))}")
+    # --------------------------------------------------------------------
+    # Voglio vedere quanti del test hanno datoAssess > 5 anni e quanti > 10 anni
+    df_test = df.iloc[test_idx]
+    count_5y = (df_test['dateAssess'] >= 5*365).sum()
+    count_10y = (df_test['dateAssess'] >= 10*365).sum()
+    # Voglio stampare quanti pazienti del test hanno dateAssess < 5 anni
+    print(f"Test set patients with dateAssess < 5 years: {len(df_test) - count_5y}")
+    print(f"Test set patients with dateAssess > 5 years: {count_5y}, > 10 years: {count_10y}")
+    # --------------------------------------------------------------------
+
     # Carica modello
     model = SimpleBinaryNN(input_size=X_test_scaled.shape[1], dropout=dropout)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -114,7 +159,14 @@ def eval_fold(df, save_pth, fold):
     all_labels = []
     
     with torch.no_grad():
-        for inputs, labels in tqdm.tqdm(test_loader, desc=f"Testing fold {fold}"):
+        loader_to_use = test_loader
+        if years == 5:
+            print("Evaluating on test set with dateAssess > 5 years")
+            loader_to_use = test_loader_5Y
+        elif years == 10:
+            print("Evaluating on test set with dateAssess > 10 years")
+            loader_to_use = test_loader_10Y
+        for inputs, labels in tqdm.tqdm(loader_to_use, desc=f"Testing fold {fold}"):
             inputs, labels = inputs.to(device), labels.to(device)
             outputs = model(inputs)
             preds = (torch.sigmoid(outputs) > 0.5).cpu().numpy()
@@ -136,6 +188,7 @@ def eval_fold(df, save_pth, fold):
           f"Recall: {recall:.4f}, F1: {f1:.4f}")
 
     return {
+
         "Accuracy": float(accuracy),
         "Precision": float(precision),
         "Recall": float(recall),
@@ -163,8 +216,8 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        
-        fold_results = eval_fold(df, save_pth, fold)
+        years = 0  # Default evaluation on all test data
+        fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:
             all_results[f"Fold {fold}"] = fold_results
@@ -186,31 +239,20 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print("AVERAGE RESULTS ACROSS FOLDS")
         print(f"{'='*60}")
-        print(f"Accuracy:  {np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}")
-        print(f"Precision: {np.mean(precisions):.4f} ± {np.std(precisions):.4f}")
-        print(f"Recall:    {np.mean(recalls):.4f} ± {np.std(recalls):.4f}")
-        print(f"F1 Score:  {np.mean(f1s):.4f} ± {np.std(f1s):.4f}")
-        # Aggiunta della confusion matrix
-        from sklearn.metrics import confusion_matrix
-        all_true = []
-        all_pred = []
-        
 
-        # Salva medie
         avg_results = {
-            "Average Test Accuracy": float(np.mean(accuracies)),
-            "Average Test Precision": float(np.mean(precisions)),
-            "Average Test Recall": float(np.mean(recalls)),
-            "Average Test F1 Score": float(np.mean(f1s)),
-            "Std Test Accuracy": float(np.std(accuracies)),
-            "Std Test Precision": float(np.std(precisions)),
-            "Std Test Recall": float(np.std(recalls)),
-            "Std Test F1 Score": float(np.std(f1s))
-        }
-        
-        avg_file = os.path.join(save_pth, 'average_test_results.json')
+                "Years Threshold": years,
+                "Accuracy": f"{np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}",
+                "Precision": f"{np.mean(precisions):.4f} ± {np.std(precisions):.4f}",
+                "Recall": f"{np.mean(recalls):.4f} ± {np.std(recalls):.4f}",
+                "F1 Score": f"{np.mean(f1s):.4f} ± {np.std(f1s):.4f}"
+            }
+
+        print(avg_results)
+
+        avg_file = os.path.join(save_pth, f'average_test_results_years_{years}.json')
         with open(avg_file, 'w') as f:
-            json.dump(avg_results, f, indent=4)
+            json.dump(avg_results, f, indent=4, ensure_ascii=False)
         print(f"Average results saved to {avg_file}")
     else:
         print("No results to average - all folds failed")
