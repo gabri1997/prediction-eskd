@@ -71,7 +71,6 @@ def eval_fold(df, save_pth, fold, years=5):
     with open(config_file, 'r') as f:
         data = json.load(f)
     
-    
     print(f"Loaded scaler for fold {fold}")
     dropout = data['Config Parameters'].get('dropout', 0.1)
     batch_size = data['Config Parameters'].get('batch_size', 32)
@@ -188,7 +187,7 @@ def eval_fold(df, save_pth, fold, years=5):
           f"Recall: {recall:.4f}, F1: {f1:.4f}")
 
     return {
-
+        "Years Threshold": years,
         "Accuracy": float(accuracy),
         "Precision": float(precision),
         "Recall": float(recall),

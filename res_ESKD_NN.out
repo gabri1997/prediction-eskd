@@ -1,90 +1,857 @@
 Job iniziato su vegeta
-Data e ora: Tue Oct  7 16:39:23 CEST 2025
+Data e ora: Tue Oct  7 17:32:39 CEST 2025
 GPU disponibile: NVIDIA GeForce GTX 1080 Ti
-Starting testing script...
-
-============================================================
-Evaluating Fold 1/5
-============================================================
-Loaded scaler for fold 1
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Starting training script...
+Starting training script...
+Training + validation shape: (756, 13), Labels shape: (756,)
+Test shape: (189, 13), Labels shape: (189,)
+Training class distribution: {0: 586, 1: 170}
 Test class distribution: {0: 146, 1: 43}
-Test set patients with dateAssess < 5 years: 51
-Test set patients with dateAssess > 5 years: 138, > 10 years: 66
-Loaded model for fold 1
-First layer weights (sample): tensor([-0.5490,  0.6748, -2.1765,  0.2802, -0.4609], device='cuda:0',
-       grad_fn=<SliceBackward0>)
-Fold 1 - Accuracy: 0.7460, Precision: 0.4615, Recall: 0.6977, F1: 0.5556
-
-============================================================
-Evaluating Fold 2/5
-============================================================
-Loaded scaler for fold 2
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Numero di split: 5
+ === Running fold 1 with 604 training samples and 152 validation samples ===
+Epoch 1/120
+Starting validation...
+Validation AUC-ROC: 0.7595
+Validation Loss: 0.9589, Validation Accuracy: 0.6053, Validation F1 Score: 0.4444
+Epoch 2/120
+Starting validation...
+Validation AUC-ROC: 0.7709
+Validation Loss: 0.9456, Validation Accuracy: 0.6053, Validation F1 Score: 0.4643
+Epoch 3/120
+Starting validation...
+Validation AUC-ROC: 0.7575
+Validation Loss: 0.9493, Validation Accuracy: 0.5987, Validation F1 Score: 0.4505
+Epoch 4/120
+Starting validation...
+Validation AUC-ROC: 0.7717
+Validation Loss: 0.9428, Validation Accuracy: 0.6053, Validation F1 Score: 0.4643
+Epoch 5/120
+Starting validation...
+Validation AUC-ROC: 0.7612
+Validation Loss: 0.9488, Validation Accuracy: 0.5789, Validation F1 Score: 0.4386
+Validation loss improved to 0.948779.
+Epoch 6/120
+Starting validation...
+Validation AUC-ROC: 0.7612
+Validation Loss: 0.9443, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 7/120
+Starting validation...
+Validation AUC-ROC: 0.7752
+Validation Loss: 0.9360, Validation Accuracy: 0.5987, Validation F1 Score: 0.4505
+Epoch 8/120
+Starting validation...
+Validation AUC-ROC: 0.7749
+Validation Loss: 0.9316, Validation Accuracy: 0.6118, Validation F1 Score: 0.4587
+Epoch 9/120
+Starting validation...
+Validation AUC-ROC: 0.7757
+Validation Loss: 0.9325, Validation Accuracy: 0.6184, Validation F1 Score: 0.4528
+Epoch 10/120
+Starting validation...
+Validation AUC-ROC: 0.7724
+Validation Loss: 0.9352, Validation Accuracy: 0.6316, Validation F1 Score: 0.4717
+Validation loss improved to 0.935241.
+Epoch 11/120
+Starting validation...
+Validation AUC-ROC: 0.7859
+Validation Loss: 0.9260, Validation Accuracy: 0.6316, Validation F1 Score: 0.4615
+Epoch 12/120
+Starting validation...
+Validation AUC-ROC: 0.7822
+Validation Loss: 0.9275, Validation Accuracy: 0.6579, Validation F1 Score: 0.4800
+Epoch 13/120
+Starting validation...
+Validation AUC-ROC: 0.7879
+Validation Loss: 0.9256, Validation Accuracy: 0.6382, Validation F1 Score: 0.4860
+Epoch 14/120
+Starting validation...
+Validation AUC-ROC: 0.7919
+Validation Loss: 0.9186, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Epoch 15/120
+Starting validation...
+Validation AUC-ROC: 0.7849
+Validation Loss: 0.9258, Validation Accuracy: 0.5789, Validation F1 Score: 0.4483
+Validation loss improved to 0.925796.
+Epoch 16/120
+Starting validation...
+Validation AUC-ROC: 0.7874
+Validation Loss: 0.9231, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Epoch 17/120
+Starting validation...
+Validation AUC-ROC: 0.7804
+Validation Loss: 0.9261, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 18/120
+Starting validation...
+Validation AUC-ROC: 0.7971
+Validation Loss: 0.9143, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Epoch 19/120
+Starting validation...
+Validation AUC-ROC: 0.8021
+Validation Loss: 0.9115, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 20/120
+Starting validation...
+Validation AUC-ROC: 0.7904
+Validation Loss: 0.9185, Validation Accuracy: 0.6447, Validation F1 Score: 0.4906
+Validation loss improved to 0.918509.
+Epoch 21/120
+Starting validation...
+Validation AUC-ROC: 0.8058
+Validation Loss: 0.9063, Validation Accuracy: 0.6382, Validation F1 Score: 0.4860
+Epoch 22/120
+Starting validation...
+Validation AUC-ROC: 0.7994
+Validation Loss: 0.9149, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Epoch 23/120
+Starting validation...
+Validation AUC-ROC: 0.8068
+Validation Loss: 0.9068, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 24/120
+Starting validation...
+Validation AUC-ROC: 0.7979
+Validation Loss: 0.9083, Validation Accuracy: 0.6447, Validation F1 Score: 0.4906
+Epoch 25/120
+Starting validation...
+Validation AUC-ROC: 0.8053
+Validation Loss: 0.9070, Validation Accuracy: 0.6447, Validation F1 Score: 0.4906
+Validation loss improved to 0.907033.
+Epoch 26/120
+Starting validation...
+Validation AUC-ROC: 0.8101
+Validation Loss: 0.9034, Validation Accuracy: 0.6513, Validation F1 Score: 0.4952
+Epoch 27/120
+Starting validation...
+Validation AUC-ROC: 0.8168
+Validation Loss: 0.9019, Validation Accuracy: 0.6513, Validation F1 Score: 0.4952
+Epoch 28/120
+Starting validation...
+Validation AUC-ROC: 0.8111
+Validation Loss: 0.8986, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Epoch 29/120
+Starting validation...
+Validation AUC-ROC: 0.8203
+Validation Loss: 0.8940, Validation Accuracy: 0.6908, Validation F1 Score: 0.5253
+Epoch 30/120
+Starting validation...
+Validation AUC-ROC: 0.8225
+Validation Loss: 0.8971, Validation Accuracy: 0.6382, Validation F1 Score: 0.4860
+Validation loss improved to 0.897119.
+Epoch 31/120
+Starting validation...
+Validation AUC-ROC: 0.8210
+Validation Loss: 0.8946, Validation Accuracy: 0.6447, Validation F1 Score: 0.4906
+Epoch 32/120
+Starting validation...
+Validation AUC-ROC: 0.8213
+Validation Loss: 0.8931, Validation Accuracy: 0.6908, Validation F1 Score: 0.5253
+Epoch 33/120
+Starting validation...
+Validation AUC-ROC: 0.8178
+Validation Loss: 0.8897, Validation Accuracy: 0.6711, Validation F1 Score: 0.5098
+Epoch 34/120
+Starting validation...
+Validation AUC-ROC: 0.8245
+Validation Loss: 0.8932, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 35/120
+Starting validation...
+Validation AUC-ROC: 0.8255
+Validation Loss: 0.8849, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Validation loss improved to 0.884918.
+Epoch 36/120
+Starting validation...
+Validation AUC-ROC: 0.8270
+Validation Loss: 0.8966, Validation Accuracy: 0.6250, Validation F1 Score: 0.4865
+Epoch 37/120
+Starting validation...
+Validation AUC-ROC: 0.8295
+Validation Loss: 0.8797, Validation Accuracy: 0.6711, Validation F1 Score: 0.5098
+Epoch 38/120
+Starting validation...
+Validation AUC-ROC: 0.8270
+Validation Loss: 0.8869, Validation Accuracy: 0.6382, Validation F1 Score: 0.4860
+Epoch 39/120
+Starting validation...
+Validation AUC-ROC: 0.8280
+Validation Loss: 0.8878, Validation Accuracy: 0.6513, Validation F1 Score: 0.5047
+Epoch 40/120
+Starting validation...
+Validation AUC-ROC: 0.8270
+Validation Loss: 0.8899, Validation Accuracy: 0.6447, Validation F1 Score: 0.5000
+No improvement in validation loss. Counter: 1/2
+Epoch 41/120
+Starting validation...
+Validation AUC-ROC: 0.8313
+Validation Loss: 0.8736, Validation Accuracy: 0.6645, Validation F1 Score: 0.5049
+Epoch 42/120
+Starting validation...
+Validation AUC-ROC: 0.8345
+Validation Loss: 0.8718, Validation Accuracy: 0.6908, Validation F1 Score: 0.5253
+Epoch 43/120
+Starting validation...
+Validation AUC-ROC: 0.8385
+Validation Loss: 0.8725, Validation Accuracy: 0.7039, Validation F1 Score: 0.5361
+Epoch 44/120
+Starting validation...
+Validation AUC-ROC: 0.8323
+Validation Loss: 0.8741, Validation Accuracy: 0.7039, Validation F1 Score: 0.5361
+Epoch 45/120
+Starting validation...
+Validation AUC-ROC: 0.8365
+Validation Loss: 0.8708, Validation Accuracy: 0.6908, Validation F1 Score: 0.5347
+Validation loss improved to 0.870843.
+Epoch 46/120
+Starting validation...
+Validation AUC-ROC: 0.8392
+Validation Loss: 0.8728, Validation Accuracy: 0.7171, Validation F1 Score: 0.5474
+Epoch 47/120
+Starting validation...
+Validation AUC-ROC: 0.8362
+Validation Loss: 0.8789, Validation Accuracy: 0.6645, Validation F1 Score: 0.5143
+Epoch 48/120
+Starting validation...
+Validation AUC-ROC: 0.8460
+Validation Loss: 0.8666, Validation Accuracy: 0.6908, Validation F1 Score: 0.5437
+Epoch 49/120
+Starting validation...
+Validation AUC-ROC: 0.8445
+Validation Loss: 0.8661, Validation Accuracy: 0.7105, Validation F1 Score: 0.5510
+Epoch 50/120
+Starting validation...
+Validation AUC-ROC: 0.8435
+Validation Loss: 0.8629, Validation Accuracy: 0.7171, Validation F1 Score: 0.5474
+Validation loss improved to 0.862943.
+Epoch 51/120
+Starting validation...
+Validation AUC-ROC: 0.8482
+Validation Loss: 0.8592, Validation Accuracy: 0.7237, Validation F1 Score: 0.5625
+Epoch 52/120
+Starting validation...
+Validation AUC-ROC: 0.8442
+Validation Loss: 0.8583, Validation Accuracy: 0.6974, Validation F1 Score: 0.5306
+Epoch 53/120
+Starting validation...
+Validation AUC-ROC: 0.8417
+Validation Loss: 0.8649, Validation Accuracy: 0.7039, Validation F1 Score: 0.5455
+Epoch 54/120
+Starting validation...
+Validation AUC-ROC: 0.8497
+Validation Loss: 0.8575, Validation Accuracy: 0.7171, Validation F1 Score: 0.5567
+Epoch 55/120
+Starting validation...
+Validation AUC-ROC: 0.8514
+Validation Loss: 0.8565, Validation Accuracy: 0.6908, Validation F1 Score: 0.5347
+Validation loss improved to 0.856508.
+Epoch 56/120
+Starting validation...
+Validation AUC-ROC: 0.8485
+Validation Loss: 0.8543, Validation Accuracy: 0.7303, Validation F1 Score: 0.5591
+Epoch 57/120
+Starting validation...
+Validation AUC-ROC: 0.8504
+Validation Loss: 0.8580, Validation Accuracy: 0.6579, Validation F1 Score: 0.5185
+Epoch 58/120
+Starting validation...
+Validation AUC-ROC: 0.8517
+Validation Loss: 0.8544, Validation Accuracy: 0.7303, Validation F1 Score: 0.5591
+Epoch 59/120
+Starting validation...
+Validation AUC-ROC: 0.8542
+Validation Loss: 0.8485, Validation Accuracy: 0.7303, Validation F1 Score: 0.5591
+Epoch 60/120
+Starting validation...
+Validation AUC-ROC: 0.8534
+Validation Loss: 0.8532, Validation Accuracy: 0.7237, Validation F1 Score: 0.5532
+Validation loss improved to 0.853217.
+Epoch 61/120
+Starting validation...
+Validation AUC-ROC: 0.8507
+Validation Loss: 0.8563, Validation Accuracy: 0.6842, Validation F1 Score: 0.5385
+Epoch 62/120
+Starting validation...
+Validation AUC-ROC: 0.8549
+Validation Loss: 0.8462, Validation Accuracy: 0.7237, Validation F1 Score: 0.5625
+Epoch 63/120
+Starting validation...
+Validation AUC-ROC: 0.8557
+Validation Loss: 0.8414, Validation Accuracy: 0.7237, Validation F1 Score: 0.5625
+Epoch 64/120
+Starting validation...
+Validation AUC-ROC: 0.8532
+Validation Loss: 0.8446, Validation Accuracy: 0.7237, Validation F1 Score: 0.5625
+Epoch 65/120
+Starting validation...
+Validation AUC-ROC: 0.8504
+Validation Loss: 0.8515, Validation Accuracy: 0.6776, Validation F1 Score: 0.5333
+Validation loss improved to 0.851512.
+Epoch 66/120
+Starting validation...
+Validation AUC-ROC: 0.8557
+Validation Loss: 0.8500, Validation Accuracy: 0.7237, Validation F1 Score: 0.5532
+Epoch 67/120
+Starting validation...
+Validation AUC-ROC: 0.8639
+Validation Loss: 0.8344, Validation Accuracy: 0.7763, Validation F1 Score: 0.6136
+Epoch 68/120
+Starting validation...
+Validation AUC-ROC: 0.8554
+Validation Loss: 0.8479, Validation Accuracy: 0.6842, Validation F1 Score: 0.5385
+Epoch 69/120
+Starting validation...
+Validation AUC-ROC: 0.8599
+Validation Loss: 0.8294, Validation Accuracy: 0.7566, Validation F1 Score: 0.5934
+Epoch 70/120
+Starting validation...
+Validation AUC-ROC: 0.8572
+Validation Loss: 0.8407, Validation Accuracy: 0.7303, Validation F1 Score: 0.5684
+Validation loss improved to 0.840686.
+Epoch 71/120
+Starting validation...
+Validation AUC-ROC: 0.8622
+Validation Loss: 0.8300, Validation Accuracy: 0.7697, Validation F1 Score: 0.6154
+Epoch 72/120
+Starting validation...
+Validation AUC-ROC: 0.8602
+Validation Loss: 0.8364, Validation Accuracy: 0.7566, Validation F1 Score: 0.5934
+Epoch 73/120
+Starting validation...
+Validation AUC-ROC: 0.8614
+Validation Loss: 0.8404, Validation Accuracy: 0.7237, Validation F1 Score: 0.5714
+Epoch 74/120
+Starting validation...
+Validation AUC-ROC: 0.8577
+Validation Loss: 0.8413, Validation Accuracy: 0.6974, Validation F1 Score: 0.5490
+Epoch 75/120
+Starting validation...
+Validation AUC-ROC: 0.8607
+Validation Loss: 0.8425, Validation Accuracy: 0.6776, Validation F1 Score: 0.5333
+No improvement in validation loss. Counter: 1/2
+Epoch 76/120
+Starting validation...
+Validation AUC-ROC: 0.8597
+Validation Loss: 0.8368, Validation Accuracy: 0.7237, Validation F1 Score: 0.5714
+Epoch 77/120
+Starting validation...
+Validation AUC-ROC: 0.8624
+Validation Loss: 0.8342, Validation Accuracy: 0.7303, Validation F1 Score: 0.5773
+Epoch 78/120
+Starting validation...
+Validation AUC-ROC: 0.8629
+Validation Loss: 0.8332, Validation Accuracy: 0.7434, Validation F1 Score: 0.5895
+Epoch 79/120
+Starting validation...
+Validation AUC-ROC: 0.8686
+Validation Loss: 0.8251, Validation Accuracy: 0.7368, Validation F1 Score: 0.5833
+Epoch 80/120
+Starting validation...
+Validation AUC-ROC: 0.8699
+Validation Loss: 0.8225, Validation Accuracy: 0.7303, Validation F1 Score: 0.5859
+Validation loss improved to 0.822496.
+Epoch 81/120
+Starting validation...
+Validation AUC-ROC: 0.8684
+Validation Loss: 0.8191, Validation Accuracy: 0.7566, Validation F1 Score: 0.6022
+Epoch 82/120
+Starting validation...
+Validation AUC-ROC: 0.8681
+Validation Loss: 0.8267, Validation Accuracy: 0.7237, Validation F1 Score: 0.5800
+Epoch 83/120
+Starting validation...
+Validation AUC-ROC: 0.8711
+Validation Loss: 0.8164, Validation Accuracy: 0.7632, Validation F1 Score: 0.6087
+Epoch 84/120
+Starting validation...
+Validation AUC-ROC: 0.8639
+Validation Loss: 0.8308, Validation Accuracy: 0.7105, Validation F1 Score: 0.5600
+Epoch 85/120
+Starting validation...
+Validation AUC-ROC: 0.8647
+Validation Loss: 0.8277, Validation Accuracy: 0.7237, Validation F1 Score: 0.5714
+No improvement in validation loss. Counter: 1/2
+Epoch 86/120
+Starting validation...
+Validation AUC-ROC: 0.8654
+Validation Loss: 0.8194, Validation Accuracy: 0.7368, Validation F1 Score: 0.5833
+Epoch 87/120
+Starting validation...
+Validation AUC-ROC: 0.8739
+Validation Loss: 0.8130, Validation Accuracy: 0.7566, Validation F1 Score: 0.6022
+Epoch 88/120
+Starting validation...
+Validation AUC-ROC: 0.8679
+Validation Loss: 0.8193, Validation Accuracy: 0.7434, Validation F1 Score: 0.5895
+Epoch 89/120
+Starting validation...
+Validation AUC-ROC: 0.8706
+Validation Loss: 0.8163, Validation Accuracy: 0.7171, Validation F1 Score: 0.5657
+Epoch 90/120
+Starting validation...
+Validation AUC-ROC: 0.8681
+Validation Loss: 0.8186, Validation Accuracy: 0.7368, Validation F1 Score: 0.5918
+Validation loss improved to 0.818604.
+Epoch 91/120
+Starting validation...
+Validation AUC-ROC: 0.8739
+Validation Loss: 0.8117, Validation Accuracy: 0.7829, Validation F1 Score: 0.6292
+Epoch 92/120
+Starting validation...
+Validation AUC-ROC: 0.8716
+Validation Loss: 0.8198, Validation Accuracy: 0.7697, Validation F1 Score: 0.6154
+Epoch 93/120
+Starting validation...
+Validation AUC-ROC: 0.8746
+Validation Loss: 0.8132, Validation Accuracy: 0.7500, Validation F1 Score: 0.5957
+Epoch 94/120
+Starting validation...
+Validation AUC-ROC: 0.8716
+Validation Loss: 0.8167, Validation Accuracy: 0.7566, Validation F1 Score: 0.6022
+Epoch 95/120
+Starting validation...
+Validation AUC-ROC: 0.8724
+Validation Loss: 0.8094, Validation Accuracy: 0.7566, Validation F1 Score: 0.6022
+Validation loss improved to 0.809406.
+Epoch 96/120
+Starting validation...
+Validation AUC-ROC: 0.8759
+Validation Loss: 0.8063, Validation Accuracy: 0.7829, Validation F1 Score: 0.6374
+Epoch 97/120
+Starting validation...
+Validation AUC-ROC: 0.8746
+Validation Loss: 0.8118, Validation Accuracy: 0.7500, Validation F1 Score: 0.6042
+Epoch 98/120
+Starting validation...
+Validation AUC-ROC: 0.8751
+Validation Loss: 0.8039, Validation Accuracy: 0.7697, Validation F1 Score: 0.6154
+Epoch 99/120
+Starting validation...
+Validation AUC-ROC: 0.8731
+Validation Loss: 0.8040, Validation Accuracy: 0.7566, Validation F1 Score: 0.6105
+Epoch 100/120
+Starting validation...
+Validation AUC-ROC: 0.8761
+Validation Loss: 0.8123, Validation Accuracy: 0.7105, Validation F1 Score: 0.5686
+No improvement in validation loss. Counter: 1/2
+Epoch 101/120
+Starting validation...
+Validation AUC-ROC: 0.8799
+Validation Loss: 0.8070, Validation Accuracy: 0.7697, Validation F1 Score: 0.6237
+Epoch 102/120
+Starting validation...
+Validation AUC-ROC: 0.8761
+Validation Loss: 0.8036, Validation Accuracy: 0.7829, Validation F1 Score: 0.6292
+Epoch 103/120
+Starting validation...
+Validation AUC-ROC: 0.8816
+Validation Loss: 0.8057, Validation Accuracy: 0.7303, Validation F1 Score: 0.5941
+Epoch 104/120
+Starting validation...
+Validation AUC-ROC: 0.8774
+Validation Loss: 0.8008, Validation Accuracy: 0.7697, Validation F1 Score: 0.6154
+Epoch 105/120
+Starting validation...
+Validation AUC-ROC: 0.8799
+Validation Loss: 0.8041, Validation Accuracy: 0.7303, Validation F1 Score: 0.5941
+Validation loss improved to 0.804119.
+Epoch 106/120
+Starting validation...
+Validation AUC-ROC: 0.8816
+Validation Loss: 0.8060, Validation Accuracy: 0.7500, Validation F1 Score: 0.6122
+Epoch 107/120
+Starting validation...
+Validation AUC-ROC: 0.8796
+Validation Loss: 0.7996, Validation Accuracy: 0.7763, Validation F1 Score: 0.6304
+Epoch 108/120
+Starting validation...
+Validation AUC-ROC: 0.8766
+Validation Loss: 0.7985, Validation Accuracy: 0.7763, Validation F1 Score: 0.6222
+Epoch 109/120
+Starting validation...
+Validation AUC-ROC: 0.8776
+Validation Loss: 0.8037, Validation Accuracy: 0.7434, Validation F1 Score: 0.5895
+Epoch 110/120
+Starting validation...
+Validation AUC-ROC: 0.8838
+Validation Loss: 0.7918, Validation Accuracy: 0.7566, Validation F1 Score: 0.6186
+Validation loss improved to 0.791844.
+Epoch 111/120
+Starting validation...
+Validation AUC-ROC: 0.8843
+Validation Loss: 0.7894, Validation Accuracy: 0.7829, Validation F1 Score: 0.6374
+Epoch 112/120
+Starting validation...
+Validation AUC-ROC: 0.8871
+Validation Loss: 0.7934, Validation Accuracy: 0.7632, Validation F1 Score: 0.6170
+Epoch 113/120
+Starting validation...
+Validation AUC-ROC: 0.8819
+Validation Loss: 0.7941, Validation Accuracy: 0.7829, Validation F1 Score: 0.6452
+Epoch 114/120
+Starting validation...
+Validation AUC-ROC: 0.8824
+Validation Loss: 0.7975, Validation Accuracy: 0.7500, Validation F1 Score: 0.6122
+Epoch 115/120
+Starting validation...
+Validation AUC-ROC: 0.8858
+Validation Loss: 0.7902, Validation Accuracy: 0.7632, Validation F1 Score: 0.6087
+Validation loss improved to 0.790219.
+Epoch 116/120
+Starting validation...
+Validation AUC-ROC: 0.8858
+Validation Loss: 0.7958, Validation Accuracy: 0.7434, Validation F1 Score: 0.6061
+Epoch 117/120
+Starting validation...
+Validation AUC-ROC: 0.8833
+Validation Loss: 0.7891, Validation Accuracy: 0.7829, Validation F1 Score: 0.6292
+Epoch 118/120
+Starting validation...
+Validation AUC-ROC: 0.8848
+Validation Loss: 0.7936, Validation Accuracy: 0.7763, Validation F1 Score: 0.6383
+Epoch 119/120
+Starting validation...
+Validation AUC-ROC: 0.8856
+Validation Loss: 0.7871, Validation Accuracy: 0.7829, Validation F1 Score: 0.6452
+Epoch 120/120
+Starting validation...
+Validation AUC-ROC: 0.8848
+Validation Loss: 0.7927, Validation Accuracy: 0.7500, Validation F1 Score: 0.6122
+No improvement in validation loss. Counter: 1/2
+Starting training script...
+Starting training script...
+Training + validation shape: (756, 13), Labels shape: (756,)
+Test shape: (189, 13), Labels shape: (189,)
+Training class distribution: {0: 586, 1: 170}
 Test class distribution: {0: 146, 1: 43}
-Test set patients with dateAssess < 5 years: 51
-Test set patients with dateAssess > 5 years: 138, > 10 years: 66
-Loaded model for fold 2
-First layer weights (sample): tensor([ 0.8629,  0.7022,  0.1875, -0.1358, -0.2934], device='cuda:0',
-       grad_fn=<SliceBackward0>)
-Fold 2 - Accuracy: 0.7354, Precision: 0.4507, Recall: 0.7442, F1: 0.5614
-
-============================================================
-Evaluating Fold 3/5
-============================================================
-Loaded scaler for fold 3
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Numero di split: 5
+ === Running fold 1 with 604 training samples and 152 validation samples ===
+Epoch 1/120
+Starting validation...
+Validation AUC-ROC: 0.7590
+Validation Loss: 0.9605, Validation Accuracy: 0.6053, Validation F1 Score: 0.4444
+Epoch 2/120
+Starting validation...
+Validation AUC-ROC: 0.7672
+Validation Loss: 0.9487, Validation Accuracy: 0.5921, Validation F1 Score: 0.4464
+Epoch 3/120
+Starting validation...
+Validation AUC-ROC: 0.7507
+Validation Loss: 0.9538, Validation Accuracy: 0.5921, Validation F1 Score: 0.4464
+Epoch 4/120
+Starting validation...
+Validation AUC-ROC: 0.7657
+Validation Loss: 0.9487, Validation Accuracy: 0.5987, Validation F1 Score: 0.4505
+Epoch 5/120
+Starting validation...
+Validation AUC-ROC: 0.7502
+Validation Loss: 0.9563, Validation Accuracy: 0.5526, Validation F1 Score: 0.4138
+Validation loss improved to 0.956266.
+Epoch 6/120
+Starting validation...
+Validation AUC-ROC: 0.7505
+Validation Loss: 0.9530, Validation Accuracy: 0.6118, Validation F1 Score: 0.4486
+Epoch 7/120
+Starting validation...
+Validation AUC-ROC: 0.7642
+Validation Loss: 0.9461, Validation Accuracy: 0.5855, Validation F1 Score: 0.4425
+Epoch 8/120
+Starting validation...
+Validation AUC-ROC: 0.7635
+Validation Loss: 0.9431, Validation Accuracy: 0.6118, Validation F1 Score: 0.4587
+Epoch 9/120
+Starting validation...
+Validation AUC-ROC: 0.7627
+Validation Loss: 0.9453, Validation Accuracy: 0.6118, Validation F1 Score: 0.4486
+Epoch 10/120
+Starting validation...
+Validation AUC-ROC: 0.7590
+Validation Loss: 0.9491, Validation Accuracy: 0.5921, Validation F1 Score: 0.4364
+Validation loss improved to 0.949087.
+Epoch 11/120
+Starting validation...
+Validation AUC-ROC: 0.7669
+Validation Loss: 0.9414, Validation Accuracy: 0.6184, Validation F1 Score: 0.4528
+Epoch 12/120
+Starting validation...
+Validation AUC-ROC: 0.7637
+Validation Loss: 0.9442, Validation Accuracy: 0.6382, Validation F1 Score: 0.4660
+Epoch 13/120
+Starting validation...
+Validation AUC-ROC: 0.7665
+Validation Loss: 0.9432, Validation Accuracy: 0.6316, Validation F1 Score: 0.4717
+Epoch 14/120
+Starting validation...
+Validation AUC-ROC: 0.7719
+Validation Loss: 0.9376, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 15/120
+Starting validation...
+Validation AUC-ROC: 0.7625
+Validation Loss: 0.9448, Validation Accuracy: 0.5395, Validation F1 Score: 0.4167
+Validation loss improved to 0.944752.
+Epoch 16/120
+Starting validation...
+Validation AUC-ROC: 0.7657
+Validation Loss: 0.9439, Validation Accuracy: 0.6382, Validation F1 Score: 0.4762
+Epoch 17/120
+Starting validation...
+Validation AUC-ROC: 0.7572
+Validation Loss: 0.9478, Validation Accuracy: 0.6118, Validation F1 Score: 0.4587
+Epoch 18/120
+Starting validation...
+Validation AUC-ROC: 0.7724
+Validation Loss: 0.9379, Validation Accuracy: 0.6250, Validation F1 Score: 0.4571
+Epoch 19/120
+Starting validation...
+Validation AUC-ROC: 0.7747
+Validation Loss: 0.9356, Validation Accuracy: 0.6118, Validation F1 Score: 0.4587
+Epoch 20/120
+Starting validation...
+Validation AUC-ROC: 0.7637
+Validation Loss: 0.9438, Validation Accuracy: 0.6118, Validation F1 Score: 0.4486
+Validation loss improved to 0.943848.
+Epoch 21/120
+Starting validation...
+Validation AUC-ROC: 0.7772
+Validation Loss: 0.9326, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 22/120
+Starting validation...
+Validation AUC-ROC: 0.7667
+Validation Loss: 0.9422, Validation Accuracy: 0.6250, Validation F1 Score: 0.4571
+Epoch 23/120
+Starting validation...
+Validation AUC-ROC: 0.7767
+Validation Loss: 0.9350, Validation Accuracy: 0.5921, Validation F1 Score: 0.4464
+Epoch 24/120
+Starting validation...
+Validation AUC-ROC: 0.7727
+Validation Loss: 0.9370, Validation Accuracy: 0.6053, Validation F1 Score: 0.4545
+Epoch 25/120
+Starting validation...
+Validation AUC-ROC: 0.7727
+Validation Loss: 0.9379, Validation Accuracy: 0.5987, Validation F1 Score: 0.4505
+Validation loss improved to 0.937930.
+Epoch 26/120
+Starting validation...
+Validation AUC-ROC: 0.7757
+Validation Loss: 0.9360, Validation Accuracy: 0.6053, Validation F1 Score: 0.4545
+Epoch 27/120
+Starting validation...
+Validation AUC-ROC: 0.7797
+Validation Loss: 0.9343, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 28/120
+Starting validation...
+Validation AUC-ROC: 0.7769
+Validation Loss: 0.9312, Validation Accuracy: 0.5987, Validation F1 Score: 0.4602
+Epoch 29/120
+Starting validation...
+Validation AUC-ROC: 0.7879
+Validation Loss: 0.9284, Validation Accuracy: 0.6513, Validation F1 Score: 0.4854
+Epoch 30/120
+Starting validation...
+Validation AUC-ROC: 0.7804
+Validation Loss: 0.9335, Validation Accuracy: 0.6053, Validation F1 Score: 0.4643
+Validation loss improved to 0.933546.
+Epoch 31/120
+Starting validation...
+Validation AUC-ROC: 0.7836
+Validation Loss: 0.9298, Validation Accuracy: 0.5724, Validation F1 Score: 0.4444
+Epoch 32/120
+Starting validation...
+Validation AUC-ROC: 0.7817
+Validation Loss: 0.9311, Validation Accuracy: 0.6579, Validation F1 Score: 0.4902
+Epoch 33/120
+Starting validation...
+Validation AUC-ROC: 0.7757
+Validation Loss: 0.9279, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Epoch 34/120
+Starting validation...
+Validation AUC-ROC: 0.7797
+Validation Loss: 0.9329, Validation Accuracy: 0.5987, Validation F1 Score: 0.4602
+Epoch 35/120
+Starting validation...
+Validation AUC-ROC: 0.7809
+Validation Loss: 0.9257, Validation Accuracy: 0.6184, Validation F1 Score: 0.4630
+Validation loss improved to 0.925711.
+Epoch 36/120
+Starting validation...
+Validation AUC-ROC: 0.7832
+Validation Loss: 0.9366, Validation Accuracy: 0.5658, Validation F1 Score: 0.4407
+Epoch 37/120
+Starting validation...
+Validation AUC-ROC: 0.7901
+Validation Loss: 0.9200, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Epoch 38/120
+Starting validation...
+Validation AUC-ROC: 0.7827
+Validation Loss: 0.9292, Validation Accuracy: 0.5987, Validation F1 Score: 0.4602
+Epoch 39/120
+Starting validation...
+Validation AUC-ROC: 0.7809
+Validation Loss: 0.9321, Validation Accuracy: 0.5921, Validation F1 Score: 0.4561
+Epoch 40/120
+Starting validation...
+Validation AUC-ROC: 0.7799
+Validation Loss: 0.9335, Validation Accuracy: 0.5658, Validation F1 Score: 0.4407
+No improvement in validation loss. Counter: 1/2
+Epoch 41/120
+Starting validation...
+Validation AUC-ROC: 0.7869
+Validation Loss: 0.9179, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Epoch 42/120
+Starting validation...
+Validation AUC-ROC: 0.7914
+Validation Loss: 0.9179, Validation Accuracy: 0.6316, Validation F1 Score: 0.4717
+Epoch 43/120
+Starting validation...
+Validation AUC-ROC: 0.7939
+Validation Loss: 0.9196, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 44/120
+Starting validation...
+Validation AUC-ROC: 0.7832
+Validation Loss: 0.9232, Validation Accuracy: 0.6382, Validation F1 Score: 0.4762
+Epoch 45/120
+Starting validation...
+Validation AUC-ROC: 0.7856
+Validation Loss: 0.9204, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Validation loss improved to 0.920394.
+Epoch 46/120
+Starting validation...
+Validation AUC-ROC: 0.7946
+Validation Loss: 0.9226, Validation Accuracy: 0.6579, Validation F1 Score: 0.4902
+Epoch 47/120
+Starting validation...
+Validation AUC-ROC: 0.7812
+Validation Loss: 0.9298, Validation Accuracy: 0.6053, Validation F1 Score: 0.4643
+Epoch 48/120
+Starting validation...
+Validation AUC-ROC: 0.7981
+Validation Loss: 0.9185, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 49/120
+Starting validation...
+Validation AUC-ROC: 0.7969
+Validation Loss: 0.9179, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 50/120
+Starting validation...
+Validation AUC-ROC: 0.7936
+Validation Loss: 0.9165, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Validation loss improved to 0.916539.
+Epoch 51/120
+Starting validation...
+Validation AUC-ROC: 0.7984
+Validation Loss: 0.9149, Validation Accuracy: 0.6447, Validation F1 Score: 0.4906
+Epoch 52/120
+Starting validation...
+Validation AUC-ROC: 0.7949
+Validation Loss: 0.9133, Validation Accuracy: 0.6250, Validation F1 Score: 0.4771
+Epoch 53/120
+Starting validation...
+Validation AUC-ROC: 0.7864
+Validation Loss: 0.9200, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 54/120
+Starting validation...
+Validation AUC-ROC: 0.8018
+Validation Loss: 0.9119, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 55/120
+Starting validation...
+Validation AUC-ROC: 0.8006
+Validation Loss: 0.9123, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Validation loss improved to 0.912343.
+Epoch 56/120
+Starting validation...
+Validation AUC-ROC: 0.7989
+Validation Loss: 0.9111, Validation Accuracy: 0.6513, Validation F1 Score: 0.4854
+Epoch 57/120
+Starting validation...
+Validation AUC-ROC: 0.7986
+Validation Loss: 0.9140, Validation Accuracy: 0.6053, Validation F1 Score: 0.4737
+Epoch 58/120
+Starting validation...
+Validation AUC-ROC: 0.7966
+Validation Loss: 0.9142, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 59/120
+Starting validation...
+Validation AUC-ROC: 0.8023
+Validation Loss: 0.9090, Validation Accuracy: 0.6513, Validation F1 Score: 0.4952
+Epoch 60/120
+Starting validation...
+Validation AUC-ROC: 0.7981
+Validation Loss: 0.9158, Validation Accuracy: 0.6447, Validation F1 Score: 0.4808
+No improvement in validation loss. Counter: 1/2
+Epoch 61/120
+Starting validation...
+Validation AUC-ROC: 0.8013
+Validation Loss: 0.9162, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+Epoch 62/120
+Starting validation...
+Validation AUC-ROC: 0.8058
+Validation Loss: 0.9071, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 63/120
+Starting validation...
+Validation AUC-ROC: 0.8068
+Validation Loss: 0.9026, Validation Accuracy: 0.6316, Validation F1 Score: 0.4815
+Epoch 64/120
+Starting validation...
+Validation AUC-ROC: 0.8041
+Validation Loss: 0.9069, Validation Accuracy: 0.6579, Validation F1 Score: 0.5000
+Epoch 65/120
+Starting validation...
+Validation AUC-ROC: 0.7926
+Validation Loss: 0.9139, Validation Accuracy: 0.6184, Validation F1 Score: 0.4727
+No improvement in validation loss. Counter: 2/2
+Early stopping triggered. Stopping training.
+Starting training script...
+Starting training script...
+Training + validation shape: (756, 13), Labels shape: (756,)
+Test shape: (189, 13), Labels shape: (189,)
+Training class distribution: {0: 586, 1: 170}
 Test class distribution: {0: 146, 1: 43}
-Test set patients with dateAssess < 5 years: 51
-Test set patients with dateAssess > 5 years: 138, > 10 years: 66
-Loaded model for fold 3
-First layer weights (sample): tensor([ 0.6822,  0.0793, -0.2813, -1.1781,  0.5136], device='cuda:0',
-       grad_fn=<SliceBackward0>)
-Fold 3 - Accuracy: 0.8042, Precision: 0.5577, Recall: 0.6744, F1: 0.6105
-
-============================================================
-Evaluating Fold 4/5
-============================================================
-Loaded scaler for fold 4
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
-Test class distribution: {0: 146, 1: 43}
-Test set patients with dateAssess < 5 years: 51
-Test set patients with dateAssess > 5 years: 138, > 10 years: 66
-Loaded model for fold 4
-First layer weights (sample): tensor([ 0.2298,  0.2287, -0.0756,  0.2500, -0.0657], device='cuda:0',
-       grad_fn=<SliceBackward0>)
-Fold 4 - Accuracy: 0.7407, Precision: 0.4605, Recall: 0.8140, F1: 0.5882
-
-============================================================
-Evaluating Fold 5/5
-============================================================
-Loaded scaler for fold 5
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
-Test class distribution: {0: 146, 1: 43}
-Test set patients with dateAssess < 5 years: 51
-Test set patients with dateAssess > 5 years: 138, > 10 years: 66
-Loaded model for fold 5
-First layer weights (sample): tensor([-0.2669,  3.0944,  1.8165, -0.1815, -2.5829], device='cuda:0',
-       grad_fn=<SliceBackward0>)
-Fold 5 - Accuracy: 0.7566, Precision: 0.4776, Recall: 0.7442, F1: 0.5818
-
- Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/test_results.json
-
-============================================================
-AVERAGE RESULTS ACROSS FOLDS
-============================================================
-{'Years Threshold': 0, 'Accuracy': '0.7566 ± 0.0248', 'Precision': '0.4816 ± 0.0390', 'Recall': '0.7349 ± 0.0479', 'F1 Score': '0.5795 ± 0.0197'}
-Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/average_test_results_years_0.json
-Job finito.
-Data e ora di fine: Tue Oct  7 16:39:29 CEST 2025
-GPU utilizzata: NVIDIA GeForce GTX 1080 Ti
+Numero di split: 5
+ === Running fold 1 with 604 training samples and 152 validation samples ===
+Epoch 1/120
+Starting validation...
+Validation AUC-ROC: 0.8796
+Validation Loss: 0.8129, Validation Accuracy: 0.7763, Validation F1 Score: 0.6304
+Epoch 2/120
+Starting validation...
+Validation AUC-ROC: 0.9005
+Validation Loss: 0.7252, Validation Accuracy: 0.7829, Validation F1 Score: 0.6526
+Epoch 3/120
+Starting validation...
+Validation AUC-ROC: 0.9018
+Validation Loss: 0.7003, Validation Accuracy: 0.7895, Validation F1 Score: 0.6596
+Epoch 4/120
+Starting validation...
+Validation AUC-ROC: 0.9043
+Validation Loss: 0.6891, Validation Accuracy: 0.7829, Validation F1 Score: 0.6526
+Epoch 5/120
+Starting validation...
+Validation AUC-ROC: 0.9115
+Validation Loss: 0.6726, Validation Accuracy: 0.7961, Validation F1 Score: 0.6667
+Validation loss improved to 0.672605.
+Epoch 6/120
+Starting validation...
+Validation AUC-ROC: 0.9108
+Validation Loss: 0.6680, Validation Accuracy: 0.7961, Validation F1 Score: 0.6667
+Epoch 7/120
+Starting validation...
+Validation AUC-ROC: 0.9103
+Validation Loss: 0.6558, Validation Accuracy: 0.7961, Validation F1 Score: 0.6667
+Epoch 8/120
+Starting validation...
+Validation AUC-ROC: 0.9093
+Validation Loss: 0.6521, Validation Accuracy: 0.7895, Validation F1 Score: 0.6596
+Epoch 9/120
+Starting validation...
+Validation AUC-ROC: 0.9108
+Validation Loss: 0.6559, Validation Accuracy: 0.7961, Validation F1 Score: 0.6667
+Epoch 10/120
+Starting validation...
+Validation AUC-ROC: 0.9093
+Validation Loss: 0.6576, Validation Accuracy: 0.7895, Validation F1 Score: 0.6522
+Validation loss improved to 0.657643.
+Epoch 11/120
+Starting validation...
+Validation AUC-ROC: 0.9120
+Validation Loss: 0.6439, Validation Accuracy: 0.7895, Validation F1 Score: 0.6596
+Epoch 12/120
+Starting validation...
+Validation AUC-ROC: 0.9118
+Validation Loss: 0.6285, Validation Accuracy: 0.8026, Validation F1 Score: 0.6667
+Epoch 13/120
+Starting validation...

@@ -1,6 +1,132 @@
-/var/lib/slurm/slurmd/job2638695/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-Testing fold 1:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 1:   8%|▊         | 1/12 [00:00<00:01,  9.50it/s]Testing fold 1: 100%|██████████| 12/12 [00:00<00:00, 87.25it/s]
-Testing fold 2:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 3/3 [00:00<00:00, 31.13it/s]
-Testing fold 3:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 3: 100%|██████████| 12/12 [00:00<00:00, 109.99it/s]
-Testing fold 4:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 6/6 [00:00<00:00, 61.39it/s]
-Testing fold 5:   0%|          | 0/12 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 12/12 [00:00<00:00, 107.59it/s]
+/var/lib/slurm/slurmd/job2638736/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+wandb: Starting wandb agent 🕵️
+2025-10-07 17:32:47,232 - wandb.wandb_agent - INFO - Running runs: []
+2025-10-07 17:32:47,596 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-07 17:32:47,596 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 16
+	dropout: 0.1
+	fold: 1
+	learning_rate: 1e-06
+	optimizer: adam
+2025-10-07 17:32:47,633 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=16 --dropout=0.1 --fold=1 --learning_rate=1e-06 --optimizer=adam
+2025-10-07 17:32:52,718 - wandb.wandb_agent - INFO - Running runs: ['o2gu0003']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251007_173252-o2gu0003
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cosmic-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/sweeps/z1t7acdq
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/runs/o2gu0003
+wandb: - 0.002 MB of 0.002 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.002 MB of 0.036 MB uploadedwandb: \ 0.002 MB of 0.036 MB uploadedwandb: | 0.002 MB of 0.036 MB uploadedwandb: / 0.002 MB of 0.036 MB uploadedwandb: - 0.036 MB of 0.036 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:    learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:   train/accuracy ▁▂▂▂▁▂▃▃▄▄▄▅▃▅▅▃▅▆▅▅▇▆▇▅▇▆▇▆▅▇▇█▅▇▇█▇▇▆▇
+wandb:   train/f1-score ▁▃▃▃▂▃▃▄▄▄▄▅▃▄▄▄▅▆▅▅▇▆▆▅▆▆▆▆▅▇▇▇▅▆▇█▆▇▅▇
+wandb:       train/loss ██▇█▇▇▇▆▆▆▆▅▆▆▆▅▄▄▄▃▃▄▃▃▄▄▃▂▂▂▂▂▃▃▁▁▂▂▃▁
+wandb:  train/precision ▁▂▃▃▂▂▃▃▄▄▄▅▃▅▄▄▅▆▅▅▇▆▆▅▆▆▆▆▅▇▇▇▅▆▇█▇▇▆▇
+wandb:     train/recall ▁▃▄▄▃▄▃▄▄▄▄▄▄▄▃▅▇▇▅▅▇▆▇▅▄▇▇▇▅▇▇▇▅▅▇█▅▇▄▇
+wandb:     val/accuracy ▁▁▁▂▃▄▂▄▃▂▃▃▄▃▅▆▅▅▅▆▆▄▄▇▅▆▆▇▆▆▇▇▇▇▇█▇█▇▇
+wandb:      val/auc_roc ▁▂▂▂▃▃▃▃▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▆▇▇▇▇▇▇▇▇███████
+wandb:     val/f1-score ▁▂▁▂▂▃▂▃▃▂▃▃▃▃▄▅▅▄▄▅▅▄▄▇▅▆▆▇▆▅▇▇▇▇▇▇▇█▇▇
+wandb:         val/loss █▇▇▇▇▇▆▆▆▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▁▁▁▁▁▁
+wandb:    val/precision ▁▁▁▂▂▃▂▃▂▂▂▃▃▃▄▅▅▄▄▅▅▄▄▇▄▆▆▇▆▅▇▇▇▇▇█▇█▆▆
+wandb: val/recall-score ▁▃▂▂▃▃▃▃▃▃▃▃▃▄▃▃▄▃▄▃▄▆▆▆▆▆▇▆▆▆▆▆▆▇▆▇████
+wandb: 
+wandb: Run summary:
+wandb:            epoch 119
+wandb:    learning_rate 0.0
+wandb:   train/accuracy 0.68046
+wandb:   train/f1-score 0.53269
+wandb:       train/loss 0.86963
+wandb:  train/precision 0.39711
+wandb:     train/recall 0.80882
+wandb:     val/accuracy 0.75
+wandb:      val/auc_roc 0.88485
+wandb:     val/f1-score 0.61224
+wandb:         val/loss 0.7927
+wandb:    val/precision 0.46875
+wandb: val/recall-score 0.88235
+wandb: 
+wandb: 🚀 View run cosmic-sweep-1 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/runs/o2gu0003
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251007_173252-o2gu0003/logs
+2025-10-07 17:34:41,080 - wandb.wandb_agent - INFO - Cleaning up finished run: o2gu0003
+2025-10-07 17:34:42,555 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-07 17:34:42,555 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 16
+	dropout: 0.1
+	fold: 1
+	learning_rate: 1e-06
+	optimizer: sgd
+2025-10-07 17:34:42,579 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=16 --dropout=0.1 --fold=1 --learning_rate=1e-06 --optimizer=sgd
+2025-10-07 17:34:47,588 - wandb.wandb_agent - INFO - Running runs: ['vaewam7e']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251007_173448-vaewam7e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run easy-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/sweeps/z1t7acdq
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/runs/vaewam7e
+wandb: - 0.002 MB of 0.002 MB uploadedwandb: \ 0.002 MB of 0.028 MB uploadedwandb: | 0.002 MB of 0.028 MB uploadedwandb: / 0.029 MB of 0.029 MB uploadedwandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:            epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:    learning_rate ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:   train/accuracy ▃▄▄▂▄▂▄▃▃▃▃▄▄▅▃▄▇▆▃▄▃▇▃▄▇▂▅▅▄▁▄▇▆▅▃▆▅▆█▆
+wandb:   train/f1-score ▁▅▄▂▄▁▄▃▂▄▃▃▃▄▃▄▇▅▄▄▂▆▃▄▅▁▃▄▄▂▄▆▇▅▃▆▄▆█▆
+wandb:       train/loss ▇▅▆█▆▇▇▆▇▆▅▆▅▅▅▆▄▅▃▆▆▆▅▆▆▇▆▆▅▆▇▄▄▅▄▃▅▄▁▄
+wandb:  train/precision ▂▄▄▂▄▁▄▃▂▃▃▃▃▄▃▄▇▅▄▄▂▆▃▄▅▁▄▅▄▁▄▇▆▅▃▆▄▆█▆
+wandb:     train/recall ▁▆▅▂▄▁▅▃▂▅▄▂▃▄▄▅█▄▆▄▂▅▃▅▃▁▂▄▅▃▅▆▇▅▄▅▅▇█▆
+wandb:     val/accuracy ▅▄▄▂▄▅▄▇▆▁▅▅▅▆▄▄▆▄▅█▆▆▆▄▃▆█▆█▆█▇▆▆██▇▆▆▆
+wandb:      val/auc_roc ▂▃▃▁▃▃▂▃▄▃▂▄▃▃▄▄▅▄▅▅▄▅▆▅▅▆▆▅▆▇▆▇▅▇▇▇▇▇█▆
+wandb:     val/f1-score ▃▄▄▁▃▄▃▅▆▁▅▅▄▅▄▄▆▅▅▇▆▅▆▅▃▆█▆▇▆█▇▆▆▇█▆▆▆▆
+wandb:         val/loss █▇▇▇▆▆▇▆▅▆▆▅▆▆▅▅▅▄▅▄▄▄▃▄▅▃▃▃▃▃▃▂▃▂▂▂▃▃▁▂
+wandb:    val/precision ▄▄▄▁▃▄▃▆▅▁▅▅▄▅▄▄▅▄▅█▆▅▆▄▃▆█▅█▅█▇▅▆▇█▇▅▆▅
+wandb: val/recall-score ▁▄▄▁▄▁▁▁█▄▄▄▁▁▄▄███▄█▄███▄██▄█████▄█▄███
+wandb: 
+wandb: Run summary:
+wandb:            epoch 64
+wandb:    learning_rate 0.0
+wandb:   train/accuracy 0.61589
+wandb:   train/f1-score 0.46296
+wandb:       train/loss 0.96937
+wandb:  train/precision 0.33784
+wandb:     train/recall 0.73529
+wandb:     val/accuracy 0.61842
+wandb:      val/auc_roc 0.79262
+wandb:     val/f1-score 0.47273
+wandb:         val/loss 0.91386
+wandb:    val/precision 0.34211
+wandb: val/recall-score 0.76471
+wandb: 
+wandb: 🚀 View run easy-sweep-2 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/runs/vaewam7e
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251007_173448-vaewam7e/logs
+2025-10-07 17:35:28,861 - wandb.wandb_agent - INFO - Cleaning up finished run: vaewam7e
+2025-10-07 17:35:29,377 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-07 17:35:29,378 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 16
+	dropout: 0.1
+	fold: 1
+	learning_rate: 0.0001
+	optimizer: adam
+2025-10-07 17:35:29,382 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=16 --dropout=0.1 --fold=1 --learning_rate=0.0001 --optimizer=adam
+2025-10-07 17:35:34,388 - wandb.wandb_agent - INFO - Running runs: ['u2uw6fh3']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251007_173535-u2uw6fh3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run scarlet-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/sweeps/z1t7acdq
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION/runs/u2uw6fh3
