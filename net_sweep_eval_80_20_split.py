@@ -145,10 +145,6 @@ if __name__ == "__main__":
     torch.manual_seed(42)
     torch.cuda.manual_seed_all(42)
     np.random.seed(42)
-
-    # Nel test.py mancano! Aggiungi all'inizio di eval_fold():
-    torch.manual_seed(42)
-    np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
     save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
