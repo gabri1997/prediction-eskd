@@ -1,0 +1,18 @@
+{
+    "Run ID": "t9gm2jt5",
+    "Config Parameters": {
+        "batch_size": 16,
+        "dropout": 0.1,
+        "fold": 3,
+        "learning_rate": 0.1,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 9,
+        "Validation Loss": 0.9873048532877536,
+        "Best F1": 0.625,
+        "Validation Accuracy": 0.8410596251487732,
+        "Validation Precision": 0.6666666666666666,
+        "Validation Recall": 0.5882352941176471
+    }
+}

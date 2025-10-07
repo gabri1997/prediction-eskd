@@ -1,35 +1,73 @@
-Job iniziato su pippobaudo
-Data e ora: Mon Oct  6 11:48:07 CEST 2025
-GPU disponibile: NVIDIA GeForce RTX 2080 Ti
+Job iniziato su carabbaggio
+Data e ora: Tue Oct  7 10:28:07 CEST 2025
+GPU disponibile: NVIDIA GeForce GTX 1080 Ti
 Starting testing script...
-Training + validation shape: (756, 13), Labels shape: (756,)
-Test shape: (189, 13), Labels shape: (189,)
-Training class distribution: {0: 586, 1: 170}
+
+============================================================
+Evaluating Fold 1/5
+============================================================
+ Loaded scaler for fold 1
+Test shape: (189, 13), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Peso iniziale: tensor([0.1126, 0.1616, 0.0067, 0.1570, 0.1566], grad_fn=<SliceBackward0>)
-Peso caricato : tensor([-0.9710,  1.4080,  2.0024, -0.7246, -0.8710], device='cuda:0',
+ Loaded model for fold 1
+  First layer weights (sample): tensor([-0.5490,  0.6748, -2.1765,  0.2802, -0.4609], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Test Accuracy: 0.7566, Precision: 0.4634, Recall: 0.4419, F1 Score: 0.4524
-Peso iniziale: tensor([-0.2588, -0.1423, -0.2280,  0.1555, -0.2656], grad_fn=<SliceBackward0>)
-Peso caricato : tensor([ 0.8629,  0.7022,  0.1874, -0.1358, -0.2933], device='cuda:0',
+Fold 1 - Accuracy: 0.7302, Precision: 0.4310, Recall: 0.5814, F1: 0.4950
+
+============================================================
+Evaluating Fold 2/5
+============================================================
+ Loaded scaler for fold 2
+Test shape: (189, 13), Labels: (189,)
+Test class distribution: {0: 146, 1: 43}
+ Loaded model for fold 2
+  First layer weights (sample): tensor([ 0.8629,  0.7022,  0.1875, -0.1358, -0.2934], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Test Accuracy: 0.7090, Precision: 0.4032, Recall: 0.5814, F1 Score: 0.4762
-Peso iniziale: tensor([ 0.0403, -0.0654,  0.0769, -0.0301, -0.0134], grad_fn=<SliceBackward0>)
-Peso caricato : tensor([ 0.3787,  0.2235, -0.0050,  0.0604, -0.0152], device='cuda:0',
+Fold 2 - Accuracy: 0.7090, Precision: 0.4032, Recall: 0.5814, F1: 0.4762
+
+============================================================
+Evaluating Fold 3/5
+============================================================
+ Loaded scaler for fold 3
+Test shape: (189, 13), Labels: (189,)
+Test class distribution: {0: 146, 1: 43}
+ Loaded model for fold 3
+  First layer weights (sample): tensor([ 0.6822,  0.0793, -0.2813, -1.1781,  0.5136], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Test Accuracy: 0.7460, Precision: 0.4528, Recall: 0.5581, F1 Score: 0.5000
-Peso iniziale: tensor([ 0.0156, -0.1816, -0.1543, -0.0007, -0.0252], grad_fn=<SliceBackward0>)
-Peso caricato : tensor([ 0.2298,  0.2287, -0.0756,  0.2500, -0.0657], device='cuda:0',
+Fold 3 - Accuracy: 0.7778, Precision: 0.5111, Recall: 0.5349, F1: 0.5227
+
+============================================================
+Evaluating Fold 4/5
+============================================================
+ Loaded scaler for fold 4
+Test shape: (189, 13), Labels: (189,)
+Test class distribution: {0: 146, 1: 43}
+ Loaded model for fold 4
+  First layer weights (sample): tensor([ 0.2298,  0.2287, -0.0756,  0.2500, -0.0657], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Test Accuracy: 0.6984, Precision: 0.4000, Recall: 0.6512, F1 Score: 0.4956
-Peso iniziale: tensor([ 0.2472, -0.2557,  0.1914, -0.0148,  0.0122], grad_fn=<SliceBackward0>)
-Peso caricato : tensor([ 1.1019e+00, -8.4842e-01,  1.7980e+00,  4.0264e-04,  2.8366e+00],
-       device='cuda:0', grad_fn=<SliceBackward0>)
-Test Accuracy: 0.7302, Precision: 0.4310, Recall: 0.5814, F1 Score: 0.4950
-Average Test Accuracy: 0.7280 ± 0.0218
-Average Test Precision: 0.4301 ± 0.0255
-Average Test Recall: 0.5628 ± 0.0680
-Average Test F1 Score: 0.4838 ± 0.0177
+Fold 4 - Accuracy: 0.7090, Precision: 0.4118, Recall: 0.6512, F1: 0.5045
+
+============================================================
+Evaluating Fold 5/5
+============================================================
+ Loaded scaler for fold 5
+Test shape: (189, 13), Labels: (189,)
+Test class distribution: {0: 146, 1: 43}
+ Loaded model for fold 5
+  First layer weights (sample): tensor([-0.2669,  3.0944,  1.8165, -0.1815, -2.5829], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+Fold 5 - Accuracy: 0.7196, Precision: 0.4138, Recall: 0.5581, F1: 0.4752
+
+ Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_VAL_CORRECTED/test_results.json
+
+============================================================
+AVERAGE RESULTS ACROSS FOLDS
+============================================================
+Accuracy:  0.7291 ± 0.0256
+Precision: 0.4342 ± 0.0395
+Recall:    0.5814 ± 0.0389
+F1 Score:  0.4947 ± 0.0179
+  Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_VAL_CORRECTED/average_test_results.json
 Job finito.
-Data e ora di fine: Mon Oct  6 11:48:13 CEST 2025
-GPU utilizzata: NVIDIA GeForce RTX 2080 Ti
+Data e ora di fine: Tue Oct  7 10:28:13 CEST 2025
+GPU utilizzata: NVIDIA GeForce GTX 1080 Ti

@@ -315,7 +315,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
         #print(f"Training Loss: {epoch_loss:.4f}")
 
         try :
-            
             wandb.log({"train/loss" : epoch_loss, 'epoch': epoch})
             wandb.log({"train/accuracy" : train_acc, 'epoch': epoch})
             wandb.log({"train/precision": precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
@@ -332,18 +331,17 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
             model.eval()
             val_labels = []
             val_preds = []
-            val_logits =[]
-
+            val_loss = 0.0
             with torch.no_grad():
                 for inputs, labels in val_loader:
                     outputs = model(inputs)
-                    val_logits.append(outputs)
+                    
                     val_labels.append(labels)
                     val_preds.append(torch.sigmoid(outputs).detach())
+                    val_loss += criterion(outputs, labels).item() * inputs.size(0)
 
             val_labels = torch.cat(val_labels)
             val_preds = torch.cat(val_preds)
-            val_logits = torch.cat(val_logits)
             val_preds_bin = (val_preds > 0.5).float()
             val_acc = (val_preds_bin == val_labels).float().mean()
             val_f1_score = f1_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)
@@ -360,7 +358,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
 
             # Validation loss
             # Usiamo direttamente i logit del modello, senza sigmoid
-            val_loss = criterion(val_logits, val_labels).item()
+            val_loss = val_loss / len(val_loader.dataset)
             print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.4f}, Validation F1 Score: {val_f1_score:.4f}")
 
             # Log su wandb
@@ -373,7 +371,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
             except Exception as e:
                 print(f'Error in wandb while logging validation metrics: {e}')
 
-
             # Early stopping check
             if early_stop is not None and (epoch + 1) % 5 == 0:
                 if early_stopping.early_stop(val_loss):
@@ -385,11 +382,15 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
                 print(f"New best model with Validation F1: {val_f1_score}, saving model...")
                 torch.save(model.state_dict(), model_file)
                 # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
+                import joblib
+                scaler_file = os.path.join(save_pth, f"scaler_fold_{fold_to_run}.pkl")
+                joblib.dump(scaler, scaler_file)
                 config_and_metrics = {
                     "Run ID": wandb.run.id,
                     "Config Parameters": dict(wandb.config),
                     "Best Model Metrics": {
                         "Epoch": epoch + 1,
+                        "Validation Loss": float(val_loss),
                         "Best F1": float(val_f1_score),
                         "Validation Accuracy": float(val_acc),
                         "Validation Precision": float(precision_score(val_labels.cpu(), val_preds_bin.cpu(), zero_division=0)),
@@ -407,7 +408,7 @@ if __name__ == "__main__":
     print("Starting training script...")
     early_stop = True
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_VAL_CORRECTED/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True

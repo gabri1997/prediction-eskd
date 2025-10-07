@@ -1,0 +1,18 @@
+{
+    "Run ID": "bdp267rd",
+    "Config Parameters": {
+        "batch_size": 64,
+        "dropout": 0.3,
+        "fold": 2,
+        "learning_rate": 0.1,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 14,
+        "Validation Loss": 1.020933552293588,
+        "Best F1": 0.605263157894737,
+        "Validation Accuracy": 0.8013244867324829,
+        "Validation Precision": 0.5476190476190477,
+        "Validation Recall": 0.6764705882352942
+    }
+}
