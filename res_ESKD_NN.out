@@ -855,3 +855,32 @@ Validation AUC-ROC: 0.9118
 Validation Loss: 0.6285, Validation Accuracy: 0.8026, Validation F1 Score: 0.6667
 Epoch 13/120
 Starting validation...
+Validation AUC-ROC: 0.9128
+Validation Loss: 0.6433, Validation Accuracy: 0.7961, Validation F1 Score: 0.6667
+Epoch 14/120
+Starting validation...
+Validation AUC-ROC: 0.9098
+Validation Loss: 0.6321, Validation Accuracy: 0.8026, Validation F1 Score: 0.6667
+Epoch 15/120
+Starting validation...
+Validation AUC-ROC: 0.9090
+Validation Loss: 0.6591, Validation Accuracy: 0.7895, Validation F1 Score: 0.6596
+No improvement in validation loss. Counter: 1/2
+Epoch 16/120
+Starting validation...
+Validation AUC-ROC: 0.9115
+Validation Loss: 0.6475, Validation Accuracy: 0.7961, Validation F1 Score: 0.6593
+Epoch 17/120
+Starting validation...
+Validation AUC-ROC: 0.9105
+Validation Loss: 0.6539, Validation Accuracy: 0.8026, Validation F1 Score: 0.6739
+Epoch 18/120
+Starting validation...
+Validation AUC-ROC: 0.9113
+Validation Loss: 0.6414, Validation Accuracy: 0.7961, Validation F1 Score: 0.6593
+Epoch 19/120
+Starting validation...
+Validation AUC-ROC: 0.9133
+Validation Loss: 0.6471, Validation Accuracy: 0.7961, Validation F1 Score: 0.6593
+Epoch 20/120
+Starting validation...
