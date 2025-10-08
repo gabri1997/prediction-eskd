@@ -1,0 +1,18 @@
+{
+    "Run ID": "jsnehgva",
+    "Config Parameters": {
+        "batch_size": 64,
+        "dropout": 0.3,
+        "fold": 1,
+        "learning_rate": 0.01,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 47,
+        "Validation Loss": 0.7351407063634772,
+        "Best F1": 0.6923076923076923,
+        "Validation Accuracy": 0.8421052694320679,
+        "Validation Precision": 0.6136363636363636,
+        "Validation Recall": 0.7941176470588235
+    }
+}

@@ -195,7 +195,7 @@ if __name__ == "__main__":
     np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXY_LOSS/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)
@@ -208,7 +208,7 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        years = 5  # Default evaluation on all test data
+        years = 0  # Default evaluation on all test data
         fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:

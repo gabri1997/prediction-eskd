@@ -55,8 +55,36 @@ def preprocess_data(df):
 
     return X, y
 
+class proxy_auc_loss_function(nn.Module):
+    def __init__(self):
+        super(proxy_auc_loss_function, self).__init__()
 
-def model_initialization(X_train, y_train):
+    def forward(self, outputs, targets):
+        import torch
+import torch.nn as nn
+
+# Io avevo messo la Auc normale, non è deffirenziabile quindi fuori dal grafo computazionale
+# Ricordiamoci che l'Auc misura fondamentalmente la capacità del modello di separare i positivi dai negativi
+# Cioè la probabilità che un positivo sia classificato con un punteggio più alto di un negativo
+class ProxyAUCLoss(nn.Module):
+    def __init__(self):
+        super(ProxyAUCLoss, self).__init__()
+        self.sigmoid = nn.Sigmoid()
+        
+    def forward(self, outputs, targets):
+        outputs = outputs.view(-1)
+        targets = targets.view(-1)
+
+        pos = outputs[targets == 1]
+        neg = outputs[targets == 0]
+
+        # tutte le differenze positive-negative
+        diff = pos.unsqueeze(1) - neg.unsqueeze(0)
+        loss = 1 - self.sigmoid(diff).mean()  # 1 - AUC approssimata, in pratica usa una sigmoid per approssimare la funzione step
+
+        return loss
+
+def model_initialization(X_train, y_train, loss_fn='proxy_auc'):
 
     config = wandb.config
 
@@ -80,8 +108,14 @@ def model_initialization(X_train, y_train):
 
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=gamma)
     pos_weight = torch.tensor([len(y_train[y_train==0]) / len(y_train[y_train==1])])
-    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 
+    # Qui posso usare la Loss che voglio, la Proxy AUC-ROC
+    if loss_fn == 'proxy_auc':
+        criterion = ProxyAUCLoss()
+    else:
+        # Loro non usano questa loss function, ma la proxy AUC-ROC che non è implementata in PyTorch
+        criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+    
     return model, optimizer, scheduler, criterion, step_start, step_end
 
 def read_json (save_file):
@@ -122,7 +156,7 @@ class EarlyStopping:
             return False
 
 
-def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
+def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, loss_fn='proxy_auc'):
 
     print("Starting training script...")
     torch.manual_seed(42)
@@ -171,7 +205,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     X_train, X_val = X_train_val[train_idx], X_train_val[val_idx]
     y_train, y_val = y_train_val[train_idx], y_train_val[val_idx]
 
-    model, optimizer, scheduler, criterion, step_start, step_end = model_initialization(X_train, y_train)
+    model, optimizer, scheduler, criterion, step_start, step_end = model_initialization(X_train, y_train, loss_fn=loss_fn)
 
     # Z-score normalization
     scaler = StandardScaler()
@@ -316,6 +350,8 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
                 if early_stopping.early_stop(val_loss):
                     print("Early stopping triggered. Stopping training.")
                     break
+            else:
+                print("Early stopping not enabled or not the right epoch for checking.  Continuing training.")
 
             if val_f1_score > read_json(save_file):
                 # Salvo il modello
@@ -353,10 +389,10 @@ if __name__ == "__main__":
             - If F1_val improves: save model + config
             - Each 5 epochs: check early stopping
     """
-    early_stop = True
+    early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/MODELS_SWEEP_PARAM_ADAM_PROXY_LOSS/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True
-    train(df, num_epochs, save_pth, save_on_evaluation, early_stop)
+    train(df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc')
