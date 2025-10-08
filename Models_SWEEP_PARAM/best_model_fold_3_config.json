@@ -1,18 +1,18 @@
 {
-    "Run ID": "t9gm2jt5",
+    "Run ID": "pngmuw0m",
     "Config Parameters": {
         "batch_size": 16,
-        "dropout": 0.1,
+        "dropout": 0.3,
         "fold": 3,
-        "learning_rate": 0.1,
-        "optimizer": "adam"
+        "learning_rate": 0.2,
+        "optimizer": "sgd"
     },
     "Best Model Metrics": {
-        "Epoch": 9,
-        "Validation Loss": 0.9873048532877536,
-        "Best F1": 0.625,
-        "Validation Accuracy": 0.8410596251487732,
-        "Validation Precision": 0.6666666666666666,
-        "Validation Recall": 0.5882352941176471
+        "Epoch": 15,
+        "Validation Loss": 1.5394857157243798,
+        "Best F1": 0.6984126984126984,
+        "Validation Accuracy": 0.8741722106933594,
+        "Validation Precision": 0.7586206896551724,
+        "Validation Recall": 0.6470588235294118
     }
 }

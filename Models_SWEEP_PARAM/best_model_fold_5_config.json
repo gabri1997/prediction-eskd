@@ -1,18 +1,18 @@
 {
-    "Run ID": "hpqm4was",
+    "Run ID": "58hf8fwn",
     "Config Parameters": {
-        "batch_size": 16,
-        "dropout": 0.5,
+        "batch_size": 64,
+        "dropout": 0.1,
         "fold": 5,
         "learning_rate": 0.2,
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 18,
-        "Validation Loss": 0.7728594229710812,
-        "Best F1": 0.7012987012987012,
-        "Validation Accuracy": 0.8476821184158325,
-        "Validation Precision": 0.627906976744186,
-        "Validation Recall": 0.7941176470588235
+        "Epoch": 9,
+        "Validation Loss": 0.648495959130344,
+        "Best F1": 0.7532467532467532,
+        "Validation Accuracy": 0.8741722106933594,
+        "Validation Precision": 0.6744186046511628,
+        "Validation Recall": 0.8529411764705882
     }
 }

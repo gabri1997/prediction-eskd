@@ -1,18 +1,18 @@
 {
-    "Run ID": "b64jsdj2",
+    "Run ID": "ehcfw6s3",
     "Config Parameters": {
-        "batch_size": 16,
-        "dropout": 0.1,
+        "batch_size": 32,
+        "dropout": 0.5,
         "fold": 1,
-        "learning_rate": 0.1,
-        "optimizer": "adam"
+        "learning_rate": 0.2,
+        "optimizer": "sgd"
     },
     "Best Model Metrics": {
-        "Epoch": 22,
-        "Validation Loss": 0.7775063859788995,
-        "Best F1": 0.6933333333333332,
-        "Validation Accuracy": 0.8486841917037964,
-        "Validation Precision": 0.6341463414634146,
-        "Validation Recall": 0.7647058823529411
+        "Epoch": 3,
+        "Validation Loss": 0.7330263743275091,
+        "Best F1": 0.7605633802816901,
+        "Validation Accuracy": 0.8881579041481018,
+        "Validation Precision": 0.7297297297297297,
+        "Validation Recall": 0.7941176470588235
     }
 }

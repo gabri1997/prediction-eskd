@@ -1,18 +1,18 @@
 {
-    "Run ID": "8cspc0to",
+    "Run ID": "rdojlyzt",
     "Config Parameters": {
-        "batch_size": 32,
+        "batch_size": 64,
         "dropout": 0.1,
         "fold": 4,
-        "learning_rate": 0.01,
-        "optimizer": "sgd"
+        "learning_rate": 0.001,
+        "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 3,
-        "Validation Loss": 0.8011635830070799,
-        "Best F1": 0.6666666666666667,
-        "Validation Accuracy": 0.8278145790100098,
-        "Validation Precision": 0.5909090909090909,
+        "Epoch": 14,
+        "Validation Loss": 0.8615467939155781,
+        "Best F1": 0.6582278481012658,
+        "Validation Accuracy": 0.8211920261383057,
+        "Validation Precision": 0.5777777777777777,
         "Validation Recall": 0.7647058823529411
     }
 }

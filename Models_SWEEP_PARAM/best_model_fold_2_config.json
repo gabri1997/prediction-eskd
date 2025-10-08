@@ -1,18 +1,18 @@
 {
-    "Run ID": "bdp267rd",
+    "Run ID": "l1kq2pfy",
     "Config Parameters": {
-        "batch_size": 64,
-        "dropout": 0.3,
+        "batch_size": 16,
+        "dropout": 0.1,
         "fold": 2,
-        "learning_rate": 0.1,
-        "optimizer": "adam"
+        "learning_rate": 0.001,
+        "optimizer": "sgd"
     },
     "Best Model Metrics": {
-        "Epoch": 14,
-        "Validation Loss": 1.020933552293588,
-        "Best F1": 0.605263157894737,
-        "Validation Accuracy": 0.8013244867324829,
-        "Validation Precision": 0.5476190476190477,
-        "Validation Recall": 0.6764705882352942
+        "Epoch": 6,
+        "Validation Loss": 0.8169072219078114,
+        "Best F1": 0.6444444444444445,
+        "Validation Accuracy": 0.7880794405937195,
+        "Validation Precision": 0.5178571428571429,
+        "Validation Recall": 0.8529411764705882
     }
 }
