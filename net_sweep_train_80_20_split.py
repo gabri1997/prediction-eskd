@@ -1,22 +1,21 @@
-import numpy as np
-import pandas as pd
-import torch
-import torch.nn as nn
-from torch.utils.data import DataLoader, TensorDataset
-from sklearn.model_selection import StratifiedKFold
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-from sklearn.model_selection import StratifiedShuffleSplit
-import wandb
 import os
 import json
-import tqdm
-
+import wandb
+import torch
+import joblib
+import numpy as np
+import pandas as pd
+import torch.nn as nn
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import StratifiedKFold
+from torch.utils.data import DataLoader, TensorDataset
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 # --- Modello come lo indica nel paper anche se non si affronta ---
-class SimpleBinaryNN(nn.Module):
+class MySimpleBinaryNet(nn.Module):
     def __init__(self, input_size, dropout=0.1):
-        super(SimpleBinaryNN, self).__init__()
+        super(MySimpleBinaryNet, self).__init__()
         self.layers = nn.Sequential(
             nn.Linear(input_size, 100),
             nn.BatchNorm1d(100),
@@ -56,21 +55,12 @@ def preprocess_data(df):
 
     return X, y
 
-def wandb_function(fold_to_run):
-    
-    wandb.define_metric("epoch")
-    wandb.define_metric("train/loss", step_metric="epoch")
-    wandb.define_metric("train/accuracy", step_metric="epoch")
-    wandb.define_metric("train/precision", step_metric="epoch")
-    wandb.define_metric("train/recall", step_metric="epoch")
-    wandb.define_metric("train/f1_score", step_metric="epoch")
-    wandb.define_metric("learning_rate", step_metric="epoch")
 
 def model_initialization(X_train, y_train):
 
     config = wandb.config
 
-    model = SimpleBinaryNN(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
+    model = MySimpleBinaryNet(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
     # Questa roba serve per l'ExponentialLR, il LR inizia a diminuire dopo 400 step e finisce di diminuire a 3200 step
     initial_lr = getattr(config, 'learning_rate', 0.001)
     final_lr = 1e-6
@@ -176,9 +166,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     fold_to_run = getattr(wandb.config, 'fold', 1)  # default fold = 1
 
     train_idx, val_idx = splits[fold_to_run - 1]
-    print(f" === Running fold {fold_to_run} with {len(train_idx)} training samples and {len(val_idx)} validation samples ===")
-    
-    wandb_function(fold_to_run)
+    print(f"Running fold {fold_to_run} with {len(train_idx)} training samples and {len(val_idx)} validation samples.")
     
     X_train, X_val = X_train_val[train_idx], X_train_val[val_idx]
     y_train, y_val = y_train_val[train_idx], y_train_val[val_idx]
@@ -190,15 +178,21 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
     X_train = scaler.fit_transform(X_train)
     # Non uso fit_transform ma solo transform per evitare data leakage, non ricalcolo la deviazione standard sui dati di validazione
     X_val = scaler.transform(X_val)
-    
+    # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
+    scaler_file = os.path.join(save_pth, f"scaler_fold_{fold_to_run}.pkl")
+    joblib.dump(scaler, scaler_file)
     # Tensori PyTorch
+    batch_size = wandb.config.batch_size if 'batch_size' in wandb.config else 32
+
+    # Qua trasformo il mio amico in tensore per la mia rete
     X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
+    # Qua come sempre devo cambiare shape perché BCEWithLogitsLoss vuole i target con shape (N, 1) e non (N,)
     y_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1,1)
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
-    batch_size = wandb.config.batch_size if 'batch_size' in wandb.config else 32
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
     
     X_val_tensor = torch.tensor(X_val, dtype=torch.float32)
+    # Anche qua cambio shape perchè il modello mi sputa (N, 1), un output per ogni campione, e questo Nik devo saperlo, grande Nik
     y_val_tensor = torch.tensor(y_val, dtype=torch.float32).view(-1,1)
     val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
@@ -255,46 +249,24 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
         all_preds_bin = (all_preds > 0.5).float()
         train_acc = (all_preds_bin == all_labels).float().mean()
         train_f1_score = f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)
-       
-        if save_on_evaluation == False:
-            print("Saving best model based on Training F1 score...")
-            best_f1 = read_json(save_file)
-            print(f"Current best F1 from file: {best_f1}, Current epoch F1: {train_f1_score}")
-            if train_f1_score > best_f1:
-                best_f1 =  train_f1_score
-                # Salvo il modello
-                print(f"New best model with F1: {best_f1}, saving model...")
-                torch.save(model.state_dict(), model_file)
-                # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
-                config_and_metrics = {
-                    "Run ID": wandb.run.id,
-                    "Config Parameters": dict(wandb.config),
-                    "Best Model Metrics": {
-                        "Epoch": epoch + 1,
-                        "Best F1": float(best_f1),
-                        "Train Accuracy": float(train_acc),
-                        "Train Precision": float(precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)),
-                        "Train Recall": float(recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0))
-                    }
-                }
-                with open(save_file, 'w') as f:
-                    json.dump(config_and_metrics, f, indent=4)
-
+        train_precision = precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)
+        train_recall = recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0)
         epoch_loss = running_loss / len(train_loader.dataset)
         #print(f"Training Loss: {epoch_loss:.4f}")
 
         try :
             wandb.log({"train/loss" : epoch_loss, 'epoch': epoch})
             wandb.log({"train/accuracy" : train_acc, 'epoch': epoch})
-            wandb.log({"train/precision": precision_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
-            wandb.log({"train/recall" : recall_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
-            wandb.log({"train/f1-score" : f1_score(all_labels.cpu(), all_preds_bin.cpu(), zero_division=0), 'epoch' : epoch})
+            wandb.log({"train/precision": train_precision, 'epoch' : epoch})
+            wandb.log({"train/recall" : train_recall, 'epoch' : epoch})
+            wandb.log({"train/f1-score" : train_f1_score, 'epoch' : epoch})
             wandb.log({"learning_rate" : optimizer.param_groups[0]['lr'], 'epoch' : epoch})  
         except Exception as e:
             print(f'Error in wandb: {e}')
 
         
-        # Qui faccio la validazione ad ogni epoca se richiesto e salvo il modello se migliora la F1 di validazione come suggerito da Nik
+        # Qui faccio la validazione ad ogni epoca se richiesto e salvo il modello se migliora la F1 di validazione 
+        # come suggerito dal grande e unico Nik
         if save_on_evaluation == True:
             print("Starting validation...")
             model.eval()
@@ -349,10 +321,8 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
                 # Salvo il modello
                 print(f"New best model with Validation F1: {val_f1_score}, saving model...")
                 torch.save(model.state_dict(), model_file)
-                # In un file a parte salvo anche la configurazione di parametri usata e le metriche raggiunte con questa configurazione, voglio sovrascrivere il file ogni volta che trovo un modello migliore
-                import joblib
-                scaler_file = os.path.join(save_pth, f"scaler_fold_{fold_to_run}.pkl")
-                joblib.dump(scaler, scaler_file)
+                wandb.log({"best_val_f1": val_f1_score})
+        
                 config_and_metrics = {
                     "Run ID": wandb.run.id,
                     "Config Parameters": dict(wandb.config),
@@ -374,9 +344,18 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None):
 if __name__ == "__main__":
   
     print("Starting training script...")
+    # STEPS:
+    """ 1. Split train/val
+        2. Fit scaler on train
+        3. Save scaler ← FATTO UNA VOLTA PERCHE FACCIO LA EVAL A PARTE COLPA MIA LO SO
+        4. Training loop:
+            - Each epochs: compute metrics train + val
+            - If F1_val improves: save model + config
+            - Each 5 epochs: check early stopping
+    """
     early_stop = True
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True

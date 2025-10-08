@@ -7,8 +7,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.metrics import confusion_matrix
-# Aggiunta della confusion matrix
-from sklearn.metrics import confusion_matrix
 import os
 import json
 import tqdm
@@ -16,9 +14,9 @@ import joblib
 
 """Qua ricarico i valori di normalizzazione del training per fare eval sul test set"""
 
-class SimpleBinaryNN(nn.Module):
+class MySimpleBinaryNet(nn.Module):
     def __init__(self, input_size, dropout=0.1):
-        super(SimpleBinaryNN, self).__init__()
+        super(MySimpleBinaryNet, self).__init__()
         self.layers = nn.Sequential(
             nn.Linear(input_size, 100),
             nn.BatchNorm1d(100),
@@ -89,6 +87,8 @@ def eval_fold(df, save_pth, fold, years=5):
 
     mask_5Y = df_test['dateAssess'] >= 5*365
     mask_10Y = df_test['dateAssess'] >= 10*365
+    print(f"Number of samples with dateAssess > 5 years: {mask_5Y.sum()}")
+    print(f"Number of samples with dateAssess > 10 years: {mask_10Y.sum()}")
 
     X_test_5Y = X_test[mask_5Y.values]  # .values per convertire in numpy boolean array
     y_test_5Y = y_test[mask_5Y.values]
@@ -130,17 +130,10 @@ def eval_fold(df, save_pth, fold, years=5):
     # unique, counts = np.unique(y_test, return_counts=True)
     # print(f"Test set class distribution before evaluation: {dict(zip(unique, counts))}")
     # --------------------------------------------------------------------
-    # Voglio vedere quanti del test hanno datoAssess > 5 anni e quanti > 10 anni
-    df_test = df.iloc[test_idx]
-    count_5y = (df_test['dateAssess'] >= 5*365).sum()
-    count_10y = (df_test['dateAssess'] >= 10*365).sum()
-    # Voglio stampare quanti pazienti del test hanno dateAssess < 5 anni
-    print(f"Test set patients with dateAssess < 5 years: {len(df_test) - count_5y}")
-    print(f"Test set patients with dateAssess > 5 years: {count_5y}, > 10 years: {count_10y}")
-    # --------------------------------------------------------------------
+  
 
     # Carica modello
-    model = SimpleBinaryNN(input_size=X_test_scaled.shape[1], dropout=dropout)
+    model = MySimpleBinaryNet(input_size=X_test_scaled.shape[1], dropout=dropout)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     
@@ -215,7 +208,7 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        years = 0  # Default evaluation on all test data
+        years = 5  # Default evaluation on all test data
         fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:
