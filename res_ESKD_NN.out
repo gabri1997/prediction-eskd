@@ -1618,3 +1618,14 @@ Validation AUC-ROC: 0.8905
 Validation Loss: 0.1034, Validation Accuracy: 0.8026, Validation F1 Score: 0.6591
 Early stopping not enabled or not the right epoch for checking.  Continuing training.
 Epoch 74/120
+Starting validation...
+Validation AUC-ROC: 0.8870
+Validation Loss: 0.1063, Validation Accuracy: 0.8026, Validation F1 Score: 0.6512
+Early stopping not enabled or not the right epoch for checking.  Continuing training.
+Epoch 75/120
+Starting validation...
+Validation AUC-ROC: 0.8870
+Validation Loss: 0.1036, Validation Accuracy: 0.8026, Validation F1 Score: 0.6512
+Early stopping not enabled or not the right epoch for checking.  Continuing training.
+Epoch 76/120
+Starting validation...
