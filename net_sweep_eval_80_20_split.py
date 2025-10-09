@@ -195,7 +195,7 @@ if __name__ == "__main__":
     np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXY_LOSS/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)

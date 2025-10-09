@@ -55,22 +55,25 @@ def preprocess_data(df):
 
     return X, y
 
-class proxy_auc_loss_function(nn.Module):
-    def __init__(self):
-        super(proxy_auc_loss_function, self).__init__()
 
-    def forward(self, outputs, targets):
-        import torch
-import torch.nn as nn
 
 # Io avevo messo la Auc normale, non è deffirenziabile quindi fuori dal grafo computazionale
 # Ricordiamoci che l'Auc misura fondamentalmente la capacità del modello di separare i positivi dai negativi
 # Cioè la probabilità che un positivo sia classificato con un punteggio più alto di un negativo
 class ProxyAUCLoss(nn.Module):
-    def __init__(self):
+    import torch
+import torch.nn as nn
+
+class ProxyAUCLoss(nn.Module):
+    """
+    Proxy AUC Loss — versione stabile per batch sbilanciati o con una sola classe.
+    Approssima l'AUC con una sigmoide differenziabile e gestisce i casi limite.
+    """
+    def __init__(self, eps=1e-8):
         super(ProxyAUCLoss, self).__init__()
         self.sigmoid = nn.Sigmoid()
-        
+        self.eps = eps
+
     def forward(self, outputs, targets):
         outputs = outputs.view(-1)
         targets = targets.view(-1)
@@ -78,11 +81,25 @@ class ProxyAUCLoss(nn.Module):
         pos = outputs[targets == 1]
         neg = outputs[targets == 0]
 
-        # tutte le differenze positive-negative
+        # Se in batch non ci sono sia positivi che negativi → ritorna loss neutra
+        if len(pos) == 0 or len(neg) == 0:
+            return torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
+
+        # Calcolo differenze e media sigmoide
         diff = pos.unsqueeze(1) - neg.unsqueeze(0)
-        loss = 1 - self.sigmoid(diff).mean()  # 1 - AUC approssimata, in pratica usa una sigmoid per approssimare la funzione step
+        auc_est = self.sigmoid(diff).mean()
+
+        # Calcolo della loss (1 - AUC approssimata)
+        loss = 1.0 - auc_est
+
+        # Clamp per stabilità numerica (evita NaN o inf)
+        loss = torch.clamp(loss, min=0.0, max=1.0)
+
+        if torch.isnan(loss) or torch.isinf(loss):
+            loss = torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
 
         return loss
+
 
 def model_initialization(X_train, y_train, loss_fn='proxy_auc'):
 
@@ -111,9 +128,11 @@ def model_initialization(X_train, y_train, loss_fn='proxy_auc'):
 
     # Qui posso usare la Loss che voglio, la Proxy AUC-ROC
     if loss_fn == 'proxy_auc':
+        print("Using Proxy AUC Loss Function")
         criterion = ProxyAUCLoss()
     else:
         # Loro non usano questa loss function, ma la proxy AUC-ROC che non è implementata in PyTorch
+        print("Using BCEWithLogitsLoss Function")
         criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
     
     return model, optimizer, scheduler, criterion, step_start, step_end
@@ -310,7 +329,6 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
             with torch.no_grad():
                 for inputs, labels in val_loader:
                     outputs = model(inputs)
-                    
                     val_labels.append(labels)
                     val_preds.append(torch.sigmoid(outputs).detach())
                     val_loss += criterion(outputs, labels).item() * inputs.size(0)
@@ -391,7 +409,7 @@ if __name__ == "__main__":
     """
     early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/MODELS_SWEEP_PARAM_ADAM_PROXY_LOSS/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True

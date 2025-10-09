@@ -1,0 +1,18 @@
+{
+    "Run ID": "f5kl2p97",
+    "Config Parameters": {
+        "batch_size": 16,
+        "dropout": 0.3,
+        "fold": 2,
+        "learning_rate": 0.001,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 29,
+        "Validation Loss": 0.1795833505542073,
+        "Best F1": 0.6444444444444445,
+        "Validation Accuracy": 0.7880794405937195,
+        "Validation Precision": 0.5178571428571429,
+        "Validation Recall": 0.8529411764705882
+    }
+}
