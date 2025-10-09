@@ -1,5 +1,5 @@
 Job iniziato su pippobaudo
-Data e ora: Thu Oct  9 16:42:52 CEST 2025
+Data e ora: Thu Oct  9 16:48:13 CEST 2025
 GPU disponibile: NVIDIA GeForce RTX 2080 Ti
 Starting testing script...
 
@@ -86,5 +86,5 @@ AVERAGE RESULTS ACROSS FOLDS
 {'Years Threshold': 0, 'Accuracy': '0.7810 ± 0.0054', 'Precision': '0.5134 ± 0.0084', 'Recall': '0.7070 ± 0.0431', 'F1 Score': '0.5944 ± 0.0190'}
 Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/average_test_results_years_0.json
 Job finito.
-Data e ora di fine: Thu Oct  9 16:43:01 CEST 2025
+Data e ora di fine: Thu Oct  9 16:48:20 CEST 2025
 GPU utilizzata: NVIDIA GeForce RTX 2080 Ti
