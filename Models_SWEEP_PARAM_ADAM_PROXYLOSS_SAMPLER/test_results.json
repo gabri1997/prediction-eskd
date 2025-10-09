@@ -1,0 +1,87 @@
+{
+    "Fold 1": {
+        "Years Threshold": 0,
+        "Accuracy": 0.7883597883597884,
+        "Precision": 0.5254237288135594,
+        "Recall": 0.7209302325581395,
+        "F1 Score": 0.607843137254902,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "118 - 28",
+                "12 - 31"
+            ]
+        }
+    },
+    "Fold 2": {
+        "Years Threshold": 0,
+        "Accuracy": 0.7724867724867724,
+        "Precision": 0.5,
+        "Recall": 0.6976744186046512,
+        "F1 Score": 0.5825242718446603,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "116 - 30",
+                "13 - 30"
+            ]
+        }
+    },
+    "Fold 3": {
+        "Years Threshold": 0,
+        "Accuracy": 0.783068783068783,
+        "Precision": 0.5161290322580645,
+        "Recall": 0.7441860465116279,
+        "F1 Score": 0.6095238095238095,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "116 - 30",
+                "11 - 32"
+            ]
+        }
+    },
+    "Fold 4": {
+        "Years Threshold": 0,
+        "Accuracy": 0.7777777777777778,
+        "Precision": 0.5094339622641509,
+        "Recall": 0.627906976744186,
+        "F1 Score": 0.5625,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "120 - 26",
+                "16 - 27"
+            ]
+        }
+    },
+    "Fold 5": {
+        "Years Threshold": 0,
+        "Accuracy": 0.783068783068783,
+        "Precision": 0.5161290322580645,
+        "Recall": 0.7441860465116279,
+        "F1 Score": 0.6095238095238095,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "116 - 30",
+                "11 - 32"
+            ]
+        }
+    }
+}

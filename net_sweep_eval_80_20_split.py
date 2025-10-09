@@ -131,7 +131,6 @@ def eval_fold(df, save_pth, fold, years=5):
     # print(f"Test set class distribution before evaluation: {dict(zip(unique, counts))}")
     # --------------------------------------------------------------------
   
-
     # Carica modello
     model = MySimpleBinaryNet(input_size=X_test_scaled.shape[1], dropout=dropout)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

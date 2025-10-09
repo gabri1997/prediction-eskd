@@ -1,18 +1,18 @@
 {
-    "Run ID": "fnal8gor",
+    "Run ID": "03hezenr",
     "Config Parameters": {
         "batch_size": 16,
-        "dropout": 0.2,
+        "dropout": 0.3,
         "fold": 1,
-        "learning_rate": 0.0001,
+        "learning_rate": 0.01,
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 49,
-        "Validation Loss": 0.09013595079120837,
-        "Best F1": 0.7407407407407407,
-        "Validation Accuracy": 0.8618420958518982,
-        "Validation Precision": 0.6382978723404256,
-        "Validation Recall": 0.8823529411764706
+        "Epoch": 26,
+        "Validation Loss": 0.08325183391571045,
+        "Best F1": 0.7435897435897436,
+        "Validation Accuracy": 0.8684210777282715,
+        "Validation Precision": 0.6590909090909091,
+        "Validation Recall": 0.8529411764705882
     }
 }

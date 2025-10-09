@@ -15,46 +15,52 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 # --- Modello come lo indica nel paper anche se non si affronta ---
-class MySimpleBinaryNet(nn.Module):
+class MySimpleRegressorNet(nn.Module):
     def __init__(self, input_size, dropout=0.1):
-        super(MySimpleBinaryNet, self).__init__()
+        super(MySimpleRegressorNet, self).__init__()
         self.layers = nn.Sequential(
-            nn.Linear(input_size, 100),
-            nn.BatchNorm1d(100),
-            nn.ELU(),
-            nn.Dropout(dropout),
+            nn.Linear(input_size, 125),
+            nn.BatchNorm1d(125),
+            nn.SELU(),
+            nn.Dropout(0.5),
             
-            nn.Linear(100, 100),
-            nn.BatchNorm1d(100),
-            nn.ELU(),
-            nn.Dropout(dropout),
+            nn.Linear(125, 125),
+            nn.BatchNorm1d(125),
+            nn.SELU(),
+            nn.Dropout(0.3),
             
-            nn.Linear(100, 100),
-            nn.BatchNorm1d(100),
-            nn.ELU(),
-            nn.Dropout(dropout),
+            nn.Linear(125, 125),
+            nn.BatchNorm1d(125),
+            nn.SELU(),
+            nn.Dropout(0.3),
             
-            nn.Linear(100, 100),
-            nn.BatchNorm1d(100),
-            nn.ELU(),
-            nn.Dropout(dropout),
-            
-            nn.Linear(100, 1)
+            nn.Linear(125, 1)
         )
         
     def forward(self, x):
         return self.layers(x)
 
-def preprocess_data(df):
-    # Trasformazioni
-    df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
-    X = df.drop(columns=['Eskd', 'Code']).values
-    y = df['Eskd'].values
-
-    # Sostituisco NaN e Inf
+def preprocess_data(df, target_column='TimeToESKD_years'):
+    # Calcola il target per TUTTI
+    df['TimeToESKD_days'] = (df['DateLastVisit'] - df['DateFirstBiopsy']).dt.days
+    df['TimeToESKD_years'] = df['TimeToESKD_days'] / 365.25
+    
+    # Filtra solo chi ha sviluppato ESKD (evento osservato)
+    df_with_event = df[df['Eskd'] == 1].copy()
+    
+    print(f"Pazienti totali: {len(df)}")
+    print(f"Pazienti con ESKD (per regressione): {len(df_with_event)}")
+    
+    # Preprocessing
+    df_with_event['Gender'] = df_with_event['Gender'].replace({'M': 0, 'F': 1})
+    X = df_with_event.drop(columns=[target_column, 'Eskd', 'Code', 
+                                     'DateFirstBiopsy', 'DateLastVisit', 
+                                     'TimeToESKD_days']).values
+    y = df_with_event[target_column].values
+    
     X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
     y = np.nan_to_num(y, nan=0.0)
-
+    
     return X, y
 
 # Proxy AUC Loss Function
@@ -106,7 +112,7 @@ def model_initialization(X_train, y_train, loss_fn='proxy_auc'):
 
     config = wandb.config
 
-    model = MySimpleBinaryNet(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
+    model = MySimpleRegressorNet(X_train.shape[1],  dropout=config.dropout if 'dropout' in config else 0.1)
     # Questa roba serve per l'ExponentialLR, il LR inizia a diminuire dopo 400 step e finisce di diminuire a 3200 step
     initial_lr = getattr(config, 'learning_rate', 0.001)
     final_lr = 1e-6
