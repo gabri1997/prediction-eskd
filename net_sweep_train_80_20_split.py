@@ -3,10 +3,12 @@ import json
 import wandb
 import torch
 import joblib
+import itertools 
 import numpy as np
 import pandas as pd
 import torch.nn as nn
 from sklearn.preprocessing import StandardScaler
+from torch.utils.data import WeightedRandomSampler
 from sklearn.model_selection import StratifiedKFold
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -175,7 +177,7 @@ class EarlyStopping:
             return False
 
 
-def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, loss_fn='proxy_auc'):
+def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, loss_fn='proxy_auc', sampler=True):
 
     print("Starting training script...")
     torch.manual_seed(42)
@@ -242,7 +244,24 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
     # Qua come sempre devo cambiare shape perché BCEWithLogitsLoss vuole i target con shape (N, 1) e non (N,)
     y_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1,1)
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
+
+    if sampler == True:
+        # Implemeto il weighted random sampler per bilanciare le classi nel training
+        class_sample_count = np.array([len(np.where(y_train == t)[0]) for t in np.unique(y_train)])
+        weight = 1. / class_sample_count
+        samples_weight = np.array([weight[int(t)] for t in y_train])
+        samples_weight = torch.from_numpy(samples_weight).double()
+        sampler = WeightedRandomSampler(samples_weight, len(samples_weight))
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler, num_workers=2)
+        # --- Debug: controlla la proporzione per i primi 5 batch ---
+        for i, (inputs, labels) in enumerate(itertools.islice(train_loader, 5)):
+            num_pos = (labels == 1).sum().item()
+            num_neg = (labels == 0).sum().item()
+            print(f"Batch {i}: Positivi={num_pos}, Negativi={num_neg}")
+
+    else:
+    
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
     
     X_val_tensor = torch.tensor(X_val, dtype=torch.float32)
     # Anche qua cambio shape perchè il modello mi sputa (N, 1), un output per ogni campione, e questo Nik devo saperlo, grande Nik
@@ -409,8 +428,8 @@ if __name__ == "__main__":
     """
     early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True
-    train(df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc')
+    train(df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc', sampler = True)

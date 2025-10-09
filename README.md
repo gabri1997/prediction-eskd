@@ -19,6 +19,16 @@ With a fixed random seed (`random_state=42`), the resulting distribution is:
 
 To prevent overfitting, **early stopping** was applied during training. The decision to stop training is based on the **validation loss**, which serves as the monitoring metric for model generalization performance.
 
+### Batch Balancing and Proxy AUC Loss
+
+To address the class imbalance present in the dataset, a **WeightedRandomSampler** was used during training.  
+This sampling strategy assigns higher selection probabilities to samples from the minority class, ensuring that each batch contains a roughly equal number of positive and negative examples.  
+By balancing batches at training time, the model avoids bias toward the majority class and learns more discriminative features for both categories.
+
+Instead of the standard **binary cross-entropy (BCE)** loss, a **Proxy AUC loss** was employed.  
+The conventional AUC metric is not directly differentiable, as it depends on the ranking of predictions rather than on continuous probability values.  
+The Proxy AUC loss provides a differentiable approximation of the AUC by comparing all positive–negative prediction pairs using a sigmoid-based formulation.  
+This enables gradient-based optimization of the AUC objective, leading to models that are more robust in imbalanced classification settings where accuracy or BCE-based optimization may be misleading.
 
 ---
 
