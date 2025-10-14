@@ -1,0 +1,18 @@
+{
+    "Run ID": "kt04ul6y",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.2,
+        "fold": 5,
+        "learning_rate": 0.0001,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 24,
+        "Validation Loss": 0.1309928416416345,
+        "Best F1": 0.725,
+        "Validation Accuracy": 0.8543046116828918,
+        "Validation Precision": 0.6304347826086957,
+        "Validation Recall": 0.8529411764705882
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "Run ID": "6xscd7k2",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.3,
+        "fold": 1,
+        "learning_rate": 0.0001,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 56,
+        "Validation Loss": 0.09184109850933678,
+        "Best F1": 0.7435897435897436,
+        "Validation Accuracy": 0.8684210777282715,
+        "Validation Precision": 0.6590909090909091,
+        "Validation Recall": 0.8529411764705882
+    }
+}

@@ -1,6 +1,6 @@
-Job iniziato su pippobaudo
-Data e ora: Thu Oct  9 16:48:13 CEST 2025
-GPU disponibile: NVIDIA GeForce RTX 2080 Ti
+Job iniziato su carabbaggio
+Data e ora: Tue Oct 14 15:24:25 CEST 2025
+GPU disponibile: NVIDIA GeForce GTX 1080 Ti
 Starting testing script...
 
 ============================================================
@@ -9,14 +9,14 @@ Evaluating Fold 1/5
 Loaded scaler for fold 1
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Test shape with dateAssess > 5 years: (138, 12), Labels: (138,)
+Test shape with dateAssess > 10 years: (66, 12), Labels: (66,)
+Test shape: (189, 12), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
 Loaded model for fold 1
-First layer weights (sample): tensor([ 0.3896,  0.0701,  0.1037,  0.3177, -0.1040], device='cuda:0',
+First layer weights (sample): tensor([ 0.2183,  0.2432, -0.0683,  0.2668, -0.0656], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Fold 1 - Accuracy: 0.7884, Precision: 0.5254, Recall: 0.7209, F1: 0.6078
+Fold 1 - Accuracy: 0.7672, Precision: 0.4912, Recall: 0.6512, F1: 0.5600
 
 ============================================================
 Evaluating Fold 2/5
@@ -24,14 +24,14 @@ Evaluating Fold 2/5
 Loaded scaler for fold 2
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Test shape with dateAssess > 5 years: (138, 12), Labels: (138,)
+Test shape with dateAssess > 10 years: (66, 12), Labels: (66,)
+Test shape: (189, 12), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
 Loaded model for fold 2
-First layer weights (sample): tensor([ 0.2002,  0.1142, -0.1952,  0.4817,  0.0090], device='cuda:0',
+First layer weights (sample): tensor([ 0.2812,  0.1741, -0.0895,  0.2742, -0.0547], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Fold 2 - Accuracy: 0.7725, Precision: 0.5000, Recall: 0.6977, F1: 0.5825
+Fold 2 - Accuracy: 0.7354, Precision: 0.4478, Recall: 0.6977, F1: 0.5455
 
 ============================================================
 Evaluating Fold 3/5
@@ -39,14 +39,14 @@ Evaluating Fold 3/5
 Loaded scaler for fold 3
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Test shape with dateAssess > 5 years: (138, 12), Labels: (138,)
+Test shape with dateAssess > 10 years: (66, 12), Labels: (66,)
+Test shape: (189, 12), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
 Loaded model for fold 3
-First layer weights (sample): tensor([ 0.2343,  0.1931, -0.0560,  0.2489, -0.0943], device='cuda:0',
+First layer weights (sample): tensor([ 0.2230,  0.2410, -0.0632,  0.2628, -0.0680], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Fold 3 - Accuracy: 0.7831, Precision: 0.5161, Recall: 0.7442, F1: 0.6095
+Fold 3 - Accuracy: 0.7672, Precision: 0.4912, Recall: 0.6512, F1: 0.5600
 
 ============================================================
 Evaluating Fold 4/5
@@ -54,14 +54,14 @@ Evaluating Fold 4/5
 Loaded scaler for fold 4
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Test shape with dateAssess > 5 years: (138, 12), Labels: (138,)
+Test shape with dateAssess > 10 years: (66, 12), Labels: (66,)
+Test shape: (189, 12), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
 Loaded model for fold 4
-First layer weights (sample): tensor([ 0.2544,  0.1066, -0.1452,  0.2165, -0.0660], device='cuda:0',
+First layer weights (sample): tensor([ 0.2561,  0.0656,  0.0858,  0.4682, -0.3158], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Fold 4 - Accuracy: 0.7778, Precision: 0.5094, Recall: 0.6279, F1: 0.5625
+Fold 4 - Accuracy: 0.7249, Precision: 0.4384, Recall: 0.7442, F1: 0.5517
 
 ============================================================
 Evaluating Fold 5/5
@@ -69,22 +69,22 @@ Evaluating Fold 5/5
 Loaded scaler for fold 5
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
-Test shape with dateAssess > 5 years: (138, 13), Labels: (138,)
-Test shape with dateAssess > 10 years: (66, 13), Labels: (66,)
-Test shape: (189, 13), Labels: (189,)
+Test shape with dateAssess > 5 years: (138, 12), Labels: (138,)
+Test shape with dateAssess > 10 years: (66, 12), Labels: (66,)
+Test shape: (189, 12), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
 Loaded model for fold 5
-First layer weights (sample): tensor([ 0.1964,  0.1402, -0.0100,  0.2010, -0.0168], device='cuda:0',
+First layer weights (sample): tensor([ 0.2179,  0.2410, -0.0690,  0.2636, -0.0665], device='cuda:0',
        grad_fn=<SliceBackward0>)
-Fold 5 - Accuracy: 0.7831, Precision: 0.5161, Recall: 0.7442, F1: 0.6095
+Fold 5 - Accuracy: 0.7460, Precision: 0.4603, Recall: 0.6744, F1: 0.5472
 
- Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/test_results.json
+ Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NoDate/test_results.json
 
 ============================================================
 AVERAGE RESULTS ACROSS FOLDS
 ============================================================
-{'Years Threshold': 0, 'Accuracy': '0.7810 ± 0.0054', 'Precision': '0.5134 ± 0.0084', 'Recall': '0.7070 ± 0.0431', 'F1 Score': '0.5944 ± 0.0190'}
-Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/average_test_results_years_0.json
+{'Years Threshold': 0, 'Accuracy': '0.7481 ± 0.0169', 'Precision': '0.4658 ± 0.0219', 'Recall': '0.6837 ± 0.0348', 'F1 Score': '0.5529 ± 0.0062'}
+Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NoDate/average_test_results_years_0.json
 Job finito.
-Data e ora di fine: Thu Oct  9 16:48:20 CEST 2025
-GPU utilizzata: NVIDIA GeForce RTX 2080 Ti
+Data e ora di fine: Tue Oct 14 15:24:33 CEST 2025
+GPU utilizzata: NVIDIA GeForce GTX 1080 Ti

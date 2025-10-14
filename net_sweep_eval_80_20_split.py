@@ -43,7 +43,7 @@ class MySimpleBinaryNet(nn.Module):
 
 def preprocess_data(df):
     df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
-    X = df.drop(columns=['Eskd', 'Code']).values
+    X = df.drop(columns=['Eskd', 'Code', 'dateAssess']).values
     y = df['Eskd'].values
     X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
     y = np.nan_to_num(y, nan=0.0)
@@ -194,7 +194,7 @@ if __name__ == "__main__":
     np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NoDate/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)

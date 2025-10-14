@@ -48,7 +48,8 @@ class MySimpleBinaryNet(nn.Module):
 def preprocess_data(df):
     # Trasformazioni
     df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
-    X = df.drop(columns=['Eskd', 'Code']).values
+    # Voglio togliere anche la colonna Code che non serve dateAssess
+    X = df.drop(columns=['Eskd', 'Code', 'dateAssess']).values
     y = df['Eskd'].values
 
     # Sostituisco NaN e Inf
@@ -61,10 +62,6 @@ def preprocess_data(df):
 # Io avevo messo la Auc normale, non è deffirenziabile quindi fuori dal grafo computazionale
 # Ricordiamoci che l'Auc misura fondamentalmente la capacità del modello di separare i positivi dai negativi
 # Cioè la probabilità che un positivo sia classificato con un punteggio più alto di un negativo
-class ProxyAUCLoss(nn.Module):
-    import torch
-import torch.nn as nn
-
 class ProxyAUCLoss(nn.Module):
     """
     Proxy AUC Loss — versione stabile per batch sbilanciati o con una sola classe.
@@ -184,7 +181,9 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
     np.random.seed(42) 
 
     X, y = preprocess_data(df)
-
+    # Voglio stampare le colonne di X per capire cosa sto usando
+    print(f"Data shape: {X.shape}, Labels shape: {y.shape}")
+    
     # Stratified 80/20 split
     sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 
@@ -427,7 +426,7 @@ if __name__ == "__main__":
     """
     early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NoDate/'
     df = pd.read_excel(data_path)
     num_epochs = 120
     save_on_evaluation = True

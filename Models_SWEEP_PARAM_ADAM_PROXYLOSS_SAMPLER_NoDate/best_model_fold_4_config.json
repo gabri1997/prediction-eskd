@@ -1,0 +1,18 @@
+{
+    "Run ID": "eaqjnakz",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.4,
+        "fold": 4,
+        "learning_rate": 0.01,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 18,
+        "Validation Loss": 0.20651253485521734,
+        "Best F1": 0.6585365853658537,
+        "Validation Accuracy": 0.8145695328712463,
+        "Validation Precision": 0.5625,
+        "Validation Recall": 0.7941176470588235
+    }
+}
