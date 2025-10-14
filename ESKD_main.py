@@ -19,7 +19,6 @@ from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping
 from keras.utils import to_categorical
 from keras.optimizers.schedules import ExponentialDecay
-# import xgboost as xgb
 from sklearn.model_selection import KFold
 from sklearn.model_selection import StratifiedShuffleSplit
 import numpy as np
@@ -28,7 +27,6 @@ import numpy as np
 Questa è l'implementazione in Keras della rete di Schena et al. (2020)
 
 """
-
 
 def ProxyAUCLoss():
     """
@@ -384,7 +382,6 @@ def evaluate_classifier(model, X_eval, y_eval, name="Test", threshold=0.5):
 
     print(f"{name}: AUC={auc:.3f}, Prec={prec:.3f}, Rec={rec:.3f}, F1={f1:.3f}, Acc={acc:.3f}")
     return auc, prec, rec, f1, acc
-
 
 print("\n===== Final Test Evaluation (Best CV Model) =====")
 
