@@ -1,5 +1,5 @@
 program: net_sweep_train_80_20_split.py
-project: ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NoDate
+project: ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP
 # Qua devo mettere grid come method se no se metto bayes non fa una vera cross fold ma include il fold come se fosse una metrica da ottimizzare
 method: grid
 metric:
@@ -8,11 +8,11 @@ metric:
 
 parameters:
   fold:
-    values: [1,2,3,4,5]  # qui definisci i fold
+    values: [1,2,3,4,5,6,7,8,9,10]  # qui definisci i fold
   learning_rate: 
-    values: [0.0001, 0.002, 0.01]
+    values: [0.002]
   dropout:
-    values: [0.2, 0.3, 0.4]
+    values: [0.5]
   batch_size:
     values: [32]
   optimizer:

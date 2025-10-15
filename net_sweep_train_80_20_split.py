@@ -210,7 +210,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
     print(f"Training class distribution: {dict(zip(unique_train, counts_train))}")
     print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
 
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
     splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo
@@ -426,8 +426,8 @@ if __name__ == "__main__":
     """
     early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NoDate/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP/'
     df = pd.read_excel(data_path)
-    num_epochs = 120
+    num_epochs = 1000
     save_on_evaluation = True
     train(df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc', sampler=True)

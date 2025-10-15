@@ -1,0 +1,18 @@
+{
+    "Run ID": "pw8safza",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 10,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 49,
+        "Validation Loss": 0.15709453582763672,
+        "Best F1": 0.7,
+        "Validation Accuracy": 0.8399999737739563,
+        "Validation Precision": 0.6086956521739131,
+        "Validation Recall": 0.8235294117647058
+    }
+}

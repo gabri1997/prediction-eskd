@@ -1,0 +1,18 @@
+{
+    "Run ID": "0uwilb8d",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 5,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 42,
+        "Validation Loss": 0.10514454778872039,
+        "Best F1": 0.6829268292682927,
+        "Validation Accuracy": 0.8289473652839661,
+        "Validation Precision": 0.5833333333333334,
+        "Validation Recall": 0.8235294117647058
+    }
+}

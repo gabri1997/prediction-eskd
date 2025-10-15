@@ -1,6 +1,11 @@
-/var/lib/slurm/slurmd/job2642959/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-Testing fold 1:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 1:  17%|█▋        | 1/6 [00:00<00:01,  3.99it/s]Testing fold 1: 100%|██████████| 6/6 [00:00<00:00, 21.16it/s]
-Testing fold 2:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 6/6 [00:00<00:00, 53.08it/s]
-Testing fold 3:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 3: 100%|██████████| 6/6 [00:00<00:00, 52.73it/s]
-Testing fold 4:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 6/6 [00:00<00:00, 53.34it/s]
-Testing fold 5:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 6/6 [00:00<00:00, 54.43it/s]
+/var/lib/slurm/slurmd/job2643112/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+Testing fold 1:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 1:  17%|█▋        | 1/6 [00:00<00:00,  8.22it/s]Testing fold 1: 100%|██████████| 6/6 [00:00<00:00, 40.43it/s]
+Testing fold 2:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 6/6 [00:00<00:00, 51.19it/s]
+Testing fold 3:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 3: 100%|██████████| 6/6 [00:00<00:00, 59.88it/s]Testing fold 3: 100%|██████████| 6/6 [00:00<00:00, 50.08it/s]
+Testing fold 4:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 6/6 [00:00<00:00, 50.96it/s]
+Testing fold 5:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 6/6 [00:00<00:00, 53.63it/s]
+Testing fold 6:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 6: 100%|██████████| 6/6 [00:00<00:00, 52.53it/s]
+Testing fold 7:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 7: 100%|██████████| 6/6 [00:00<00:00, 59.77it/s]Testing fold 7: 100%|██████████| 6/6 [00:00<00:00, 49.46it/s]
+Testing fold 8:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 8: 100%|██████████| 6/6 [00:00<00:00, 51.27it/s]
+Testing fold 9:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 9: 100%|██████████| 6/6 [00:00<00:00, 52.94it/s]
+Testing fold 10:   0%|          | 0/6 [00:00<?, ?it/s]Testing fold 10: 100%|██████████| 6/6 [00:00<00:00, 52.89it/s]

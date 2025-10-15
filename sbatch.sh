@@ -17,7 +17,7 @@ echo "GPU disponibile: $(nvidia-smi --query-gpu=name --format=csv,noheader || ec
 . /usr/local/anaconda3/etc/profile.d/conda.sh
 
 # Lancio il training script
-wandb agent gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NoDate/yuqpxlyp
+wandb agent gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP/vz6pao7i
 
 echo "Job finito."
 echo "Data e ora di fine: $(date)"
