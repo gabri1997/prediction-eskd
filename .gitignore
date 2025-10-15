@@ -9,6 +9,9 @@ __pycache__/
 
 # C extensions
 *.so
+*.sh
+*.err
+*.out
 
 # Distribution / packaging
 .Python
@@ -30,6 +33,13 @@ share/python-wheels/
 *.egg
 MANIFEST
 wandb/
+# Ignora gli script sbatch
+ESKD/sbatch_eval.sh
+ESKD/sbatch.sh
+
+# Ignora i file di log/output
+ESKD/res_ESKD_NN.err
+ESKD/res_ESKD_NN.out
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
