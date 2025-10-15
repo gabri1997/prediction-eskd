@@ -1,28 +1,5 @@
 import os
 import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score,f1_score,roc_curve,precision_recall_curve
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import StratifiedKFold
-from sklearn.impute import SimpleImputer
-import tensorflow as tf
-from tensorflow import keras
-from keras.models import Sequential
-from keras.layers import Dense, BatchNormalization, Activation, Dropout,ELU
-from keras import backend as K
-from keras.models import Sequential
-from keras.layers import Dense, BatchNormalization, Activation
-from keras.optimizers import Adam
-from keras.callbacks import EarlyStopping
-from keras.utils import to_categorical
-from keras.optimizers.schedules import ExponentialDecay
-from sklearn.model_selection import KFold
-from sklearn.model_selection import StratifiedShuffleSplit
-import numpy as np
-
 def preprocess_data(df):
 
     df = pd.read_csv("/work/grana_far2023_fomo/ESKD/Data/final_merge_with_Year_last.csv")
