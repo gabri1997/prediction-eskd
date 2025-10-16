@@ -1,5 +1,5 @@
 {
-    "Run ID": "brgiay1g",
+    "Run ID": "0gr8lhct",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -9,7 +9,7 @@
     },
     "Best Model Metrics": {
         "Epoch": 10,
-        "Validation Loss": 0.22258930457265755,
+        "Validation Loss": 0.451860669412111,
         "Best F1": 0.6060606060606061,
         "Validation Accuracy": 0.8289473652839661,
         "Validation Precision": 0.625,

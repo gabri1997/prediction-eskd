@@ -1,5 +1,5 @@
 {
-    "Run ID": "0uwilb8d",
+    "Run ID": "r8lmkx5t",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,11 +8,11 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 42,
-        "Validation Loss": 0.10514454778872039,
-        "Best F1": 0.6829268292682927,
-        "Validation Accuracy": 0.8289473652839661,
-        "Validation Precision": 0.5833333333333334,
+        "Epoch": 4,
+        "Validation Loss": 0.29394491722709254,
+        "Best F1": 0.7,
+        "Validation Accuracy": 0.8421052694320679,
+        "Validation Precision": 0.6086956521739131,
         "Validation Recall": 0.8235294117647058
     }
 }

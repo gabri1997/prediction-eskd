@@ -1,5 +1,5 @@
 {
-    "Run ID": "7herxnjc",
+    "Run ID": "tfk0vyxv",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -9,7 +9,7 @@
     },
     "Best Model Metrics": {
         "Epoch": 1,
-        "Validation Loss": 0.1815801702047649,
+        "Validation Loss": 0.4058704109568345,
         "Best F1": 0.717948717948718,
         "Validation Accuracy": 0.8552631735801697,
         "Validation Precision": 0.6363636363636364,

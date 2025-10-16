@@ -80,6 +80,7 @@ def loop_over_folds(skf, X_train, y_train):
 
     results = []
     best_model_info = None
+    
     for fold, (tr_idx, val_idx) in enumerate(skf.split(X_train, y_train), 1):
 
         print(f"\n===== Fold {fold}/{N_SPLITS} =====")
@@ -100,10 +101,28 @@ def loop_over_folds(skf, X_train, y_train):
 
         y_pred = model.predict(X_val, verbose=0)
         y_prob = tf.nn.softmax(y_pred, axis=1).numpy()[:, 1]
-        metrics = compute_metrics(y_val, y_prob)
-        results.append(metrics)
+        auc, prec, rec, f1, acc = compute_metrics(y_val, y_prob, threshold=0.731)
+        results.append((auc, prec, rec, f1, acc))
+        print(f"Fold {fold} → AUC={auc:.3f}, Prec={prec:.3f}, Rec={rec:.3f}, F1={f1:.3f}, Acc={acc:.3f}")
+
+        # --- Select best model by balanced F1 ---
+        balance_penalty = abs(prec - rec)
+        score = f1 - 0.1 * balance_penalty
+
+        if best_model_info is None or score > best_model_info["score"]:
+            best_model_info = {
+                "fold": fold,
+                "auc": auc,
+                "prec": prec,
+                "rec": rec,
+                "f1": f1,
+                "acc": acc,
+                "score": score,
+                "weights": model.get_weights(),
+                "scaler": scaler
+            }
     
-    return results, model
+    return results, best_model_info
 
 
 
@@ -117,8 +136,14 @@ if __name__ == "__main__":
     DECAY = 3200
     BATCH_SIZE = 32
     N_SPLITS = 10
+    lr_schedule = ExponentialDecay(
+        initial_learning_rate=LR0,
+        decay_steps=DECAY,
+        decay_rate=0.96,
+        staircase=True
+    )
     skf = StratifiedKFold(n_splits=N_SPLITS, shuffle=True, random_state=42)
-    results, model = loop_over_folds(skf, X_train, y_train)
+    results, best_model_info = loop_over_folds(skf, X_train, y_train)
     aucs, precs, recs, f1s, accs = zip(*results)
     print("\n===== CV Summary =====")
     print(f"AUC: {np.mean(aucs):.3f} ± {np.std(aucs):.3f}")
@@ -128,6 +153,12 @@ if __name__ == "__main__":
     X_test = scaler.transform(X_test)
     X_test_5y = scaler.transform(X_test_5y)
     X_test_10y = scaler.transform(X_test_10y)
-    evaluate_classifier(model, X_test, y_test, "Full Test")
-    evaluate_classifier(model, X_test_5y, y_test_5y, "≥5y Test")
-    evaluate_classifier(model, X_test_10y, y_test_10y, "≥10y Test")
+    # --- Rebuild model and apply best weights ---
+    best_model = build_classifier_proxy(input_dim=X_test.shape[1])
+    best_model.compile(optimizer=Adam(learning_rate=lr_schedule),
+                    loss=ProxyAUCLoss())
+    best_model.set_weights(best_model_info["weights"])
+    best_scaler = best_model_info["scaler"]
+    evaluate_classifier(best_model, X_test, y_test, "Full Test")
+    evaluate_classifier(best_model, X_test_5y, y_test_5y, "≥5y Test")
+    evaluate_classifier(best_model, X_test_10y, y_test_10y, "≥10y Test")

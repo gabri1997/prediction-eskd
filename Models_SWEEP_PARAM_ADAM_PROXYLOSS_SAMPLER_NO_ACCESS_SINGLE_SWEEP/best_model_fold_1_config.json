@@ -1,5 +1,5 @@
 {
-    "Run ID": "y4z2nl76",
+    "Run ID": "2pkg3yli",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,11 +8,11 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 14,
-        "Validation Loss": 0.05315928710134406,
-        "Best F1": 0.7906976744186047,
+        "Epoch": 6,
+        "Validation Loss": 0.16089810823139392,
+        "Best F1": 0.7804878048780487,
         "Validation Accuracy": 0.8815789222717285,
-        "Validation Precision": 0.6538461538461539,
-        "Validation Recall": 1.0
+        "Validation Precision": 0.6666666666666666,
+        "Validation Recall": 0.9411764705882353
     }
 }

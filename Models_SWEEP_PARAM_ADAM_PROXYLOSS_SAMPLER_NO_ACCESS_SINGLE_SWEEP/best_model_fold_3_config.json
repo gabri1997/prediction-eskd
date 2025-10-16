@@ -1,5 +1,5 @@
 {
-    "Run ID": "t43flapj",
+    "Run ID": "28a83vrj",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,8 +8,8 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 118,
-        "Validation Loss": 0.14555737219358744,
+        "Epoch": 855,
+        "Validation Loss": 0.3411187874643426,
         "Best F1": 0.6122448979591837,
         "Validation Accuracy": 0.75,
         "Validation Precision": 0.46875,

@@ -1,5 +1,5 @@
 {
-    "Run ID": "6okya911",
+    "Run ID": "rf26c6mt",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,8 +8,8 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 42,
-        "Validation Loss": 0.07628148476282756,
+        "Epoch": 14,
+        "Validation Loss": 0.21633179763952892,
         "Best F1": 0.7619047619047621,
         "Validation Accuracy": 0.8666666746139526,
         "Validation Precision": 0.64,

@@ -1,5 +1,5 @@
 {
-    "Run ID": "fts15ooj",
+    "Run ID": "axcp7ntm",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,8 +8,8 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 30,
-        "Validation Loss": 0.19955719073613484,
+        "Epoch": 19,
+        "Validation Loss": 0.43097986857096354,
         "Best F1": 0.6666666666666667,
         "Validation Accuracy": 0.8533333539962769,
         "Validation Precision": 0.6875,

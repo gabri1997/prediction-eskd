@@ -1,5 +1,5 @@
 {
-    "Run ID": "pw8safza",
+    "Run ID": "zqskeoc0",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -8,8 +8,8 @@
         "optimizer": "adam"
     },
     "Best Model Metrics": {
-        "Epoch": 49,
-        "Validation Loss": 0.15709453582763672,
+        "Epoch": 53,
+        "Validation Loss": 0.32064899961153664,
         "Best F1": 0.7,
         "Validation Accuracy": 0.8399999737739563,
         "Validation Precision": 0.6086956521739131,

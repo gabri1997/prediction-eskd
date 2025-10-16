@@ -62,42 +62,93 @@ def preprocess_data(df):
 # Io avevo messo la Auc normale, non è deffirenziabile quindi fuori dal grafo computazionale
 # Ricordiamoci che l'Auc misura fondamentalmente la capacità del modello di separare i positivi dai negativi
 # Cioè la probabilità che un positivo sia classificato con un punteggio più alto di un negativo
+# class ProxyAUCLoss(nn.Module):
+#     """
+#     Proxy AUC Loss — versione stabile per batch sbilanciati o con una sola classe.
+#     Approssima l'AUC con una sigmoide differenziabile e gestisce i casi limite.
+#     """
+#     def __init__(self, eps=1e-8):
+#         super(ProxyAUCLoss, self).__init__()
+#         self.sigmoid = nn.Sigmoid()
+#         self.eps = eps
+
+#     def forward(self, outputs, targets):
+#         outputs = outputs.view(-1)
+#         targets = targets.view(-1)
+
+#         pos = outputs[targets == 1]
+#         neg = outputs[targets == 0]
+
+#         # Se in batch non ci sono sia positivi che negativi → ritorna loss neutra
+#         if len(pos) == 0 or len(neg) == 0:
+#             return torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
+
+#         # Calcolo differenze e media sigmoide
+#         diff = pos.unsqueeze(1) - neg.unsqueeze(0)
+#         auc_est = self.sigmoid(diff).mean()
+
+#         # Calcolo della loss (1 - AUC approssimata)
+#         loss = 1.0 - auc_est
+
+#         # Clamp per stabilità numerica (evita NaN o inf)
+#         loss = torch.clamp(loss, min=0.0, max=1.0)
+
+#         if torch.isnan(loss) or torch.isinf(loss):
+#             loss = torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
+
+#         return loss
 class ProxyAUCLoss(nn.Module):
     """
-    Proxy AUC Loss — versione stabile per batch sbilanciati o con una sola classe.
-    Approssima l'AUC con una sigmoide differenziabile e gestisce i casi limite.
+    Proxy AUC Loss corretta — implementazione pairwise ranking loss.
+    
+    Questa loss approssima l'AUC-ROC misurando quanto i campioni positivi
+    sono classificati con score più alti rispetto ai negativi.
+    
+    La loss è definita come la media di softplus(neg_score - pos_score),
+    che penalizza quando i negativi hanno score maggiori dei positivi.
     """
     def __init__(self, eps=1e-8):
         super(ProxyAUCLoss, self).__init__()
-        self.sigmoid = nn.Sigmoid()
         self.eps = eps
 
     def forward(self, outputs, targets):
+        """
+        Args:
+            outputs: logits del modello (prima della sigmoid), shape (N,) o (N, 1)
+            targets: labels binari, shape (N,) o (N, 1)
+        
+        Returns:
+            loss: scalar tensor
+        """
+        # Assicuriamoci che tutto sia flat
         outputs = outputs.view(-1)
         targets = targets.view(-1)
 
+        # Separa i positivi dai negativi
         pos = outputs[targets == 1]
         neg = outputs[targets == 0]
 
-        # Se in batch non ci sono sia positivi che negativi → ritorna loss neutra
+        # Se nel batch manca una delle due classi, ritorna loss neutra
         if len(pos) == 0 or len(neg) == 0:
             return torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
 
-        # Calcolo differenze e media sigmoide
-        diff = pos.unsqueeze(1) - neg.unsqueeze(0)
-        auc_est = self.sigmoid(diff).mean()
+        # FORMULA CORRETTA: neg - pos
+        # Crea matrice delle differenze (ogni negativo - ogni positivo)
+        # Shape risultante: (n_neg, n_pos)
+        diff = neg.unsqueeze(1) - pos.unsqueeze(0)
+        
+        # Softplus è una versione smooth di max(0, x)
+        # Penalizza quando neg > pos (cioè quando la differenza è positiva)
+        loss = torch.nn.functional.softplus(diff).mean()
+        
+        # Clamp per sicurezza numerica
+        loss = torch.clamp(loss, min=0.0)
 
-        # Calcolo della loss (1 - AUC approssimata)
-        loss = 1.0 - auc_est
-
-        # Clamp per stabilità numerica (evita NaN o inf)
-        loss = torch.clamp(loss, min=0.0, max=1.0)
-
+        # Controllo finale per NaN/Inf
         if torch.isnan(loss) or torch.isinf(loss):
-            loss = torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
+            return torch.tensor(0.0, dtype=outputs.dtype, device=outputs.device, requires_grad=True)
 
         return loss
-
 
 def model_initialization(X_train, y_train, loss_fn='proxy_auc'):
 

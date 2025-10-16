@@ -1,5 +1,5 @@
 {
-    "Run ID": "waqubfc4",
+    "Run ID": "c6zacyyq",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -9,10 +9,10 @@
     },
     "Best Model Metrics": {
         "Epoch": 59,
-        "Validation Loss": 0.2221573233604431,
-        "Best F1": 0.6222222222222222,
-        "Validation Accuracy": 0.7733333110809326,
-        "Validation Precision": 0.5,
+        "Validation Loss": 0.5038965717951457,
+        "Best F1": 0.608695652173913,
+        "Validation Accuracy": 0.7599999904632568,
+        "Validation Precision": 0.4827586206896552,
         "Validation Recall": 0.8235294117647058
     }
 }

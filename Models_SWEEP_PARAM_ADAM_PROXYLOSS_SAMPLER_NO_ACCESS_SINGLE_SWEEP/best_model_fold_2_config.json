@@ -1,5 +1,5 @@
 {
-    "Run ID": "m7zsj1ot",
+    "Run ID": "7jqzi4gw",
     "Config Parameters": {
         "batch_size": 32,
         "dropout": 0.5,
@@ -9,7 +9,7 @@
     },
     "Best Model Metrics": {
         "Epoch": 3,
-        "Validation Loss": 0.10691591940428082,
+        "Validation Loss": 0.22279071726983316,
         "Best F1": 0.7368421052631577,
         "Validation Accuracy": 0.8684210777282715,
         "Validation Precision": 0.6666666666666666,

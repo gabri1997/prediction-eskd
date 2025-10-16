@@ -33,13 +33,10 @@ share/python-wheels/
 *.egg
 MANIFEST
 wandb/
-# Ignora gli script sbatch
-ESKD/sbatch_eval.sh
-ESKD/sbatch.sh
-
-# Ignora i file di log/output
-ESKD/res_ESKD_NN.err
-ESKD/res_ESKD_NN.out
+sbatch_eval.sh
+sbatch.sh
+res_ESKD_NN.err
+res_ESKD_NN.out
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

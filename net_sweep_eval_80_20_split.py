@@ -50,38 +50,19 @@ def preprocess_data(df):
     return X, y
 
 
-def eval_fold(df, save_pth, fold, years=5):
-    
-    # Carica lo scaler per questo fold
-    scaler_file = os.path.join(save_pth, f"scaler_fold_{fold}.pkl")
-    if not os.path.exists(scaler_file):
-        print(f"Scaler file not found: {scaler_file}")
-        return None
-    
-    scaler = joblib.load(scaler_file)
+def generate_splits(df, scaler, data, fold):
 
-    # Carica configurazione del modello
-    config_file = os.path.join(save_pth, f'best_model_fold_{fold}_config.json')
-    if not os.path.exists(config_file):
-        print(f"Config file not found: {config_file}")
-        return None
-    
-    with open(config_file, 'r') as f:
-        data = json.load(f)
-    
     print(f"Loaded scaler for fold {fold}")
     dropout = data['Config Parameters'].get('dropout', 0.1)
     batch_size = data['Config Parameters'].get('batch_size', 32)
-
     # Preprocessing
     X, y = preprocess_data(df)
-    # TODO: Exclude dateAccess column if present ? - not needed here maybe in future
 
     # Stesso split 80/20 usato in training
     sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
     for train_idx, test_idx in sss.split(X, y):
-        _, X_test = X[train_idx], X[test_idx]
-        _, y_test = y[train_idx], y[test_idx]
+        X_test = X[test_idx]
+        y_test = y[test_idx]
 
     df_test = df.iloc[test_idx]  # subset del test set dal DataFrame originale
 
@@ -123,14 +104,30 @@ def eval_fold(df, save_pth, fold, years=5):
     test_dataset_10Y = TensorDataset(X_test_tensor_10Y, y_test_tensor_10Y)
     test_loader_10Y = DataLoader(test_dataset_10Y, batch_size=batch_size, shuffle=False, num_workers=2)
 
-    # Voglio che il test_dataset riguardi solo quelli con il dateAccess > 5 anni
+    return test_loader, test_loader_5Y, test_loader_10Y, X_test_scaled, y_test, X_test_scaled_5Y, y_test_5Y, X_test_scaled_10Y, y_test_10Y, dropout
+
+def eval_fold(df, save_pth, fold, years=5):
     
-    # --------------------------------------------------------------------
-    # In y_test voglio contare quanti sono gli 1 e quanti sono gli 0
-    # unique, counts = np.unique(y_test, return_counts=True)
-    # print(f"Test set class distribution before evaluation: {dict(zip(unique, counts))}")
-    # --------------------------------------------------------------------
-  
+    # Carica lo scaler per questo fold
+    scaler_file = os.path.join(save_pth, f"scaler_fold_{fold}.pkl")
+    if not os.path.exists(scaler_file):
+        print(f"Scaler file not found: {scaler_file}")
+        return None
+    
+    scaler = joblib.load(scaler_file)
+
+    # Carica configurazione del modello
+    config_file = os.path.join(save_pth, f'best_model_fold_{fold}_config.json')
+    if not os.path.exists(config_file):
+        print(f"Config file not found: {config_file}")
+        return None
+    
+    with open(config_file, 'r') as f:
+        data = json.load(f)
+    
+    # Questa funzione va chiamata per ogni fold perchè ciascuno ha il suo scaler e bisonga trasformate il test set con quello
+    test_loader, test_loader_5Y, test_loader_10Y, X_test_scaled, y_test, X_test_scaled_5Y, y_test_5Y, X_test_scaled_10Y, y_test_10Y, dropout = generate_splits(df, scaler, data, fold)
+
     # Carica modello
     model = MySimpleBinaryNet(input_size=X_test_scaled.shape[1], dropout=dropout)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
