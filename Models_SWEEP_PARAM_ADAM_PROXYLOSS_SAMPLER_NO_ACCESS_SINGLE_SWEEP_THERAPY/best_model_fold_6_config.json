@@ -1,0 +1,18 @@
+{
+    "Run ID": "qlidpkq3",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 6,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 12,
+        "Validation Loss": 0.5112619556878742,
+        "Best F1": 0.5882352941176471,
+        "Validation Accuracy": 0.8157894611358643,
+        "Validation Precision": 0.5882352941176471,
+        "Validation Recall": 0.5882352941176471
+    }
+}

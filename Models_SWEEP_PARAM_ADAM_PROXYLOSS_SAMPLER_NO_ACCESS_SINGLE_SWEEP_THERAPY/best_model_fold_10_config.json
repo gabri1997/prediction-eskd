@@ -1,0 +1,18 @@
+{
+    "Run ID": "nntc8pl8",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 10,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 28,
+        "Validation Loss": 0.30779220183690387,
+        "Best F1": 0.6829268292682927,
+        "Validation Accuracy": 0.8266666531562805,
+        "Validation Precision": 0.5833333333333334,
+        "Validation Recall": 0.8235294117647058
+    }
+}

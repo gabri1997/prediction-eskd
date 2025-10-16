@@ -42,11 +42,20 @@ class MySimpleBinaryNet(nn.Module):
 
 
 def preprocess_data(df):
+    # Trasformazioni
     df['Gender'] = df['Gender'].replace({'M': 0, 'F': 1})
-    X = df.drop(columns=['Eskd', 'Code', 'dateAssess']).values
+    # Voglio togliere anche la colonna Code che non serve dateAssess
+    # Voglio combinare le tre colonne Antihypertensive, Immunosuppressive and FishOil in una sola colonna che indica se il paziente assume almeno uno di questi farmaci
+    # Creo una nuova colonna 'Therapy' che è 1 se almeno una delle tre colonne è 1, altrimenti 0
+    df['Therapy'] = df[['Antihypertensive', 'Immunosuppressants', 'FishOil']].max(axis=1)
+    # Ora posso rimuovere le tre colonne originali
+    X = df.drop(columns=['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']).values
     y = df['Eskd'].values
+
+    # Sostituisco NaN e Inf
     X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
     y = np.nan_to_num(y, nan=0.0)
+
     return X, y
 
 
@@ -191,7 +200,7 @@ if __name__ == "__main__":
     np.random.seed(42)
     
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)

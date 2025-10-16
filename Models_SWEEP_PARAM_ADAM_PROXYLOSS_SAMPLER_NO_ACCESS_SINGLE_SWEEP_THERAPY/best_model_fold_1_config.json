@@ -1,0 +1,18 @@
+{
+    "Run ID": "tozlsyb7",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 1,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 5,
+        "Validation Loss": 0.1733402154947582,
+        "Best F1": 0.7804878048780487,
+        "Validation Accuracy": 0.8815789222717285,
+        "Validation Precision": 0.6666666666666666,
+        "Validation Recall": 0.9411764705882353
+    }
+}
