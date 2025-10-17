@@ -1,171 +1,171 @@
 {
     "Fold 1": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8994708994708994,
-        "Precision": 0.8529411764705882,
-        "Recall": 0.6744186046511628,
-        "F1 Score": 0.7532467532467532,
+        "Years Threshold": 5,
+        "Accuracy": 0.9202898550724637,
+        "Precision": 0.8571428571428571,
+        "Recall": 0.6923076923076923,
+        "F1 Score": 0.7659574468085107,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "141 - 5",
-                "14 - 29"
+                "109 - 3",
+                "8 - 18"
             ]
         }
     },
     "Fold 2": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8783068783068783,
-        "Precision": 0.7380952380952381,
-        "Recall": 0.7209302325581395,
-        "F1 Score": 0.7294117647058824,
+        "Years Threshold": 5,
+        "Accuracy": 0.8985507246376812,
+        "Precision": 0.7307692307692307,
+        "Recall": 0.7307692307692307,
+        "F1 Score": 0.7307692307692306,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "135 - 11",
-                "12 - 31"
+                "105 - 7",
+                "7 - 19"
             ]
         }
     },
     "Fold 3": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8571428571428571,
-        "Precision": 0.66,
-        "Recall": 0.7674418604651163,
-        "F1 Score": 0.7096774193548386,
+        "Years Threshold": 5,
+        "Accuracy": 0.8768115942028986,
+        "Precision": 0.6363636363636364,
+        "Recall": 0.8076923076923077,
+        "F1 Score": 0.7118644067796609,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "129 - 17",
-                "10 - 33"
+                "100 - 12",
+                "5 - 21"
             ]
         }
     },
     "Fold 4": {
-        "Years Threshold": 0,
-        "Accuracy": 0.873015873015873,
-        "Precision": 0.7021276595744681,
-        "Recall": 0.7674418604651163,
-        "F1 Score": 0.7333333333333334,
+        "Years Threshold": 5,
+        "Accuracy": 0.8985507246376812,
+        "Precision": 0.7,
+        "Recall": 0.8076923076923077,
+        "F1 Score": 0.75,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "132 - 14",
-                "10 - 33"
+                "103 - 9",
+                "5 - 21"
             ]
         }
     },
     "Fold 5": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8783068783068783,
-        "Precision": 0.7272727272727273,
-        "Recall": 0.7441860465116279,
-        "F1 Score": 0.735632183908046,
+        "Years Threshold": 5,
+        "Accuracy": 0.8985507246376812,
+        "Precision": 0.7142857142857143,
+        "Recall": 0.7692307692307693,
+        "F1 Score": 0.7407407407407408,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "134 - 12",
-                "11 - 32"
+                "104 - 8",
+                "6 - 20"
             ]
         }
     },
     "Fold 6": {
-        "Years Threshold": 0,
-        "Accuracy": 0.873015873015873,
-        "Precision": 0.7111111111111111,
-        "Recall": 0.7441860465116279,
-        "F1 Score": 0.7272727272727273,
+        "Years Threshold": 5,
+        "Accuracy": 0.8840579710144928,
+        "Precision": 0.6666666666666666,
+        "Recall": 0.7692307692307693,
+        "F1 Score": 0.7142857142857142,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "133 - 13",
-                "11 - 32"
+                "102 - 10",
+                "6 - 20"
             ]
         }
     },
     "Fold 7": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8783068783068783,
-        "Precision": 0.717391304347826,
-        "Recall": 0.7674418604651163,
-        "F1 Score": 0.7415730337078652,
+        "Years Threshold": 5,
+        "Accuracy": 0.8985507246376812,
+        "Precision": 0.7,
+        "Recall": 0.8076923076923077,
+        "F1 Score": 0.75,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "133 - 13",
-                "10 - 33"
+                "103 - 9",
+                "5 - 21"
             ]
         }
     },
     "Fold 8": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8835978835978836,
-        "Precision": 0.7333333333333333,
-        "Recall": 0.7674418604651163,
-        "F1 Score": 0.7499999999999999,
+        "Years Threshold": 5,
+        "Accuracy": 0.9130434782608695,
+        "Precision": 0.75,
+        "Recall": 0.8076923076923077,
+        "F1 Score": 0.7777777777777779,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "134 - 12",
-                "10 - 33"
+                "105 - 7",
+                "5 - 21"
             ]
         }
     },
     "Fold 9": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8941798941798942,
-        "Precision": 0.7804878048780488,
-        "Recall": 0.7441860465116279,
-        "F1 Score": 0.761904761904762,
+        "Years Threshold": 5,
+        "Accuracy": 0.9202898550724637,
+        "Precision": 0.8,
+        "Recall": 0.7692307692307693,
+        "F1 Score": 0.7843137254901961,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "137 - 9",
-                "11 - 32"
+                "107 - 5",
+                "6 - 20"
             ]
         }
     },
     "Fold 10": {
-        "Years Threshold": 0,
-        "Accuracy": 0.8941798941798942,
-        "Precision": 0.7948717948717948,
-        "Recall": 0.7209302325581395,
-        "F1 Score": 0.7560975609756098,
+        "Years Threshold": 5,
+        "Accuracy": 0.9057971014492754,
+        "Precision": 0.76,
+        "Recall": 0.7307692307692307,
+        "F1 Score": 0.7450980392156863,
         "Confusion Matrix": {
             "labels": [
                 "Negativo",
                 "Positivo"
             ],
             "matrix": [
-                "138 - 8",
-                "12 - 31"
+                "106 - 6",
+                "7 - 19"
             ]
         }
     }
