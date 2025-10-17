@@ -43,9 +43,9 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
     valiga = read_excel_auto(valiga_path)
 
     # Selezione delle colonne rilevanti
-    greek_relevant_cols = ['VALIGA_CODE','dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm', 'ESKDcorretto']
+    greek_relevant_cols = ['VALIGA_CODE','dateofbirth', 'RBdate', 'Lastvisit','Gender1M2F', 'age',  'creat_mgdl_last','uprot_gday', 'M', 'E', 'S', 'T', 'C', 'DiastolicbloodpressuremmHg', 'SystolicbloodpressuremmHg', 'AceiYN', 'Fishoil', 'CELLCEPT', 'AZA', 'CsIm', 'ESKDcorretto']
     greek = greek[greek_relevant_cols]
-    valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
+    valiga_relevant_cols = ['VALIGA CODE', 'SEX', 'M', 'E', 'S', 'T', 'C', 'dateAssess', 'systolic', 'Diastolic', 'age', 'creat_mg_dl', 'outcome', 'Uprot', 'Nb of Bpmeds', 'RAS blockers', 'fish oil', 'Immunotherapies']
     valiga = valiga[valiga_relevant_cols]
 
     # Creazione della colonna dateAssess per Greek
@@ -134,8 +134,22 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
     valiga = process_therapy_valiga(valiga)
     valiga = process_eskd(valiga, 'Eskd')
 
-    # Selezione colonne finali
-    last_cols_to_keep = ['VALIGA_CODE','Gender', 'Age', 'dateAssess', 'Hypertension', 'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Antihypertensive', 'Immunosuppressants', 'FishOil', 'Eskd']
+        # Selezione colonne finali + aggiunta creatinina
+    last_cols_to_keep = [
+        'VALIGA_CODE', 'Gender', 'Age', 'dateAssess', 'Hypertension',
+        'M', 'E', 'S', 'T', 'C', 'Proteinuria', 'Antihypertensive',
+        'Immunosuppressants', 'FishOil', 'Eskd'
+    ]
+
+    # Per Greek aggiungo la colonna creat_mgdl_last come Creatinine
+    greek['Creatinine'] = pd.to_numeric(greek['creat_mgdl_last'], errors='coerce')
+
+    # Per Valiga aggiungo la colonna creat_mg_dl come Creatinine
+    valiga['Creatinine'] = pd.to_numeric(valiga['creat_mg_dl'], errors='coerce')
+
+    # Aggiungo Creatinine alle colonne finali
+    last_cols_to_keep.append('Creatinine')
+
     greek = greek[last_cols_to_keep]
     valiga = valiga[last_cols_to_keep]
 
@@ -150,7 +164,7 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
     combined.rename(columns={'VALIGA_CODE': 'Code'}, inplace=True)
     combined['Gender'] = combined['Gender'].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
 
-    # Salvataggio finale
+    # Salvataggio finale (un solo record per codice con max dateAssess)
     final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
     final.to_excel(os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx'), index=False)
     print("File salvato come final_cleaned_maxDateAccess.xlsx")
@@ -175,15 +189,15 @@ if __name__ == "__main__":
     valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx' 
     out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx' 
     out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
-    #final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
+    final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
     final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    analyze_final_file(final_file, years_threshold=5)
-    analyze_final_file(final_file, years_threshold=10)
-    # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess
-    df = pd.read_excel(final_file, engine='openpyxl')
-    print(df['dateAssess'].dtype)
-    # Voglio vedere le prime righe del file
-    print(df.head())
+    # analyze_final_file(final_file, years_threshold=5)
+    # analyze_final_file(final_file, years_threshold=10)
+    # # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess
+    # df = pd.read_excel(final_file, engine='openpyxl')
+    # print(df['dateAssess'].dtype)
+    # # Voglio vedere le prime righe del file
+    # print(df.head())
     # Numero di pazienti con ESKD e dateAssess > 5 anni: 115
     # Numero di pazienti con ESKD e dateAssess > 10 anni: 43
     

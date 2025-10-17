@@ -54,6 +54,8 @@ def preprocess_data(df):
     df['Therapy'] = df[['Antihypertensive', 'Immunosuppressants', 'FishOil']].max(axis=1)
     # Ora posso rimuovere le tre colonne originali
     X = df.drop(columns=['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']).values
+    # Voglio stampare quante sono le colonne di X per capire cosa sto usando
+    print(f"Features used for training: {df.drop(columns=['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']).columns.tolist()}")
     y = df['Eskd'].values
 
     # Sostituisco NaN e Inf
@@ -481,7 +483,7 @@ if __name__ == "__main__":
     """
     early_stop = None
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE/'
     df = pd.read_excel(data_path)
     num_epochs = 1000
     save_on_evaluation = True

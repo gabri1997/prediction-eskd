@@ -1,0 +1,18 @@
+{
+    "Run ID": "85k6qnt4",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 4,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 26,
+        "Validation Loss": 0.09655482221492812,
+        "Best F1": 0.9142857142857143,
+        "Validation Accuracy": 0.9605262875556946,
+        "Validation Precision": 0.8888888888888888,
+        "Validation Recall": 0.9411764705882353
+    }
+}

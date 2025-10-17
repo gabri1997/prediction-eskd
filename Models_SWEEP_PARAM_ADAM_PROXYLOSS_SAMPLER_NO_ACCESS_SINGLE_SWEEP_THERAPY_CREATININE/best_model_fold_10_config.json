@@ -1,0 +1,18 @@
+{
+    "Run ID": "3ev19gn3",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 10,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 20,
+        "Validation Loss": 0.04002178611854712,
+        "Best F1": 0.8888888888888888,
+        "Validation Accuracy": 0.9466666579246521,
+        "Validation Precision": 0.8421052631578947,
+        "Validation Recall": 0.9411764705882353
+    }
+}

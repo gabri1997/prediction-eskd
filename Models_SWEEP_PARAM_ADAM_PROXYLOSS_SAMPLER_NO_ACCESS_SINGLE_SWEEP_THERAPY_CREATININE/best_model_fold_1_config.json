@@ -1,0 +1,18 @@
+{
+    "Run ID": "f3xip1qn",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 1,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 62,
+        "Validation Loss": 0.06942506461698365,
+        "Best F1": 0.9411764705882353,
+        "Validation Accuracy": 0.9736841917037964,
+        "Validation Precision": 0.9411764705882353,
+        "Validation Recall": 0.9411764705882353
+    }
+}

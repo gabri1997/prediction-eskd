@@ -1,0 +1,18 @@
+{
+    "Run ID": "gxlv2vql",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 3,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 837,
+        "Validation Loss": 0.14092435021149485,
+        "Best F1": 0.7894736842105262,
+        "Validation Accuracy": 0.8947368264198303,
+        "Validation Precision": 0.7142857142857143,
+        "Validation Recall": 0.8823529411764706
+    }
+}
