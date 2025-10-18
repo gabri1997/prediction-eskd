@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.metrics import confusion_matrix
 import os
@@ -153,6 +153,7 @@ def eval_fold(df, save_pth, fold, years=5):
     
     model.eval()
     all_preds = []
+    all_probs = []
     all_labels = []
     
     with torch.no_grad():
@@ -166,8 +167,11 @@ def eval_fold(df, save_pth, fold, years=5):
         for inputs, labels in tqdm.tqdm(loader_to_use, desc=f"Testing fold {fold}"):
             inputs, labels = inputs.to(device), labels.to(device)
             outputs = model(inputs)
-            preds = (torch.sigmoid(outputs) > 0.5).cpu().numpy()
-            all_preds.extend(preds.astype(int).flatten().tolist())
+            probs = torch.sigmoid(outputs).cpu().numpy()
+            preds = (probs > 0.5).astype(int)
+            
+            all_probs.extend(probs.flatten().tolist())
+            all_preds.extend(preds.flatten().tolist())
             all_labels.extend(labels.cpu().numpy().astype(int).flatten().tolist())
     
     accuracy = accuracy_score(all_labels, all_preds)
@@ -175,16 +179,23 @@ def eval_fold(df, save_pth, fold, years=5):
     recall = recall_score(all_labels, all_preds, zero_division=0)
     f1 = f1_score(all_labels, all_preds, zero_division=0)
     
+    # Calcolo AUC solo se ci sono entrambe le classi
+    try:
+        auc = roc_auc_score(all_labels, all_probs)
+    except ValueError as e:
+        print(f"Warning: Could not compute AUC - {e}")
+        auc = None
+    
     cm_values = confusion_matrix(all_labels, all_preds)
     cm_dict = {
         "labels": ["Negativo", "Positivo"],
         "matrix": [" - ".join(map(str, row)) for row in cm_values.tolist()]
     }
 
-    print(f"Fold {fold} - Accuracy: {accuracy:.4f}, Precision: {precision:.4f}, "
-          f"Recall: {recall:.4f}, F1: {f1:.4f}")
+    # print(f"Fold {fold} - Accuracy: {accuracy:.4f}, Precision: {precision:.4f}, "
+    #       f"Recall: {recall:.4f}, F1: {f1:.4f}, AUC: {auc:.4f if auc else 'N/A'}")
 
-    return {
+    result = {
         "Years Threshold": years,
         "Accuracy": float(accuracy),
         "Precision": float(precision),
@@ -192,6 +203,11 @@ def eval_fold(df, save_pth, fold, years=5):
         "F1 Score": float(f1),
         "Confusion Matrix": cm_dict
     }
+    
+    if auc is not None:
+        result["AUC"] = float(auc)
+    
+    return result
 
 if __name__ == "__main__":
     print("Starting testing script...")
@@ -213,7 +229,7 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        years = 5  # Default evaluation on all test data
+        years = 10  # Default evaluation on all test data
         fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:
@@ -224,7 +240,7 @@ if __name__ == "__main__":
     # Salva risultati individuali
     with open(save_res_file, 'w') as f:
         json.dump(all_results, f, indent=4)
-    print(f"\n Individual results saved to {save_res_file}")
+    print(f"\nIndividual results saved to {save_res_file}")
     
     # Calcola medie
     if all_results:
@@ -232,18 +248,22 @@ if __name__ == "__main__":
         precisions = [r["Precision"] for r in all_results.values()]
         recalls = [r["Recall"] for r in all_results.values()]
         f1s = [r["F1 Score"] for r in all_results.values()]
+        aucs = [r["AUC"] for r in all_results.values() if "AUC" in r]
         
         print(f"\n{'='*60}")
         print("AVERAGE RESULTS ACROSS FOLDS")
         print(f"{'='*60}")
 
         avg_results = {
-                "Years Threshold": years,
-                "Accuracy": f"{np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}",
-                "Precision": f"{np.mean(precisions):.4f} ± {np.std(precisions):.4f}",
-                "Recall": f"{np.mean(recalls):.4f} ± {np.std(recalls):.4f}",
-                "F1 Score": f"{np.mean(f1s):.4f} ± {np.std(f1s):.4f}"
-            }
+            "Years Threshold": years,
+            "Accuracy": f"{np.mean(accuracies):.4f} ± {np.std(accuracies):.4f}",
+            "Precision": f"{np.mean(precisions):.4f} ± {np.std(precisions):.4f}",
+            "Recall": f"{np.mean(recalls):.4f} ± {np.std(recalls):.4f}",
+            "F1 Score": f"{np.mean(f1s):.4f} ± {np.std(f1s):.4f}"
+        }
+        
+        if aucs:
+            avg_results["AUC"] = f"{np.mean(aucs):.4f} ± {np.std(aucs):.4f}"
 
         print(avg_results)
 
