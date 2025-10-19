@@ -1,11 +1,569 @@
-/var/lib/slurm/slurmd/job2645760/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
-Testing fold 1:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 1:  33%|███▎      | 1/3 [00:00<00:00,  8.79it/s]Testing fold 1: 100%|██████████| 3/3 [00:00<00:00, 22.16it/s]
-Testing fold 2:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 2: 100%|██████████| 3/3 [00:00<00:00, 29.48it/s]
-Testing fold 3:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 3: 100%|██████████| 3/3 [00:00<00:00, 29.25it/s]
-Testing fold 4:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 4: 100%|██████████| 3/3 [00:00<00:00, 31.15it/s]
-Testing fold 5:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 5: 100%|██████████| 3/3 [00:00<00:00, 28.72it/s]
-Testing fold 6:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 6: 100%|██████████| 3/3 [00:00<00:00, 28.19it/s]
-Testing fold 7:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 7: 100%|██████████| 3/3 [00:00<00:00, 30.13it/s]
-Testing fold 8:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 8: 100%|██████████| 3/3 [00:00<00:00, 29.59it/s]
-Testing fold 9:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 9: 100%|██████████| 3/3 [00:00<00:00, 28.87it/s]
-Testing fold 10:   0%|          | 0/3 [00:00<?, ?it/s]Testing fold 10: 100%|██████████| 3/3 [00:00<00:00, 29.04it/s]
+/var/lib/slurm/slurmd/job2646094/slurm_script: line 17: /usr/local/anaconda3/etc/profile.d/conda.sh: No such file or directory
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Starting wandb agent 🕵️
+2025-10-19 13:52:47,715 - wandb.wandb_agent - INFO - Running runs: []
+2025-10-19 13:52:48,050 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 13:52:48,050 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 1
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 13:52:48,109 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=1 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 13:52:53,113 - wandb.wandb_agent - INFO - Running runs: ['6umqwygl']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 6umqwygl
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_135254-6umqwygl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run spring-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/6umqwygl
+wandb: updating run metadata
+wandb: uploading history steps 11632-12003, summary, console lines 4857-5010
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▄██
+wandb:           epoch ▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▇▇▇▇▇▇██
+wandb:   learning_rate █▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▄▅▄▅▁▇▃▅▄▅▄▅▆▄█▄▄▃▅▆▆▄▆▅▆▄▅▇▅▅▆▃▃▃▄▄▃▅▄▅
+wandb:  train/f1-score ▂▄▄▃▄▄▄▃▂▅█▅▅▄▆▄▅▄▆▅▂▅▆▆▆▄▅▅▃▅▁▇▂▄▄▄▇▆▆▃
+wandb:      train/loss █▅▄▅▅▄▅▄▅▄▄▄▂▃▃▃▆▅▄▂▅▂▄▅▃▃▅▃▅▄▆▄▄▄▅▁▁▅▇▅
+wandb: train/precision ▅▄█▅██▃▆▆▇█▄▆▄▄▃█▆▅▆▃▇▆▇▆▇▃▅▇▁▅▆▆▆▄█▄▆▇▄
+wandb:    train/recall ▂▃▂▄▆▄█▁▃▃▁▄▆▂▅▅▆▄▄▂▄▇▅▆▄▃▅▄▃▃▂▄▅▄▂▂▄▃▃▅
+wandb:    val/accuracy ██▃███▃█▃█▃▆▃▃▆▃▆█▃▃▆█▁▃▃█▃███▁▃█▃▆▃▃▃█▃
+wandb:     val/auc_roc ▁█▄▄▆▄▄▃▄▅▅▄▄▄▂▄▄▄▄▄▅▅▄▄▂▄▂▅▅▅▅▄▄▅▄▂▂▄▅▃
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.84211
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.87941
+wandb:  train/f1-score 0.87227
+wandb:      train/loss 0.14189
+wandb: train/precision 0.94595
+wandb:    train/recall 0.80925
+wandb:    val/accuracy 0.92105
+wandb:     val/auc_roc 0.95813
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run spring-sweep-1 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/6umqwygl
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_135254-6umqwygl/logs
+2025-10-19 13:58:07,739 - wandb.wandb_agent - INFO - Cleaning up finished run: 6umqwygl
+2025-10-19 13:58:08,162 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 13:58:08,162 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 2
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 13:58:08,204 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=2 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 13:58:13,209 - wandb.wandb_agent - INFO - Running runs: ['oshhb3vs']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run oshhb3vs
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_135814-oshhb3vs
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run iconic-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/oshhb3vs
+wandb: updating run metadata
+wandb: uploading history steps 11621-12004, summary, console lines 4853-5011
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▂▄▆█
+wandb:           epoch ▁▁▁▂▂▂▂▂▂▃▄▄▄▅▅▅▅▅▅▅▆▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇███
+wandb:   learning_rate ███▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▄▂▄▇█▂▆▅▁▄▇█▂▅▅▄▄▅▅▅█▆▂▄▃▅▇▁▂▃▅▃▄▅▆▇▆▂▇▃
+wandb:  train/f1-score ▅▃▆▄▃▆▄█▆▃▇▅▄▁▆▄▄▄▅▄▄▄▄▁▄▁▆▁▃▄▅▁▅▃▃▃▃▄▇▄
+wandb:      train/loss █▂▂▃▂▂▂▂▃▂▁▂▂▂▂▂▁▂▂▃▃▂▂▂▂▂▂▁▂▃▂▂▂▃▂▃▂▂▂▁
+wandb: train/precision ▅▄▃▁▃▄▅█▆▂▄▅▄▄▃▃▂▁▅▄▄▁▅▁▆▅█▆▅▅▃▄▂▅▃▂▃▄▄▃
+wandb:    train/recall ▄▁▅▅▂▆▅▇▅▄▆▆▃▇▅▅▄▇▆▇▆▅▆▂▂▁▆▃▅▂▇▄▄▅▅▅▃▄█▅
+wandb:    val/accuracy ▅▁▂▂▄▅▅▅▄▄▂▅▅▄▅█▅▅▄▁▄▄▅▅▄▅▅▄▄▅▅▄▅▅▁▄▅▄▅▅
+wandb:     val/auc_roc ▃▃▃▁█▃▃▁█▃▆▆▃▆▆▁▃▆▁▃▁▆▁▃▆▁▃▁▃▃█▃▃▃▃▁▆▃▃▃
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.88889
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.9
+wandb:  train/f1-score 0.89206
+wandb:      train/loss 0.09888
+wandb: train/precision 0.92739
+wandb:    train/recall 0.85933
+wandb:    val/accuracy 0.92105
+wandb:     val/auc_roc 0.98305
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run iconic-sweep-2 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/oshhb3vs
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_135814-oshhb3vs/logs
+2025-10-19 14:03:27,848 - wandb.wandb_agent - INFO - Cleaning up finished run: oshhb3vs
+2025-10-19 14:03:28,121 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:03:28,121 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 3
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:03:28,230 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=3 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:03:33,233 - wandb.wandb_agent - INFO - Running runs: ['7vxgwlmq']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 7vxgwlmq
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_140334-7vxgwlmq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run northern-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/7vxgwlmq
+wandb: updating run metadata
+wandb: uploading history steps 11528-12001, summary, console lines 4811-5008
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁█
+wandb:           epoch ▁▁▁▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▆▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇█
+wandb:   learning_rate █▇▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▁▆█▆▅▅▆▆▄▆▄▃█▅▆▃▂▆▆▆▅▄▄▁▇▇▆▅▄▅▇█▅▆█▄▄▆▇▄
+wandb:  train/f1-score ▄▁▂▅▄▄▆▄▅▂▆▃▁▅▆▅█▆▅▄▃█▄▄▇▃▆▅▆▇▄▅▃▃▃▅▅▃▅█
+wandb:      train/loss ██▄▃▇▄▆▃▂▆▄▃▄▄▆▄▄▃▃▂▁▅▅▄▄▂▄▆▆▃▂▅▃▅▄▃▂▄▄▆
+wandb: train/precision ▁█▅▅▄▆▄▃▂▄▆▆▆▅▆▅▄▂▄▂▂▆▅▄▆▃▆▇▆▄▇▅▄▅▆▄▃▂▆▄
+wandb:    train/recall ▂▁█▁▄▆▂▅▇▆▁▄▂▄▆▅▂▂▆█▄▅▄▁▃▅▃▅▁▅▅▂▇▂▇▁▆▇▆█
+wandb:    val/accuracy ▅▅▅▅█▅▅▅▅█▅███▅▅▅▅▅██▅▅▅▅█▅█▁▅▅▅██▁▅█▅▅▅
+wandb:     val/auc_roc ▆▆▆▅▆▆▇▇▆▆▆▅▆▃▆▄▅▅█▆▁▂▄██▅▆▅██▆▅▇▄▃▆▆▆█▆
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.90909
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.89118
+wandb:  train/f1-score 0.88615
+wandb:      train/loss 0.14628
+wandb: train/precision 0.90566
+wandb:    train/recall 0.86747
+wandb:    val/accuracy 0.93421
+wandb:     val/auc_roc 0.92423
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run northern-sweep-3 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/7vxgwlmq
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_140334-7vxgwlmq/logs
+2025-10-19 14:08:53,067 - wandb.wandb_agent - INFO - Cleaning up finished run: 7vxgwlmq
+2025-10-19 14:08:53,384 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:08:53,384 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 4
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:08:53,391 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=4 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:08:58,397 - wandb.wandb_agent - INFO - Running runs: ['smmslm8i']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run smmslm8i
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_140859-smmslm8i
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run graceful-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/smmslm8i
+wandb: updating run metadata
+wandb: uploading history steps 11522-12004, summary, console lines 4811-5011
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▃▆▆█
+wandb:           epoch ▁▁▁▁▁▂▂▂▂▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇█
+wandb:   learning_rate █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▅▂▇▄▅▆▇▅▅▂▆▆▃▅▅▄▄▆▅▇▃▂▄▄▅▄█▂▅▅▅▄▆▁▃▆▇▅▆▄
+wandb:  train/f1-score ▅▄▇▆▄▄▅▆▅▄▂▆█▆▅▆▆▆▄▁▆▄▇▁▃▅▆█▂▄▆▆▆█▄▆▆▄█▃
+wandb:      train/loss █▄▄▂▄▂▄▃▄▅▄▄▅▄▄▃▆▂▃▄▄▃▄▄▆▄▄▂▄▂▅▅▅▃▁▄▄▄▃▄
+wandb: train/precision ▁▆▇▅▅▇▇▇▅▇▇▆▇▇▇███▆▆▆▆▇▇▆█▇▇▆▆▆▆▇▆▇▅▆▇▆▆
+wandb:    train/recall ▃▂▅██▅▄▂▁▆▅▂▇▄▆▃▅▂▅▅▄▅▅▅█▄▃▆▄▇▄██▄▄▆▃▃▇▅
+wandb:    val/accuracy █▁▁▁█▁█▁▁▁▁██▁███▁█▁▁█▁█▁█▁███▁██▁█▁▁██▁
+wandb:     val/auc_roc ▁▃▅█▇▅▅▅▆▅▅▅▇▅▅▅▅▅▅▆▅▅▅▅▅▅▅▅▆▅▅▆▄▅▅▅▅▃▅▅
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.91429
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.88824
+wandb:  train/f1-score 0.87742
+wandb:      train/loss 0.11705
+wandb: train/precision 0.93151
+wandb:    train/recall 0.82927
+wandb:    val/accuracy 0.90789
+wandb:     val/auc_roc 0.95015
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run graceful-sweep-4 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/smmslm8i
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_140859-smmslm8i/logs
+2025-10-19 14:14:18,068 - wandb.wandb_agent - INFO - Cleaning up finished run: smmslm8i
+2025-10-19 14:14:18,332 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:14:18,332 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 5
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:14:18,338 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=5 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:14:23,345 - wandb.wandb_agent - INFO - Running runs: ['dcpcupyl']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run dcpcupyl
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_141424-dcpcupyl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fast-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/dcpcupyl
+wandb: updating run metadata
+wandb: uploading history steps 11498-12001, summary, console lines 4800-5008
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁█
+wandb:           epoch ▁▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇██
+wandb:   learning_rate █▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▃▄▇▁▆█▃▂▃▄▆▇▇▄▅▃▄▄▆▅▃▄▆▇▇▅▂▃█▃▅▁▆▇▃▇▅▆▇█
+wandb:  train/f1-score ▁▄▄▇▆▆▄▆▇▆▇▅▅▅▅▄▅▆▄▇▅█▅▅▅▆▇▅█▇▇▄▄▄▅▅▅▇▆▅
+wandb:      train/loss ▇▆▅▃▃▆▂▁█▄▅▄▃▅▄▄▄▄▃▇▆▄▃▄▄▃▃▄▃▅▄▂▃▄▄▄▄▂▄▁
+wandb: train/precision ▆▂▆▇▇▁▆▄▆▃▄▂▆▅▂▆▄▃▃▇▆▆▆▆▇▇▇▅▂████▃▄▃▅▅█▅
+wandb:    train/recall ▁▇▇▅▇▆▇█▆▇▆▆▅▇▆▇▆█▇▇▆▅▇▇▆▅▆▆▇█▇▇▆█▇▇▇▇▆█
+wandb:    val/accuracy ▁██▁▁▁██▁█▁▁██▁▁███▁█▁██▁▁█▁███████▁▁▁▁▁
+wandb:     val/auc_roc ▇▇▇█▃▇▁█▇▅▇▆▆▃██▇▇▆█▇▇▆▆██▇▆▇▅▇▇█▇▆▇██▆▅
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.9375
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.89853
+wandb:  train/f1-score 0.89134
+wandb:      train/loss 0.12427
+wandb: train/precision 0.91883
+wandb:    train/recall 0.86544
+wandb:    val/accuracy 0.97368
+wandb:     val/auc_roc 0.99103
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run fast-sweep-5 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/dcpcupyl
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_141424-dcpcupyl/logs
+2025-10-19 14:19:43,052 - wandb.wandb_agent - INFO - Cleaning up finished run: dcpcupyl
+2025-10-19 14:19:43,371 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:19:43,372 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 6
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:19:43,379 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=6 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:19:48,385 - wandb.wandb_agent - INFO - Running runs: ['9234x62t']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 9234x62t
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_141949-9234x62t
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run neat-sweep-6
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/9234x62t
+wandb: updating run metadata
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁█
+wandb:           epoch ▁▁▁▁▁▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▆▇▇▇▇▇▇█
+wandb:   learning_rate █▄▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▃▅▃▆▅▅▂▄▅▂▆▆▇▇▂▅▅▅▄▅▅▄▆▇▅▃▄▅▅▄▄▄▆▄█▅▁▆▆▅
+wandb:  train/f1-score ▃▄▅▃▄▇▆▅▄▃▆▇▄▄▆▂▆▆█▅▆▅▄▆█▆▆▇▄▃▄▃▄▆▄▁▂▄▄▂
+wandb:      train/loss ▄▅▆▄▄▄▄▃▆█▄▄▅▅▅▄▃▁▇▇▃▇▅▃▃▇▆▄█▄▆▂▂▂▃▄▃▃▅▅
+wandb: train/precision ▃▃█▄▅▅▆▅▃▃█▃▆▅▇▇█▃▇▄▇▇▆▆▂▄▅▅▁▄▇▄▆██▄▆▄▆▅
+wandb:    train/recall ▁▅▄▆▇▆▅▅▅█▆▆▆▅▅▆▇▄▆▅▆▅▇▆▆▆▆▅▅▆▇▇▇▆▆▆▆▆▆█
+wandb:    val/accuracy ███▃▁▆█▆▆█▃█▆▆███▁▁▆█▆▁█▆▆███▆▆▆██▁▆▃█▃▆
+wandb:     val/auc_roc █▄▄▅▁▄▂▂▄▂▂▃▂▁▄▄▂▂▂▂▃▃▄▃▃▂▃▂▃▃▂▄▂▃▂▁▁▁▃▃
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.86667
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.87647
+wandb:  train/f1-score 0.87117
+wandb:      train/loss 0.13387
+wandb: train/precision 0.91318
+wandb:    train/recall 0.83284
+wandb:    val/accuracy 0.92105
+wandb:     val/auc_roc 0.91226
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run neat-sweep-6 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/9234x62t
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_141949-9234x62t/logs
+2025-10-19 14:25:08,201 - wandb.wandb_agent - INFO - Cleaning up finished run: 9234x62t
+2025-10-19 14:25:08,476 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:25:08,476 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 7
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:25:08,481 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=7 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:25:13,485 - wandb.wandb_agent - INFO - Running runs: ['6tm40vzr']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 6tm40vzr
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_142514-6tm40vzr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dry-sweep-7
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/6tm40vzr
+wandb: updating run metadata
+wandb: uploading history steps 11516-12001, summary, console lines 4806-5008
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁█
+wandb:           epoch ▁▁▁▁▂▂▂▂▂▂▂▂▃▃▃▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇████
+wandb:   learning_rate █▅▄▃▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▁▅▆▅▇█▆▃▃▅▅▅▅▄▅▅▆▅▇▅▇▇▄▅▄▃▅▃▅▅▄▄▄▅▆▇▆▅▇▃
+wandb:  train/f1-score ▂▅▄▁▄▄▆▅▅▅▂▅▅▆▃▃▃█▄▄▅▆▅▆▆▃▄▄▅▅▃▆▇▄▇▅▄▅▄▃
+wandb:      train/loss ▆▅▄▄▃▃▆▃▆▇▃█▆▅▄▄▄▆▄▃▆▇▅▃▃█▅▅▅▅▄▆▅▆█▃▄▅▄▁
+wandb: train/precision █▇▇▅▂▇▅▆▅█▇█▇▇▆▇▅▇▅▇█▇█▁▆▆▆▇▅▆▆██▇▇▄▆▅▇▇
+wandb:    train/recall ▁▄▆▆▅▅▆▅▆▇▆▇▇▆▆▆▅▆▆▇▅█▆▇▆▆▅▅▅▅▆▅▆█▆▇▇▄▆▇
+wandb:    val/accuracy █▆▁▃▃▁▁▃▃▆▁▃▃▁▁▃▃▃▃▁▃▅▁▁▁▁▁▁▃▁▁▁▁▃▁▆▁▃▁▃
+wandb:     val/auc_roc █▁▂▄▃▃▅▂▂▄▂▂▂▂▅▂▂▅▃▃▂▄▅▄▃▄▅▄▄▂▅▄▄▅▄▇▄▂▆▂
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.75
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.89574
+wandb:  train/f1-score 0.89094
+wandb:      train/loss 0.08852
+wandb: train/precision 0.91195
+wandb:    train/recall 0.87087
+wandb:    val/accuracy 0.84
+wandb:     val/auc_roc 0.84483
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run dry-sweep-7 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/6tm40vzr
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_142514-6tm40vzr/logs
+2025-10-19 14:30:33,328 - wandb.wandb_agent - INFO - Cleaning up finished run: 6tm40vzr
+2025-10-19 14:30:33,599 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:30:33,600 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 8
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:30:33,606 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=8 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:30:38,609 - wandb.wandb_agent - INFO - Running runs: ['who6zqan']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run who6zqan
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_143039-who6zqan
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eager-sweep-8
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/who6zqan
+wandb: updating run metadata
+wandb: uploading history steps 11577-12002, summary, console lines 4832-5009
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▃█
+wandb:           epoch ▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇███
+wandb:   learning_rate █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▁▃▂▆▄▅▃▆▅▅▆▃█▆▅▅▆▅▅▄▇▄▆▅▅▃▄▂▄▅▄▄▅▇▄▄▄▅▅▇
+wandb:  train/f1-score ▁▁▅▄▄▅▇▆▅█▄▇▆▄▅▅▇▅▆▄▄▅▇▇▆▇▇▄▅▆▇▆▃▇▆▆▆▅██
+wandb:      train/loss ▅▄▅▃▆▅▆▆▅▆▇██▆▁▄▄▄▆▄▄▃▃▂█▃▄▃▅▅▃▆▁▄▇▃█▇▇▁
+wandb: train/precision ▁▅▇▇▆█▇▇▇▆▇▆▇▇▇▇▅▇▇▇▇▇▆█▇▆▇▇▆▇▇▇▆▇█▇▇█▇▆
+wandb:    train/recall ▇▄▃█▆▄▄▅▄▅▅▂▆▄▅▅▅▆▅▄▆▅▆▃▆▅▅▄▅▁▆▅▅▆▃▅▆▅▄▅
+wandb:    val/accuracy ██▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
+wandb:     val/auc_roc ▅█▆▅▇▆▆▇▆▇▆▅▇▇▇█▇▁██▆▆▆▆▇▇█▇▇█▇█▆▆█▇▆▆▇▇
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.82353
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.92952
+wandb:  train/f1-score 0.92661
+wandb:      train/loss 0.07984
+wandb: train/precision 0.9619
+wandb:    train/recall 0.89381
+wandb:    val/accuracy 0.89333
+wandb:     val/auc_roc 0.87931
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run eager-sweep-8 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/who6zqan
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_143039-who6zqan/logs
+2025-10-19 14:35:58,286 - wandb.wandb_agent - INFO - Cleaning up finished run: who6zqan
+2025-10-19 14:35:58,583 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:35:58,583 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 9
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:35:58,602 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=9 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:36:03,609 - wandb.wandb_agent - INFO - Running runs: ['j3lpq71y']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_143604-j3lpq71y
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fancy-sweep-9
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/j3lpq71y
+wandb: updating run metadata
+wandb: uploading history steps 11598-12005, summary, console lines 4844-5012
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▄▆▇▇█
+wandb:           epoch ▁▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▇▇▇▇▇██
+wandb:   learning_rate █▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▆▂▃▃▄█▅▁▂█▆▇▃▃██▆▇▆▆▄▅▇▅▁▅▇▅▆▇▆▇▅▅▄▃▄▄▅▆
+wandb:  train/f1-score ▁▄▆▅▂▃▇▄▅▂▅▄▄▄▄▃▁▅▃▅▄▅▂▅▃▄▅▂▃█▄▄▄▅▄▅▃▄▃▃
+wandb:      train/loss █▄▂▃▃▂▁▁▅▃▂▂▄▂▃▃▄▆▂▂▂▂▃▃▂▃▂▂▂▃▂▄▂▂▄▃▃▃▃▃
+wandb: train/precision ▄██▅▆▅▇▄▄▁▅▅▅▂▄▃▅▇▇▆▆▇▅▇▄▇▄▂▄▃▄▂▅▂▅▅▇▆▂▇
+wandb:    train/recall ▁▁▆▂▄▆█▅▅▃▇▆▃▄▆▃▇▃▂▂▄▅█▆▃▅▄▅▄▆▄▆▇▆▄▃▃▅▂▃
+wandb:    val/accuracy ▁▅▆▅█▅▅▆▅█▅▅█▆▆▆█▆▆▆▆▆█▆▆▅▆▅▆▆▆▅▅▆▆▆▆▆█▅
+wandb:     val/auc_roc █▃▂▂▂▂▃▂▂▃▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂▁▂▂▂▂▂▂▂▂▁▂▁▂▂▂
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.875
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.88693
+wandb:  train/f1-score 0.87988
+wandb:      train/loss 0.09582
+wandb: train/precision 0.92157
+wandb:    train/recall 0.84179
+wandb:    val/accuracy 0.93333
+wandb:     val/auc_roc 0.94422
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run fancy-sweep-9 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/j3lpq71y
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_143604-j3lpq71y/logs
+2025-10-19 14:41:18,237 - wandb.wandb_agent - INFO - Cleaning up finished run: j3lpq71y
+2025-10-19 14:41:18,561 - wandb.wandb_agent - INFO - Agent received command: run
+2025-10-19 14:41:18,561 - wandb.wandb_agent - INFO - Agent starting run with config:
+	batch_size: 32
+	dropout: 0.5
+	fold: 10
+	learning_rate: 0.002
+	optimizer: adam
+2025-10-19 14:41:18,566 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python net_sweep_train_80_20_split.py --batch_size=32 --dropout=0.5 --fold=10 --learning_rate=0.002 --optimizer=adam
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/homes/grosati/.conda/envs/dsmil/lib/python3.11/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2025-10-19 14:41:23,573 - wandb.wandb_agent - INFO - Running runs: ['xmq7slhe']
+wandb: Currently logged in as: gabrielerosati97 (gabrielerosati97-universit-degli-studi-di-modena-e-reggi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run xmq7slhe
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /work/grana_far2023_fomo/ESKD/wandb/run-20251019_144124-xmq7slhe
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peachy-sweep-10
+wandb: ⭐️ View project at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: 🧹 View sweep at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/sweeps/19lhi2ua
+wandb: 🚀 View run at https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/xmq7slhe
+wandb: updating run metadata
+wandb: uploading history steps 11529-12002, summary, console lines 4812-5009
+wandb: 
+wandb: Run history:
+wandb:     best_val_f1 ▁▄█
+wandb:           epoch ▁▁▁▁▁▁▂▂▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇█
+wandb:   learning_rate █▅▃▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  train/accuracy ▅▁▅▃▅▆▇▆▆▂▄▃▆▅▂▂▄██▁▅▅▆▂█▂▆▆▂▃▁▃▄▃▇▇▂▆▁▆
+wandb:  train/f1-score ▁▇▆▆▅▅▆▇▂▃▆▅▄▇▅▄█▆▅▆█▅▅▇▄▄▆▄█▄▃▅▃▆▆▄▆▄▆▆
+wandb:      train/loss █▂▂▂▂▁▃▂▁▁▂▁▄▂▁▃▁▁▂▂▃▂▁▂▂▃▃▁▁▂▂▂▁▂▃▂▂▂▁▂
+wandb: train/precision ▅▅▅▄▅▁▄▅▅▃█▅▃▅▅▅▄▅▆▂▃▇▄▂▃▅▇▅▆▆▆▃▅▇▄▇▇▅▆▃
+wandb:    train/recall ▁▇█▆▆▆▇▅▆▆▆▆█▇▃▅▅▇▇▆▆▅▅▅▆█▆▇▆▅█▇▆▄▄▇▅▅▇▆
+wandb:    val/accuracy █▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     val/auc_roc █▆▄▂▅▂▃▃▂▂▁▂▂▂▂▂▁▁▃▁▃▃▄▂▄▃▃▄▃▃▂▄▃▄▄▃▂▃▄▅
+wandb:              +4 ...
+wandb: 
+wandb: Run summary:
+wandb:     best_val_f1 0.875
+wandb:           epoch 999
+wandb:   learning_rate 0.0
+wandb:  train/accuracy 0.88399
+wandb:  train/f1-score 0.88048
+wandb:      train/loss 0.11869
+wandb: train/precision 0.95098
+wandb:    train/recall 0.81972
+wandb:    val/accuracy 0.90667
+wandb:     val/auc_roc 0.93813
+wandb:              +4 ...
+wandb: 
+wandb: 🚀 View run peachy-sweep-10 at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/runs/xmq7slhe
+wandb: ⭐️ View project at: https://wandb.ai/gabrielerosati97-universit-degli-studi-di-modena-e-reggi/ESKD_SWEEP_PARAMS_FINAL_VALIDATION_ADAM_PROXLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251019_144124-xmq7slhe/logs
+2025-10-19 14:46:43,317 - wandb.wandb_agent - INFO - Cleaning up finished run: xmq7slhe
+2025-10-19 14:46:43,641 - wandb.wandb_agent - INFO - Agent received command: exit
+2025-10-19 14:46:43,641 - wandb.wandb_agent - INFO - Received exit command. Killing runs and quitting.
+wandb: Terminating and syncing runs. Press ctrl-c to kill.

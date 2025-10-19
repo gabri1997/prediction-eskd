@@ -1,0 +1,18 @@
+{
+    "Run ID": "lrtxii2o",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 5,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 13,
+        "Validation Loss": 0.08306897039476194,
+        "Best F1": 0.9375,
+        "Validation Accuracy": 0.9736841917037964,
+        "Validation Precision": 1.0,
+        "Validation Recall": 0.8823529411764706
+    }
+}

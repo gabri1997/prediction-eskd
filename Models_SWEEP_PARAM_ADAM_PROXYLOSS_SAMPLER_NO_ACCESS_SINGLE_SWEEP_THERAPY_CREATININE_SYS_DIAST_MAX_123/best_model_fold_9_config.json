@@ -1,0 +1,18 @@
+{
+    "Run ID": "j3lpq71y",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 9,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 888,
+        "Validation Loss": 0.11353905200958252,
+        "Best F1": 0.8749999999999999,
+        "Validation Accuracy": 0.9466666579246521,
+        "Validation Precision": 0.9333333333333333,
+        "Validation Recall": 0.8235294117647058
+    }
+}

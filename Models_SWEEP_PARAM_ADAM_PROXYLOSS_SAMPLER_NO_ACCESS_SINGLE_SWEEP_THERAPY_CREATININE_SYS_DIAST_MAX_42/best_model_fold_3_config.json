@@ -1,0 +1,18 @@
+{
+    "Run ID": "p5vgqk06",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 3,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 2,
+        "Validation Loss": 0.12102047706905164,
+        "Best F1": 0.7777777777777778,
+        "Validation Accuracy": 0.8947368264198303,
+        "Validation Precision": 0.7368421052631579,
+        "Validation Recall": 0.8235294117647058
+    }
+}

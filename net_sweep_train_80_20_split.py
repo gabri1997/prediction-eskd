@@ -230,19 +230,19 @@ class EarlyStopping:
             return False
 
 
-def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, loss_fn='proxy_auc', sampler=True):
+def train(seed, df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, loss_fn='proxy_auc', sampler=True):
 
     print("Starting training script...")
-    torch.manual_seed(42)
-    torch.cuda.manual_seed_all(42)
-    np.random.seed(42) 
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed) 
 
     X, y = preprocess_data(df)
     # Voglio stampare le colonne di X per capire cosa sto usando
     print(f"Data shape: {X.shape}, Labels shape: {y.shape}")
     
     # Stratified 80/20 split
-    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=seed)
 
     for train_idx, test_idx in sss.split(X, y):
         X_train_val, X_test = X[train_idx], X[test_idx]
@@ -267,7 +267,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
     print(f"Training class distribution: {dict(zip(unique_train, counts_train))}")
     print(f"Test class distribution: {dict(zip(unique_test, counts_test))}")
 
-    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+    kf = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
     splits = list(kf.split(X_train_val, y_train_val))
     print(f"Numero di split: {len(splits)}")
     #  Dal file sweep.py prendo il valore del fold che eseguo
@@ -471,6 +471,7 @@ def train(df, num_epochs, save_pth, save_on_evaluation=False, early_stop=None, l
 
 if __name__ == "__main__":
   
+    seed = 123
     print("Starting training script...")
     # STEPS:
     """ 1. Split train/val
@@ -482,9 +483,9 @@ if __name__ == "__main__":
             - Each 5 epochs: check early stopping
     """
     early_stop = None
-    data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE/'
+    data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAssess.xlsx'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/'
     df = pd.read_excel(data_path)
     num_epochs = 1000
     save_on_evaluation = True
-    train(df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc', sampler=True)
+    train(seed, df, num_epochs, save_pth, save_on_evaluation, early_stop, loss_fn='proxy_auc', sampler=True)

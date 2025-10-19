@@ -1,0 +1,18 @@
+{
+    "Run ID": "37jbppk1",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 3,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 10,
+        "Validation Loss": 0.15170324162433022,
+        "Best F1": 0.7647058823529412,
+        "Validation Accuracy": 0.8947368264198303,
+        "Validation Precision": 0.7647058823529411,
+        "Validation Recall": 0.7647058823529411
+    }
+}

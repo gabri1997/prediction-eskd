@@ -26,7 +26,7 @@ In Greek file have been added the column dateAssess that is the difference in da
 import pandas as pd
 import os
 
-def clean_and_save_data(greek_path, valiga_path, out_dir):
+def clean_and_save_data(greek_path, valiga_path, out_dir, row_to_keep='max'):
     """
     Funzione per pulire i dataset Greek e Valiga e salvare i file intermedi e finali.
     """
@@ -165,9 +165,15 @@ def clean_and_save_data(greek_path, valiga_path, out_dir):
     combined['Gender'] = combined['Gender'].map({1: 'M', 2: 'F', 'M': 'M', 'F': 'F'})
 
     # Salvataggio finale (un solo record per codice con max dateAssess)
-    final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
-    final.to_excel(os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx'), index=False)
-    print("File salvato come final_cleaned_maxDateAccess.xlsx")
+
+    if row_to_keep == 'max':
+        final = combined.loc[combined.groupby('Code')['dateAssess'].idxmax()].reset_index(drop=True)
+        final.to_excel(os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx'), index=False)
+        print("File salvato come final_cleaned_maxDateAccess.xlsx")
+    else:   
+        final = combined.loc[combined.groupby('Code')['dateAssess'].idxmin()].reset_index(drop=True)
+        final.to_excel(os.path.join(out_dir, 'final_cleaned_minDateAccess.xlsx'), index=False)
+        print("File salvato come final_cleaned_minDateAccess.xlsx")
 
     return os.path.join(out_dir, 'final_cleaned_maxDateAccess.xlsx')
 
@@ -189,8 +195,9 @@ if __name__ == "__main__":
     valiga_path = '/work/grana_far2023_fomo/ESKD/Data/valiga.xlsx' 
     out_greek_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_greek.xlsx' 
     out_valiga_path = '/work/grana_far2023_fomo/ESKD/Data/cleaned_valiga.xlsx'
-    final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data')
-    final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
+    row_to_keep = 'min'  # 'max' or 'min' for dateAssess selection
+    final_file = clean_and_save_data(greek_path, valiga_path, '/work/grana_far2023_fomo/ESKD/Data', row_to_keep)
+    final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAssess.xlsx'
     # analyze_final_file(final_file, years_threshold=5)
     # analyze_final_file(final_file, years_threshold=10)
     # # Voglio aprire il file finale e verificare di che tipo è il dato dateAssess

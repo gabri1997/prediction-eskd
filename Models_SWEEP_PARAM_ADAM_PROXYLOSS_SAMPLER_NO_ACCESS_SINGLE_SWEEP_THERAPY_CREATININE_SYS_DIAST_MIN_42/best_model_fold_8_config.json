@@ -1,0 +1,18 @@
+{
+    "Run ID": "8011ayuq",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 8,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 9,
+        "Validation Loss": 0.4304573497424523,
+        "Best F1": 0.8125,
+        "Validation Accuracy": 0.9200000166893005,
+        "Validation Precision": 0.8666666666666667,
+        "Validation Recall": 0.7647058823529411
+    }
+}

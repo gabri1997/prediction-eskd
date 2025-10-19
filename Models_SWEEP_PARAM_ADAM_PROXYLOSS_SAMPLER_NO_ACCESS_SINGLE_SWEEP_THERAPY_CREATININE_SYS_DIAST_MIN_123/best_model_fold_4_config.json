@@ -1,0 +1,18 @@
+{
+    "Run ID": "q1qsa3r1",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 4,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 15,
+        "Validation Loss": 0.27240126632080464,
+        "Best F1": 0.8823529411764706,
+        "Validation Accuracy": 0.9473684430122375,
+        "Validation Precision": 0.8823529411764706,
+        "Validation Recall": 0.8823529411764706
+    }
+}

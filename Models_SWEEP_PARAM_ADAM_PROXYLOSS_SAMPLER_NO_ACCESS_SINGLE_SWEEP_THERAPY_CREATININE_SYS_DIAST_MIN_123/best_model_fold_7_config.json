@@ -1,0 +1,18 @@
+{
+    "Run ID": "o6u23wff",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 7,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 14,
+        "Validation Loss": 0.37097494999567665,
+        "Best F1": 0.7272727272727272,
+        "Validation Accuracy": 0.8799999952316284,
+        "Validation Precision": 0.75,
+        "Validation Recall": 0.7058823529411765
+    }
+}

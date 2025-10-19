@@ -1,0 +1,18 @@
+{
+    "Run ID": "u92vrf5i",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 5,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 7,
+        "Validation Loss": 0.10547056754952983,
+        "Best F1": 0.8749999999999999,
+        "Validation Accuracy": 0.9473684430122375,
+        "Validation Precision": 0.9333333333333333,
+        "Validation Recall": 0.8235294117647058
+    }
+}

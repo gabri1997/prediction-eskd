@@ -1,0 +1,18 @@
+{
+    "Run ID": "rg2pwu7f",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 1,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 59,
+        "Validation Loss": 0.16076673802576566,
+        "Best F1": 0.8108108108108107,
+        "Validation Accuracy": 0.9078947305679321,
+        "Validation Precision": 0.75,
+        "Validation Recall": 0.8823529411764706
+    }
+}

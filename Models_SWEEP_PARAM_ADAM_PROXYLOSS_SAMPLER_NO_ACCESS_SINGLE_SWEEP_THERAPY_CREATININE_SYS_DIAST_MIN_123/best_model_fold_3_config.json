@@ -1,0 +1,18 @@
+{
+    "Run ID": "sgzsglos",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 3,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 1,
+        "Validation Loss": 0.09456309911451842,
+        "Best F1": 0.787878787878788,
+        "Validation Accuracy": 0.9078947305679321,
+        "Validation Precision": 0.8125,
+        "Validation Recall": 0.7647058823529411
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "Run ID": "bsz217g8",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 2,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 167,
+        "Validation Loss": 0.1573712936308431,
+        "Best F1": 0.7999999999999999,
+        "Validation Accuracy": 0.9078947305679321,
+        "Validation Precision": 0.7777777777777778,
+        "Validation Recall": 0.8235294117647058
+    }
+}

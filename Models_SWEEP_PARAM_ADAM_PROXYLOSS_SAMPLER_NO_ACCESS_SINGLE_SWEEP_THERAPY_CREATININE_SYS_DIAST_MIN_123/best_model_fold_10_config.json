@@ -1,0 +1,18 @@
+{
+    "Run ID": "obv10qaw",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 10,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 8,
+        "Validation Loss": 0.1871563816567262,
+        "Best F1": 0.8484848484848485,
+        "Validation Accuracy": 0.9333333373069763,
+        "Validation Precision": 0.875,
+        "Validation Recall": 0.8235294117647058
+    }
+}

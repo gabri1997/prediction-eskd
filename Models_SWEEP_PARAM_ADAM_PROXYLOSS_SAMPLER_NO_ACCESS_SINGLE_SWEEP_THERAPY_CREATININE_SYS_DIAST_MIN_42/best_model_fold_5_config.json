@@ -1,0 +1,18 @@
+{
+    "Run ID": "lootfgtz",
+    "Config Parameters": {
+        "batch_size": 32,
+        "dropout": 0.5,
+        "fold": 5,
+        "learning_rate": 0.002,
+        "optimizer": "adam"
+    },
+    "Best Model Metrics": {
+        "Epoch": 10,
+        "Validation Loss": 0.13535102966584658,
+        "Best F1": 0.8571428571428571,
+        "Validation Accuracy": 0.9342105388641357,
+        "Validation Precision": 0.8333333333333334,
+        "Validation Recall": 0.8823529411764706
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "Mean_MAE": 4.108912467956543,
+    "Std_MAE": 0.9260940551757812,
+    "Mean_RMSE": 5.216545104980469,
+    "Std_RMSE": 1.323567509651184,
+    "Mean_R2": -0.3702055375083126,
+    "Std_R2": 0.4514609056106957,
+    "Fold_Result_Files": [
+        "best_model_fold_1_results.json",
+        "best_model_fold_2_results.json",
+        "best_model_fold_3_results.json",
+        "best_model_fold_4_results.json",
+        "best_model_fold_5_results.json",
+        "best_model_fold_6_results.json",
+        "best_model_fold_7_results.json",
+        "best_model_fold_8_results.json",
+        "best_model_fold_9_results.json",
+        "best_model_fold_10_results.json"
+    ]
+}

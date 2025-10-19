@@ -1,0 +1,16 @@
+{
+    "Fold": 3,
+    "Best_Validation": {
+        "MAE": 4.431293487548828,
+        "RMSE": 5.280550003051758,
+        "R2": -0.08704349073599027,
+        "Epoch": 15
+    },
+    "Training_Settings": {
+        "Epochs_Run": 35,
+        "Learning_Rate": 0.001,
+        "Batch_Size": 32,
+        "Dropout": 0.3,
+        "Loss_Function": "mse"
+    }
+}

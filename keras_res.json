@@ -1,0 +1,22 @@
+{
+  "keras_max_123": {
+    "Full_Test":  {"AUC": 0.963, "Precision": 0.740, "Recall": 0.860, "F1": 0.796, "Accuracy": 0.899},
+    "≥5y_Test":   {"AUC": 0.955, "Precision": 0.769, "Recall": 0.833, "F1": 0.800, "Accuracy": 0.916},
+    "≥10y_Test":  {"AUC": 0.975, "Precision": 0.571, "Recall": 0.667, "F1": 0.615, "Accuracy": 0.906}
+  },
+  "keras_min_123": {
+    "Full_Test":  {"AUC": 0.938, "Precision": 0.667, "Recall": 0.837, "F1": 0.742, "Accuracy": 0.868},
+    "≥5y_Test":   {"AUC": 0.935, "Precision": 0.633, "Recall": 0.792, "F1": 0.704, "Accuracy": 0.866},
+    "≥10y_Test":  {"AUC": 0.901, "Precision": 0.500, "Recall": 0.667, "F1": 0.571, "Accuracy": 0.887}
+  },
+  "keras_max_42": {
+    "Full_Test":  {"AUC": 0.896, "Precision": 0.702, "Recall": 0.767, "F1": 0.733, "Accuracy": 0.873},
+    "≥5y_Test":   {"AUC": 0.900, "Precision": 0.656, "Recall": 0.808, "F1": 0.724, "Accuracy": 0.884},
+    "≥10y_Test":  {"AUC": 0.871, "Precision": 0.571, "Recall": 0.800, "F1": 0.667, "Accuracy": 0.879}
+  },
+  "keras_min_42": {
+    "Full_Test":  {"AUC": 0.897, "Precision": 0.648, "Recall": 0.814, "F1": 0.722, "Accuracy": 0.857},
+    "≥5y_Test":   {"AUC": 0.903, "Precision": 0.600, "Recall": 0.808, "F1": 0.689, "Accuracy": 0.862},
+    "≥10y_Test":  {"AUC": 0.871, "Precision": 0.438, "Recall": 0.700, "F1": 0.538, "Accuracy": 0.818}
+  }
+}

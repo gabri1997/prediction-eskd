@@ -211,12 +211,14 @@ def eval_fold(df, save_pth, fold, years=5):
 
 if __name__ == "__main__":
     print("Starting testing script...")
-    torch.manual_seed(42)
-    torch.cuda.manual_seed_all(42)
-    np.random.seed(42)
+    torch.manual_seed(123)
+    torch.cuda.manual_seed_all(123)
+    np.random.seed(123)
     
-    data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAccess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE/'
+    # Se vuoi usare il dataset in cui prendo la prima visita metti minDateAssess nel path, altrimenti metti maxDateAssess per prendere l'ultima visita
+    # Di conseguenza cambia MAX e MIN nel save_pth per distinguere i due esperimenti
+    data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_minDateAssess.xlsx'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MIN_123/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)
@@ -229,7 +231,7 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        years = 10  # Default evaluation on all test data
+        years = 0  # Default evaluation on all test data
         fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:

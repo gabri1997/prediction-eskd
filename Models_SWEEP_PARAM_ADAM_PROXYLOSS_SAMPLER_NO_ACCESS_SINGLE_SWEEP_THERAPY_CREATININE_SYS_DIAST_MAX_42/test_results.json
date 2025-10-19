@@ -1,0 +1,182 @@
+{
+    "Fold 1": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8181818181818182,
+        "Precision": 0.4375,
+        "Recall": 0.7,
+        "F1 Score": 0.5384615384615384,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "47 - 9",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8571428571428572
+    },
+    "Fold 2": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8636363636363636,
+        "Precision": 0.5454545454545454,
+        "Recall": 0.6,
+        "F1 Score": 0.5714285714285713,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "51 - 5",
+                "4 - 6"
+            ]
+        },
+        "AUC": 0.8678571428571428
+    },
+    "Fold 3": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8787878787878788,
+        "Precision": 0.6,
+        "Recall": 0.6,
+        "F1 Score": 0.6,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "52 - 4",
+                "4 - 6"
+            ]
+        },
+        "AUC": 0.8785714285714286
+    },
+    "Fold 4": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8939393939393939,
+        "Precision": 0.6153846153846154,
+        "Recall": 0.8,
+        "F1 Score": 0.6956521739130435,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "51 - 5",
+                "2 - 8"
+            ]
+        },
+        "AUC": 0.9142857142857143
+    },
+    "Fold 5": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8636363636363636,
+        "Precision": 0.5384615384615384,
+        "Recall": 0.7,
+        "F1 Score": 0.608695652173913,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "50 - 6",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8892857142857143
+    },
+    "Fold 6": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8787878787878788,
+        "Precision": 0.5833333333333334,
+        "Recall": 0.7,
+        "F1 Score": 0.6363636363636365,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "51 - 5",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8678571428571429
+    },
+    "Fold 7": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8636363636363636,
+        "Precision": 0.5333333333333333,
+        "Recall": 0.8,
+        "F1 Score": 0.64,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "49 - 7",
+                "2 - 8"
+            ]
+        },
+        "AUC": 0.8696428571428572
+    },
+    "Fold 8": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8787878787878788,
+        "Precision": 0.5833333333333334,
+        "Recall": 0.7,
+        "F1 Score": 0.6363636363636365,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "51 - 5",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8964285714285715
+    },
+    "Fold 9": {
+        "Years Threshold": 10,
+        "Accuracy": 0.9090909090909091,
+        "Precision": 0.7,
+        "Recall": 0.7,
+        "F1 Score": 0.7,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "53 - 3",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8946428571428572
+    },
+    "Fold 10": {
+        "Years Threshold": 10,
+        "Accuracy": 0.8939393939393939,
+        "Precision": 0.6363636363636364,
+        "Recall": 0.7,
+        "F1 Score": 0.6666666666666666,
+        "Confusion Matrix": {
+            "labels": [
+                "Negativo",
+                "Positivo"
+            ],
+            "matrix": [
+                "52 - 4",
+                "3 - 7"
+            ]
+        },
+        "AUC": 0.8625
+    }
+}
