@@ -1,0 +1,16 @@
+keras max 123 - 
+Full Test: AUC=0.963, Prec=0.740, Rec=0.860, F1=0.796, Acc=0.899
+≥5y Test: AUC=0.955, Prec=0.769, Rec=0.833, F1=0.800, Acc=0.916
+≥10y Test: AUC=0.975, Prec=0.571, Rec=0.667, F1=0.615, Acc=0.906
+Kears min 123
+Full Test: AUC=0.938, Prec=0.667, Rec=0.837, F1=0.742, Acc=0.868
+≥5y Test: AUC=0.935, Prec=0.633, Rec=0.792, F1=0.704, Acc=0.866
+≥10y Test: AUC=0.901, Prec=0.500, Rec=0.667, F1=0.571, Acc=0.887
+keras max 42 -
+Full Test: AUC=0.896, Prec=0.702, Rec=0.767, F1=0.733, Acc=0.873
+≥5y Test: AUC=0.900, Prec=0.656, Rec=0.808, F1=0.724, Acc=0.884
+≥10y Test: AUC=0.871, Prec=0.571, Rec=0.800, F1=0.667, Acc=0.879
+keras min 42
+Full Test: AUC=0.897, Prec=0.648, Rec=0.814, F1=0.722, Acc=0.857
+≥5y Test: AUC=0.903, Prec=0.600, Rec=0.808, F1=0.689, Acc=0.862
+≥10y Test: AUC=0.871, Prec=0.438, Rec=0.700, F1=0.538, Acc=0.818

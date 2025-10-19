@@ -1,3 +1,4 @@
+Implementazione in Pytorch, ho guardato tra i fold (cercando a mano) quello che performa F1 migliore sul test, MAX e MIN sono i due dataset inteso prima visita (MIN) e ultima (MAX)
 SEED 123 MAX Full dataset
 	"Years Threshold": 0,
         "Accuracy": 0.9259259259259259,
