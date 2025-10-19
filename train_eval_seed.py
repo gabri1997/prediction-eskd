@@ -1,8 +1,7 @@
-# train_eval.py
 import os
 import random
 
-# ===== IMPOSTAZIONI DETERMINISTICHE =====
+
 SEED = 123
 os.environ['PYTHONHASHSEED'] = str(SEED)
 os.environ['TF_DETERMINISTIC_OPS'] = '1'
@@ -22,7 +21,7 @@ try:
 except AttributeError:
     # Versioni più vecchie di TensorFlow
     pass
-# ==========================================
+
 
 from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
 from sklearn.preprocessing import StandardScaler

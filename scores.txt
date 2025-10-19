@@ -1,0 +1,85 @@
+SEED 123 MAX Full dataset
+	"Years Threshold": 0,
+        "Accuracy": 0.9259259259259259,
+        "Precision": 0.8372093023255814,
+        "Recall": 0.8372093023255814,
+        "F1 Score": 0.8372093023255814,
+ 	"AUC": 0.963204842306467
+SEED 123 MAX 5 Years
+	"Years Threshold": 5,
+        "Accuracy": 0.9495798319327731,
+        "Precision": 0.95,
+        "Recall": 0.7916666666666666,
+        "F1 Score": 0.8636363636363635,
+	"AUC": 0.9605263157894737
+SEED 123 MAX 10 Years
+ 	"Years Threshold": 10,
+        "Accuracy": 0.9433962264150944,
+        "Precision": 0.7142857142857143,
+        "Recall": 0.8333333333333334,
+        "F1 Score": 0.7692307692307692,
+	"AUC": 0.9893617021276596
+SEED 123 MIN Full dataset
+	"Years Threshold": 0,
+        "Accuracy": 0.8994708994708994,
+        "Precision": 0.7307692307692307,
+        "Recall": 0.8837209302325582,
+        "F1 Score": 0.8,
+	"AUC": 0.9378783051927365
+SEED 123 MIN 5 years
+	"Years Threshold": 5,
+        "Accuracy": 0.9159663865546218,
+        "Precision": 0.7692307692307693,
+        "Recall": 0.8333333333333334,
+        "F1 Score": 0.8,
+	"AUC": 0.9596491228070174
+SEED 123 MIN 10 years
+	"Years Threshold": 10,
+        "Accuracy": 0.9433962264150944,
+        "Precision": 0.7142857142857143,
+        "Recall": 0.8333333333333334,
+        "F1 Score": 0.7692307692307692,
+	"AUC": 0.8829787234042553
+SEED 42 MIN Full dataset
+	"Years Threshold": 0,
+        "Accuracy": 0.8783068783068783,
+        "Precision": 0.7083333333333334,
+        "Recall": 0.7906976744186046,
+        "F1 Score": 0.7472527472527473,
+	"AUC": 0.9893617021276596
+SEED 42 MIN 5 years
+	"Years Threshold": 5,
+        "Accuracy": 0.8985507246376812,
+        "Precision": 0.7307692307692307,
+        "Recall": 0.7307692307692307,
+        "F1 Score": 0.7307692307692306,
+	"AUC": 0.9059065934065933
+SEED 42 MIN 10 years
+	"Years Threshold": 10,
+        "Accuracy": 0.8787878787878788,
+        "Precision": 0.5833333333333334,
+        "Recall": 0.7,
+        "F1 Score": 0.6363636363636365,
+	"AUC": 0.8660714285714287
+SEED 42 MAX Full dataset
+	"Years Threshold": 0,
+        "Accuracy": 0.8994708994708994,
+        "Precision": 0.7857142857142857,
+        "Recall": 0.7674418604651163,
+        "F1 Score": 0.7764705882352941,
+	"AUC": 0.9184453647658489
+SEED 42 MAX 5 years
+	"Years Threshold": 5,
+        "Accuracy": 0.9202898550724637,
+        "Precision": 0.7777777777777778,
+        "Recall": 0.8076923076923077,
+        "F1 Score": 0.7924528301886792,
+	"AUC": 0.9320054945054945
+SEED 42 MAX 10 years
+	"Years Threshold": 10,
+        "Accuracy": 0.9090909090909091,
+        "Precision": 0.7,
+        "Recall": 0.7,
+        "F1 Score": 0.7,
+	"AUC": 0.8946428571428572
+

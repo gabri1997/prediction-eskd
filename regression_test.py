@@ -80,7 +80,7 @@ def preprocess_data(df, target_column='TimeToESKD_years'):
 # Generazione test split (uguale al train) 
 def generate_test_split(df, scaler):
     X, y = preprocess_data(df)
-    sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=123)
     for _, test_idx in sss.split(X, y):
         X_test, y_test = X[test_idx], y[test_idx]
 
@@ -129,11 +129,11 @@ def eval_fold(df, save_pth, fold):
 if __name__ == "__main__":
     print("Starting TIME-TO-ESKD regression evaluation...")
 
-    torch.manual_seed(42)
-    np.random.seed(42)
+    torch.manual_seed(123)
+    np.random.seed(123)
 
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_minDateAssess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_MINDATA_REGRESSION_TIME_TO_ESKD/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_MINDATA_REGRESSION_TIME_TO_ESKD_MIN_123/'
     save_res_file = os.path.join(save_pth, 'test_results_regression.json')
 
     df = pd.read_excel(data_path)

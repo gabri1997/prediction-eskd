@@ -114,12 +114,12 @@ class EarlyStopping:
 
 def train(df, num_epochs, save_pth, loss_fn='mse'):
     print("Starting 10-FOLD training for TIME-TO-ESKD regression...")
-    torch.manual_seed(42)
-    np.random.seed(42)
+    torch.manual_seed(123)
+    np.random.seed(123)
 
     X, y = preprocess_data(df)
 
-    sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    sss = ShuffleSplit(n_splits=1, test_size=0.2, random_state=123)
     for train_idx, test_idx in sss.split(X, y):
         X_train_val, y_train_val = X[train_idx], y[train_idx]
 
@@ -254,7 +254,7 @@ def train(df, num_epochs, save_pth, loss_fn='mse'):
 if __name__ == "__main__":
     print("Starting TIME-TO-ESKD regression training...")
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_minDateAssess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_MINDATA_REGRESSION_TIME_TO_ESKD/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_MINDATA_REGRESSION_TIME_TO_ESKD_MIN_123/'
     os.makedirs(save_pth, exist_ok=True)
 
     df = pd.read_excel(data_path)
