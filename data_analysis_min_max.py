@@ -254,7 +254,7 @@ def analyze_final_file(final_file, years_threshold=5):
     """
     final = pd.read_excel(final_file, engine='openpyxl')
     threshold_days = years_threshold * 365
-    subset = final[final['dateAssess'] > threshold_days]
+    subset = final[final['dateAssess'] >= threshold_days]
     eskd_count = subset['Eskd'].sum()
     print(f"Numero di pazienti con ESKD e dateAssess > {years_threshold} anni: {eskd_count}")
     return eskd_count
@@ -268,15 +268,20 @@ if __name__ == "__main__":
     # IMPORTANTE: Scegli 'min' per BASELINE o 'max' per LAST
     row_to_keep = 'min'  # 'min' = BASELINE (raccomandato per predizione), 'max' = LAST
     
-    final_file = clean_and_save_data(greek_path, valiga_path, 
-                                      '/work/grana_far2023_fomo/ESKD/Data', 
-                                      row_to_keep)
+    # final_file = clean_and_save_data(greek_path, valiga_path, 
+    #                                   '/work/grana_far2023_fomo/ESKD/Data', 
+    #                                   row_to_keep)
     
+
+    # final_file = os.path.join('/work/grana_far2023_fomo/ESKD/Data',
+    #                           'final_cleaned_minDateAccess.xlsx' if row_to_keep == 'min' else
+    #                           'final_cleaned_maxDateAccess.xlsx')
+    final_file = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_minDateAssess.xlsx'
     # Analisi opzionale
-    # analyze_final_file(final_file, years_threshold=5)
-    # analyze_final_file(final_file, years_threshold=10)
+    analyze_final_file(final_file, years_threshold=5)
+    analyze_final_file(final_file, years_threshold=10)
     
-    # # Verifica dati
+    # Verifica dati
     # df = pd.read_excel(final_file, engine='openpyxl')
     # print(f"\nColonne finali: {list(df.columns)}")
     # print(f"\nPrime righe:\n{df.head()}")

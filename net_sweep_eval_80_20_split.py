@@ -231,7 +231,7 @@ if __name__ == "__main__":
         print(f"\n{'='*60}")
         print(f"Evaluating Fold {fold}/{n_folds}")
         print(f"{'='*60}")
-        years = 10 # Default evaluation on all test data
+        years = 0 # Default evaluation on all test data
         fold_results = eval_fold(df, save_pth, fold, years)
         
         if fold_results is not None:
