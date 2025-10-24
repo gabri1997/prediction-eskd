@@ -49,6 +49,14 @@ def preprocess_data(df):
     # Creo una nuova colonna 'Therapy' che è 1 se almeno una delle tre colonne è 1, altrimenti 0
     df['Therapy'] = df[['Antihypertensive', 'Immunosuppressants', 'FishOil']].max(axis=1)
     # Ora posso rimuovere le tre colonne originali
+    cols_used = [c for c in df.columns if c not in ['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']]
+    print("\n==============================")
+    print("🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:")
+    for i, col in enumerate(cols_used):
+        print(f"{i+1:2d}. {col}")
+    print("==============================\n")
+
+    X = df[cols_used].values
     X = df.drop(columns=['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']).values
     y = df['Eskd'].values
 
@@ -116,84 +124,102 @@ def generate_splits(df, scaler, data, fold):
     return test_loader, test_loader_5Y, test_loader_10Y, X_test_scaled, y_test, X_test_scaled_5Y, y_test_5Y, X_test_scaled_10Y, y_test_10Y, dropout
 
 def eval_fold(df, save_pth, fold, years=5):
-    
-    # Carica lo scaler per questo fold
+    # Carica scaler e config
     scaler_file = os.path.join(save_pth, f"scaler_fold_{fold}.pkl")
     if not os.path.exists(scaler_file):
         print(f"Scaler file not found: {scaler_file}")
         return None
-    
     scaler = joblib.load(scaler_file)
 
-    # Carica configurazione del modello
     config_file = os.path.join(save_pth, f'best_model_fold_{fold}_config.json')
     if not os.path.exists(config_file):
         print(f"Config file not found: {config_file}")
         return None
-    
     with open(config_file, 'r') as f:
         data = json.load(f)
-    
-    # Questa funzione va chiamata per ogni fold perchè ciascuno ha il suo scaler e bisonga trasformate il test set con quello
+
+    # Ottieni split e dati
     test_loader, test_loader_5Y, test_loader_10Y, X_test_scaled, y_test, X_test_scaled_5Y, y_test_5Y, X_test_scaled_10Y, y_test_10Y, dropout = generate_splits(df, scaler, data, fold)
+
+    # Colonne usate (servono per ricostruire il JSON leggibile)
+    cols_used = [c for c in df.columns if c not in ['Eskd', 'Code', 'dateAssess', 'Antihypertensive', 'Immunosuppressants', 'FishOil']]
 
     # Carica modello
     model = MySimpleBinaryNet(input_size=X_test_scaled.shape[1], dropout=dropout)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
-    
     model_path = os.path.join(save_pth, f'best_model_fold_{fold}.pth')
-    if not os.path.exists(model_path):
-        print(f"Model file not found: {model_path}")
-        return None
-    
     model.load_state_dict(torch.load(model_path, map_location=device))
-    print(f"Loaded model for fold {fold}")
-    print(f"First layer weights (sample): {model.layers[0].weight[0][:5]}")
-    
     model.eval()
-    all_preds = []
-    all_probs = []
-    all_labels = []
-    
+
+    all_preds, all_probs, all_labels = [], [], []
+    positive_samples, negative_samples = [], []
+
+    # Ricreo anche i valori non scalati
+    X_unscaled = scaler.inverse_transform(X_test_scaled)
+
     with torch.no_grad():
         loader_to_use = test_loader
-        if years == 5:
-            print("Evaluating on test set with dateAssess > 5 years")
-            loader_to_use = test_loader_5Y
-        elif years == 10:
-            print("Evaluating on test set with dateAssess > 10 years")
-            loader_to_use = test_loader_10Y
-        for inputs, labels in tqdm.tqdm(loader_to_use, desc=f"Testing fold {fold}"):
+        for batch_idx, (inputs, labels) in enumerate(tqdm.tqdm(loader_to_use, desc=f"Testing fold {fold}")):
             inputs, labels = inputs.to(device), labels.to(device)
             outputs = model(inputs)
-            probs = torch.sigmoid(outputs).cpu().numpy()
+            probs = torch.sigmoid(outputs).cpu().numpy().flatten()
             preds = (probs > 0.5).astype(int)
-            
-            all_probs.extend(probs.flatten().tolist())
-            all_preds.extend(preds.flatten().tolist())
+
+            all_probs.extend(probs.tolist())
+            all_preds.extend(preds.tolist())
             all_labels.extend(labels.cpu().numpy().astype(int).flatten().tolist())
-    
+
+            # Estrai feature originali e scalate
+            inputs_scaled = inputs.cpu().numpy()
+            batch_start = batch_idx * loader_to_use.batch_size
+            batch_end = batch_start + len(inputs_scaled)
+            inputs_unscaled = X_unscaled[batch_start:batch_end]
+
+            for i in range(len(preds)):
+                sample_scaled = {col: float(inputs_scaled[i][j]) for j, col in enumerate(cols_used)}
+                sample_unscaled = {col: float(inputs_unscaled[i][j]) for j, col in enumerate(cols_used)}
+
+                sample_entry = {
+                    "features_scaled": sample_scaled,
+                    "features_original": sample_unscaled,
+                    "probability": float(probs[i]),
+                    "prediction": int(preds[i])
+                }
+
+                if preds[i] == 1:
+                    positive_samples.append(sample_entry)
+                else:
+                    negative_samples.append(sample_entry)
+
+    # === Salva solo per il fold 8 ===
+    if fold == 8:
+        pos_path = os.path.join(save_pth, f"fold_{fold}_positive_features_full.json")
+        neg_path = os.path.join(save_pth, f"fold_{fold}_negative_features_full.json")
+
+        with open(pos_path, "w") as f:
+            json.dump(positive_samples, f, indent=4)
+        with open(neg_path, "w") as f:
+            json.dump(negative_samples, f, indent=4)
+
+        print(f"Salvati: {pos_path} e {neg_path}")
+
+    # === METRICHE ===
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, zero_division=0)
     recall = recall_score(all_labels, all_preds, zero_division=0)
     f1 = f1_score(all_labels, all_preds, zero_division=0)
-    
-    # Calcolo AUC solo se ci sono entrambe le classi
+    auc = None
     try:
         auc = roc_auc_score(all_labels, all_probs)
-    except ValueError as e:
-        print(f"Warning: Could not compute AUC - {e}")
-        auc = None
-    
+    except ValueError:
+        pass
+
     cm_values = confusion_matrix(all_labels, all_preds)
     cm_dict = {
         "labels": ["Negativo", "Positivo"],
         "matrix": [" - ".join(map(str, row)) for row in cm_values.tolist()]
     }
-
-    # print(f"Fold {fold} - Accuracy: {accuracy:.4f}, Precision: {precision:.4f}, "
-    #       f"Recall: {recall:.4f}, F1: {f1:.4f}, AUC: {auc:.4f if auc else 'N/A'}")
 
     result = {
         "Years Threshold": years,
@@ -201,13 +227,12 @@ def eval_fold(df, save_pth, fold, years=5):
         "Precision": float(precision),
         "Recall": float(recall),
         "F1 Score": float(f1),
-        "Confusion Matrix": cm_dict
+        "Confusion Matrix": cm_dict,
+        "AUC": float(auc) if auc is not None else None
     }
-    
-    if auc is not None:
-        result["AUC"] = float(auc)
-    
+
     return result
+
 
 if __name__ == "__main__":
     print("Starting testing script...")
@@ -218,7 +243,7 @@ if __name__ == "__main__":
     # Se vuoi usare il dataset in cui prendo la prima visita metti minDateAssess nel path, altrimenti metti maxDateAssess per prendere l'ultima visita
     # Di conseguenza cambia MAX e MIN nel save_pth per distinguere i due esperimenti
     data_path = '/work/grana_far2023_fomo/ESKD/Data/final_cleaned_maxDateAssess.xlsx'
-    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_42/'
+    save_pth = '/work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/'
     save_res_file = os.path.join(save_pth, 'test_results.json')
     
     df = pd.read_excel(data_path)

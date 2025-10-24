@@ -1,155 +1,286 @@
-Job iniziato su carabbaggio
-Data e ora: Mon Oct 20 14:21:01 CEST 2025
-GPU disponibile: NVIDIA GeForce GTX 1080 Ti
+Job iniziato su pippobaudo
+Data e ora: Tue Oct 21 18:09:37 CEST 2025
+GPU disponibile: NVIDIA GeForce RTX 2080 Ti
 Starting testing script...
 
 ============================================================
 Evaluating Fold 1/10
 ============================================================
 Loaded scaler for fold 1
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 1
-First layer weights (sample): tensor([ 0.2009,  0.3025, -0.0587,  0.2366, -0.0860], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 2/10
 ============================================================
 Loaded scaler for fold 2
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 2
-First layer weights (sample): tensor([ 0.2391,  0.2392, -0.0810,  0.3007, -0.0624], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 3/10
 ============================================================
 Loaded scaler for fold 3
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 3
-First layer weights (sample): tensor([ 0.2129,  0.2514, -0.0692,  0.2694, -0.0706], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 4/10
 ============================================================
 Loaded scaler for fold 4
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 4
-First layer weights (sample): tensor([ 0.1836,  0.2456, -0.0994,  0.2461, -0.0299], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 5/10
 ============================================================
 Loaded scaler for fold 5
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 5
-First layer weights (sample): tensor([ 0.1804,  0.2509, -0.0742,  0.2952, -0.0508], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 6/10
 ============================================================
 Loaded scaler for fold 6
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 6
-First layer weights (sample): tensor([ 0.2295,  0.2569, -0.0880,  0.2623, -0.0699], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 7/10
 ============================================================
 Loaded scaler for fold 7
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 7
-First layer weights (sample): tensor([ 0.1463,  0.2747, -0.0098,  0.2337, -0.0593], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 8/10
 ============================================================
 Loaded scaler for fold 8
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 8
-First layer weights (sample): tensor([ 0.2140,  0.2324, -0.0746,  0.2654, -0.0853], device='cuda:0',
-       grad_fn=<SliceBackward0>)
+Salvati: /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/fold_8_positive_features_full.json e /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/fold_8_negative_features_full.json
 
 ============================================================
 Evaluating Fold 9/10
 ============================================================
 Loaded scaler for fold 9
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 9
-First layer weights (sample): tensor([ 0.2407,  0.2427, -0.0751,  0.2852, -0.0763], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
 ============================================================
 Evaluating Fold 10/10
 ============================================================
 Loaded scaler for fold 10
+
+==============================
+🧩 FEATURE ORDER USED FOR TRAINING / INFERENCE:
+ 1. Gender
+ 2. Age
+ 3. Hypertension
+ 4. M
+ 5. E
+ 6. S
+ 7. T
+ 8. C
+ 9. Proteinuria
+10. Creatinine
+11. Therapy
+==============================
+
 Number of samples with dateAssess > 5 years: 138
 Number of samples with dateAssess > 10 years: 66
 Test shape with dateAssess > 5 years: (138, 11), Labels: (138,)
 Test shape with dateAssess > 10 years: (66, 11), Labels: (66,)
 Test shape: (189, 11), Labels: (189,)
 Test class distribution: {0: 146, 1: 43}
-Loaded model for fold 10
-First layer weights (sample): tensor([ 0.1750,  0.2170,  0.0028,  0.2544, -0.0500], device='cuda:0',
-       grad_fn=<SliceBackward0>)
 
-Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_42/test_results.json
+Individual results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/test_results.json
 
 ============================================================
 AVERAGE RESULTS ACROSS FOLDS
 ============================================================
-{'Years Threshold': 0, 'Accuracy': '0.8820 ± 0.0157', 'Precision': '0.7427 ± 0.0545', 'Recall': '0.7488 ± 0.0326', 'F1 Score': '0.7436 ± 0.0222', 'AUC': '0.9087 ± 0.0091'}
-Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_42/average_test_results_years_0.json
+{'Years Threshold': 0, 'Accuracy': '0.8873 ± 0.0118', 'Precision': '0.7438 ± 0.0380', 'Recall': '0.7744 ± 0.0182', 'F1 Score': '0.7581 ± 0.0195', 'AUC': '0.9151 ± 0.0094'}
+Average results saved to /work/grana_far2023_fomo/ESKD/Models_SWEEP_PARAM_ADAM_PROXYLOSS_SAMPLER_NO_ACCESS_SINGLE_SWEEP_THERAPY_CREATININE_SYS_DIAST_MAX_123/average_test_results_years_0.json
 Job finito.
-Data e ora di fine: Mon Oct 20 14:21:13 CEST 2025
-GPU utilizzata: NVIDIA GeForce GTX 1080 Ti
+Data e ora di fine: Tue Oct 21 18:09:46 CEST 2025
+GPU utilizzata: NVIDIA GeForce RTX 2080 Ti
