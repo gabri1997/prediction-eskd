@@ -112,7 +112,7 @@ To train and evaluate the TensorFlow/Keras model, simply execute:
 
 ```bash
 python train_eval.py
-
+```
 To train and evaluate the Pytorch model, you have to execute:
 
 ```bash
