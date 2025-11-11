@@ -112,3 +112,9 @@ To train and evaluate the TensorFlow/Keras model, simply execute:
 
 ```bash
 python train_eval.py
+
+To train and evaluate the Pytorch model, you have to execute:
+
+```bash
+net_sweep_train_80_20_split.py
+net_sweep_eval_80_20_split.py
